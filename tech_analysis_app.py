@@ -3,6 +3,7 @@ import yfinance as yf
 import pandas as pd
 import ta
 import matplotlib.pyplot as plt
+import mplfinance as mpf
 from sector_mapping import sector_stocks
 
 # Set Streamlit layout
@@ -41,10 +42,26 @@ if symbol_to_use:
     df['BB_Lower'] = bb.bollinger_lband()
 
     # Layout with columns
-    left_col, right_col = st.columns([1, 4])
+    left_col, right_col = st.columns([1, 8])
 
     with right_col:
         st.subheader(f"Technical Analysis for {symbol_to_use}")
+
+        # Plot 0: Candlestick Chart
+        st.write("### Candlestick Chart")
+        df_mpf = df[['Open', 'High', 'Low', 'Close', 'Volume']].copy()
+        df_mpf.index.name = 'Date'
+        fig_candle, ax_candle = mpf.plot(
+            df_mpf,
+            type='candle',
+            mav=(20, 50),
+            volume=True,
+            style='yahoo',
+            returnfig=True,
+            figsize=(10, 5)
+        )        
+        st.pyplot(fig_candle)
+
 
         # Plot 1: Price + MA + Bollinger
         fig, ax = plt.subplots(figsize=(10, 5))
@@ -85,3 +102,5 @@ if symbol_to_use:
         ax.legend()
         ax.grid()
         st.pyplot(fig)
+
+        
