@@ -30,6 +30,20 @@ if symbol_to_use:
     df.dropna(inplace=True)
 
     # Indicators
+    # Fibonacci Levels
+    max_price = df['High'].max()
+    min_price = df['Low'].min()
+    diff = max_price - min_price
+    df['FIB_0'] = max_price
+    df['FIB_236'] = max_price - 0.236 * diff
+    df['FIB_382'] = max_price - 0.382 * diff
+    df['FIB_5'] = max_price - 0.5 * diff
+    df['FIB_618'] = max_price - 0.618 * diff
+    df['FIB_786'] = max_price - 0.786 * diff
+    df['FIB_100'] = min_price
+    df['VWAP'] = (df['Volume'] * (df['High'] + df['Low'] + df['Close']) / 3).cumsum() / df['Volume'].cumsum()
+    df['Daily_StdDev'] = df['Close'].rolling(window=2).std()
+    df['MA09'] = ta.trend.sma_indicator(df['Close'], window=9)
     df['MA20'] = ta.trend.sma_indicator(df['Close'], window=20)
     df['MA50'] = ta.trend.sma_indicator(df['Close'], window=50)
     df['RSI'] = ta.momentum.rsi(df['Close'], window=14)
@@ -47,32 +61,49 @@ if symbol_to_use:
     with right_col:
         st.subheader(f"Technical Analysis for {symbol_to_use}")
 
-        # Plot 0: Candlestick Chart
+         # Plot 0: Candlestick Chart
         st.write("### Candlestick Chart")
         df_mpf = df[['Open', 'High', 'Low', 'Close', 'Volume']].copy()
         df_mpf.index.name = 'Date'
+        addplot = mpf.make_addplot(df['VWAP'], color='magenta')
         fig_candle, ax_candle = mpf.plot(
             df_mpf,
             type='candle',
             mav=(20, 50),
             volume=True,
             style='yahoo',
+            addplot=addplot,
             returnfig=True,
-            figsize=(10, 5)
-        )        
+            figsize=(10, 5),
+            update_width_config=dict(candle_linewidth=1.0)
+        )
+        # Add legend manually since mplfinance does not auto-legend custom addplot
+        ax_candle[0].legend([
+            "MA20 (Blue)", 
+            "MA50 (Orange)", 
+            "VWAP (Magenta)"
+        ], loc='upper left')
         st.pyplot(fig_candle)
 
-
-        # Plot 1: Price + MA + Bollinger
+        # Plot 1: Price + MA
         fig, ax = plt.subplots(figsize=(10, 5))
         ax.plot(df.index, df['Close'], label='Close', color='black')
         ax.plot(df.index, df['MA20'], label='MA20', color='blue')
         ax.plot(df.index, df['MA50'], label='MA50', color='orange')
+        ax.plot(df.index, df['MA09'], label='MA9', color='green')
         ax.set_title("Price with MA")
         ax.legend()
+                # Plot Fibonacci Levels
+        ax.axhline(df['FIB_0'].iloc[-1], linestyle='--', color='violet', alpha=0.7, label='FIB 0%')
+        ax.axhline(df['FIB_236'].iloc[-1], linestyle='--', color='indigo', alpha=0.7, label='FIB 23.6%')
+        ax.axhline(df['FIB_382'].iloc[-1], linestyle='--', color='blue', alpha=0.7, label='FIB 38.2%')
+        ax.axhline(df['FIB_5'].iloc[-1], linestyle='--', color='cyan', alpha=0.7, label='FIB 50%')
+        ax.axhline(df['FIB_618'].iloc[-1], linestyle='--', color='green', alpha=0.7, label='FIB 61.8%')
+        ax.axhline(df['FIB_786'].iloc[-1], linestyle='--', color='orange', alpha=0.7, label='FIB 78.6%')
+        ax.axhline(df['FIB_100'].iloc[-1], linestyle='--', color='red', alpha=0.7, label='FIB 100%')
         ax.grid()
         st.pyplot(fig)
-
+        
         # Plot 2: RSI
         fig, ax = plt.subplots(figsize=(10, 2))
         ax.plot(df.index, df['RSI'], label='RSI', color='purple')
@@ -91,7 +122,7 @@ if symbol_to_use:
         ax.grid()
         st.pyplot(fig)
 
-        # Plot 1: Price + MA + Bollinger
+        # Plot 1: Price + Bollinger
         fig, ax = plt.subplots(figsize=(10, 5))
         ax.plot(df.index, df['Close'], label='Close', color='black')
         ax.plot(df.index, df['BB_Upper'], linestyle='--', color='red', label='BB Upper')
