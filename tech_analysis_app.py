@@ -46,7 +46,7 @@ if symbol_to_use:
     df['MA09'] = ta.trend.sma_indicator(df['Close'], window=9)
     df['MA20'] = ta.trend.sma_indicator(df['Close'], window=20)
     df['MA50'] = ta.trend.sma_indicator(df['Close'], window=50)
-    df['RSI'] = ta.momentum.rsi(df['Close'], window=14)
+    df['RSI'] = ta.momentum.rsi(df['Close'], window=9)
     macd = ta.trend.MACD(df['Close'])
     df['MACD'] = macd.macd()
     df['Signal'] = macd.macd_signal()
@@ -103,7 +103,7 @@ if symbol_to_use:
         ax.axhline(df['FIB_100'].iloc[-1], linestyle='--', color='red', alpha=0.7, label='FIB 100%')
         ax.grid()
         st.pyplot(fig)
-        
+
         # Plot 2: RSI
         fig, ax = plt.subplots(figsize=(10, 2))
         ax.plot(df.index, df['RSI'], label='RSI', color='purple')

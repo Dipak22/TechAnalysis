@@ -7,7 +7,7 @@ import time
 import logging
 
 # Configure logging
-logging.basicConfig(filename='macd_errors.log', level=logging.ERROR, 
+logging.basicConfig(filename='latest_moving__errors.log', level=logging.ERROR, 
                     format='%(asctime)s - %(levelname)s - %(message)s')
 
 # Flatten all stocks from all sectors
@@ -32,21 +32,14 @@ for symbol in all_stocks:
                 continue
             df.dropna(inplace=True)
 
-            macd = ta.trend.MACD(df['Close'])
-            df['MACD'] = macd.macd()
-            df['Signal'] = macd.macd_signal()
+             # Check % positive days in last 10 days
+            df['Pct_Change'] = df['Close'].pct_change()
+            last_10 = df['Pct_Change'].tail(10)
+            pos_days = (last_10 > 0).sum()
+            ratio = pos_days / 10.0
 
-            latest_macd = df['MACD'].iloc[-1]
-            latest_signal = df['Signal'].iloc[-1]
-
-            # Check MACD crossover around 0 line
-            crossed_up = latest_macd >= latest_signal
-            around_zero = abs(latest_macd) < 0.5 and abs(latest_signal) < 0.5
-
-            if crossed_up and around_zero:
+            if ratio> 0.7:
                 buy_signals.append(symbol)
-            elif latest_macd < latest_signal:
-                sell_signals.append(symbol)
             success = True
         except Exception as e:
             logging.error(f"Attempt {attempt + 1} failed for {symbol}: {e}")
@@ -56,11 +49,11 @@ for symbol in all_stocks:
 
 # Save to file
 current_date = datetime.now().strftime("%Y-%m-%d")
-filename = f"macd_signals_{current_date}.txt"
+filename = f"latest_signals_{current_date}.txt"
 
 # Save to file
 with open(filename, "w", encoding="utf-8") as f:
-    f.write(f"MACD Signal Report - {current_date}\n")
+    f.write(f"latest positive signal Report - {current_date}\n")
     f.write("=" * 40 + "\n\n")
 
     f.write("Buy Signals :\n")
