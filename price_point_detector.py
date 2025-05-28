@@ -3,13 +3,20 @@ import pandas as pd
 from ta.trend import MACD, EMAIndicator
 from ta.momentum import RSIIndicator
 from datetime import datetime
+from sector_mapping import sector_stocks
 
-symbols = ["AAPL", "MSFT", "TSLA"]  # Replace with your desired symbols
+
+#symbols =  [ "NEWGEN.NS","MAPMYINDIA.NS","INTELLECT.NS","INSPIRISYS.NS"] # Replace with your desired symbols
+
+symbols = [stock for stocks in sector_stocks.values() for stock in stocks]
+
 
 results = []
 
 for symbol in symbols:
-    df = yf.download(symbol, period="6mo", interval="1d")
+    stck = yf.Ticker(symbol)
+    df = stck.history(period="6mo", interval="1d")
+    df.dropna(inplace=True)
     if df.empty or len(df) < 22:
         continue
 
@@ -17,7 +24,9 @@ for symbol in symbols:
 
     # Indicators
     df['EMA9'] = EMAIndicator(df['Close'], window=9).ema_indicator()
+    df['EMA20'] = EMAIndicator(df['Close'], window=20).ema_indicator()
     df['EMA9_slope'] = df['EMA9'].diff()
+    df['EMA9_slope_week_change'] = df['EMA9_slope'].rolling(5).apply(lambda x: x.iloc[-1] - x.iloc[0])
     df['MACD'] = MACD(df['Close']).macd()
     df['Signal'] = MACD(df['Close']).macd_signal()
     df['MACD_Converging'] = (df['MACD'] - df['Signal']).abs().diff().lt(0)
@@ -36,54 +45,65 @@ for symbol in symbols:
 
     # Local Minimum (Buy Point)
     df['Local_Min'] = (
-        (df['EMA9_slope'].shift(1) < 0) & (df['EMA9_slope'] >= 0) &
+        (df['EMA9_slope_week_change'] > 0) &
         (df['RSI'] < 40) &
-        (df['MACD'] < df['Signal']) &
-        df['MACD_Converging'] &
+        (df['MACD'] > df['Signal']) &
+        (df['EMA9'] > df['EMA20']) &
+        #df['MACD_Converging'] &
         df['Volume_Spike'] 
     )
 
     # Local Maximum (Sell Point)
     df['Local_Max'] = (
-        (df['EMA9_slope'].shift(1) > 0) & (df['EMA9_slope'] <= 0) &
+        (df['EMA9_slope_week_change'] < 0) &
         (df['RSI'] > 70) &
         (df['MACD'] < df['Signal']) &
+        (df['EMA9'] < df['EMA20']) &
         df['Volume_Spike']
     )
 
+
     # Breakout Point (Bullish)
     df['Breakout'] = (
-        (df['Price_Pos_Days_10'] >= 7) &
-        (df['Price_Change_10'] > 2) &
-        df['Volume_Spike'] &
+        (df['EMA9_slope_week_change'] > 0) &
+        (df['Price_Pos_Days_10'] >= 5) &
+        (df['Weekly_Price_Change_%'] > 2) &
+        (df['Close'] > df['EMA9']) &
+        #df['Volume_Spike'] &
         (df['MACD'] > df['Signal']) &
-        (df['RSI'].diff() > 0) & (df['RSI'] < 70)
+        #(df['RSI'].diff() > 0) &
+        (df['RSI'] < 80)
     )
 
     # Breakdown Point (Bearish)
     df['Breakdown'] = (
-        (df['Close'].pct_change().lt(0).rolling(10).sum() >= 5) &
-        (df['Price_Change_10'] < 2) &
-        df['Volume_Spike'] &
+        (df['EMA9_slope_week_change'] < 0) &
+        (df['Price_Pos_Days_10'] < 5)  &
+        (df['Weekly_Price_Change_%'] < 2) &
+        (df['Close'] < df['EMA9']) &
+        #df['Volume_Spike'] &
         (df['MACD'] < df['Signal']) &
-        (df['RSI'].diff() < 0) & (df['RSI'] < 50)
+        #(df['RSI'].diff() < 0) & 
+        (df['RSI'] < 50)
     )
+
+    df = df.tail(5).copy()
 
     for i in range(len(df)):
         if df.iloc[i]['Local_Min']:
-            results.append((symbol, 'Local Min', f"{df.iloc[i]['Weekly_Price_Change_%']:.2f}%"))
+            results.append((symbol, 'Local Min', f"{df.index[i].date()}",f"{df.iloc[i]['Price_Pos_Days_10']}" ,f"{df.iloc[i]['Weekly_Price_Change_%']:.2f}%"))
         elif df.iloc[i]['Local_Max']:
-            results.append((symbol, 'Local Max', f"{df.iloc[i]['Weekly_Price_Change_%']:.2f}%"))
+            results.append((symbol, 'Local Max', f"{df.index[i].date()}", f"{df.iloc[i]['Price_Pos_Days_10']}" ,f"{df.iloc[i]['Weekly_Price_Change_%']:.2f}%"))
         elif df.iloc[i]['Breakout']:
-            results.append((symbol, 'Breakout', f"{df.iloc[i]['Weekly_Price_Change_%']:.2f}%"))
+            results.append((symbol, 'Breakout', f"{df.index[i].date()}", f"{df.iloc[i]['Price_Pos_Days_10']}" ,f"{df.iloc[i]['Weekly_Price_Change_%']:.2f}%"))
         elif df.iloc[i]['Breakdown']:
-            results.append((symbol, 'Breakdown', f"{df.iloc[i]['Weekly_Price_Change_%']:.2f}%"))
+            results.append((symbol, 'Breakdown', f"{df.index[i].date()}",f"{df.iloc[i]['Price_Pos_Days_10']}" , f"{df.iloc[i]['Weekly_Price_Change_%']:.2f}%"))
 
 # Save the result
 current_date = datetime.now().strftime("%Y-%m-%d")
 output_file = f"price_points_{current_date}.txt"
 with open(output_file, 'w') as f:
-    f.write("Symbol | Signal Type | Weekly % Change\n")
+    f.write("Symbol | Signal Type | Date | No of + days | Weekly % Change\n")
     f.write("-" * 50 + "\n")
     for row in results:
         f.write(" | ".join(row) + "\n")
