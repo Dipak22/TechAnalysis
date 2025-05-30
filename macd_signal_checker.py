@@ -5,6 +5,8 @@ from datetime import datetime
 from sector_mapping import sector_stocks
 import time
 import logging
+from ta.trend import MACD, EMAIndicator
+from ta.volume import VolumeWeightedAveragePrice
 
 # Configure logging
 logging.basicConfig(filename='macd_errors.log', level=logging.ERROR, 
@@ -32,20 +34,27 @@ for symbol in all_stocks:
                 continue
             df.dropna(inplace=True)
 
-            macd = ta.trend.MACD(df['Close'])
-            df['MACD'] = macd.macd()
-            df['Signal'] = macd.macd_signal()
+            # Indicators
+            df['EMA9'] = EMAIndicator(df['Close'], window=9).ema_indicator()
+            df['MACD'] = MACD(df['Close']).macd()
+            df['Signal'] = MACD(df['Close']).macd_signal()
+            vwap = VolumeWeightedAveragePrice(high=df['High'], low=df['Low'], close=df['Close'], volume=df['Volume'])
+            df['VWAP'] = vwap.volume_weighted_average_price()
 
-            latest_macd = df['MACD'].iloc[-1]
-            latest_signal = df['Signal'].iloc[-1]
+            # Buy/Sell Conditions
+            df['Buy_Signal'] = (df['Close'] < df['VWAP']) & (df['Close'] < df['EMA9']) & (df['MACD'] < df['Signal'])#(df['Close'] > df['VWAP']) & (df['Close'] > df['EMA9']) & (df['MACD'] > df['Signal'])
+            df['Sell_Signal'] = (df['Close'] > df['VWAP']) & (df['Close'] > df['EMA9']) & (df['MACD'] > df['Signal'])
 
-            # Check MACD crossover around 0 line
-            crossed_up = latest_macd >= latest_signal
-            around_zero = abs(latest_macd) < 0.5 and abs(latest_signal) < 0.5
+            
 
-            if crossed_up and around_zero:
+            latest_buy = df['Buy_Signal'].iloc[-1]
+            latest_sell = df['Sell_Signal'].iloc[-1]
+
+            
+
+            if latest_buy:
                 buy_signals.append(symbol)
-            elif latest_macd < latest_signal:
+            elif latest_sell:
                 sell_signals.append(symbol)
             success = True
         except Exception as e:
@@ -56,7 +65,7 @@ for symbol in all_stocks:
 
 # Save to file
 current_date = datetime.now().strftime("%Y-%m-%d")
-filename = f"macd_signals_{current_date}.txt"
+filename = f"macd_vwap_signals_{current_date}.txt"
 
 # Save to file
 with open(filename, "w", encoding="utf-8") as f:
