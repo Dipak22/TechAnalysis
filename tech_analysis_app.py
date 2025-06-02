@@ -29,6 +29,16 @@ if symbol_to_use:
     df = stck.history(period="6mo", interval="1d")
     df.dropna(inplace=True)
 
+      # Calculate latest % price change
+    #latest_pct_change = df['Close'].pct_change().iloc[-1] * 100
+
+    # Button to show price change with color-coded output
+    #if st.button("Show Latest % Price Change"):
+        #if latest_pct_change >= 0:
+            #st.success(f"Latest Daily % Change in Price for {symbol_to_use}: +{latest_pct_change:.2f}%")
+        #else:
+            #st.error(f"Latest Daily % Change in Price for {symbol_to_use}: {latest_pct_change:.2f}%") 
+
     # Indicators
     # Fibonacci Levels
     max_price = df['High'].max()
