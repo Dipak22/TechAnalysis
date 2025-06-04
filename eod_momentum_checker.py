@@ -2,7 +2,10 @@ import yfinance as yf
 import pandas as pd
 from datetime import datetime, timedelta
 import pytz
+from sector_mapping import sector_stocks
 
+# Function to get the previous trading day for Indian market (Monday-Friday)
+# The Indian stock market is closed on weekends and public holidays.
 def get_previous_trading_day():
     """Get the previous trading day (Monday-Friday) for Indian market"""
     today = datetime.now(pytz.timezone('Asia/Kolkata'))
@@ -16,6 +19,7 @@ def get_previous_trading_day():
         previous_day = today - timedelta(days=1)
     
     return previous_day.strftime('%Y-%m-%d')
+
 
 def get_last_40_minutes_data(ticker, date):
     """Get the last 40 minutes of trading data for a given Indian stock ticker"""
@@ -126,8 +130,7 @@ def analyze_indian_stocks(stock_list, positive_threshold=None, negative_threshol
 # Example usage
 if __name__ == "__main__":
     # List of Indian stock symbols (without .NS/.BO suffix, or with if you prefer)
-    indian_stocks = ['RELIANCE', 'TCS.NS', 'HDFCBANK', 'INFY', 'ICICIBANK.NS', 
-                    'HINDUNILVR', 'KOTAKBANK', 'BHARTIARTL', 'LT.NS', 'SBIN']
+    indian_stocks = [stock for stocks in sector_stocks.values() for stock in stocks]
     
     # Set your thresholds (positive % and negative %)
     POSITIVE_THRESHOLD = 0.5  # Highlight stocks with >= 0.5% increase
