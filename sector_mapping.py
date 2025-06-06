@@ -1,6 +1,6 @@
 sector_stocks = {
     "Fertilizers":["PARADEEP.NS"],
-    "General Industrials":["POWERINDIA.NS","BEL.NS","BDL.NS","JYOTICNC.NS","SOLARINDS.NS","SCHAEFFLER.NS","TATASTEEL.NS"
+    "General Industrials":["POWERINDIA.NS","BEL.NS","BDL.NS","JYOTICNC.NS","SOLARINDS.NS","SCHAEFFLER.NS","TATASTEEL.NS",
                            "TARIL.NS","MAZDOCK.NS","KIRLOSBROS.NS","ELECON.NS","ZENTEC.NS","KSB.NS","AZAD.NS"],
     "Oil & Gas":["RELIANCE.NS","HINDPETRO.NS","GULFOILLUB.NS","IOC.NS","BPCL.NS"],
     "Software Services":["CURAA.NS","TERASOFT.NS","E2E.NS","NAZARA.NS","FSL.NS","POLICYBZR.NS","ZAGGLE.NS",

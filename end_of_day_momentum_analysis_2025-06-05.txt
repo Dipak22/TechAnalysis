@@ -1,0 +1,319 @@
+Indian Stock Market Analysis - Last 40 Minutes Momentum
+Analysis Date: 2025-06-05 06:27:52
+Trading Day Analyzed: 2025-06-04
+
+Note: For Indian stocks, script automatically adds .NS for NSE
+You can also use .BO suffix for BSE stocks
+
+All Stock Changes (Last 40 Minutes):
+       Ticker  % Change    Trend
+      BYKE.NS      2.11 Positive
+CAMLINFINE.NS      1.60 Positive
+  JSWINFRA.NS      1.46 Positive
+ NAM-INDIA.NS      1.30 Positive
+    ZENTEC.NS      1.01 Positive
+ STYLAMIND.NS      0.87 Positive
+TDPOWERSYS.NS      0.78 Positive
+  PRIVISCL.NS      0.77 Positive
+  GPTINFRA.NS      0.75 Positive
+       MCL.NS      0.74 Positive
+SOMICONVEY.NS      0.69 Positive
+  MANORAMA.NS      0.62 Positive
+   SBILIFE.NS      0.61 Positive
+ DALMIASUG.NS      0.61 Positive
+GALAXYSURF.NS      0.61 Positive
+   GUJTHEM.NS      0.59 Positive
+    ASHOKA.NS      0.59 Positive
+    RPOWER.NS      0.58 Positive
+ POLICYBZR.NS      0.57 Positive
+   NACLIND.NS      0.57 Positive
+     JSWHL.NS      0.56 Positive
+TALBROAUTO.NS      0.51 Positive
+ 20MICRONS.NS      0.51 Positive
+   SUPREME.NS      0.50 Positive
+     DIXON.NS      0.50 Positive
+  LOTUSEYE.NS      0.50 Positive
+  LOTUSEYE.NS      0.50 Positive
+       ACE.NS      0.49 Positive
+ TATAELXSI.NS      0.46 Positive
+ ESABINDIA.NS      0.46 Positive
+       BEL.NS      0.44 Positive
+       BEL.NS      0.44 Positive
+PANACEABIO.NS      0.43 Positive
+   SIEMENS.NS      0.43 Positive
+   RAILTEL.NS      0.42 Positive
+AAREYDRUGS.NS      0.38 Positive
+BHARTIHEXA.NS      0.37 Positive
+SHANTIGEAR.NS      0.36 Positive
+  JYOTICNC.NS      0.36 Positive
+      PGIL.NS      0.35 Positive
+    ZAGGLE.NS      0.35 Positive
+   ASTERDM.NS      0.34 Positive
+ INGERRAND.NS      0.34 Positive
+ADANIGREEN.NS      0.33 Positive
+      KKCL.NS      0.32 Positive
+  PITTIENG.NS      0.31 Positive
+  INDHOTEL.NS      0.31 Positive
+  INDHOTEL.NS      0.31 Positive
+  STEELCAS.NS      0.30 Positive
+   ICICIGI.NS      0.29 Positive
+       FSL.NS      0.28 Positive
+PIDILITIND.NS      0.28 Positive
+    SHALBY.NS      0.27 Positive
+      NBCC.NS      0.27 Positive
+   NDRAUTO.NS      0.26 Positive
+   NDRAUTO.NS      0.26 Positive
+     CIPLA.NS      0.25 Positive
+CUMMINSIND.NS      0.24 Positive
+   GMRP&UI.NS      0.23 Positive
+ADANIPOWER.NS      0.22 Positive
+   SAKSOFT.NS      0.20 Positive
+   CMSINFO.NS      0.20 Positive
+SCHAEFFLER.NS      0.19 Positive
+ HINDPETRO.NS      0.18 Positive
+BAJAJHLDNG.NS      0.17 Positive
+        NH.NS      0.15 Positive
+      ATGL.NS      0.15 Positive
+        NH.NS      0.15 Positive
+       TCS.NS      0.15 Positive
+   SMSLIFE.NS      0.14 Positive
+    HNDFDS.NS      0.13 Positive
+EXCELINDUS.NS      0.13 Positive
+  SUMICHEM.NS      0.13 Positive
+   MAZDOCK.NS      0.12 Positive
+     IXIGO.NS      0.12 Positive
+BAJFINANCE.NS      0.12 Positive
+   LTFOODS.NS      0.12 Positive
+    RADICO.NS      0.12 Positive
+KIRLOSBROS.NS      0.11 Positive
+    GRPLTD.NS      0.11 Positive
+ SOLARINDS.NS      0.10 Positive
+ SOLARINDS.NS      0.10 Positive
+  HDFCBANK.NS      0.10 Positive
+ TATAPOWER.NS      0.09 Positive
+      NTPC.NS      0.09 Positive
+ JAMNAAUTO.NS      0.09 Positive
+BHARTIARTL.NS      0.08 Positive
+ CONTROLPR.NS      0.08 Positive
+ INTELLECT.NS      0.08 Positive
+ SMSPHARMA.NS      0.08 Positive
+JMFINANCIL.NS      0.08 Positive
+BHARTIARTL.NS      0.08 Positive
+BECTORFOOD.NS      0.08 Positive
+TIMETECHNO.NS      0.07 Positive
+   FIEMIND.NS      0.07 Positive
+   FIEMIND.NS      0.07 Positive
+      CESC.NS      0.07 Positive
+    ELECON.NS      0.06 Positive
+    ELECON.NS      0.06 Positive
+ ZYDUSLIFE.NS      0.06 Positive
+ KIRIINDUS.NS      0.06 Positive
+   WINDLAS.NS      0.06 Positive
+ KOTAKBANK.NS      0.06 Positive
+     TRENT.NS      0.06 Positive
+ SURANAT&P.NS      0.05 Positive
+       HCG.NS      0.05 Positive
+  CHOLAFIN.NS      0.05 Positive
+     SAMHI.NS      0.05 Positive
+  PARADEEP.NS      0.04 Positive
+  RELIANCE.NS      0.04 Positive
+ INOXGREEN.NS      0.04 Positive
+  CHOICEIN.NS      0.04 Positive
+PUNJABCHEM.NS      0.04 Positive
+TATAMOTORS.NS      0.04 Positive
+       PEL.NS      0.04 Positive
+ THYROCARE.NS      0.03 Positive
+   SANSERA.NS      0.03 Positive
+ GODREJIND.NS      0.02 Positive
+      BPCL.NS      0.02 Positive
+BALAJITELE.NS      0.02 Positive
+       BLS.NS      0.02 Positive
+       ABB.NS      0.02 Positive
+ JYOTHYLAB.NS      0.01 Positive
+      NSIL.NS      0.01 Positive
+       OIL.NS      0.01 Positive
+    COLPAL.NS     -0.00 Negative
+   KILITCH.NS      0.00 Positive
+   RAINBOW.NS      0.00 Positive
+     FOCUS.NS      0.00 Positive
+   TRIVENI.NS      0.00 Positive
+POWERINDIA.NS      0.00 Positive
+   POLYMED.NS      0.00 Positive
+   VOLTAMP.NS      0.00 Positive
+       VBL.NS      0.00 Positive
+ SUNPHARMA.NS     -0.01 Negative
+ ICICIBANK.NS     -0.01 Negative
+ADANIPORTS.NS     -0.01 Negative
+ MAXHEALTH.NS     -0.01 Negative
+HECPROJECT.NS     -0.01 Negative
+ INDOBORAX.NS     -0.01 Negative
+      INFY.NS     -0.02 Negative
+      LICI.NS     -0.03 Negative
+    AJMERA.NS     -0.03 Negative
+       DLF.NS     -0.03 Negative
+KALYANKJIL.NS     -0.04 Negative
+BAJAJFINSV.NS     -0.04 Negative
+ RATNAMANI.NS     -0.04 Negative
+KALYANKJIL.NS     -0.04 Negative
+       PPL.NS     -0.04 Negative
+   SKIPPER.NS     -0.05 Negative
+  NLCINDIA.NS     -0.05 Negative
+ COALINDIA.NS     -0.05 Negative
+PNBHOUSING.NS     -0.05 Negative
+HEROMOTOCO.NS     -0.05 Negative
+  HDFCLIFE.NS     -0.06 Negative
+  APARINDS.NS     -0.07 Negative
+  ZEEMEDIA.NS     -0.07 Negative
+  ADANIENT.NS     -0.07 Negative
+       VMM.NS     -0.07 Negative
+     SELAN.NS     -0.08 Negative
+  AXISBANK.NS     -0.08 Negative
+ORCHPHARMA.NS     -0.08 Negative
+       KSB.NS     -0.09 Negative
+ GLOBUSSPR.NS     -0.09 Negative
+AVANTIFEED.NS     -0.09 Negative
+ LEMONTREE.NS     -0.09 Negative
+    NEWGEN.NS     -0.10 Negative
+INSPIRISYS.NS     -0.10 Negative
+VADILALIND.NS     -0.10 Negative
+   PRUDENT.NS     -0.10 Negative
+VADILALIND.NS     -0.10 Negative
+MAPMYINDIA.NS     -0.11 Negative
+       OAL.NS     -0.11 Negative
+        LT.NS     -0.12 Negative
+     TITAN.NS     -0.12 Negative
+INDUSTOWER.NS     -0.12 Negative
+        LT.NS     -0.12 Negative
+      AZAD.NS     -0.13 Negative
+DLINKINDIA.NS     -0.13 Negative
+DLINKINDIA.NS     -0.13 Negative
+GULFOILLUB.NS     -0.14 Negative
+       IOC.NS     -0.15 Negative
+       AGI.NS     -0.16 Negative
+ SILVERTUC.NS     -0.16 Negative
+NATCOPHARM.NS     -0.16 Negative
+       NCC.NS     -0.17 Negative
+       SJS.NS     -0.17 Negative
+       SJS.NS     -0.17 Negative
+       E2E.NS     -0.17 Negative
+      SBIN.NS     -0.17 Negative
+       E2E.NS     -0.17 Negative
+   RPGLIFE.NS     -0.18 Negative
+    MANORG.NS     -0.18 Negative
+        TI.NS     -0.18 Negative
+    NAZARA.NS     -0.19 Negative
+  TITAGARH.NS     -0.19 Negative
+      GSPL.NS     -0.19 Negative
+       BDL.NS     -0.19 Negative
+    FAZE3Q.NS     -0.21 Negative
+INDRAMEDCO.NS     -0.21 Negative
+  SANATHAN.NS     -0.22 Negative
+    PENIND.NS     -0.23 Negative
+       ITC.NS     -0.23 Negative
+   GABRIEL.NS     -0.24 Negative
+   GABRIEL.NS     -0.24 Negative
+   MEDANTA.NS     -0.26 Negative
+      STEL.NS     -0.26 Negative
+INDIAGLYCO.NS     -0.27 Negative
+   DHANUKA.NS     -0.29 Negative
+      ZEEL.NS     -0.30 Negative
+GODFRYPHLP.NS     -0.30 Negative
+CORDSCABLE.NS     -0.30 Negative
+GODFRYPHLP.NS     -0.30 Negative
+EIMCOELECO.NS     -0.31 Negative
+     UFLEX.NS     -0.35 Negative
+     AFFLE.NS     -0.35 Negative
+   TFCILTD.NS     -0.36 Negative
+     AMBER.NS     -0.37 Negative
+     PTCIL.NS     -0.37 Negative
+       KEI.NS     -0.38 Negative
+   CEATLTD.NS     -0.39 Negative
+INSECTICID.NS     -0.40 Negative
+  YATHARTH.NS     -0.42 Negative
+   PRAKASH.NS     -0.42 Negative
+  EIDPARRY.NS     -0.42 Negative
+   HCLTECH.NS     -0.44 Negative
+   NUCLEUS.NS     -0.47 Negative
+  DHANBANK.NS     -0.47 Negative
+ MAYURUNIQ.NS     -0.48 Negative
+DPABHUSHAN.NS     -0.51 Negative
+ PRICOLLTD.NS     -0.52 Negative
+  PIXTRANS.NS     -0.55 Negative
+PREMIERPOL.NS     -0.57 Negative
+ UNITEDTEA.NS     -0.58 Negative
+  LUMAXIND.NS     -0.61 Negative
+    COMSYN.NS     -0.64 Negative
+SHRIPISTON.NS     -0.67 Negative
+       TBZ.NS     -0.67 Negative
+       TBZ.NS     -0.67 Negative
+ INTERARCH.NS     -0.74 Negative
+ SHYAMMETL.NS     -0.82 Negative
+INDIANHUME.NS     -0.83 Negative
+    PILITA.NS     -0.94 Negative
+SUNDARMFIN.NS     -1.06 Negative
+      JASH.NS     -1.06 Negative
+  SAREGAMA.NS     -1.16 Negative
+    MEDICO.NS     -2.14 Negative
+      SVLL.NS     -5.14 Negative
+
+
+STRONG POSITIVE MOMENTUM (>= 0.5%):
+       Ticker  % Change    Trend
+      BYKE.NS      2.11 Positive
+CAMLINFINE.NS      1.60 Positive
+  JSWINFRA.NS      1.46 Positive
+ NAM-INDIA.NS      1.30 Positive
+    ZENTEC.NS      1.01 Positive
+ STYLAMIND.NS      0.87 Positive
+TDPOWERSYS.NS      0.78 Positive
+  PRIVISCL.NS      0.77 Positive
+  GPTINFRA.NS      0.75 Positive
+       MCL.NS      0.74 Positive
+SOMICONVEY.NS      0.69 Positive
+  MANORAMA.NS      0.62 Positive
+   SBILIFE.NS      0.61 Positive
+ DALMIASUG.NS      0.61 Positive
+GALAXYSURF.NS      0.61 Positive
+   GUJTHEM.NS      0.59 Positive
+    ASHOKA.NS      0.59 Positive
+    RPOWER.NS      0.58 Positive
+ POLICYBZR.NS      0.57 Positive
+   NACLIND.NS      0.57 Positive
+     JSWHL.NS      0.56 Positive
+TALBROAUTO.NS      0.51 Positive
+ 20MICRONS.NS      0.51 Positive
+   SUPREME.NS      0.50 Positive
+     DIXON.NS      0.50 Positive
+  LOTUSEYE.NS      0.50 Positive
+  LOTUSEYE.NS      0.50 Positive
+
+
+STRONG NEGATIVE MOMENTUM (<= -0.5%):
+       Ticker  % Change    Trend
+DPABHUSHAN.NS     -0.51 Negative
+ PRICOLLTD.NS     -0.52 Negative
+  PIXTRANS.NS     -0.55 Negative
+PREMIERPOL.NS     -0.57 Negative
+ UNITEDTEA.NS     -0.58 Negative
+  LUMAXIND.NS     -0.61 Negative
+    COMSYN.NS     -0.64 Negative
+SHRIPISTON.NS     -0.67 Negative
+       TBZ.NS     -0.67 Negative
+       TBZ.NS     -0.67 Negative
+ INTERARCH.NS     -0.74 Negative
+ SHYAMMETL.NS     -0.82 Negative
+INDIANHUME.NS     -0.83 Negative
+    PILITA.NS     -0.94 Negative
+SUNDARMFIN.NS     -1.06 Negative
+      JASH.NS     -1.06 Negative
+  SAREGAMA.NS     -1.16 Negative
+    MEDICO.NS     -2.14 Negative
+      SVLL.NS     -5.14 Negative
+
+
+Summary Statistics:
+Total stocks analyzed: 248
+Stocks with positive momentum: 133
+Stocks with negative momentum: 115
+
+Analysis complete. Results saved to end_of_day_momentum_analysis_2025-06-05.txt

@@ -1,0 +1,2 @@
+my_stocks = ["BEL.NS","DLF.NS","JIOFIN.NS","JMFINANCIL.NS","LTFOODS.NS","PARADEEP.NS","RPOWER.NS",
+             "SAMHI.NS","ZEEL.NS"]
