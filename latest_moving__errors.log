@@ -37,3 +37,27 @@
 2025-06-09 22:08:48,932 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
 2025-06-09 22:08:50,243 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
 2025-06-09 22:08:51,596 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-11 00:14:54,214 - ERROR - Attempt 1 failed for CRAFSTMAN.NS: HTTP Error 404: 
+2025-06-11 00:14:55,547 - ERROR - Attempt 2 failed for CRAFSTMAN.NS: HTTP Error 404: 
+2025-06-11 00:14:56,929 - ERROR - $CRAFSTMAN.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-11 00:15:31,437 - ERROR - $SALZSERELEC.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-11 00:15:32,825 - ERROR - $SALZSERELEC.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-11 00:15:34,156 - ERROR - $SALZSERELEC.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-11 00:16:34,669 - ERROR - $ASTRAZAN.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-11 00:16:36,001 - ERROR - $ASTRAZAN.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-11 00:16:37,338 - ERROR - $ASTRAZAN.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-11 00:16:41,225 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-11 00:16:42,565 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-11 00:16:44,705 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-12 08:39:41,898 - ERROR - Attempt 1 failed for CRAFSTMAN.NS: HTTP Error 401: 
+2025-06-12 08:39:43,344 - ERROR - Attempt 2 failed for CRAFSTMAN.NS: HTTP Error 404: 
+2025-06-12 08:39:44,678 - ERROR - $CRAFSTMAN.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-12 08:40:19,502 - ERROR - $SALZSERELEC.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-12 08:40:20,855 - ERROR - $SALZSERELEC.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-12 08:40:22,228 - ERROR - $SALZSERELEC.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-12 08:41:22,988 - ERROR - $ASTRAZAN.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-12 08:41:24,355 - ERROR - $ASTRAZAN.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-12 08:41:25,720 - ERROR - $ASTRAZAN.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-12 08:41:29,872 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-12 08:41:31,212 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-12 08:41:32,531 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")

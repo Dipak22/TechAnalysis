@@ -202,7 +202,7 @@ if __name__ == "__main__":
     indian_stocks = [stock for stocks in sector_stocks.values() for stock in stocks]
     #indian_stocks =["LT.NS", "RELIANCE.NS","ICICIBANK.NS"]
     # Path to file containing %chng data
-    PERCENTAGE_FILE = "../MW-Pre-Open-Market-10-Jun-2025.csv"  # Update this path
+    PERCENTAGE_FILE = "../MW-Pre-Open-Market-12-Jun-2025.csv"  # Update this path
     
     # Set your thresholds (positive % and negative %)
     POSITIVE_THRESHOLD = 0.5  # Highlight stocks with >= 0.5% increase
