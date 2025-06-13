@@ -29,16 +29,6 @@ if symbol_to_use:
     df = stck.history(period="6mo", interval="1d")
     df.dropna(inplace=True)
 
-      # Calculate latest % price change
-    #latest_pct_change = df['Close'].pct_change().iloc[-1] * 100
-
-    # Button to show price change with color-coded output
-    #if st.button("Show Latest % Price Change"):
-        #if latest_pct_change >= 0:
-            #st.success(f"Latest Daily % Change in Price for {symbol_to_use}: +{latest_pct_change:.2f}%")
-        #else:
-            #st.error(f"Latest Daily % Change in Price for {symbol_to_use}: {latest_pct_change:.2f}%") 
-
     # Indicators
     # Fibonacci Levels
     max_price = df['High'].max()
@@ -64,6 +54,26 @@ if symbol_to_use:
     df['BB_Middle'] = bb.bollinger_mavg()
     df['BB_Upper'] = bb.bollinger_hband()
     df['BB_Lower'] = bb.bollinger_lband()
+    
+    # Add Parabolic SAR
+    df['PSAR'] = ta.trend.PSARIndicator(
+        high=df['High'],
+        low=df['Low'],
+        close=df['Close'],
+        step=0.02,  # standard value
+        max_step=0.2  # standard value
+    ).psar()
+    
+    # Add ADX (Average Directional Index)
+    adx_indicator = ta.trend.ADXIndicator(
+        high=df['High'],
+        low=df['Low'],
+        close=df['Close'],
+        window=14  # standard period
+    )
+    df['ADX'] = adx_indicator.adx()
+    df['DMP'] = adx_indicator.adx_pos()  # +DI
+    df['DMN'] = adx_indicator.adx_neg()  # -DI
 
     # Layout with columns
     left_col, right_col = st.columns([1, 8])
@@ -75,7 +85,10 @@ if symbol_to_use:
         st.write("### Candlestick Chart")
         df_mpf = df[['Open', 'High', 'Low', 'Close', 'Volume']].copy()
         df_mpf.index.name = 'Date'
-        addplot = mpf.make_addplot(df['VWAP'], color='magenta')
+        addplot = [
+            mpf.make_addplot(df['VWAP'], color='magenta'),
+            mpf.make_addplot(df['PSAR'], type='scatter', markersize=50, marker='.', color='blue')
+        ]
         fig_candle, ax_candle = mpf.plot(
             df_mpf,
             type='candle',
@@ -91,7 +104,8 @@ if symbol_to_use:
         ax_candle[0].legend([
             "MA20 (Blue)", 
             "MA50 (Orange)", 
-            "VWAP (Magenta)"
+            "VWAP (Magenta)",
+            "PSAR (Blue dots)"
         ], loc='upper left')
         st.pyplot(fig_candle)
 
@@ -132,7 +146,7 @@ if symbol_to_use:
         ax.grid()
         st.pyplot(fig)
 
-        # Plot 1: Price + Bollinger
+        # Plot 4: Price + Bollinger
         fig, ax = plt.subplots(figsize=(10, 5))
         ax.plot(df.index, df['Close'], label='Close', color='black')
         ax.plot(df.index, df['BB_Upper'], linestyle='--', color='red', label='BB Upper')
@@ -143,5 +157,28 @@ if symbol_to_use:
         ax.legend()
         ax.grid()
         st.pyplot(fig)
-
         
+        # Plot 5: ADX with +DI and -DI
+        fig, ax = plt.subplots(figsize=(10, 3))
+        ax.plot(df.index, df['ADX'], label='ADX', color='black', linewidth=2)
+        ax.plot(df.index, df['DMP'], label='+DI', color='green')
+        ax.plot(df.index, df['DMN'], label='-DI', color='red')
+        ax.axhline(25, color='gray', linestyle='--', alpha=0.7)
+        ax.set_title("ADX with Directional Indicators (Trend Strength)")
+        ax.legend()
+        ax.grid()
+        st.pyplot(fig)
+        
+        # Interpretation guide
+        st.markdown("""
+        ### Trend Identification Guide:
+        - **Parabolic SAR (PSAR)**: 
+          - Dots below price → Uptrend
+          - Dots above price → Downtrend
+          - The closer the dots to price, the stronger the trend
+        - **ADX (Average Directional Index)**:
+          - ADX > 25 → Strong trend
+          - ADX < 20 → Weak trend/range-bound
+          - +DI > -DI → Bullish trend
+          - -DI > +DI → Bearish trend
+        """)
