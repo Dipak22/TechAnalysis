@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced Stock Momentum Report</title>
+    <style>
+        body { font-family: Arial; margin: 20px; }
+        h1 { color: #333366; }
+        table { border-collapse: collapse; width: 100%; }
+        th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+        tr:hover { background-color: #f5f5f5; }
+        .buy { background-color: #e6ffe6; }
+        .sell { background-color: #ffe6e6; }
+        .hold { background-color: #ffffe6; }
+        .positive { color: green; }
+        .negative { color: red; }
+        .neutral { color: gray; }
+        .score-bar { 
+            height: 20px; 
+            border-radius: 3px; 
+            background: linear-gradient(90deg, #ff0000 0%, #ffff00 50%, #00ff00 100%);
+            width: 100%;
+            position: relative;
+        }
+        .score-value {
+            display: inline-block;
+            height: 100%;
+            background-color: rgba(255,255,255,0.7);
+            text-align: center;
+            border-radius: 3px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #222;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Advanced Stock Momentum Report ({{ analysis_date }})</h1>
+    <table>
+        <tr>
+            <th>Rank</th>
+            <th>Ticker</th>
+            <th>Price</th>
+            <th>{{ lookback_days }}D Change</th>
+            <th>RSI</th>
+            <th>SMA (20/50)</th>
+            <th>SMA Cross</th>
+            <th>Volume</th>
+            <th>Volume Spike</th>
+            <th>OBV Trend</th>
+            <th>Signal</th>
+            <th>Momentum Score</th>
+        </tr>
+        {% for stock in stocks %}
+        <tr class="{{ 'buy' if 'BUY' in stock.signal else 'sell' if 'SELL' in stock.signal else 'hold' }}">
+            <td>{{ loop.index }}</td>
+            <td><b>{{ stock.ticker }}</b></td>
+            <td>${{ "%.2f"|format(stock.price) }}</td>
+            <td class="{{ 'positive' if stock.period_change_pct > 0 else 'negative' }}">
+                {{ "%.2f"|format(stock.period_change_pct) }}% {{ '↑' if stock.period_change_pct > 0 else '↓' }}
+            </td>
+            <td class="{% if stock.rsi < 30 %}positive{% elif stock.rsi > 70 %}negative{% else %}neutral{% endif %}">
+                {{ "%.1f"|format(stock.rsi) }}
+            </td>
+            <td>{{ "%.1f"|format(stock.sma_20) }}/{{ "%.1f"|format(stock.sma_50) }}</td>
+            <td class="{{ 'positive' if 'Golden' in stock.sma_cross else 'negative' if 'Death' in stock.sma_cross else 'neutral' }}">
+                {{ stock.sma_cross if stock.sma_cross else '-' }}
+            </td>
+            <td>{{ "%.1f"|format(stock.volume/1e6) }}M</td>
+            <td class="{{ 'positive' if stock.volume_spike else 'neutral' }}">
+                {{ 'Yes' if stock.volume_spike else 'No' }}
+            </td>
+            <td class="{% if stock.obv_trend == '↑' %}positive{% elif stock.obv_trend == '↓' %}negative{% else %}neutral{% endif %}">
+                {{ stock.obv_trend }}
+            </td>
+            <td><b class="{{ 'positive' if 'BUY' in stock.signal else 'negative' if 'SELL' in stock.signal else 'neutral' }}">
+                {{ stock.signal }}
+            </b></td>
+            <td>
+                <div class="score-bar">
+                    <div class="score-value" style="width: 100px;">
+                        {{ "%.0f"|format(stock.momentum_score) }}
+                    </div>
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h3>Indicator Legend:</h3>
+    <ul>
+        <li><b>SMA Cross</b>: Golden Cross (20MA > 50MA) = Bullish, Death Cross (20MA < 50MA) = Bearish</li>
+        <li><b>Volume Spike</b>: Volume > 2x 20-day average</li>
+        <li><b>OBV Trend</b>: ↑ = Accumulation, ↓ = Distribution</li>
+    </ul>
+</body>
+</html>

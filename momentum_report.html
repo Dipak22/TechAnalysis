@@ -1,0 +1,390 @@
+
+    <html>
+    <head>
+        <title>Advanced Stock Momentum Report</title>
+        <style>
+            body { font-family: Arial; margin: 20px; }
+            h1 { color: #333366; }
+            table { border-collapse: collapse; width: 100%; }
+            th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+            tr:hover { background-color: #f5f5f5; }
+            .buy { background-color: #e6ffe6; }
+            .sell { background-color: #ffe6e6; }
+            .hold { background-color: #ffffe6; }
+            .arrow-up { color: green; font-weight: bold; }
+            .arrow-down { color: red; font-weight: bold; }
+            .positive { color: green; }
+            .negative { color: red; }
+            .neutral { color: gray; }
+            .score-bar { 
+                height: 20px; 
+                border-radius: 3px; 
+                background: linear-gradient(90deg, #ff0000 0%, #ffff00 50%, #00ff00 100%);
+            }
+            .score-value {
+                display: inline-block;
+                width: 10.0%;
+                height: 100%;
+                background-color: rgba(255,255,255,0.7);
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Advanced Stock Momentum Report (2025-06-15)</h1>
+        <table>
+            <tr>
+                <th>Rank</th>
+                <th>Ticker</th>
+                <th>Price</th>
+                <th>14D Change</th>
+                <th>RSI</th>
+                <th>SMA (20/50)</th>
+                <th>SMA Cross</th>
+                <th>Volume</th>
+                <th>Volume Spike</th>
+                <th>OBV Trend</th>
+                <th>Signal</th>
+                <th>Momentum Score</th>
+            </tr>
+            
+                <tr class="hold">
+                    <td>1</td>
+                    <td><b>MSFT</b></td>
+                    <td>$474.96</td>
+                    <td class="positive">
+                        3.10% ↑
+                    </td>
+                    <td class="negative">
+                        71.3
+                    </td>
+                    <td>463.1/nan</td>
+                    <td class="neutral">
+                        -
+                    </td>
+                    <td>16.8M</td>
+                    <td class="neutral">
+                        No
+                    </td>
+                    <td class="negative">
+                        ↓
+                    </td>
+                    <td><b class="neutral">
+                        HOLD
+                    </b></td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value" style="margin-left: 15.197832484710137%">
+                                15
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr class="hold">
+                    <td>2</td>
+                    <td><b>META</b></td>
+                    <td>$682.87</td>
+                    <td class="positive">
+                        6.31% ↑
+                    </td>
+                    <td class="neutral">
+                        62.9
+                    </td>
+                    <td>663.5/nan</td>
+                    <td class="neutral">
+                        -
+                    </td>
+                    <td>9.3M</td>
+                    <td class="neutral">
+                        No
+                    </td>
+                    <td class="negative">
+                        ↓
+                    </td>
+                    <td><b class="neutral">
+                        HOLD
+                    </b></td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value" style="margin-left: 14.465238480582599%">
+                                14
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr class="hold">
+                    <td>3</td>
+                    <td><b>NVDA</b></td>
+                    <td>$141.97</td>
+                    <td class="positive">
+                        4.78% ↑
+                    </td>
+                    <td class="neutral">
+                        64.3
+                    </td>
+                    <td>138.2/nan</td>
+                    <td class="neutral">
+                        -
+                    </td>
+                    <td>180.4M</td>
+                    <td class="neutral">
+                        No
+                    </td>
+                    <td class="negative">
+                        ↓
+                    </td>
+                    <td><b class="neutral">
+                        HOLD
+                    </b></td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value" style="margin-left: 14.29447869544198%">
+                                14
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr class="hold">
+                    <td>4</td>
+                    <td><b>AMZN</b></td>
+                    <td>$212.10</td>
+                    <td class="positive">
+                        2.95% ↑
+                    </td>
+                    <td class="neutral">
+                        62.7
+                    </td>
+                    <td>207.8/nan</td>
+                    <td class="neutral">
+                        -
+                    </td>
+                    <td>29.3M</td>
+                    <td class="neutral">
+                        No
+                    </td>
+                    <td class="negative">
+                        ↓
+                    </td>
+                    <td><b class="neutral">
+                        HOLD
+                    </b></td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value" style="margin-left: 13.420635395605316%">
+                                13
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr class="hold">
+                    <td>5</td>
+                    <td><b>GOOGL</b></td>
+                    <td>$174.67</td>
+                    <td class="positive">
+                        1.15% ↑
+                    </td>
+                    <td class="neutral">
+                        59.5
+                    </td>
+                    <td>170.9/nan</td>
+                    <td class="neutral">
+                        -
+                    </td>
+                    <td>27.6M</td>
+                    <td class="neutral">
+                        No
+                    </td>
+                    <td class="negative">
+                        ↓
+                    </td>
+                    <td><b class="neutral">
+                        HOLD
+                    </b></td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value" style="margin-left: 12.253585848410042%">
+                                12
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr class="hold">
+                    <td>6</td>
+                    <td><b>SPY</b></td>
+                    <td>$597.00</td>
+                    <td class="positive">
+                        0.99% ↑
+                    </td>
+                    <td class="neutral">
+                        59.3
+                    </td>
+                    <td>593.4/nan</td>
+                    <td class="neutral">
+                        -
+                    </td>
+                    <td>89.4M</td>
+                    <td class="neutral">
+                        No
+                    </td>
+                    <td class="negative">
+                        ↓
+                    </td>
+                    <td><b class="neutral">
+                        HOLD
+                    </b></td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value" style="margin-left: 12.166206194225488%">
+                                12
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr class="hold">
+                    <td>7</td>
+                    <td><b>AMD</b></td>
+                    <td>$116.16</td>
+                    <td class="positive">
+                        1.40% ↑
+                    </td>
+                    <td class="neutral">
+                        54.4
+                    </td>
+                    <td>115.6/nan</td>
+                    <td class="neutral">
+                        -
+                    </td>
+                    <td>39.6M</td>
+                    <td class="neutral">
+                        No
+                    </td>
+                    <td class="negative">
+                        ↓
+                    </td>
+                    <td><b class="neutral">
+                        HOLD
+                    </b></td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value" style="margin-left: 11.307036730271061%">
+                                11
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr class="hold">
+                    <td>8</td>
+                    <td><b>INTC</b></td>
+                    <td>$20.14</td>
+                    <td class="negative">
+                        -2.00% ↓
+                    </td>
+                    <td class="neutral">
+                        46.2
+                    </td>
+                    <td>20.5/nan</td>
+                    <td class="neutral">
+                        -
+                    </td>
+                    <td>87.4M</td>
+                    <td class="neutral">
+                        No
+                    </td>
+                    <td class="negative">
+                        ↓
+                    </td>
+                    <td><b class="neutral">
+                        HOLD
+                    </b></td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value" style="margin-left: 8.640372645370539%">
+                                9
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr class="hold">
+                    <td>9</td>
+                    <td><b>AAPL</b></td>
+                    <td>$196.45</td>
+                    <td class="negative">
+                        -1.88% ↓
+                    </td>
+                    <td class="neutral">
+                        40.0
+                    </td>
+                    <td>201.9/nan</td>
+                    <td class="neutral">
+                        -
+                    </td>
+                    <td>51.4M</td>
+                    <td class="neutral">
+                        No
+                    </td>
+                    <td class="negative">
+                        ↓
+                    </td>
+                    <td><b class="neutral">
+                        HOLD
+                    </b></td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value" style="margin-left: 7.432171403874051%">
+                                7
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+                <tr class="hold">
+                    <td>10</td>
+                    <td><b>TSLA</b></td>
+                    <td>$325.31</td>
+                    <td class="negative">
+                        -10.36% ↓
+                    </td>
+                    <td class="neutral">
+                        51.6
+                    </td>
+                    <td>334.0/nan</td>
+                    <td class="neutral">
+                        -
+                    </td>
+                    <td>128.5M</td>
+                    <td class="neutral">
+                        No
+                    </td>
+                    <td class="positive">
+                        ↑
+                    </td>
+                    <td><b class="neutral">
+                        HOLD
+                    </b></td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value" style="margin-left: 7.219378402611817%">
+                                7
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+                
+        </table>
+        <h3>Indicator Legend:</h3>
+        <ul>
+            <li><b>SMA Cross</b>: Golden Cross (20MA > 50MA) = Bullish, Death Cross (20MA < 50MA) = Bearish</li>
+            <li><b>Volume Spike</b>: Volume > 2x 20-day average</li>
+            <li><b>OBV Trend</b>: ↑ = Accumulation, ↓ = Distribution</li>
+        </ul>
+    </body>
+    </html>
+    
