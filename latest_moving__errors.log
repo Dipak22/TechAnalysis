@@ -61,3 +61,16 @@
 2025-06-12 08:41:29,872 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
 2025-06-12 08:41:31,212 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
 2025-06-12 08:41:32,531 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no price data found  (period=6mo) (Yahoo error = "No data found, symbol may be delisted")
+2025-06-15 18:43:06,831 - ERROR - $ICICIBANK.NS: possibly delisted; no price data found  (period=6mo)
+2025-06-15 18:51:10,185 - ERROR - Attempt 1 failed for CRAFSTMAN.NS: HTTP Error 404: 
+2025-06-15 18:51:11,508 - ERROR - Attempt 2 failed for CRAFSTMAN.NS: HTTP Error 404: 
+2025-06-15 18:51:12,512 - ERROR - $CRAFSTMAN.NS: possibly delisted; no timezone found
+2025-06-15 18:51:46,533 - ERROR - $SALZSERELEC.NS: possibly delisted; no timezone found
+2025-06-15 18:51:47,540 - ERROR - $SALZSERELEC.NS: possibly delisted; no timezone found
+2025-06-15 18:51:48,545 - ERROR - $SALZSERELEC.NS: possibly delisted; no timezone found
+2025-06-15 18:52:48,102 - ERROR - $ASTRAZAN.NS: possibly delisted; no timezone found
+2025-06-15 18:52:49,109 - ERROR - $ASTRAZAN.NS: possibly delisted; no timezone found
+2025-06-15 18:52:50,113 - ERROR - $ASTRAZAN.NS: possibly delisted; no timezone found
+2025-06-15 18:52:53,613 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no timezone found
+2025-06-15 18:52:54,618 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no timezone found
+2025-06-15 18:52:55,624 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no timezone found

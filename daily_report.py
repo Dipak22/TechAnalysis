@@ -1,234 +1,301 @@
 import yfinance as yf
 import pandas as pd
-from ta.momentum import RSIIndicator, ROCIndicator
-from ta.trend import MACD, SMAIndicator
-from ta.volatility import BollingerBands
-from ta.volume import VolumeWeightedAveragePrice, OnBalanceVolumeIndicator
+import numpy as np
+from ta.momentum import RSIIndicator, ROCIndicator, StochasticOscillator
+from ta.trend import MACD, SMAIndicator, EMAIndicator, ADXIndicator
+from ta.volatility import BollingerBands, AverageTrueRange
+from ta.volume import VolumeWeightedAveragePrice, OnBalanceVolumeIndicator, AccDistIndexIndicator
 from datetime import datetime, timedelta
 from sector_mapping import sector_stocks  # Assuming this is a list of stock tickers
+from my_stocks import my_stocks  # Assuming this is a list of stock tickers
 
-def calculate_signals(ticker, lookback_days=14):
-    """Calculate momentum, volume, and moving average signals"""
+def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50):
+    """Calculate momentum, volume, and moving average signals across multiple timeframes"""
     try:
-        # Download data with volume
+        # Download data with volume - get more data for longer indicators
         end_date = datetime.today()
-        start_date = end_date - timedelta(days=lookback_days*3)  # Extra data for indicators
+        start_date = end_date - timedelta(days=long_period*3)
         stock = yf.Ticker(ticker)
         df = stock.history(start=start_date, end=end_date, interval='1d')
         
-        if df.empty or len(df) < lookback_days:
+        if df.empty or len(df) < long_period:
             return None
 
-        # Calculate indicators
-        df['ROC'] = ROCIndicator(close=df['Close'], window=lookback_days).roc()
-        df['RSI'] = RSIIndicator(close=df['Close'], window=14).rsi()
-        macd = MACD(close=df['Close'])
-        df['MACD_diff'] = macd.macd_diff()
+        # Calculate indicators for multiple timeframes
+        indicators = {}
         
-        # Moving Averages - Changed to 14 and 26 days
-        df['SMA_14'] = SMAIndicator(close=df['Close'], window=14).sma_indicator()
-        df['SMA_26'] = SMAIndicator(close=df['Close'], window=26).sma_indicator()
+        # Short-term indicators (14 days)
+        indicators['short'] = {
+            'RSI': RSIIndicator(close=df['Close'], window=short_period).rsi(),
+            'ROC': ROCIndicator(close=df['Close'], window=short_period).roc(),
+            'Stoch_%K': StochasticOscillator(
+                high=df['High'],
+                low=df['Low'],
+                close=df['Close'],
+                window=short_period,
+                smooth_window=3
+            ).stoch(),
+            'SMA': SMAIndicator(close=df['Close'], window=short_period).sma_indicator(),
+            'EMA': EMAIndicator(close=df['Close'], window=short_period).ema_indicator(),
+            'ATR': AverageTrueRange(
+                high=df['High'],
+                low=df['Low'],
+                close=df['Close'],
+                window=short_period
+            ).average_true_range()
+        }
         
-        # Volume Analysis
-        df['VWAP'] = VolumeWeightedAveragePrice(
-            high=df['High'],
-            low=df['Low'],
-            close=df['Close'],
-            volume=df['Volume'],
-            window=lookback_days
-        ).volume_weighted_average_price()
+        # Medium-term indicators (26 days)
+        indicators['medium'] = {
+            'RSI': RSIIndicator(close=df['Close'], window=medium_period).rsi(),
+            'ROC': ROCIndicator(close=df['Close'], window=medium_period).roc(),
+            'SMA': SMAIndicator(close=df['Close'], window=medium_period).sma_indicator(),
+            'EMA': EMAIndicator(close=df['Close'], window=medium_period).ema_indicator(),
+            'MACD': MACD(close=df['Close'], window_slow=26, window_fast=12, window_sign=9).macd(),
+            'MACD_diff': MACD(close=df['Close'], window_slow=26, window_fast=12, window_sign=9).macd_diff(),
+            'ADX': ADXIndicator(
+                high=df['High'],
+                low=df['Low'],
+                close=df['Close'],
+                window=medium_period
+            ).adx()
+        }
         
-        df['OBV'] = OnBalanceVolumeIndicator(
-            close=df['Close'],
-            volume=df['Volume']
-        ).on_balance_volume()
+        # Long-term indicators (50 days)
+        indicators['long'] = {
+            'SMA': SMAIndicator(close=df['Close'], window=long_period).sma_indicator(),
+            'EMA': EMAIndicator(close=df['Close'], window=long_period).ema_indicator(),
+            'BB': BollingerBands(close=df['Close'], window=long_period, window_dev=2),
+            'VWAP': VolumeWeightedAveragePrice(
+                high=df['High'],
+                low=df['Low'],
+                close=df['Close'],
+                volume=df['Volume'],
+                window=long_period
+            ).volume_weighted_average_price()
+        }
         
-        # Bollinger Bands for std dev analysis
-        bb = BollingerBands(close=df['Close'], window=lookback_days, window_dev=2)
-        df['bb_upper'] = bb.bollinger_hband()
-        df['bb_middle'] = bb.bollinger_mavg()
-        df['bb_lower'] = bb.bollinger_lband()
-        df['bb_percent'] = bb.bollinger_pband()  # %b indicator (0-1 range)
+        # Volume indicators
+        volume_indicators = {
+            'OBV': OnBalanceVolumeIndicator(close=df['Close'], volume=df['Volume']).on_balance_volume(),
+            'ADI': AccDistIndexIndicator(
+                high=df['High'],
+                low=df['Low'],
+                close=df['Close'],
+                volume=df['Volume']
+            ).acc_dist_index(),
+            'Volume_MA': df['Volume'].rolling(20).mean(),
+            'Volume_Spike': df['Volume'] > (df['Volume'].rolling(20).mean() * 2)
+        }
         
         # Get latest values
-        latest = df.iloc[-1]
-        prev = df.iloc[-2]
-        df['SMA_26_rising'] = df['SMA_26'] > df['SMA_26'].shift(5)
-        
-        # Price Change
-        price_change_pct = (latest['Close'] - df['Close'].iloc[-lookback_days]) / df['Close'].iloc[-lookback_days] * 100
-        
-        # Volume Signals
-        volume_spike = latest['Volume'] > (df['Volume'].rolling(20).mean().iloc[-1] * 2)
-        obv_trend = '↑' if latest['OBV'] > prev['OBV'] else '↓'
-        
-        # Moving Average Signals
-        sma_cross = 'Golden Cross' if latest['SMA_14'] > latest['SMA_26'] and prev['SMA_14'] <= prev['SMA_26'] else (
-                    'Death Cross' if latest['SMA_14'] < latest['SMA_26'] and prev['SMA_14'] >= prev['SMA_26'] else None)
-        
-        # Bollinger Band Signals (Std Dev Analysis)
-        bb_signal = None
-        if latest['Close'] > df['bb_upper'].iloc[-1]:  # Price > 2 std dev (very strong bullish)
-            bb_signal = "Very Strong Bullish (>2σ)"
-        elif latest['Close'] > df['bb_middle'].iloc[-1] + 1.5 * (df['bb_upper'].iloc[-1] - df['bb_middle'].iloc[-1]):
-            bb_signal = "Strong Bullish (>1.5σ)"
-        elif latest['Close'] > df['bb_middle'].iloc[-1] + 0.5 * (df['bb_upper'].iloc[-1] - df['bb_middle'].iloc[-1]):
-            bb_signal = "Bullish (>0.5σ)"
-        elif latest['Close'] < df['bb_middle'].iloc[-1] - 1.5 * (df['bb_middle'].iloc[-1] - df['bb_lower'].iloc[-1]):
-            bb_signal = "Strong Bearish (<-1.5σ)"
-        elif latest['Close'] < df['bb_middle'].iloc[-1] - 0.5 * (df['bb_middle'].iloc[-1] - df['bb_lower'].iloc[-1]):
-            bb_signal = "Bearish (<-0.5σ)"
-        else:
-            bb_signal = "Neutral"
-        
-        # Generate Trading Signal
-        signal = "HOLD"
-        signal_reasons = []
-
-        # Overbought/Oversold Conditions
-        if latest['RSI'] > 70:
-            signal_reasons.append("RSI Overbought (>70)")
-        if latest['RSI'] < 30:
-            signal_reasons.append("RSI Oversold (<30)")
-        if price_change_pct > 15:
-            signal_reasons.append(f"Large Price Gain ({price_change_pct:.1f}%)")
-        if price_change_pct < -10:
-            signal_reasons.append(f"Large Price Drop ({price_change_pct:.1f}%)")
-        if bb_signal:
-            signal_reasons.append(bb_signal)
-
-        # Trend Conditions
-        sma_bullish = latest['Close'] > latest['SMA_14'] > latest['SMA_26']
-        sma_bearish = latest['Close'] < latest['SMA_14'] < latest['SMA_26']
-        macd_bullish = latest['MACD_diff'] > 0
-        macd_bearish = latest['MACD_diff'] < 0
-
-        # Volume Conditions
-        vwap_bullish = latest['Close'] > latest['VWAP']
-        vwap_bearish = latest['Close'] < latest['VWAP']
-        obv_bullish = obv_trend == '↑'
-        obv_bearish = obv_trend == '↓'
-
-        # Momentum Conditions
-        roc_bullish = latest['ROC'] > 0
-        roc_bearish = latest['ROC'] < 0
-        
-        # Bollinger Band Conditions
-        bb_bullish = "Bullish" in bb_signal or "Strong Bullish" in bb_signal
-        bb_strong_bullish = "Strong Bullish" in bb_signal or "Very Strong Bullish" in bb_signal
-        bb_bearish = "Bearish" in bb_signal or "Strong Bearish" in bb_signal
-        bb_strong_bearish = "Strong Bearish" in bb_signal
-
-        # Composite Signal Logic
-        bullish_count = 0
-        bearish_count = 0
-
-        # Count bullish indicators
-        if sma_bullish: bullish_count += 1
-        if macd_bullish: bullish_count += 1
-        if vwap_bullish: bullish_count += 1
-        if obv_bullish: bullish_count += 1
-        if roc_bullish: bullish_count += 1
-        if bb_bullish: bullish_count += 1
-        if volume_spike and obv_bullish: bullish_count += 1  # Extra weight for volume confirmation
-
-        # Count bearish indicators
-        if sma_bearish: bearish_count += 1
-        if macd_bearish: bearish_count += 1
-        if vwap_bearish: bearish_count += 1
-        if obv_bearish: bearish_count += 1
-        if roc_bearish: bearish_count += 1
-        if bb_bearish: bearish_count += 1
-        if volume_spike and obv_bearish: bearish_count += 1  # Extra weight for volume confirmation
-
-        # Strong Buy Signal (multiple confirmations)
-        if (bullish_count >= 4 and 
-            (bb_strong_bullish or latest['RSI'] < 60) and  # Not overbought or strong BB signal
-            not any("RSI Overbought" in r for r in signal_reasons)):
-            signal = "STRONG BUY"
-        elif (bullish_count >= 3 and 
-            (bb_bullish or latest['RSI'] < 45) and  # More conservative
-            any("RSI Oversold" in r for r in signal_reasons)):
-            signal = "BUY"
-
-        # Strong Sell Signal (multiple confirmations)
-        elif (bearish_count >= 4 and 
-            (bb_strong_bearish or latest['RSI'] > 40) and  # Not oversold or strong BB signal
-            not any("RSI Oversold" in r for r in signal_reasons)):
-            signal = "STRONG SELL"
-        elif (bearish_count >= 3 and 
-            (bb_bearish or latest['RSI'] > 55) and  # More conservative
-            any("RSI Overbought" in r for r in signal_reasons)):
-            signal = "SELL"
-
-        # Extreme RSI conditions take precedence
-        if latest['RSI'] > 70 and price_change_pct > 15:
-            signal = "STRONG SELL (Extreme Overbought)"
-        elif latest['RSI'] < 30 and price_change_pct < -10:
-            signal = "STRONG BUY (Extreme Oversold)"
-            
-        # Bollinger Band extreme conditions
-        if bb_strong_bullish and obv_bullish and volume_spike:
-            signal = "STRONG BUY (BB Strong Bullish with Volume)"
-        elif bb_strong_bearish and obv_bearish and volume_spike:
-            signal = "STRONG SELL (BB Strong Bearish with Volume)"
-
-        # Add reasons to signal if not already included
-        if signal != "HOLD" and len(signal_reasons) > 0:
-            signal += f" ({', '.join(signal_reasons)})"
-        elif signal == "HOLD" and len(signal_reasons) > 0:
-            signal = f"HOLD (Conflicting: {', '.join(signal_reasons)})"
-
-            
-        return {
-            'Ticker': ticker,
-            'Price': f"{latest['Close']:.2f}",
-            f'{lookback_days}D Change': f"{price_change_pct:.2f}%",
-            'RSI': f"{latest['RSI']:.1f}",
-            'SMA_14/26': f"{latest['SMA_14']:.1f}/{latest['SMA_26']:.1f}",
-            'SMA Cross': sma_cross if sma_cross else '-',
-            'Volume': f"{latest['Volume']/1e6:.1f}M",
-            'Volume Spike': 'Yes' if volume_spike else 'No',
-            'OBV Trend': obv_trend,
-            'MACD_diff': latest['MACD_diff'],
-            'BB Signal': bb_signal,
-            'Signal': signal,
-            'Momentum Score': min(100, max(0, (
-                # Price Momentum (30%)
-                (0.15 * price_change_pct if not pd.isna(price_change_pct) else 0) +
-                (0.10 * latest['ROC'] if not pd.isna(latest['ROC']) else 0) +
-                (0.05 * (100 if (latest['Close'] > latest['SMA_26'] and df['SMA_26_rising'].iloc[-1]) else 0)) +
-                
-                # Trend Strength (25%)
-                (0.10 * (100 if (latest['Close'] > latest['SMA_14'] > latest['SMA_26']) else 
-                        -50 if (latest['Close'] < latest['SMA_14'] < latest['SMA_26']) else 0)) +
-                (0.10 * latest['MACD_diff'] * 10 if not pd.isna(latest['MACD_diff']) else 0) +
-                (0.05 * (50 if sma_cross == 'Golden Cross' else 
-                        -50 if sma_cross == 'Death Cross' else 0)) +
-                
-                # Volume Confirmation (20%)
-                (0.10 * (100 if (volume_spike and obv_trend == '↑') else 
-                        -100 if (volume_spike and obv_trend == '↓') else 0)) +
-                (0.05 * (50 if latest['Close'] > latest['VWAP'] else -25)) +
-                (0.05 * (latest['OBV'] / max(1, df['OBV'].max()) * 50 if not pd.isna(latest['OBV']) else 0)) +
-                
-                # Momentum Oscillators (15%)
-                (0.075 * latest['RSI'] if not pd.isna(latest['RSI']) else 0) +
-                (0.075 * (100 if (30 < latest['RSI'] < 70) else 
-                        150 if (latest['RSI'] < 30 or latest['RSI'] > 70) else 0)) +
-                
-                # Bollinger Band Conditions (10%)
-                (0.05 * (150 if bb_strong_bullish else 
-                        100 if bb_bullish else
-                        -100 if bb_bearish else
-                        -150 if bb_strong_bearish else 0)) +
-                
-                # Risk Adjustment (10%)
-                (-0.05 * abs(latest['RSI'] - 50) if not pd.isna(latest['RSI']) else 0) +
-                (0.05 * (df['Close'].pct_change().std() * 100 if not pd.isna(df['Close'].pct_change().std()) else 0))
-            ) )),
-            'Period': lookback_days 
+        latest = {
+            'price': df['Close'].iloc[-1],
+            'short': {k: v.iloc[-1] for k, v in indicators['short'].items()},
+            'medium': {k: v.iloc[-1] if not isinstance(v, dict) else {sk: sv.iloc[-1] for sk, sv in v.items()} 
+                      for k, v in indicators['medium'].items()},
+            'long': {k: v.iloc[-1] if not hasattr(v, 'bollinger_hband') else {
+                'upper': v.bollinger_hband().iloc[-1],
+                'middle': v.bollinger_mavg().iloc[-1],
+                'lower': v.bollinger_lband().iloc[-1],
+                'percent': (df['Close'].iloc[-1] - v.bollinger_lband().iloc[-1]) / 
+                          (v.bollinger_hband().iloc[-1] - v.bollinger_lband().iloc[-1])
+            } for k, v in indicators['long'].items()},
+            'volume': {k: v.iloc[-1] for k, v in volume_indicators.items()}
         }
+        
+        # Previous values for trend analysis
+        prev = {
+            'short': {k: v.iloc[-2] for k, v in indicators['short'].items()},
+            'medium': {k: v.iloc[-2] if not isinstance(v, dict) else {sk: sv.iloc[-2] for sk, sv in v.items()} 
+                     for k, v in indicators['medium'].items()},
+        }
+        
+        # Price changes for different periods
+        price_changes = {
+            'short': (latest['price'] - df['Close'].iloc[-short_period]) / df['Close'].iloc[-short_period] * 100,
+            'medium': (latest['price'] - df['Close'].iloc[-medium_period]) / df['Close'].iloc[-medium_period] * 100,
+            'long': (latest['price'] - df['Close'].iloc[-long_period]) / df['Close'].iloc[-long_period] * 100
+        }
+        
+        # Trend analysis
+        trends = {
+            'short_term_up': latest['price'] > latest['short']['SMA'] > latest['short']['EMA'],
+            'medium_term_up': latest['price'] > latest['medium']['SMA'] > latest['medium']['EMA'],
+            'long_term_up': latest['price'] > latest['long']['SMA'] > latest['long']['EMA'],
+            'golden_cross': latest['short']['SMA'] > latest['medium']['SMA'] and prev['short']['SMA'] <= prev['medium']['SMA'],
+            'death_cross': latest['short']['SMA'] < latest['medium']['SMA'] and prev['short']['SMA'] >= prev['medium']['SMA'],
+            'macd_bullish': latest['medium']['MACD_diff'] > 0 and prev['medium']['MACD_diff'] <= 0,
+            'macd_bearish': latest['medium']['MACD_diff'] < 0 and prev['medium']['MACD_diff'] >= 0,
+            'adx_strength': latest['medium']['ADX'] > 25  # Strong trend threshold
+        }
+        
+        # Momentum signals
+        momentum = {
+            'rsi_short': latest['short']['RSI'],
+            'rsi_medium': latest['medium']['RSI'],
+            'stoch_overbought': latest['short']['Stoch_%K'] > 80,
+            'stoch_oversold': latest['short']['Stoch_%K'] < 20,
+            'roc_short': latest['short']['ROC'],
+            'roc_medium': latest['medium']['ROC'],
+            'bb_position': latest['long']['BB']['percent'],
+            'atr': latest['short']['ATR']
+        }
+        
+        # Volume signals
+        volume = {
+            'obv_trend': '↑' if latest['volume']['OBV'] > volume_indicators['OBV'].iloc[-2] else '↓',
+            'adi_trend': '↑' if latest['volume']['ADI'] > volume_indicators['ADI'].iloc[-2] else '↓',
+            'volume_spike': latest['volume']['Volume_Spike'],
+            'vwap_relation': 'above' if latest['price'] > latest['long']['VWAP'] else 'below'
+        }
+        
+        # Generate signal reasons
+        signal_reasons = []
+        
+        # Trend reasons
+        if trends['golden_cross']:
+            signal_reasons.append("Golden Cross (Short > Medium MA)")
+        if trends['death_cross']:
+            signal_reasons.append("Death Cross (Short < Medium MA)")
+        if trends['macd_bullish']:
+            signal_reasons.append("MACD Bullish Cross")
+        if trends['macd_bearish']:
+            signal_reasons.append("MACD Bearish Cross")
+        if trends['adx_strength']:
+            signal_reasons.append("Strong Trend (ADX > 25)")
+            
+        # Momentum reasons
+        if momentum['rsi_short'] > 70:
+            signal_reasons.append(f"Short-term RSI Overbought ({momentum['rsi_short']:.1f})")
+        if momentum['rsi_short'] < 30:
+            signal_reasons.append(f"Short-term RSI Oversold ({momentum['rsi_short']:.1f})")
+        if momentum['stoch_overbought']:
+            signal_reasons.append("Stochastic Overbought")
+        if momentum['stoch_oversold']:
+            signal_reasons.append("Stochastic Oversold")
+        if momentum['bb_position'] > 0.8:
+            signal_reasons.append(f"BB Upper Band ({momentum['bb_position']:.2%})")
+        if momentum['bb_position'] < 0.2:
+            signal_reasons.append(f"BB Lower Band ({momentum['bb_position']:.2%})")
+            
+        # Volume reasons
+        if volume['volume_spike']:
+            signal_reasons.append("Volume Spike (2x MA)")
+        if volume['obv_trend'] == '↑' and volume['volume_spike']:
+            signal_reasons.append("OBV Uptick with Volume")
+        if volume['vwap_relation'] == 'above':
+            signal_reasons.append("Price Above VWAP")
+            
+        # Price change reasons
+        if price_changes['short'] > 10:
+            signal_reasons.append(f"Short-term Up {price_changes['short']:.1f}%")
+        if price_changes['short'] < -5:
+            signal_reasons.append(f"Short-term Down {abs(price_changes['short']):.1f}%")
+        
+        # Generate composite score (0-100)
+        score = 50  # Neutral starting point
+        
+        # Trend factors (30%)
+        score += 15 if trends['short_term_up'] else -10
+        score += 10 if trends['medium_term_up'] else -5
+        score += 5 if trends['long_term_up'] else -3
+        score += 10 if trends['golden_cross'] else (-10 if trends['death_cross'] else 0)
+        score += 5 if trends['macd_bullish'] else (-5 if trends['macd_bearish'] else 0)
+        score += 5 if trends['adx_strength'] else 0
+        
+        # Momentum factors (30%)
+        score += 5 * ((momentum['rsi_short'] - 50) / 10)  # Normalized RSI contribution
+        score += 5 if momentum['stoch_oversold'] else (-5 if momentum['stoch_overbought'] else 0)
+        score += 5 * (momentum['roc_short'] / 5)  # Normalized ROC contribution
+        score += 5 * (momentum['roc_medium'] / 3)  # Normalized ROC contribution
+        score += 10 * (momentum['bb_position'] - 0.5)  # BB position contribution
+        score += 5 * (1 - (momentum['atr'] / latest['price']))  # Normalized ATR contribution
+        
+        # Volume factors (20%)
+        score += 10 if volume['obv_trend'] == '↑' else -5
+        score += 5 if volume['adi_trend'] == '↑' else -3
+        score += 5 if volume['volume_spike'] and volume['obv_trend'] == '↑' else (
+                 -5 if volume['volume_spike'] and volume['obv_trend'] == '↓' else 0)
+        score += 5 if volume['vwap_relation'] == 'above' else -3
+        
+        # Price action factors (20%)
+        score += 5 * (price_changes['short'] / 5)  # Normalized short-term change
+        score += 3 * (price_changes['medium'] / 3)  # Normalized medium-term change
+        score += 2 * (price_changes['long'] / 2)  # Normalized long-term change
+        
+        # Cap score between 0 and 100
+        score = max(0, min(100, score))
+        
+        # Generate trading signal based on score and confirmation
+        signal = "HOLD"
+        signal_strength = ""
+        
+        # Strong Buy conditions
+        if (score > 75 and 
+            trends['short_term_up'] and 
+            trends['medium_term_up'] and 
+            volume['obv_trend'] == '↑' and 
+            not momentum['stoch_overbought'] and 
+            momentum['bb_position'] < 0.8):
+            signal = "STRONG BUY"
+            signal_strength = "(Multi-timeframe uptrend with volume confirmation)"
+        
+        # Buy conditions
+        elif (score > 60 and 
+              (trends['short_term_up'] or trends['medium_term_up']) and 
+              volume['obv_trend'] == '↑' and 
+              not momentum['stoch_overbought']):
+            signal = "BUY"
+            signal_strength = "(Uptrend with positive momentum)"
+            
+        # Strong Sell conditions
+        elif (score < 25 and 
+              not trends['short_term_up'] and 
+              not trends['medium_term_up'] and 
+              volume['obv_trend'] == '↓' and 
+              not momentum['stoch_oversold'] and 
+              momentum['bb_position'] > 0.2):
+            signal = "STRONG SELL"
+            signal_strength = "(Multi-timeframe downtrend with volume confirmation)"
+            
+        # Sell conditions
+        elif (score < 40 and 
+              (not trends['short_term_up'] or not trends['medium_term_up']) and 
+              volume['obv_trend'] == '↓' and 
+              not momentum['stoch_oversold']):
+            signal = "SELL"
+            signal_strength = "(Downtrend with negative momentum)"
+        
+        # Add reasons if not already included
+        if signal != "HOLD" and signal_reasons:
+            signal += f" {signal_strength} [{', '.join(signal_reasons)}]"
+        elif signal == "HOLD" and signal_reasons:
+            signal = f"HOLD (Conflicting signals: {', '.join(signal_reasons)})"
+            
+        # Prepare result dictionary
+        result = {
+            'Ticker': ticker,
+            'Price': f"{latest['price']:.2f}",
+            'Change_14D': f"{price_changes['short']:.1f}%",
+            'Change_26D': f"{price_changes['medium']:.1f}%",
+            'Change_50D': f"{price_changes['long']:.1f}%",
+            'RSI_14': f"{momentum['rsi_short']:.1f}",
+            'RSI_26': f"{momentum['rsi_medium']:.1f}",
+            'Stoch_%K': f"{latest['short']['Stoch_%K']:.1f}",
+            'MACD_diff': f"{latest['medium']['MACD_diff']:.3f}",
+            'BB_%': f"{momentum['bb_position']:.2%}",
+            'SMA_14/26': f"{latest['short']['SMA']:.1f}/{latest['medium']['SMA']:.1f}",
+            'SMA_50': f"{latest['long']['SMA']:.1f}",
+            'Volume': f"{df['Volume'].iloc[-1]/1e6:.1f}M",
+            'Volume_Spike': 'Yes' if volume['volume_spike'] else 'No',
+            'OBV_Trend': volume['obv_trend'],
+            'VWAP_Relation': volume['vwap_relation'],
+            'Score': f"{score:.1f}",
+            'Signal': signal
+        }
+        
+        return result
         
     except Exception as e:
         print(f"Error processing {ticker}: {str(e)}")
@@ -239,7 +306,7 @@ def generate_html_report(results, output_file='momentum_report.html'):
     html_template = f"""
     <html>
     <head>
-        <title>Advanced Stock Momentum Report</title>
+        <title>Multi-Timeframe Stock Momentum Report</title>
         <style>
             body {{ font-family: Arial; margin: 20px; }}
             h1 {{ color: #333366; }}
@@ -247,75 +314,107 @@ def generate_html_report(results, output_file='momentum_report.html'):
             th, td {{ padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }}
             tr:hover {{ background-color: #f5f5f5; }}
             .buy {{ background-color: #e6ffe6; }}
+            .strong-buy {{ background-color: #ccffcc; }}
             .sell {{ background-color: #ffe6e6; }}
+            .strong-sell {{ background-color: #ffcccc; }}
             .hold {{ background-color: #ffffe6; }}
             .arrow-up {{ color: green; font-weight: bold; }}
             .arrow-down {{ color: red; font-weight: bold; }}
             .positive {{ color: green; }}
             .negative {{ color: red; }}
             .neutral {{ color: gray; }}
-            .score-bar {{ 
-                height: 20px; 
-                border-radius: 3px; 
-                background: linear-gradient(90deg, #ff0000 0%, #ffff00 50%, #00ff00 100%);
+            .score-bar {{
+                height: 20px;
+                background: linear-gradient(to right, red, yellow, green);
+                position: relative;
+                border-radius: 3px;
             }}
             .score-value {{
-                display: inline-block;
-                width: {100/len(results)}%;
-                height: 100%;
-                background-color: rgba(255,255,255,0.7);
-                text-align: center;
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
             }}
         </style>
     </head>
     <body>
-        <h1>Advanced Stock Momentum Report ({datetime.today().strftime('%Y-%m-%d')})</h1>
+        <h1>Multi-Timeframe Stock Momentum Report ({datetime.today().strftime('%Y-%m-%d')})</h1>
         <table>
             <tr>
                 <th>Rank</th>
                 <th>Ticker</th>
                 <th>Price</th>
-                <th>14D Change</th>
-                <th>RSI</th>
-                <th>SMA (14/26)</th>
-                <th>SMA Cross</th>
+                <th>14D Chg</th>
+                <th>26D Chg</th>
+                <th>50D Chg</th>
+                <th>RSI (14/26)</th>
+                <th>Stoch %K</th>
+                <th>MACD Diff</th>
+                <th>BB %</th>
+                <th>SMA (14/26/50)</th>
                 <th>Volume</th>
-                <th>Volume Spike</th>
-                <th>OBV Trend</th>
-                <th>MACD</th>
-                <th>BB Signal</th>
+                <th>OBV</th>
+                <th>Score</th>
                 <th>Signal</th>
             </tr>
             {"".join([
                 f"""
-                <tr class="{'buy' if 'BUY' in r['Signal'] else 'sell' if 'SELL' in r['Signal'] else 'hold'}">
+                <tr class="{{
+                    'strong-buy' if 'STRONG BUY' in r['Signal'] else
+                    'buy' if 'BUY' in r['Signal'] else
+                    'strong-sell' if 'STRONG SELL' in r['Signal'] else
+                    'sell' if 'SELL' in r['Signal'] else 'hold'
+                }}">
                     <td>{i+1}</td>
                     <td><b>{r['Ticker']}</b></td>
                     <td>{r['Price']}</td>
-                    <td class="{'positive' if float(r[f"{r['Period']}D Change"].strip('%')) > 0 else 'negative'}">
-                        {r[f"{r['Period']}D Change"]} {'↑' if float(r[f"{r['Period']}D Change"].strip('%')) > 0 else '↓'}
+                    <td class="{{'positive' if float(r['Change_14D'].strip('%')) > 0 else 'negative'}}">
+                        {r['Change_14D']} {'↑' if float(r['Change_14D'].strip('%')) > 0 else '↓'}
                     </td>
-                    <td class="{('positive' if float(r['RSI']) < 30 else 'negative' if float(r['RSI']) > 70 else 'neutral')}">
-                        {r['RSI']}
+                    <td class="{{'positive' if float(r['Change_26D'].strip('%')) > 0 else 'negative'}}">
+                        {r['Change_26D']} {'↑' if float(r['Change_26D'].strip('%')) > 0 else '↓'}
                     </td>
-                    <td>{r['SMA_14/26']}</td>
-                    <td class="{('positive' if 'Golden' in r['SMA Cross'] else 'negative' if 'Death' in r['SMA Cross'] else 'neutral')}">
-                        {r['SMA Cross']}
+                    <td class="{{'positive' if float(r['Change_50D'].strip('%')) > 0 else 'negative'}}">
+                        {r['Change_50D']} {'↑' if float(r['Change_50D'].strip('%')) > 0 else '↓'}
                     </td>
-                    <td>{r['Volume']}</td>
-                    <td class="{('positive' if r['Volume Spike'] == 'Yes' else 'neutral')}">
-                        {r['Volume Spike']}
+                    <td>
+                        <span class="{{'positive' if float(r['RSI_14']) < 30 else 'negative' if float(r['RSI_14']) > 70 else 'neutral'}}">
+                            {r['RSI_14']}
+                        </span>/
+                        <span class="{{'positive' if float(r['RSI_26']) < 30 else 'negative' if float(r['RSI_26']) > 70 else 'neutral'}}">
+                            {r['RSI_26']}
+                        </span>
                     </td>
-                    <td class="{('positive' if r['OBV Trend'] == '↑' else 'negative')}">
-                        {r['OBV Trend']}
+                    <td class="{{'positive' if float(r['Stoch_%K']) < 20 else 'negative' if float(r['Stoch_%K']) > 80 else 'neutral'}}">
+                        {r['Stoch_%K']}
                     </td>
-                    <td class="{('positive' if float(r['MACD_diff']) > 0 else 'negative')}">
-                        {'↑' if float(r['MACD_diff']) > 0 else '↓'}
+                    <td class="{{'positive' if float(r['MACD_diff']) > 0 else 'negative'}}">
+                        {r['MACD_diff']}
                     </td>
-                    <td class="{('positive' if 'Bullish' in r['BB Signal'] else 'negative' if 'Bearish' in r['BB Signal'] else 'neutral')}">
-                        {r['BB Signal']}
+                    <td class="{{'positive' if float(r['BB_%'].strip('%'))/100 < 0.2 else 'negative' if float(r['BB_%'].strip('%'))/100 > 0.8 else 'neutral'}}">
+                        {r['BB_%']}
                     </td>
-                    <td><b class="{('positive' if 'BUY' in r['Signal'] else 'negative' if 'SELL' in r['Signal'] else 'neutral')}">
+                    <td>{r['SMA_14/26']}/{r['SMA_50']}</td>
+                    <td>
+                        {r['Volume']} 
+                        <span class="{{'positive' if r['Volume_Spike'] == 'Yes' else 'neutral'}}">
+                            ({r['Volume_Spike']})
+                        </span>
+                    </td>
+                    <td class="{{'positive' if r['OBV_Trend'] == '↑' else 'negative'}}">
+                        {r['OBV_Trend']}
+                    </td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value">{r['Score']}</div>
+                        </div>
+                    </td>
+                    <td><b class="{{'positive' if 'BUY' in r['Signal'] else 'negative' if 'SELL' in r['Signal'] else 'neutral'}}">
                         {r['Signal']}
                     </b></td>
                 </tr>
@@ -324,15 +423,18 @@ def generate_html_report(results, output_file='momentum_report.html'):
         </table>
         <h3>Indicator Legend:</h3>
         <ul>
-            <li><b>SMA Cross</b>: Golden Cross (14MA > 26MA) = Bullish, Death Cross (14MA < 26MA) = Bearish</li>
+            <li><b>Score</b>: 0-100 composite rating (higher = more bullish)</li>
+            <li><b>RSI</b>: Overbought (>70), Oversold (<30)</li>
+            <li><b>Stochastic %K</b>: Overbought (>80), Oversold (<20)</li>
+            <li><b>BB %</b>: Price position within Bollinger Bands (0% = lower band, 100% = upper band)</li>
             <li><b>Volume Spike</b>: Volume > 2x 20-day average</li>
             <li><b>OBV Trend</b>: ↑ = Accumulation, ↓ = Distribution</li>
-            <li><b>BB Signal</b>: 
+            <li><b>Signal Strength</b>:
                 <ul>
-                    <li>Price > 1.5σ: Strong Bullish</li>
-                    <li>Price > 0.5σ: Bullish</li>
-                    <li>Price < -0.5σ: Bearish</li>
-                    <li>Price < -1.5σ: Strong Bearish</li>
+                    <li>STRONG BUY: Multi-timeframe uptrend with volume confirmation</li>
+                    <li>BUY: Uptrend with positive momentum</li>
+                    <li>STRONG SELL: Multi-timeframe downtrend with volume confirmation</li>
+                    <li>SELL: Downtrend with negative momentum</li>
                 </ul>
             </li>
         </ul>
@@ -344,28 +446,28 @@ def generate_html_report(results, output_file='momentum_report.html'):
         f.write(html_template)
     print(f"Report generated: {output_file}")
 
-def analyze_stocks(stock_list, lookback_days=14):
-    """Main analysis function"""
+def analyze_stocks(stock_list, short_period=14, medium_period=26, long_period=50):
+    """Main analysis function with multiple timeframes"""
     results = []
     for ticker in stock_list:
         print(f"Processing {ticker}...")
-        data = calculate_signals(ticker, lookback_days)
+        data = calculate_signals(ticker, short_period, medium_period, long_period)
         if data:
-            data['Period'] = lookback_days
             results.append(data)
     
     if not results:
         print("No valid results.")
         return
     
-    # Sort by momentum score
-    results.sort(key=lambda x: x['Momentum Score'], reverse=True)
+    # Sort by score
+    results.sort(key=lambda x: float(x['Score']), reverse=True)
     current_date = datetime.now().strftime("%Y-%m-%d")
-    OUTPUT_FILE = f"momentum_report_{current_date}.html"
+    OUTPUT_FILE = f"daily_momentum_report_{current_date}.html"
     generate_html_report(results, output_file=OUTPUT_FILE)
 
 # Example usage
 if __name__ == "__main__":
     stocks = [stock for stocks in sector_stocks.values() for stock in stocks]  # Replace with your stock list
     #stocks = ["AAPL", "GOOGL", "MSFT", "AMZN", "TSLA"]  # Example stock list
-    analyze_stocks(stocks, lookback_days=14)
+    #stocks = my_stocks  # Assuming my_stocks is a list of stock tickers
+    analyze_stocks(stocks, short_period=14, medium_period=26, long_period=50)

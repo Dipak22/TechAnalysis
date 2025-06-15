@@ -1,7 +1,7 @@
 import yfinance as yf
 import pandas as pd
 import ta
-from datetime import datetime
+from datetime import datetime, timedelta
 from sector_mapping import sector_stocks
 import time
 import logging
@@ -24,8 +24,10 @@ for symbol in all_stocks:
         if success:
             break
         try:
+            end_date = datetime.today()
+            start_date = end_date - timedelta(days=15)  # Extra data for indicators
             stck = yf.Ticker(symbol)
-            df = stck.history(period="6mo", interval="1d")
+            df = stck.history(start=start_date, end=end_date, interval='1d')
             df.dropna(inplace=True)
             #df = yf.download(symbol, period="6mo", interval="1d")
             if df.empty:
