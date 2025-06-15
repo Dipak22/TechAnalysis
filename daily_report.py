@@ -2,6 +2,7 @@ import yfinance as yf
 import pandas as pd
 from ta.momentum import RSIIndicator, ROCIndicator
 from ta.trend import MACD, SMAIndicator
+from ta.volatility import BollingerBands
 from ta.volume import VolumeWeightedAveragePrice, OnBalanceVolumeIndicator
 from datetime import datetime, timedelta
 from sector_mapping import sector_stocks  # Assuming this is a list of stock tickers
@@ -42,6 +43,13 @@ def calculate_signals(ticker, lookback_days=14):
             volume=df['Volume']
         ).on_balance_volume()
         
+        # Bollinger Bands for std dev analysis
+        bb = BollingerBands(close=df['Close'], window=lookback_days, window_dev=2)
+        df['bb_upper'] = bb.bollinger_hband()
+        df['bb_middle'] = bb.bollinger_mavg()
+        df['bb_lower'] = bb.bollinger_lband()
+        df['bb_percent'] = bb.bollinger_pband()  # %b indicator (0-1 range)
+        
         # Get latest values
         latest = df.iloc[-1]
         prev = df.iloc[-2]
@@ -58,6 +66,21 @@ def calculate_signals(ticker, lookback_days=14):
         sma_cross = 'Golden Cross' if latest['SMA_14'] > latest['SMA_26'] and prev['SMA_14'] <= prev['SMA_26'] else (
                     'Death Cross' if latest['SMA_14'] < latest['SMA_26'] and prev['SMA_14'] >= prev['SMA_26'] else None)
         
+        # Bollinger Band Signals (Std Dev Analysis)
+        bb_signal = None
+        if latest['Close'] > df['bb_upper'].iloc[-1]:  # Price > 2 std dev (very strong bullish)
+            bb_signal = "Very Strong Bullish (>2σ)"
+        elif latest['Close'] > df['bb_middle'].iloc[-1] + 1.5 * (df['bb_upper'].iloc[-1] - df['bb_middle'].iloc[-1]):
+            bb_signal = "Strong Bullish (>1.5σ)"
+        elif latest['Close'] > df['bb_middle'].iloc[-1] + 0.5 * (df['bb_upper'].iloc[-1] - df['bb_middle'].iloc[-1]):
+            bb_signal = "Bullish (>0.5σ)"
+        elif latest['Close'] < df['bb_middle'].iloc[-1] - 1.5 * (df['bb_middle'].iloc[-1] - df['bb_lower'].iloc[-1]):
+            bb_signal = "Strong Bearish (<-1.5σ)"
+        elif latest['Close'] < df['bb_middle'].iloc[-1] - 0.5 * (df['bb_middle'].iloc[-1] - df['bb_lower'].iloc[-1]):
+            bb_signal = "Bearish (<-0.5σ)"
+        else:
+            bb_signal = "Neutral"
+        
         # Generate Trading Signal
         signal = "HOLD"
         signal_reasons = []
@@ -71,6 +94,8 @@ def calculate_signals(ticker, lookback_days=14):
             signal_reasons.append(f"Large Price Gain ({price_change_pct:.1f}%)")
         if price_change_pct < -10:
             signal_reasons.append(f"Large Price Drop ({price_change_pct:.1f}%)")
+        if bb_signal:
+            signal_reasons.append(bb_signal)
 
         # Trend Conditions
         sma_bullish = latest['Close'] > latest['SMA_14'] > latest['SMA_26']
@@ -87,6 +112,12 @@ def calculate_signals(ticker, lookback_days=14):
         # Momentum Conditions
         roc_bullish = latest['ROC'] > 0
         roc_bearish = latest['ROC'] < 0
+        
+        # Bollinger Band Conditions
+        bb_bullish = "Bullish" in bb_signal or "Strong Bullish" in bb_signal
+        bb_strong_bullish = "Strong Bullish" in bb_signal or "Very Strong Bullish" in bb_signal
+        bb_bearish = "Bearish" in bb_signal or "Strong Bearish" in bb_signal
+        bb_strong_bearish = "Strong Bearish" in bb_signal
 
         # Composite Signal Logic
         bullish_count = 0
@@ -98,6 +129,7 @@ def calculate_signals(ticker, lookback_days=14):
         if vwap_bullish: bullish_count += 1
         if obv_bullish: bullish_count += 1
         if roc_bullish: bullish_count += 1
+        if bb_bullish: bullish_count += 1
         if volume_spike and obv_bullish: bullish_count += 1  # Extra weight for volume confirmation
 
         # Count bearish indicators
@@ -106,25 +138,26 @@ def calculate_signals(ticker, lookback_days=14):
         if vwap_bearish: bearish_count += 1
         if obv_bearish: bearish_count += 1
         if roc_bearish: bearish_count += 1
+        if bb_bearish: bearish_count += 1
         if volume_spike and obv_bearish: bearish_count += 1  # Extra weight for volume confirmation
 
         # Strong Buy Signal (multiple confirmations)
         if (bullish_count >= 4 and 
-            latest['RSI'] < 60 and  # Not overbought
+            (bb_strong_bullish or latest['RSI'] < 60) and  # Not overbought or strong BB signal
             not any("RSI Overbought" in r for r in signal_reasons)):
             signal = "STRONG BUY"
         elif (bullish_count >= 3 and 
-            latest['RSI'] < 45 and  # More conservative
+            (bb_bullish or latest['RSI'] < 45) and  # More conservative
             any("RSI Oversold" in r for r in signal_reasons)):
             signal = "BUY"
 
         # Strong Sell Signal (multiple confirmations)
         elif (bearish_count >= 4 and 
-            latest['RSI'] > 40 and  # Not oversold
+            (bb_strong_bearish or latest['RSI'] > 40) and  # Not oversold or strong BB signal
             not any("RSI Oversold" in r for r in signal_reasons)):
             signal = "STRONG SELL"
         elif (bearish_count >= 3 and 
-            latest['RSI'] > 55 and  # More conservative
+            (bb_bearish or latest['RSI'] > 55) and  # More conservative
             any("RSI Overbought" in r for r in signal_reasons)):
             signal = "SELL"
 
@@ -133,6 +166,12 @@ def calculate_signals(ticker, lookback_days=14):
             signal = "STRONG SELL (Extreme Overbought)"
         elif latest['RSI'] < 30 and price_change_pct < -10:
             signal = "STRONG BUY (Extreme Oversold)"
+            
+        # Bollinger Band extreme conditions
+        if bb_strong_bullish and obv_bullish and volume_spike:
+            signal = "STRONG BUY (BB Strong Bullish with Volume)"
+        elif bb_strong_bearish and obv_bearish and volume_spike:
+            signal = "STRONG SELL (BB Strong Bearish with Volume)"
 
         # Add reasons to signal if not already included
         if signal != "HOLD" and len(signal_reasons) > 0:
@@ -151,6 +190,8 @@ def calculate_signals(ticker, lookback_days=14):
             'Volume': f"{latest['Volume']/1e6:.1f}M",
             'Volume Spike': 'Yes' if volume_spike else 'No',
             'OBV Trend': obv_trend,
+            'MACD_diff': latest['MACD_diff'],
+            'BB Signal': bb_signal,
             'Signal': signal,
             'Momentum Score': min(100, max(0, (
                 # Price Momentum (30%)
@@ -175,6 +216,12 @@ def calculate_signals(ticker, lookback_days=14):
                 (0.075 * latest['RSI'] if not pd.isna(latest['RSI']) else 0) +
                 (0.075 * (100 if (30 < latest['RSI'] < 70) else 
                         150 if (latest['RSI'] < 30 or latest['RSI'] > 70) else 0)) +
+                
+                # Bollinger Band Conditions (10%)
+                (0.05 * (150 if bb_strong_bullish else 
+                        100 if bb_bullish else
+                        -100 if bb_bearish else
+                        -150 if bb_strong_bearish else 0)) +
                 
                 # Risk Adjustment (10%)
                 (-0.05 * abs(latest['RSI'] - 50) if not pd.isna(latest['RSI']) else 0) +
@@ -235,8 +282,9 @@ def generate_html_report(results, output_file='momentum_report.html'):
                 <th>Volume</th>
                 <th>Volume Spike</th>
                 <th>OBV Trend</th>
+                <th>MACD</th>
+                <th>BB Signal</th>
                 <th>Signal</th>
-                <th>Momentum Score</th>
             </tr>
             {"".join([
                 f"""
@@ -261,16 +309,15 @@ def generate_html_report(results, output_file='momentum_report.html'):
                     <td class="{('positive' if r['OBV Trend'] == '↑' else 'negative')}">
                         {r['OBV Trend']}
                     </td>
+                    <td class="{('positive' if float(r['MACD_diff']) > 0 else 'negative')}">
+                        {'↑' if float(r['MACD_diff']) > 0 else '↓'}
+                    </td>
+                    <td class="{('positive' if 'Bullish' in r['BB Signal'] else 'negative' if 'Bearish' in r['BB Signal'] else 'neutral')}">
+                        {r['BB Signal']}
+                    </td>
                     <td><b class="{('positive' if 'BUY' in r['Signal'] else 'negative' if 'SELL' in r['Signal'] else 'neutral')}">
                         {r['Signal']}
                     </b></td>
-                    <td>
-                        <div class="score-bar">
-                            <div class="score-value" style="margin-left: {r['Momentum Score']}%">
-                                {r['Momentum Score']:.0f}
-                            </div>
-                        </div>
-                    </td>
                 </tr>
                 """ for i, r in enumerate(results)
             ])}
@@ -280,6 +327,14 @@ def generate_html_report(results, output_file='momentum_report.html'):
             <li><b>SMA Cross</b>: Golden Cross (14MA > 26MA) = Bullish, Death Cross (14MA < 26MA) = Bearish</li>
             <li><b>Volume Spike</b>: Volume > 2x 20-day average</li>
             <li><b>OBV Trend</b>: ↑ = Accumulation, ↓ = Distribution</li>
+            <li><b>BB Signal</b>: 
+                <ul>
+                    <li>Price > 1.5σ: Strong Bullish</li>
+                    <li>Price > 0.5σ: Bullish</li>
+                    <li>Price < -0.5σ: Bearish</li>
+                    <li>Price < -1.5σ: Strong Bearish</li>
+                </ul>
+            </li>
         </ul>
     </body>
     </html>
@@ -312,4 +367,5 @@ def analyze_stocks(stock_list, lookback_days=14):
 # Example usage
 if __name__ == "__main__":
     stocks = [stock for stocks in sector_stocks.values() for stock in stocks]  # Replace with your stock list
+    #stocks = ["AAPL", "GOOGL", "MSFT", "AMZN", "TSLA"]  # Example stock list
     analyze_stocks(stocks, lookback_days=14)
