@@ -324,7 +324,7 @@ class MLTechnicalScorer:
         """Calculate ML-based score and generate trading signals with VIX"""
         if self.model is None or self.should_retrain():
             print("Model not loaded or needs retraining - training now...")
-            self.train_model(sector_stocks, current_date - timedelta(days=365*3),current_date)
+            self.train_model([stock for stocks in sector_stocks.values() for stock in stocks], current_date - timedelta(days=365*3),current_date)
 
         
         try:
