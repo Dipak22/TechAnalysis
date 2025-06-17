@@ -1,0 +1,2527 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Strategy Backtest Report</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; }
+                h1, h2 { color: #2c3e50; }
+                .log-entry { margin-bottom: 30px; border: 1px solid #ddd; padding: 15px; border-radius: 5px; }
+                .phase { font-weight: bold; color: #3498db; }
+                .position { margin: 10px 0; padding: 8px; background: #f8f9fa; border-radius: 4px; }
+                .positive { color: #27ae60; }
+                .negative { color: #e74c3c; }
+                .transaction { margin: 15px 0; }
+                table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+                th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+                tr:hover { background-color: #f5f5f5; }
+            </style>
+        </head>
+        <body>
+        <h1>Strategy Backtest Report</h1>
+            <h2>Weekly Portfolio Snapshots</h2>
+            
+            <div class="log-entry">
+                <h3>Date: 2024-01-01 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $1,000,000.00 | 
+                <strong>Total Value:</strong> $1,000,000.00</p>
+                <h4>Positions:</h4>
+                <p>No positions</p>
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-01-01 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $600,000.00 | 
+                <strong>Total Value:</strong> $1,013,308.90</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 398.55 shares<br>
+                    Entry: $501.82 | Current: $502.86<br>
+                    Value: $200,413.66 | 
+                    <span class="positive">Return: +0.21%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Short-term RSI Overbought (79.0), Stochastic Overbought, BB Upper Band (104.62%), Price Above VWAP, Short-term Up 11.7%]
+                </div>
+                
+                <div class="position">
+                    <strong>GOODLUCK.NS</strong>: 213.89 shares<br>
+                    Entry: $935.04 | Current: $995.33<br>
+                    Value: $212,895.24 | 
+                    <span class="positive">Return: +6.45%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (84.50%), Price Above VWAP, Short-term Up 10.0%]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-01-08 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $600,000.00 | 
+                <strong>Total Value:</strong> $999,890.40</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 398.55 shares<br>
+                    Entry: $501.82 | Current: $474.74<br>
+                    Value: $189,206.38 | 
+                    <span class="negative">Return: -5.40%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: BB Upper Band (87.58%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>GOODLUCK.NS</strong>: 213.89 shares<br>
+                    Entry: $935.04 | Current: $984.99<br>
+                    Value: $210,684.02 | 
+                    <span class="positive">Return: +5.34%</span><br>
+                    Days Held: 7 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (71.2), Stochastic Overbought, BB Upper Band (106.58%), Price Above VWAP, Short-term Up 10.3%]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-01-08 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $410,684.02 | 
+                <strong>Total Value:</strong> $999,073.13</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 398.55 shares<br>
+                    Entry: $501.82 | Current: $474.74<br>
+                    Value: $189,206.38 | 
+                    <span class="negative">Return: -5.40%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: BB Upper Band (87.58%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>NRAIL.NS</strong>: 457.94 shares<br>
+                    Entry: $436.74 | Current: $445.65<br>
+                    Value: $204,079.64 | 
+                    <span class="positive">Return: +2.04%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (73.9), Stochastic Overbought, BB Upper Band (111.18%), Price Above VWAP, Short-term Up 10.1%]
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 5,154.64 shares<br>
+                    Entry: $38.80 | Current: $37.85<br>
+                    Value: $195,103.08 | 
+                    <span class="negative">Return: -2.45%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Short-term RSI Overbought (71.9), BB Upper Band (140.03%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 12.1%]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-01-15 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $410,684.02 | 
+                <strong>Total Value:</strong> $1,030,178.11</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 398.55 shares<br>
+                    Entry: $501.82 | Current: $492.45<br>
+                    Value: $196,265.01 | 
+                    <span class="negative">Return: -1.87%</span><br>
+                    Days Held: 14 | Signal: HOLD (Conflicting signals: BB Upper Band (81.82%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>NRAIL.NS</strong>: 457.94 shares<br>
+                    Entry: $436.74 | Current: $508.29<br>
+                    Value: $232,765.16 | 
+                    <span class="positive">Return: +16.38%</span><br>
+                    Days Held: 7 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (77.2), Stochastic Overbought, BB Upper Band (118.11%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 16.8%]
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 5,154.64 shares<br>
+                    Entry: $38.80 | Current: $36.95<br>
+                    Value: $190,463.92 | 
+                    <span class="negative">Return: -4.77%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), BB Upper Band (97.39%), Price Above VWAP, Short-term Up 12.6%)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-01-15 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $1,147.94 | 
+                <strong>Total Value:</strong> $1,065,837.22</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 398.55 shares<br>
+                    Entry: $501.82 | Current: $492.45<br>
+                    Value: $196,265.01 | 
+                    <span class="negative">Return: -1.87%</span><br>
+                    Days Held: 14 | Signal: HOLD (Conflicting signals: BB Upper Band (81.82%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>NRAIL.NS</strong>: 457.94 shares<br>
+                    Entry: $436.74 | Current: $508.29<br>
+                    Value: $232,765.16 | 
+                    <span class="positive">Return: +16.38%</span><br>
+                    Days Held: 7 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (77.2), Stochastic Overbought, BB Upper Band (118.11%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 16.8%]
+                </div>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 1,161.58 shares<br>
+                    Entry: $172.18 | Current: $173.67<br>
+                    Value: $201,733.72 | 
+                    <span class="positive">Return: +0.87%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (83.10%), Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>GUJAPOLLO.NS</strong>: 673.79 shares<br>
+                    Entry: $296.83 | Current: $317.52<br>
+                    Value: $213,938.86 | 
+                    <span class="positive">Return: +6.97%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Short-term RSI Overbought (71.2), Stochastic Overbought, BB Upper Band (127.23%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 29.8%]
+                </div>
+                
+                <div class="position">
+                    <strong>DBREALTY.NS</strong>: 898.27 shares<br>
+                    Entry: $222.65 | Current: $244.90<br>
+                    Value: $219,986.52 | 
+                    <span class="positive">Return: +9.99%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (101.82%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 18.7%]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-01-22 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $1,147.94 | 
+                <strong>Total Value:</strong> $1,061,847.68</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 398.55 shares<br>
+                    Entry: $501.82 | Current: $472.86<br>
+                    Value: $188,459.24 | 
+                    <span class="negative">Return: -5.77%</span><br>
+                    Days Held: 21 | Signal: HOLD (Conflicting signals: Death Cross (Short < Medium MA), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>NRAIL.NS</strong>: 457.94 shares<br>
+                    Entry: $436.74 | Current: $511.13<br>
+                    Value: $234,063.88 | 
+                    <span class="positive">Return: +17.03%</span><br>
+                    Days Held: 14 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (76.9), Stochastic Overbought, BB Upper Band (110.52%), Price Above VWAP, Short-term Up 21.2%]
+                </div>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 1,161.58 shares<br>
+                    Entry: $172.18 | Current: $170.58<br>
+                    Value: $198,139.60 | 
+                    <span class="negative">Return: -0.93%</span><br>
+                    Days Held: 7 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>GUJAPOLLO.NS</strong>: 673.79 shares<br>
+                    Entry: $296.83 | Current: $322.99<br>
+                    Value: $217,625.15 | 
+                    <span class="positive">Return: +8.81%</span><br>
+                    Days Held: 7 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (74.8), Stochastic Overbought, BB Upper Band (111.23%), Price Above VWAP, Short-term Up 18.7%]
+                </div>
+                
+                <div class="position">
+                    <strong>DBREALTY.NS</strong>: 898.27 shares<br>
+                    Entry: $222.65 | Current: $247.60<br>
+                    Value: $222,411.86 | 
+                    <span class="positive">Return: +11.21%</span><br>
+                    Days Held: 7 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Short-term RSI Overbought (70.5), Stochastic Overbought, BB Upper Band (119.49%), Price Above VWAP, Short-term Up 33.3%]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-01-22 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $189,607.18 | 
+                <strong>Total Value:</strong> $1,061,847.68</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>NRAIL.NS</strong>: 457.94 shares<br>
+                    Entry: $436.74 | Current: $511.13<br>
+                    Value: $234,063.88 | 
+                    <span class="positive">Return: +17.03%</span><br>
+                    Days Held: 14 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (76.9), Stochastic Overbought, BB Upper Band (110.52%), Price Above VWAP, Short-term Up 21.2%]
+                </div>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 1,161.58 shares<br>
+                    Entry: $172.18 | Current: $170.58<br>
+                    Value: $198,139.60 | 
+                    <span class="negative">Return: -0.93%</span><br>
+                    Days Held: 7 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>GUJAPOLLO.NS</strong>: 673.79 shares<br>
+                    Entry: $296.83 | Current: $322.99<br>
+                    Value: $217,625.15 | 
+                    <span class="positive">Return: +8.81%</span><br>
+                    Days Held: 7 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (74.8), Stochastic Overbought, BB Upper Band (111.23%), Price Above VWAP, Short-term Up 18.7%]
+                </div>
+                
+                <div class="position">
+                    <strong>DBREALTY.NS</strong>: 898.27 shares<br>
+                    Entry: $222.65 | Current: $247.60<br>
+                    Value: $222,411.86 | 
+                    <span class="positive">Return: +11.21%</span><br>
+                    Days Held: 7 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Short-term RSI Overbought (70.5), Stochastic Overbought, BB Upper Band (119.49%), Price Above VWAP, Short-term Up 33.3%]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-01-29 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $189,607.18 | 
+                <strong>Total Value:</strong> $1,091,067.55</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>NRAIL.NS</strong>: 457.94 shares<br>
+                    Entry: $436.74 | Current: $500.83<br>
+                    Value: $229,347.50 | 
+                    <span class="positive">Return: +14.67%</span><br>
+                    Days Held: 21 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), Stochastic Overbought, BB Upper Band (99.37%), Price Above VWAP, Short-term Up 15.8%]
+                </div>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 1,161.58 shares<br>
+                    Entry: $172.18 | Current: $206.76<br>
+                    Value: $240,167.47 | 
+                    <span class="positive">Return: +20.08%</span><br>
+                    Days Held: 14 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (81.7), Stochastic Overbought, BB Upper Band (125.41%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 22.5%]
+                </div>
+                
+                <div class="position">
+                    <strong>GUJAPOLLO.NS</strong>: 673.79 shares<br>
+                    Entry: $296.83 | Current: $315.38<br>
+                    Value: $212,497.84 | 
+                    <span class="positive">Return: +6.25%</span><br>
+                    Days Held: 14 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (87.90%), Price Above VWAP, Short-term Up 17.7%]
+                </div>
+                
+                <div class="position">
+                    <strong>DBREALTY.NS</strong>: 898.27 shares<br>
+                    Entry: $222.65 | Current: $244.30<br>
+                    Value: $219,447.57 | 
+                    <span class="positive">Return: +9.72%</span><br>
+                    Days Held: 14 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (108.49%), Price Above VWAP, Short-term Up 26.9%]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-01-29 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $0.00 | 
+                <strong>Total Value:</strong> $1,128,812.40</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>NRAIL.NS</strong>: 457.94 shares<br>
+                    Entry: $436.74 | Current: $500.83<br>
+                    Value: $229,347.50 | 
+                    <span class="positive">Return: +14.67%</span><br>
+                    Days Held: 21 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), Stochastic Overbought, BB Upper Band (99.37%), Price Above VWAP, Short-term Up 15.8%]
+                </div>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 1,161.58 shares<br>
+                    Entry: $172.18 | Current: $206.76<br>
+                    Value: $240,167.47 | 
+                    <span class="positive">Return: +20.08%</span><br>
+                    Days Held: 14 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (81.7), Stochastic Overbought, BB Upper Band (125.41%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 22.5%]
+                </div>
+                
+                <div class="position">
+                    <strong>GUJAPOLLO.NS</strong>: 673.79 shares<br>
+                    Entry: $296.83 | Current: $315.38<br>
+                    Value: $212,497.84 | 
+                    <span class="positive">Return: +6.25%</span><br>
+                    Days Held: 14 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (87.90%), Price Above VWAP, Short-term Up 17.7%]
+                </div>
+                
+                <div class="position">
+                    <strong>DBREALTY.NS</strong>: 898.27 shares<br>
+                    Entry: $222.65 | Current: $244.30<br>
+                    Value: $219,447.57 | 
+                    <span class="positive">Return: +9.72%</span><br>
+                    Days Held: 14 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (108.49%), Price Above VWAP, Short-term Up 26.9%]
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,414.60 shares<br>
+                    Entry: $42.95 | Current: $51.50<br>
+                    Value: $227,352.03 | 
+                    <span class="positive">Return: +19.91%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (144.49%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 10.7%]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-02-05 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $0.00 | 
+                <strong>Total Value:</strong> $1,204,955.22</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>NRAIL.NS</strong>: 457.94 shares<br>
+                    Entry: $436.74 | Current: $489.83<br>
+                    Value: $224,312.17 | 
+                    <span class="positive">Return: +12.16%</span><br>
+                    Days Held: 28 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (91.43%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 1,161.58 shares<br>
+                    Entry: $172.18 | Current: $277.18<br>
+                    Value: $321,962.40 | 
+                    <span class="positive">Return: +60.98%</span><br>
+                    Days Held: 21 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (90.6), Stochastic Overbought, BB Upper Band (148.79%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 53.7%]
+                </div>
+                
+                <div class="position">
+                    <strong>GUJAPOLLO.NS</strong>: 673.79 shares<br>
+                    Entry: $296.83 | Current: $304.64<br>
+                    Value: $205,259.30 | 
+                    <span class="positive">Return: +2.63%</span><br>
+                    Days Held: 21 | Signal: HOLD (Conflicting signals: PSAR Bullish (Partial), Strong Trend (ADX > 25), Stochastic Oversold, Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>DBREALTY.NS</strong>: 898.27 shares<br>
+                    Entry: $222.65 | Current: $273.05<br>
+                    Value: $245,272.84 | 
+                    <span class="positive">Return: +22.64%</span><br>
+                    Days Held: 21 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Short-term RSI Overbought (70.8), Stochastic Overbought, BB Upper Band (108.64%), Price Above VWAP, Short-term Up 18.6%]
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,414.60 shares<br>
+                    Entry: $42.95 | Current: $47.15<br>
+                    Value: $208,148.51 | 
+                    <span class="positive">Return: +9.78%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), BB Upper Band (107.43%), Price Above VWAP, Short-term Up 35.5%)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-02-05 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $0.00 | 
+                <strong>Total Value:</strong> $1,204,955.22</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>NRAIL.NS</strong>: 457.94 shares<br>
+                    Entry: $436.74 | Current: $489.83<br>
+                    Value: $224,312.17 | 
+                    <span class="positive">Return: +12.16%</span><br>
+                    Days Held: 28 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (91.43%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 1,161.58 shares<br>
+                    Entry: $172.18 | Current: $277.18<br>
+                    Value: $321,962.40 | 
+                    <span class="positive">Return: +60.98%</span><br>
+                    Days Held: 21 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (90.6), Stochastic Overbought, BB Upper Band (148.79%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 53.7%]
+                </div>
+                
+                <div class="position">
+                    <strong>GUJAPOLLO.NS</strong>: 673.79 shares<br>
+                    Entry: $296.83 | Current: $304.64<br>
+                    Value: $205,259.30 | 
+                    <span class="positive">Return: +2.63%</span><br>
+                    Days Held: 21 | Signal: HOLD (Conflicting signals: PSAR Bullish (Partial), Strong Trend (ADX > 25), Stochastic Oversold, Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>DBREALTY.NS</strong>: 898.27 shares<br>
+                    Entry: $222.65 | Current: $273.05<br>
+                    Value: $245,272.84 | 
+                    <span class="positive">Return: +22.64%</span><br>
+                    Days Held: 21 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Short-term RSI Overbought (70.8), Stochastic Overbought, BB Upper Band (108.64%), Price Above VWAP, Short-term Up 18.6%]
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,414.60 shares<br>
+                    Entry: $42.95 | Current: $47.15<br>
+                    Value: $208,148.51 | 
+                    <span class="positive">Return: +9.78%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), BB Upper Band (107.43%), Price Above VWAP, Short-term Up 35.5%)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-02-12 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $0.00 | 
+                <strong>Total Value:</strong> $1,071,152.32</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>NRAIL.NS</strong>: 457.94 shares<br>
+                    Entry: $436.74 | Current: $456.25<br>
+                    Value: $208,932.71 | 
+                    <span class="positive">Return: +4.47%</span><br>
+                    Days Held: 35 | Signal: HOLD (Conflicting signals: Strong Trend (ADX > 25), Stochastic Oversold, Price Above VWAP, Short-term Down 10.3%)
+                </div>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 1,161.58 shares<br>
+                    Entry: $172.18 | Current: $211.95<br>
+                    Value: $246,196.30 | 
+                    <span class="positive">Return: +23.10%</span><br>
+                    Days Held: 28 | Signal: HOLD (Conflicting signals: Strong Trend (ADX > 25), BB Upper Band (89.40%), Price Above VWAP, Short-term Up 36.7%)
+                </div>
+                
+                <div class="position">
+                    <strong>GUJAPOLLO.NS</strong>: 673.79 shares<br>
+                    Entry: $296.83 | Current: $279.37<br>
+                    Value: $188,235.36 | 
+                    <span class="negative">Return: -5.88%</span><br>
+                    Days Held: 28 | Signal: HOLD (Conflicting signals: Price Above VWAP, Short-term Down 9.6%)
+                </div>
+                
+                <div class="position">
+                    <strong>DBREALTY.NS</strong>: 898.27 shares<br>
+                    Entry: $222.65 | Current: $256.80<br>
+                    Value: $230,675.94 | 
+                    <span class="positive">Return: +15.34%</span><br>
+                    Days Held: 28 | Signal: HOLD (Conflicting signals: Short-term RSI Overbought (71.1), Stochastic Overbought, BB Upper Band (100.10%), Price Above VWAP, Short-term Up 11.2%)
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,414.60 shares<br>
+                    Entry: $42.95 | Current: $44.65<br>
+                    Value: $197,112.01 | 
+                    <span class="positive">Return: +3.96%</span><br>
+                    Days Held: 14 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (85.78%), Price Above VWAP, Short-term Up 28.5%)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-02-12 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $197,168.07 | 
+                <strong>Total Value:</strong> $1,061,164.98</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 1,161.58 shares<br>
+                    Entry: $172.18 | Current: $211.95<br>
+                    Value: $246,196.30 | 
+                    <span class="positive">Return: +23.10%</span><br>
+                    Days Held: 28 | Signal: HOLD (Conflicting signals: Strong Trend (ADX > 25), BB Upper Band (89.40%), Price Above VWAP, Short-term Up 36.7%)
+                </div>
+                
+                <div class="position">
+                    <strong>DBREALTY.NS</strong>: 898.27 shares<br>
+                    Entry: $222.65 | Current: $256.80<br>
+                    Value: $230,675.94 | 
+                    <span class="positive">Return: +15.34%</span><br>
+                    Days Held: 28 | Signal: HOLD (Conflicting signals: Short-term RSI Overbought (71.1), Stochastic Overbought, BB Upper Band (100.10%), Price Above VWAP, Short-term Up 11.2%)
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,414.60 shares<br>
+                    Entry: $42.95 | Current: $44.65<br>
+                    Value: $197,112.01 | 
+                    <span class="positive">Return: +3.96%</span><br>
+                    Days Held: 14 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (85.78%), Price Above VWAP, Short-term Up 28.5%)
+                </div>
+                
+                <div class="position">
+                    <strong>INDOTHAI.NS</strong>: 556.98 shares<br>
+                    Entry: $359.08 | Current: $341.15<br>
+                    Value: $190,012.67 | 
+                    <span class="negative">Return: -4.99%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (73.8), Stochastic Overbought, BB Upper Band (111.32%), Price Above VWAP, Short-term Up 17.1%]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-02-19 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $197,168.07 | 
+                <strong>Total Value:</strong> $1,114,456.79</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 1,161.58 shares<br>
+                    Entry: $172.18 | Current: $238.85<br>
+                    Value: $277,441.85 | 
+                    <span class="positive">Return: +38.72%</span><br>
+                    Days Held: 35 | Signal: HOLD (Conflicting signals: Strong Trend (ADX > 25), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>DBREALTY.NS</strong>: 898.27 shares<br>
+                    Entry: $222.65 | Current: $270.55<br>
+                    Value: $243,027.16 | 
+                    <span class="positive">Return: +21.51%</span><br>
+                    Days Held: 35 | Signal: HOLD (Conflicting signals: Strong Trend (ADX > 25), BB Upper Band (84.24%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,414.60 shares<br>
+                    Entry: $42.95 | Current: $48.80<br>
+                    Value: $215,432.60 | 
+                    <span class="positive">Return: +13.62%</span><br>
+                    Days Held: 21 | Signal: HOLD (Conflicting signals: BB Upper Band (80.44%), Price Above VWAP, Short-term Down 14.0%)
+                </div>
+                
+                <div class="position">
+                    <strong>INDOTHAI.NS</strong>: 556.98 shares<br>
+                    Entry: $359.08 | Current: $325.66<br>
+                    Value: $181,387.11 | 
+                    <span class="negative">Return: -9.31%</span><br>
+                    Days Held: 7 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), BB Upper Band (83.35%), Price Above VWAP]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-02-19 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $197,168.07 | 
+                <strong>Total Value:</strong> $1,114,456.79</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 1,161.58 shares<br>
+                    Entry: $172.18 | Current: $238.85<br>
+                    Value: $277,441.85 | 
+                    <span class="positive">Return: +38.72%</span><br>
+                    Days Held: 35 | Signal: HOLD (Conflicting signals: Strong Trend (ADX > 25), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>DBREALTY.NS</strong>: 898.27 shares<br>
+                    Entry: $222.65 | Current: $270.55<br>
+                    Value: $243,027.16 | 
+                    <span class="positive">Return: +21.51%</span><br>
+                    Days Held: 35 | Signal: HOLD (Conflicting signals: Strong Trend (ADX > 25), BB Upper Band (84.24%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,414.60 shares<br>
+                    Entry: $42.95 | Current: $48.80<br>
+                    Value: $215,432.60 | 
+                    <span class="positive">Return: +13.62%</span><br>
+                    Days Held: 21 | Signal: HOLD (Conflicting signals: BB Upper Band (80.44%), Price Above VWAP, Short-term Down 14.0%)
+                </div>
+                
+                <div class="position">
+                    <strong>INDOTHAI.NS</strong>: 556.98 shares<br>
+                    Entry: $359.08 | Current: $325.66<br>
+                    Value: $181,387.11 | 
+                    <span class="negative">Return: -9.31%</span><br>
+                    Days Held: 7 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), BB Upper Band (83.35%), Price Above VWAP]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-02-26 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $197,168.07 | 
+                <strong>Total Value:</strong> $1,121,185.29</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 1,161.58 shares<br>
+                    Entry: $172.18 | Current: $237.35<br>
+                    Value: $275,702.76 | 
+                    <span class="positive">Return: +37.85%</span><br>
+                    Days Held: 42 | Signal: HOLD (Conflicting signals: Strong Trend (ADX > 25), BB Upper Band (83.72%), Price Above VWAP, Short-term Down 7.3%)
+                </div>
+                
+                <div class="position">
+                    <strong>DBREALTY.NS</strong>: 898.27 shares<br>
+                    Entry: $222.65 | Current: $274.00<br>
+                    Value: $246,126.21 | 
+                    <span class="positive">Return: +23.06%</span><br>
+                    Days Held: 42 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), BB Upper Band (83.90%), Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,414.60 shares<br>
+                    Entry: $42.95 | Current: $47.35<br>
+                    Value: $209,031.42 | 
+                    <span class="positive">Return: +10.24%</span><br>
+                    Days Held: 28 | Signal: HOLD (Conflicting signals: Price Above VWAP, Short-term Down 6.1%)
+                </div>
+                
+                <div class="position">
+                    <strong>INDOTHAI.NS</strong>: 556.98 shares<br>
+                    Entry: $359.08 | Current: $346.79<br>
+                    Value: $193,156.82 | 
+                    <span class="negative">Return: -3.42%</span><br>
+                    Days Held: 14 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), Price Above VWAP]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-02-26 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $197,168.07 | 
+                <strong>Total Value:</strong> $1,121,185.29</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 1,161.58 shares<br>
+                    Entry: $172.18 | Current: $237.35<br>
+                    Value: $275,702.76 | 
+                    <span class="positive">Return: +37.85%</span><br>
+                    Days Held: 42 | Signal: HOLD (Conflicting signals: Strong Trend (ADX > 25), BB Upper Band (83.72%), Price Above VWAP, Short-term Down 7.3%)
+                </div>
+                
+                <div class="position">
+                    <strong>DBREALTY.NS</strong>: 898.27 shares<br>
+                    Entry: $222.65 | Current: $274.00<br>
+                    Value: $246,126.21 | 
+                    <span class="positive">Return: +23.06%</span><br>
+                    Days Held: 42 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), BB Upper Band (83.90%), Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,414.60 shares<br>
+                    Entry: $42.95 | Current: $47.35<br>
+                    Value: $209,031.42 | 
+                    <span class="positive">Return: +10.24%</span><br>
+                    Days Held: 28 | Signal: HOLD (Conflicting signals: Price Above VWAP, Short-term Down 6.1%)
+                </div>
+                
+                <div class="position">
+                    <strong>INDOTHAI.NS</strong>: 556.98 shares<br>
+                    Entry: $359.08 | Current: $346.79<br>
+                    Value: $193,156.82 | 
+                    <span class="negative">Return: -3.42%</span><br>
+                    Days Held: 14 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), Price Above VWAP]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-03-04 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $197,168.07 | 
+                <strong>Total Value:</strong> $1,082,126.85</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 1,161.58 shares<br>
+                    Entry: $172.18 | Current: $236.05<br>
+                    Value: $274,195.55 | 
+                    <span class="positive">Return: +37.10%</span><br>
+                    Days Held: 49 | Signal: HOLD (Conflicting signals: Strong Trend (ADX > 25), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>DBREALTY.NS</strong>: 898.27 shares<br>
+                    Entry: $222.65 | Current: $268.10<br>
+                    Value: $240,826.41 | 
+                    <span class="positive">Return: +20.41%</span><br>
+                    Days Held: 49 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,414.60 shares<br>
+                    Entry: $42.95 | Current: $43.70<br>
+                    Value: $192,918.13 | 
+                    <span class="positive">Return: +1.75%</span><br>
+                    Days Held: 35 | Signal: HOLD
+                </div>
+                
+                <div class="position">
+                    <strong>INDOTHAI.NS</strong>: 556.98 shares<br>
+                    Entry: $359.08 | Current: $317.82<br>
+                    Value: $177,018.68 | 
+                    <span class="negative">Return: -11.49%</span><br>
+                    Days Held: 21 | Signal: HOLD (Conflicting signals: Strong Trend (ADX > 25), Price Above VWAP)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-03-04 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $0.00 | 
+                <strong>Total Value:</strong> $1,078,949.62</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 1,161.58 shares<br>
+                    Entry: $172.18 | Current: $236.05<br>
+                    Value: $274,195.55 | 
+                    <span class="positive">Return: +37.10%</span><br>
+                    Days Held: 49 | Signal: HOLD (Conflicting signals: Strong Trend (ADX > 25), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>DBREALTY.NS</strong>: 898.27 shares<br>
+                    Entry: $222.65 | Current: $268.10<br>
+                    Value: $240,826.41 | 
+                    <span class="positive">Return: +20.41%</span><br>
+                    Days Held: 49 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,414.60 shares<br>
+                    Entry: $42.95 | Current: $43.70<br>
+                    Value: $192,918.13 | 
+                    <span class="positive">Return: +1.75%</span><br>
+                    Days Held: 35 | Signal: HOLD
+                </div>
+                
+                <div class="position">
+                    <strong>INDOTHAI.NS</strong>: 556.98 shares<br>
+                    Entry: $359.08 | Current: $317.82<br>
+                    Value: $177,018.68 | 
+                    <span class="negative">Return: -11.49%</span><br>
+                    Days Held: 21 | Signal: HOLD (Conflicting signals: Strong Trend (ADX > 25), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>KERNEX.NS</strong>: 299.74 shares<br>
+                    Entry: $657.80 | Current: $647.20<br>
+                    Value: $193,990.85 | 
+                    <span class="negative">Return: -1.61%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Price Above VWAP]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-03-11 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $0.00 | 
+                <strong>Total Value:</strong> $1,033,227.75</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 1,161.58 shares<br>
+                    Entry: $172.18 | Current: $217.49<br>
+                    Value: $252,630.90 | 
+                    <span class="positive">Return: +26.32%</span><br>
+                    Days Held: 56 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), Stochastic Oversold, Price Above VWAP, Short-term Down 5.3%]
+                </div>
+                
+                <div class="position">
+                    <strong>DBREALTY.NS</strong>: 898.27 shares<br>
+                    Entry: $222.65 | Current: $267.35<br>
+                    Value: $240,152.71 | 
+                    <span class="positive">Return: +20.08%</span><br>
+                    Days Held: 56 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,414.60 shares<br>
+                    Entry: $42.95 | Current: $41.95<br>
+                    Value: $185,192.58 | 
+                    <span class="negative">Return: -2.33%</span><br>
+                    Days Held: 42 | Signal: HOLD (Conflicting signals: Short-term Down 7.9%)
+                </div>
+                
+                <div class="position">
+                    <strong>INDOTHAI.NS</strong>: 556.98 shares<br>
+                    Entry: $359.08 | Current: $306.83<br>
+                    Value: $170,897.32 | 
+                    <span class="negative">Return: -14.55%</span><br>
+                    Days Held: 28 | Signal: HOLD (Conflicting signals: Strong Trend (ADX > 25))
+                </div>
+                
+                <div class="position">
+                    <strong>KERNEX.NS</strong>: 299.74 shares<br>
+                    Entry: $657.80 | Current: $615.05<br>
+                    Value: $184,354.24 | 
+                    <span class="negative">Return: -6.50%</span><br>
+                    Days Held: 7 | Signal: BUY (PSAR Bullish) [Golden Cross (Short > Medium MA), PSAR Bullish (All Timeframes)]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-03-11 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $185,192.58 | 
+                <strong>Total Value:</strong> $1,033,227.75</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 1,161.58 shares<br>
+                    Entry: $172.18 | Current: $217.49<br>
+                    Value: $252,630.90 | 
+                    <span class="positive">Return: +26.32%</span><br>
+                    Days Held: 56 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), Stochastic Oversold, Price Above VWAP, Short-term Down 5.3%]
+                </div>
+                
+                <div class="position">
+                    <strong>DBREALTY.NS</strong>: 898.27 shares<br>
+                    Entry: $222.65 | Current: $267.35<br>
+                    Value: $240,152.71 | 
+                    <span class="positive">Return: +20.08%</span><br>
+                    Days Held: 56 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>INDOTHAI.NS</strong>: 556.98 shares<br>
+                    Entry: $359.08 | Current: $306.83<br>
+                    Value: $170,897.32 | 
+                    <span class="negative">Return: -14.55%</span><br>
+                    Days Held: 28 | Signal: HOLD (Conflicting signals: Strong Trend (ADX > 25))
+                </div>
+                
+                <div class="position">
+                    <strong>KERNEX.NS</strong>: 299.74 shares<br>
+                    Entry: $657.80 | Current: $615.05<br>
+                    Value: $184,354.24 | 
+                    <span class="negative">Return: -6.50%</span><br>
+                    Days Held: 7 | Signal: BUY (PSAR Bullish) [Golden Cross (Short > Medium MA), PSAR Bullish (All Timeframes)]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-03-18 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $185,192.58 | 
+                <strong>Total Value:</strong> $951,412.93</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 1,161.58 shares<br>
+                    Entry: $172.18 | Current: $202.17<br>
+                    Value: $234,834.29 | 
+                    <span class="positive">Return: +17.42%</span><br>
+                    Days Held: 63 | Signal: STRONG SELL (Multi-Timeframe PSAR Confirmed) [Stochastic Oversold, Short-term Down 16.6%]
+                </div>
+                
+                <div class="position">
+                    <strong>DBREALTY.NS</strong>: 898.27 shares<br>
+                    Entry: $222.65 | Current: $215.10<br>
+                    Value: $193,218.06 | 
+                    <span class="negative">Return: -3.39%</span><br>
+                    Days Held: 63 | Signal: STRONG SELL (Multi-Timeframe PSAR Confirmed) [Stochastic Oversold, Short-term Down 19.9%]
+                </div>
+                
+                <div class="position">
+                    <strong>INDOTHAI.NS</strong>: 556.98 shares<br>
+                    Entry: $359.08 | Current: $297.74<br>
+                    Value: $165,833.27 | 
+                    <span class="negative">Return: -17.08%</span><br>
+                    Days Held: 35 | Signal: HOLD (Conflicting signals: Stochastic Oversold, Short-term Down 13.6%)
+                </div>
+                
+                <div class="position">
+                    <strong>KERNEX.NS</strong>: 299.74 shares<br>
+                    Entry: $657.80 | Current: $574.95<br>
+                    Value: $172,334.73 | 
+                    <span class="negative">Return: -12.60%</span><br>
+                    Days Held: 14 | Signal: HOLD (Conflicting signals: Stochastic Oversold, BB Lower Band (-6.01%), Short-term Down 19.5%)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-03-18 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $951,412.93 | 
+                <strong>Total Value:</strong> $951,412.93</p>
+                <h4>Positions:</h4>
+                <p>No positions</p>
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-03-25 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $951,412.93 | 
+                <strong>Total Value:</strong> $951,412.93</p>
+                <h4>Positions:</h4>
+                <p>No positions</p>
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-03-25 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $951,412.93 | 
+                <strong>Total Value:</strong> $951,412.93</p>
+                <h4>Positions:</h4>
+                <p>No positions</p>
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-04-01 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $951,412.93 | 
+                <strong>Total Value:</strong> $951,412.93</p>
+                <h4>Positions:</h4>
+                <p>No positions</p>
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-04-01 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $951,412.93 | 
+                <strong>Total Value:</strong> $951,412.93</p>
+                <h4>Positions:</h4>
+                <p>No positions</p>
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-04-08 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $951,412.93 | 
+                <strong>Total Value:</strong> $951,412.93</p>
+                <h4>Positions:</h4>
+                <p>No positions</p>
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-04-08 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $151,412.93 | 
+                <strong>Total Value:</strong> $935,641.50</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 870.81 shares<br>
+                    Entry: $229.67 | Current: $224.68<br>
+                    Value: $195,651.51 | 
+                    <span class="negative">Return: -2.17%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, Volume Spike (2x MA), OBV Uptick with Volume, Short-term Up 16.0%]
+                </div>
+                
+                <div class="position">
+                    <strong>NRAIL.NS</strong>: 416.99 shares<br>
+                    Entry: $479.63 | Current: $478.88<br>
+                    Value: $199,689.16 | 
+                    <span class="negative">Return: -0.16%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, Price Above VWAP, Short-term Up 12.1%]
+                </div>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 408.35 shares<br>
+                    Entry: $489.78 | Current: $484.02<br>
+                    Value: $197,648.59 | 
+                    <span class="negative">Return: -1.18%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (92.54%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 12.7%]
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,273.50 shares<br>
+                    Entry: $46.80 | Current: $44.75<br>
+                    Value: $191,239.32 | 
+                    <span class="negative">Return: -4.38%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, Volume Spike (2x MA), OBV Uptick with Volume, Short-term Up 20.2%]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-04-15 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $151,412.93 | 
+                <strong>Total Value:</strong> $939,247.98</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 870.81 shares<br>
+                    Entry: $229.67 | Current: $210.35<br>
+                    Value: $183,178.83 | 
+                    <span class="negative">Return: -8.41%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: Golden Cross (Short > Medium MA), PSAR Bullish (All Timeframes))
+                </div>
+                
+                <div class="position">
+                    <strong>NRAIL.NS</strong>: 416.99 shares<br>
+                    Entry: $479.63 | Current: $470.13<br>
+                    Value: $196,037.70 | 
+                    <span class="negative">Return: -1.98%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 408.35 shares<br>
+                    Entry: $489.78 | Current: $540.19<br>
+                    Value: $220,584.33 | 
+                    <span class="positive">Return: +10.29%</span><br>
+                    Days Held: 7 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Short-term RSI Overbought (77.2), Stochastic Overbought, BB Upper Band (131.75%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 21.6%]
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,273.50 shares<br>
+                    Entry: $46.80 | Current: $44.00<br>
+                    Value: $188,034.19 | 
+                    <span class="negative">Return: -5.98%</span><br>
+                    Days Held: 7 | Signal: BUY (PSAR Bullish) [PSAR Bullish (All Timeframes), Short-term Up 10.1%]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-04-15 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $322,625.95 | 
+                <strong>Total Value:</strong> $938,135.99</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>NRAIL.NS</strong>: 416.99 shares<br>
+                    Entry: $479.63 | Current: $470.13<br>
+                    Value: $196,037.70 | 
+                    <span class="negative">Return: -1.98%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 408.35 shares<br>
+                    Entry: $489.78 | Current: $540.19<br>
+                    Value: $220,584.33 | 
+                    <span class="positive">Return: +10.29%</span><br>
+                    Days Held: 7 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Short-term RSI Overbought (77.2), Stochastic Overbought, BB Upper Band (131.75%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 21.6%]
+                </div>
+                
+                <div class="position">
+                    <strong>INDOTHAI.NS</strong>: 585.22 shares<br>
+                    Entry: $341.75 | Current: $339.85<br>
+                    Value: $198,888.01 | 
+                    <span class="negative">Return: -0.56%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (84.35%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 20.6%]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-04-22 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $322,625.95 | 
+                <strong>Total Value:</strong> $949,661.41</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>NRAIL.NS</strong>: 416.99 shares<br>
+                    Entry: $479.63 | Current: $479.78<br>
+                    Value: $200,062.60 | 
+                    <span class="positive">Return: +0.03%</span><br>
+                    Days Held: 14 | Signal: HOLD (Conflicting signals: Price Above VWAP, Short-term Up 10.9%)
+                </div>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 408.35 shares<br>
+                    Entry: $489.78 | Current: $536.22<br>
+                    Value: $218,963.43 | 
+                    <span class="positive">Return: +9.48%</span><br>
+                    Days Held: 14 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), BB Upper Band (101.63%), Price Above VWAP, Short-term Up 18.8%]
+                </div>
+                
+                <div class="position">
+                    <strong>INDOTHAI.NS</strong>: 585.22 shares<br>
+                    Entry: $341.75 | Current: $355.44<br>
+                    Value: $208,009.44 | 
+                    <span class="positive">Return: +4.00%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Price Above VWAP, Short-term Up 20.1%)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-04-22 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $122,625.95 | 
+                <strong>Total Value:</strong> $953,339.48</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>NRAIL.NS</strong>: 416.99 shares<br>
+                    Entry: $479.63 | Current: $479.78<br>
+                    Value: $200,062.60 | 
+                    <span class="positive">Return: +0.03%</span><br>
+                    Days Held: 14 | Signal: HOLD (Conflicting signals: Price Above VWAP, Short-term Up 10.9%)
+                </div>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 408.35 shares<br>
+                    Entry: $489.78 | Current: $536.22<br>
+                    Value: $218,963.43 | 
+                    <span class="positive">Return: +9.48%</span><br>
+                    Days Held: 14 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), BB Upper Band (101.63%), Price Above VWAP, Short-term Up 18.8%]
+                </div>
+                
+                <div class="position">
+                    <strong>INDOTHAI.NS</strong>: 585.22 shares<br>
+                    Entry: $341.75 | Current: $355.44<br>
+                    Value: $208,009.44 | 
+                    <span class="positive">Return: +4.00%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Price Above VWAP, Short-term Up 20.1%)
+                </div>
+                
+                <div class="position">
+                    <strong>SUBROS.NS</strong>: 344.53 shares<br>
+                    Entry: $580.50 | Current: $591.18<br>
+                    Value: $203,678.07 | 
+                    <span class="positive">Return: +1.84%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, Price Above VWAP, Short-term Up 12.9%]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-04-29 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $122,625.95 | 
+                <strong>Total Value:</strong> $949,436.23</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>NRAIL.NS</strong>: 416.99 shares<br>
+                    Entry: $479.63 | Current: $471.07<br>
+                    Value: $196,431.88 | 
+                    <span class="negative">Return: -1.78%</span><br>
+                    Days Held: 21 | Signal: HOLD (Conflicting signals: Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 408.35 shares<br>
+                    Entry: $489.78 | Current: $539.15<br>
+                    Value: $220,158.84 | 
+                    <span class="positive">Return: +10.08%</span><br>
+                    Days Held: 21 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), BB Upper Band (92.08%), Price Above VWAP, Short-term Up 10.2%)
+                </div>
+                
+                <div class="position">
+                    <strong>INDOTHAI.NS</strong>: 585.22 shares<br>
+                    Entry: $341.75 | Current: $335.95<br>
+                    Value: $196,607.64 | 
+                    <span class="negative">Return: -1.70%</span><br>
+                    Days Held: 14 | Signal: HOLD (Conflicting signals: PSAR Bullish (Partial), Price Above VWAP, Short-term Up 16.6%)
+                </div>
+                
+                <div class="position">
+                    <strong>SUBROS.NS</strong>: 344.53 shares<br>
+                    Entry: $580.50 | Current: $620.01<br>
+                    Value: $213,611.92 | 
+                    <span class="positive">Return: +6.81%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (92.83%), Price Above VWAP, Short-term Up 19.0%)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-04-29 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $332,669.75 | 
+                <strong>Total Value:</strong> $950,956.33</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 408.35 shares<br>
+                    Entry: $489.78 | Current: $539.15<br>
+                    Value: $220,158.84 | 
+                    <span class="positive">Return: +10.08%</span><br>
+                    Days Held: 21 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), BB Upper Band (92.08%), Price Above VWAP, Short-term Up 10.2%)
+                </div>
+                
+                <div class="position">
+                    <strong>INDOTHAI.NS</strong>: 585.22 shares<br>
+                    Entry: $341.75 | Current: $335.95<br>
+                    Value: $196,607.64 | 
+                    <span class="negative">Return: -1.70%</span><br>
+                    Days Held: 14 | Signal: HOLD (Conflicting signals: PSAR Bullish (Partial), Price Above VWAP, Short-term Up 16.6%)
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,343.11 shares<br>
+                    Entry: $46.05 | Current: $46.40<br>
+                    Value: $201,520.09 | 
+                    <span class="positive">Return: +0.76%</span><br>
+                    Days Held: 0 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), Price Above VWAP]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-05-06 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $332,669.75 | 
+                <strong>Total Value:</strong> $942,715.17</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 408.35 shares<br>
+                    Entry: $489.78 | Current: $530.56<br>
+                    Value: $216,653.67 | 
+                    <span class="positive">Return: +8.33%</span><br>
+                    Days Held: 28 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), BB Upper Band (87.92%), Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>INDOTHAI.NS</strong>: 585.22 shares<br>
+                    Entry: $341.75 | Current: $330.46<br>
+                    Value: $193,391.75 | 
+                    <span class="negative">Return: -3.30%</span><br>
+                    Days Held: 21 | Signal: STRONG SELL (Multi-Timeframe PSAR Confirmed) [Stochastic Oversold, Short-term Down 7.2%]
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,343.11 shares<br>
+                    Entry: $46.05 | Current: $46.05<br>
+                    Value: $200,000.00 | 
+                    <span class="negative">Return: -0.00%</span><br>
+                    Days Held: 7 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, Price Above VWAP]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-05-06 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $526,061.51 | 
+                <strong>Total Value:</strong> $942,715.17</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 408.35 shares<br>
+                    Entry: $489.78 | Current: $530.56<br>
+                    Value: $216,653.67 | 
+                    <span class="positive">Return: +8.33%</span><br>
+                    Days Held: 28 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), BB Upper Band (87.92%), Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,343.11 shares<br>
+                    Entry: $46.05 | Current: $46.05<br>
+                    Value: $200,000.00 | 
+                    <span class="negative">Return: -0.00%</span><br>
+                    Days Held: 7 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, Price Above VWAP]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-05-13 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $526,061.51 | 
+                <strong>Total Value:</strong> $929,253.50</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 408.35 shares<br>
+                    Entry: $489.78 | Current: $515.68<br>
+                    Value: $210,575.28 | 
+                    <span class="positive">Return: +5.29%</span><br>
+                    Days Held: 35 | Signal: HOLD (Conflicting signals: Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,343.11 shares<br>
+                    Entry: $46.05 | Current: $44.35<br>
+                    Value: $192,616.71 | 
+                    <span class="negative">Return: -3.69%</span><br>
+                    Days Held: 14 | Signal: HOLD (Conflicting signals: PSAR Bullish (Partial), Price Above VWAP)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-05-13 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $526,061.51 | 
+                <strong>Total Value:</strong> $929,253.50</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 408.35 shares<br>
+                    Entry: $489.78 | Current: $515.68<br>
+                    Value: $210,575.28 | 
+                    <span class="positive">Return: +5.29%</span><br>
+                    Days Held: 35 | Signal: HOLD (Conflicting signals: Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,343.11 shares<br>
+                    Entry: $46.05 | Current: $44.35<br>
+                    Value: $192,616.71 | 
+                    <span class="negative">Return: -3.69%</span><br>
+                    Days Held: 14 | Signal: HOLD (Conflicting signals: PSAR Bullish (Partial), Price Above VWAP)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-05-20 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $526,061.51 | 
+                <strong>Total Value:</strong> $931,650.05</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 408.35 shares<br>
+                    Entry: $489.78 | Current: $522.08<br>
+                    Value: $213,188.98 | 
+                    <span class="positive">Return: +6.59%</span><br>
+                    Days Held: 42 | Signal: HOLD (Conflicting signals: PSAR Bullish (Partial), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>OSWALAGRO.NS</strong>: 4,343.11 shares<br>
+                    Entry: $46.05 | Current: $44.30<br>
+                    Value: $192,399.56 | 
+                    <span class="negative">Return: -3.80%</span><br>
+                    Days Held: 21 | Signal: HOLD (Conflicting signals: Price Above VWAP)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-05-20 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $518,461.07 | 
+                <strong>Total Value:</strong> $931,648.63</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 408.35 shares<br>
+                    Entry: $489.78 | Current: $522.08<br>
+                    Value: $213,188.98 | 
+                    <span class="positive">Return: +6.59%</span><br>
+                    Days Held: 42 | Signal: HOLD (Conflicting signals: PSAR Bullish (Partial), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 853.75 shares<br>
+                    Entry: $234.26 | Current: $234.26<br>
+                    Value: $199,998.58 | 
+                    <span class="negative">Return: -0.00%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (87.66%), Price Above VWAP]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-05-27 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $518,461.07 | 
+                <strong>Total Value:</strong> $944,174.40</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>JUBLINGREA.NS</strong>: 408.35 shares<br>
+                    Entry: $489.78 | Current: $501.83<br>
+                    Value: $204,922.39 | 
+                    <span class="positive">Return: +2.46%</span><br>
+                    Days Held: 49 | Signal: HOLD (Conflicting signals: PSAR Bullish (Partial), Stochastic Oversold)
+                </div>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 853.75 shares<br>
+                    Entry: $234.26 | Current: $258.61<br>
+                    Value: $220,790.94 | 
+                    <span class="positive">Return: +10.40%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Short-term RSI Overbought (74.1), Stochastic Overbought, BB Upper Band (123.26%), Price Above VWAP, Short-term Up 21.9%)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-05-27 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $723,383.46 | 
+                <strong>Total Value:</strong> $944,174.40</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 853.75 shares<br>
+                    Entry: $234.26 | Current: $258.61<br>
+                    Value: $220,790.94 | 
+                    <span class="positive">Return: +10.40%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Short-term RSI Overbought (74.1), Stochastic Overbought, BB Upper Band (123.26%), Price Above VWAP, Short-term Up 21.9%)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-06-03 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $723,383.46 | 
+                <strong>Total Value:</strong> $944,259.62</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 853.75 shares<br>
+                    Entry: $234.26 | Current: $258.71<br>
+                    Value: $220,876.16 | 
+                    <span class="positive">Return: +10.44%</span><br>
+                    Days Held: 14 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), BB Upper Band (84.61%), Price Above VWAP, Short-term Up 21.1%]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-06-03 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $723,383.46 | 
+                <strong>Total Value:</strong> $944,259.62</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 853.75 shares<br>
+                    Entry: $234.26 | Current: $258.71<br>
+                    Value: $220,876.16 | 
+                    <span class="positive">Return: +10.44%</span><br>
+                    Days Held: 14 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), BB Upper Band (84.61%), Price Above VWAP, Short-term Up 21.1%]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-06-10 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $723,383.46 | 
+                <strong>Total Value:</strong> $929,645.31</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 853.75 shares<br>
+                    Entry: $234.26 | Current: $241.59<br>
+                    Value: $206,261.84 | 
+                    <span class="positive">Return: +3.13%</span><br>
+                    Days Held: 21 | Signal: HOLD (Conflicting signals: BB Upper Band (80.96%), Price Above VWAP)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-06-10 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $523,383.46 | 
+                <strong>Total Value:</strong> $927,424.19</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 853.75 shares<br>
+                    Entry: $234.26 | Current: $241.59<br>
+                    Value: $206,261.84 | 
+                    <span class="positive">Return: +3.13%</span><br>
+                    Days Held: 21 | Signal: HOLD (Conflicting signals: BB Upper Band (80.96%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>NAZARA.NS</strong>: 246.79 shares<br>
+                    Entry: $810.40 | Current: $801.40<br>
+                    Value: $197,778.88 | 
+                    <span class="negative">Return: -1.11%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Stochastic Overbought, BB Upper Band (130.85%), Price Above VWAP, Short-term Up 30.8%]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-06-17 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $523,383.46 | 
+                <strong>Total Value:</strong> $967,382.87</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 853.75 shares<br>
+                    Entry: $234.26 | Current: $270.78<br>
+                    Value: $231,178.59 | 
+                    <span class="positive">Return: +15.59%</span><br>
+                    Days Held: 28 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (107.39%), Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>NAZARA.NS</strong>: 246.79 shares<br>
+                    Entry: $810.40 | Current: $862.35<br>
+                    Value: $212,820.82 | 
+                    <span class="positive">Return: +6.41%</span><br>
+                    Days Held: 7 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Stochastic Overbought, BB Upper Band (113.80%), Price Above VWAP, Short-term Up 22.2%]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-06-17 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $123,383.46 | 
+                <strong>Total Value:</strong> $967,383.16</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 853.75 shares<br>
+                    Entry: $234.26 | Current: $270.78<br>
+                    Value: $231,178.59 | 
+                    <span class="positive">Return: +15.59%</span><br>
+                    Days Held: 28 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (107.39%), Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>NAZARA.NS</strong>: 246.79 shares<br>
+                    Entry: $810.40 | Current: $862.35<br>
+                    Value: $212,820.82 | 
+                    <span class="positive">Return: +6.41%</span><br>
+                    Days Held: 7 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Stochastic Overbought, BB Upper Band (113.80%), Price Above VWAP, Short-term Up 22.2%]
+                </div>
+                
+                <div class="position">
+                    <strong>KDDL.NS</strong>: 74.68 shares<br>
+                    Entry: $2677.97 | Current: $2677.97<br>
+                    Value: $200,000.00 | 
+                    <span class="negative">Return: -0.00%</span><br>
+                    Days Held: 0 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), Stochastic Overbought, BB Upper Band (91.84%), Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>SUBROS.NS</strong>: 316.49 shares<br>
+                    Entry: $631.93 | Current: $631.93<br>
+                    Value: $200,000.29 | 
+                    <span class="positive">Return: +0.00%</span><br>
+                    Days Held: 0 | Signal: BUY (PSAR Bullish) [PSAR Bullish (Partial), Stochastic Overbought, Price Above VWAP]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-06-24 00:00:00 | <span class="phase">Phase: PRE-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $123,383.46 | 
+                <strong>Total Value:</strong> $977,356.81</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 853.75 shares<br>
+                    Entry: $234.26 | Current: $260.45<br>
+                    Value: $222,358.87 | 
+                    <span class="positive">Return: +11.18%</span><br>
+                    Days Held: 35 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), BB Upper Band (86.03%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>NAZARA.NS</strong>: 246.79 shares<br>
+                    Entry: $810.40 | Current: $847.35<br>
+                    Value: $209,118.95 | 
+                    <span class="positive">Return: +4.56%</span><br>
+                    Days Held: 14 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Stochastic Overbought, BB Upper Band (99.09%), Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>KDDL.NS</strong>: 74.68 shares<br>
+                    Entry: $2677.97 | Current: $2788.29<br>
+                    Value: $208,238.84 | 
+                    <span class="positive">Return: +4.12%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), BB Upper Band (89.25%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>SUBROS.NS</strong>: 316.49 shares<br>
+                    Entry: $631.93 | Current: $676.98<br>
+                    Value: $214,256.69 | 
+                    <span class="positive">Return: +7.13%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (103.31%), Price Above VWAP)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2024-06-24 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $0.00 | 
+                <strong>Total Value:</strong> $991,054.21</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SCI.NS</strong>: 853.75 shares<br>
+                    Entry: $234.26 | Current: $260.45<br>
+                    Value: $222,358.87 | 
+                    <span class="positive">Return: +11.18%</span><br>
+                    Days Held: 35 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), BB Upper Band (86.03%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>NAZARA.NS</strong>: 246.79 shares<br>
+                    Entry: $810.40 | Current: $847.35<br>
+                    Value: $209,118.95 | 
+                    <span class="positive">Return: +4.56%</span><br>
+                    Days Held: 14 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Stochastic Overbought, BB Upper Band (99.09%), Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>KDDL.NS</strong>: 74.68 shares<br>
+                    Entry: $2677.97 | Current: $2788.29<br>
+                    Value: $208,238.84 | 
+                    <span class="positive">Return: +4.12%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), BB Upper Band (89.25%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>SUBROS.NS</strong>: 316.49 shares<br>
+                    Entry: $631.93 | Current: $676.98<br>
+                    Value: $214,256.69 | 
+                    <span class="positive">Return: +7.13%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (103.31%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>NRAIL.NS</strong>: 267.28 shares<br>
+                    Entry: $461.62 | Current: $512.87<br>
+                    Value: $137,080.86 | 
+                    <span class="positive">Return: +11.10%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, Price Above VWAP, Short-term Up 12.3%]
+                </div>
+                
+            </div>
+            
+            
+            <h2>Transaction History</h2>
+            
+            <div class="transaction">
+                <h3>Transactions on 2024-01-01 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>JUBLINGREA.NS</td>
+                    <td>398.55</td>
+                    <td>$501.82</td>
+                    <td>$200,000.00</td>
+                </tr>
+                
+                <tr>
+                    <td>GOODLUCK.NS</td>
+                    <td>213.89</td>
+                    <td>$935.04</td>
+                    <td>$200,000.00</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                <p>No positions closed</p>
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-01-08 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>NRAIL.NS</td>
+                    <td>457.94</td>
+                    <td>$436.74</td>
+                    <td>$200,000.00</td>
+                </tr>
+                
+                <tr>
+                    <td>OSWALAGRO.NS</td>
+                    <td>5,154.64</td>
+                    <td>$38.80</td>
+                    <td>$200,000.00</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>GOODLUCK.NS</td>
+                    <td>213.89</td>
+                    <td>$935.04</td>
+                    <td>$984.99</td>
+                    <td class="positive">+5.34%</td>
+                    <td>7</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-01-15 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>SCI.NS</td>
+                    <td>1,161.58</td>
+                    <td>$172.18</td>
+                    <td>$200,000.00</td>
+                </tr>
+                
+                <tr>
+                    <td>GUJAPOLLO.NS</td>
+                    <td>673.79</td>
+                    <td>$296.83</td>
+                    <td>$200,000.00</td>
+                </tr>
+                
+                <tr>
+                    <td>DBREALTY.NS</td>
+                    <td>898.27</td>
+                    <td>$222.65</td>
+                    <td>$200,000.00</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>OSWALAGRO.NS</td>
+                    <td>5,154.64</td>
+                    <td>$38.80</td>
+                    <td>$36.95</td>
+                    <td class="negative">-4.77%</td>
+                    <td>7</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-01-22 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                <p>No positions opened</p>
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>JUBLINGREA.NS</td>
+                    <td>398.55</td>
+                    <td>$501.82</td>
+                    <td>$472.86</td>
+                    <td class="negative">-5.77%</td>
+                    <td>21</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-01-29 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>OSWALAGRO.NS</td>
+                    <td>4,414.60</td>
+                    <td>$42.95</td>
+                    <td>$189,607.18</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                <p>No positions closed</p>
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-02-05 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                <p>No positions opened</p>
+                 <h4>Closed Positions</h4>
+                <p>No positions closed</p>
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-02-12 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>INDOTHAI.NS</td>
+                    <td>556.98</td>
+                    <td>$359.08</td>
+                    <td>$200,000.00</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>NRAIL.NS</td>
+                    <td>457.94</td>
+                    <td>$436.74</td>
+                    <td>$456.25</td>
+                    <td class="positive">+4.47%</td>
+                    <td>35</td>
+                </tr>
+                
+                <tr>
+                    <td>GUJAPOLLO.NS</td>
+                    <td>673.79</td>
+                    <td>$296.83</td>
+                    <td>$279.37</td>
+                    <td class="negative">-5.88%</td>
+                    <td>28</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-02-19 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                <p>No positions opened</p>
+                 <h4>Closed Positions</h4>
+                <p>No positions closed</p>
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-02-26 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                <p>No positions opened</p>
+                 <h4>Closed Positions</h4>
+                <p>No positions closed</p>
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-03-04 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>KERNEX.NS</td>
+                    <td>299.74</td>
+                    <td>$657.80</td>
+                    <td>$197,168.07</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                <p>No positions closed</p>
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-03-11 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                <p>No positions opened</p>
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>OSWALAGRO.NS</td>
+                    <td>4,414.60</td>
+                    <td>$42.95</td>
+                    <td>$41.95</td>
+                    <td class="negative">-2.33%</td>
+                    <td>42</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-03-18 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                <p>No positions opened</p>
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>INDOTHAI.NS</td>
+                    <td>556.98</td>
+                    <td>$359.08</td>
+                    <td>$297.74</td>
+                    <td class="negative">-17.08%</td>
+                    <td>35</td>
+                </tr>
+                
+                <tr>
+                    <td>KERNEX.NS</td>
+                    <td>299.74</td>
+                    <td>$657.80</td>
+                    <td>$574.95</td>
+                    <td class="negative">-12.60%</td>
+                    <td>14</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-03-25 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                <p>No positions opened</p>
+                 <h4>Closed Positions</h4>
+                <p>No positions closed</p>
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-04-01 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                <p>No positions opened</p>
+                 <h4>Closed Positions</h4>
+                <p>No positions closed</p>
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-04-08 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>SCI.NS</td>
+                    <td>870.81</td>
+                    <td>$229.67</td>
+                    <td>$200,000.00</td>
+                </tr>
+                
+                <tr>
+                    <td>NRAIL.NS</td>
+                    <td>416.99</td>
+                    <td>$479.63</td>
+                    <td>$200,000.00</td>
+                </tr>
+                
+                <tr>
+                    <td>JUBLINGREA.NS</td>
+                    <td>408.35</td>
+                    <td>$489.78</td>
+                    <td>$200,000.00</td>
+                </tr>
+                
+                <tr>
+                    <td>OSWALAGRO.NS</td>
+                    <td>4,273.50</td>
+                    <td>$46.80</td>
+                    <td>$200,000.00</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                <p>No positions closed</p>
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-04-15 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>INDOTHAI.NS</td>
+                    <td>585.22</td>
+                    <td>$341.75</td>
+                    <td>$200,000.00</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>SCI.NS</td>
+                    <td>870.81</td>
+                    <td>$229.67</td>
+                    <td>$210.35</td>
+                    <td class="negative">-8.41%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>OSWALAGRO.NS</td>
+                    <td>4,273.50</td>
+                    <td>$46.80</td>
+                    <td>$44.00</td>
+                    <td class="negative">-5.98%</td>
+                    <td>7</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-04-22 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>SUBROS.NS</td>
+                    <td>344.53</td>
+                    <td>$580.50</td>
+                    <td>$200,000.00</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                <p>No positions closed</p>
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-04-29 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>OSWALAGRO.NS</td>
+                    <td>4,343.11</td>
+                    <td>$46.05</td>
+                    <td>$200,000.00</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>NRAIL.NS</td>
+                    <td>416.99</td>
+                    <td>$479.63</td>
+                    <td>$471.07</td>
+                    <td class="negative">-1.78%</td>
+                    <td>21</td>
+                </tr>
+                
+                <tr>
+                    <td>SUBROS.NS</td>
+                    <td>344.53</td>
+                    <td>$580.50</td>
+                    <td>$620.01</td>
+                    <td class="positive">+6.81%</td>
+                    <td>7</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-05-06 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                <p>No positions opened</p>
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>INDOTHAI.NS</td>
+                    <td>585.22</td>
+                    <td>$341.75</td>
+                    <td>$330.46</td>
+                    <td class="negative">-3.30%</td>
+                    <td>21</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-05-13 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                <p>No positions opened</p>
+                 <h4>Closed Positions</h4>
+                <p>No positions closed</p>
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-05-20 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>SCI.NS</td>
+                    <td>853.75</td>
+                    <td>$234.26</td>
+                    <td>$200,000.00</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>OSWALAGRO.NS</td>
+                    <td>4,343.11</td>
+                    <td>$46.05</td>
+                    <td>$44.30</td>
+                    <td class="negative">-3.80%</td>
+                    <td>21</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-05-27 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                <p>No positions opened</p>
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>JUBLINGREA.NS</td>
+                    <td>408.35</td>
+                    <td>$489.78</td>
+                    <td>$501.83</td>
+                    <td class="positive">+2.46%</td>
+                    <td>49</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-06-03 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                <p>No positions opened</p>
+                 <h4>Closed Positions</h4>
+                <p>No positions closed</p>
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-06-10 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>NAZARA.NS</td>
+                    <td>246.79</td>
+                    <td>$810.40</td>
+                    <td>$200,000.00</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                <p>No positions closed</p>
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-06-17 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>KDDL.NS</td>
+                    <td>74.68</td>
+                    <td>$2677.97</td>
+                    <td>$200,000.00</td>
+                </tr>
+                
+                <tr>
+                    <td>SUBROS.NS</td>
+                    <td>316.49</td>
+                    <td>$631.93</td>
+                    <td>$200,000.00</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                <p>No positions closed</p>
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2024-06-24 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>NRAIL.NS</td>
+                    <td>267.28</td>
+                    <td>$461.62</td>
+                    <td>$123,383.46</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                <p>No positions closed</p>
+            </div>
+            
+            
+            <h2>Performance Summary</h2>
+            <img src="performance_plot.png" width="800">
+        </body>
+        </html>
+        
