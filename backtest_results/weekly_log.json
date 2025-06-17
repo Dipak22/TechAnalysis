@@ -1,1920 +1,2486 @@
 [
   {
-    "date": "2024-01-01 00:00:00",
+    "date": "2024-07-01 00:00:00",
     "phase": "PRE-REBALANCE",
     "cash": 1000000,
     "total_value": 1000000,
     "positions": []
   },
   {
-    "date": "2024-01-01 00:00:00",
+    "date": "2024-07-01 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 1000000,
+    "total_value": 1000000,
+    "positions": []
+  },
+  {
+    "date": "2024-07-08 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 1000000,
+    "total_value": 1000000,
+    "positions": []
+  },
+  {
+    "date": "2024-07-08 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 1000000,
+    "total_value": 1000000,
+    "positions": []
+  },
+  {
+    "date": "2024-07-15 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 1000000,
+    "total_value": 1000000,
+    "positions": []
+  },
+  {
+    "date": "2024-07-15 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 1000000,
+    "total_value": 1000000,
+    "positions": []
+  },
+  {
+    "date": "2024-07-22 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 1000000,
+    "total_value": 1000000,
+    "positions": []
+  },
+  {
+    "date": "2024-07-22 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 1000000,
+    "total_value": 1000000,
+    "positions": []
+  },
+  {
+    "date": "2024-07-29 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 1000000,
+    "total_value": 1000000,
+    "positions": []
+  },
+  {
+    "date": "2024-07-29 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 1000000,
+    "total_value": 1000000,
+    "positions": []
+  },
+  {
+    "date": "2024-08-05 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 1000000,
+    "total_value": 1000000,
+    "positions": []
+  },
+  {
+    "date": "2024-08-05 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 1000000,
+    "total_value": 1000000,
+    "positions": []
+  },
+  {
+    "date": "2024-08-12 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 1000000,
+    "total_value": 1000000,
+    "positions": []
+  },
+  {
+    "date": "2024-08-12 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 1000000,
+    "total_value": 1000000,
+    "positions": []
+  },
+  {
+    "date": "2024-08-19 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 1000000,
+    "total_value": 1000000,
+    "positions": []
+  },
+  {
+    "date": "2024-08-19 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 1000000,
+    "total_value": 1000000,
+    "positions": []
+  },
+  {
+    "date": "2024-08-26 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 1000000,
+    "total_value": 1000000,
+    "positions": []
+  },
+  {
+    "date": "2024-08-26 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 1000000,
+    "total_value": 1000000,
+    "positions": []
+  },
+  {
+    "date": "2024-09-02 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 1000000,
+    "total_value": 1000000,
+    "positions": []
+  },
+  {
+    "date": "2024-09-02 00:00:00",
     "phase": "POST-REBALANCE",
     "cash": 600000.0,
-    "total_value": 1013308.897014887,
+    "total_value": 983333.5554013407,
     "positions": [
       {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 398.5492806185485,
-        "entry_price": 501.82,
-        "current_price": 502.85791015625,
-        "position_value": 200413.65834612012,
-        "return_pct": 0.2068291730600627,
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.059999942779541,
+        "position_value": 189861.74587829874,
+        "return_pct": -5.069127060850642,
         "days_held": 0,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Short-term RSI Overbought (79.0), Stochastic Overbought, BB Upper Band (104.62%), Price Above VWAP, Short-term Up 11.7%]"
+        "signal": "BUY (Low VIX Opportunity)"
       },
       {
-        "ticker": "GOODLUCK.NS",
-        "shares": 213.89459274469542,
-        "entry_price": 935.04,
-        "current_price": 995.3278198242188,
-        "position_value": 212895.23866876683,
-        "return_pct": 6.447619334383427,
+        "ticker": "PILITA.NS",
+        "shares": 14836.795252225518,
+        "entry_price": 13.48,
+        "current_price": 13.039999961853027,
+        "position_value": 193471.80952304194,
+        "return_pct": -3.2640952384790283,
         "days_held": 0,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (84.50%), Price Above VWAP, Short-term Up 10.0%]"
+        "signal": "BUY (Low VIX Opportunity)"
       }
     ]
   },
   {
-    "date": "2024-01-08 00:00:00",
+    "date": "2024-09-09 00:00:00",
     "phase": "PRE-REBALANCE",
     "cash": 600000.0,
-    "total_value": 999890.4013083084,
+    "total_value": 978833.300115784,
     "positions": [
       {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 398.5492806185485,
-        "entry_price": 501.82,
-        "current_price": 474.73773193359375,
-        "position_value": 189206.3815446151,
-        "return_pct": -5.396809227692448,
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.9500000476837158,
+        "position_value": 179723.50669896,
+        "return_pct": -10.138246650520005,
         "days_held": 7,
-        "signal": "HOLD (Conflicting signals: BB Upper Band (87.58%), Price Above VWAP)"
+        "signal": "STRONG BUY (Low VIX Opportunity)"
       },
       {
-        "ticker": "GOODLUCK.NS",
-        "shares": 213.89459274469542,
-        "entry_price": 935.04,
-        "current_price": 984.9899291992188,
-        "position_value": 210684.01976369327,
-        "return_pct": 5.342009881846637,
+        "ticker": "PILITA.NS",
+        "shares": 14836.795252225518,
+        "entry_price": 13.48,
+        "current_price": 13.420000076293945,
+        "position_value": 199109.7934168241,
+        "return_pct": -0.445103291587946,
         "days_held": 7,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (71.2), Stochastic Overbought, BB Upper Band (106.58%), Price Above VWAP, Short-term Up 10.3%]"
+        "signal": "BUY (Low VIX Opportunity)"
       }
     ]
   },
   {
-    "date": "2024-01-08 00:00:00",
+    "date": "2024-09-09 00:00:00",
     "phase": "POST-REBALANCE",
-    "cash": 410684.0197636932,
-    "total_value": 999073.1272752301,
+    "cash": 400000.0,
+    "total_value": 974822.9458923723,
     "positions": [
       {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 398.5492806185485,
-        "entry_price": 501.82,
-        "current_price": 474.73773193359375,
-        "position_value": 189206.3815446151,
-        "return_pct": -5.396809227692448,
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.9500000476837158,
+        "position_value": 179723.50669896,
+        "return_pct": -10.138246650520005,
         "days_held": 7,
-        "signal": "HOLD (Conflicting signals: BB Upper Band (87.58%), Price Above VWAP)"
+        "signal": "STRONG BUY (Low VIX Opportunity)"
       },
       {
-        "ticker": "NRAIL.NS",
-        "shares": 457.93836149654254,
-        "entry_price": 436.74,
-        "current_price": 445.6487121582031,
-        "position_value": 204079.64104877185,
-        "return_pct": 2.039820524385931,
-        "days_held": 0,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (73.9), Stochastic Overbought, BB Upper Band (111.18%), Price Above VWAP, Short-term Up 10.1%]"
+        "ticker": "PILITA.NS",
+        "shares": 14836.795252225518,
+        "entry_price": 13.48,
+        "current_price": 13.420000076293945,
+        "position_value": 199109.7934168241,
+        "return_pct": -0.445103291587946,
+        "days_held": 7,
+        "signal": "BUY (Low VIX Opportunity)"
       },
       {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 5154.639175257732,
-        "entry_price": 38.8,
-        "current_price": 37.849998474121094,
-        "position_value": 195103.08491814998,
-        "return_pct": -2.448457540925009,
+        "ticker": "FOCUS.NS",
+        "shares": 1617.0763260025872,
+        "entry_price": 123.68,
+        "current_price": 121.19999694824219,
+        "position_value": 195989.64577658827,
+        "return_pct": -2.005177111705869,
         "days_held": 0,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Short-term RSI Overbought (71.9), BB Upper Band (140.03%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 12.1%]"
+        "signal": "BUY (Low VIX Opportunity)"
       }
     ]
   },
   {
-    "date": "2024-01-15 00:00:00",
+    "date": "2024-09-16 00:00:00",
     "phase": "PRE-REBALANCE",
-    "cash": 410684.0197636932,
-    "total_value": 1030178.1137894806,
+    "cash": 400000.0,
+    "total_value": 971364.153924499,
     "positions": [
       {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 398.5492806185485,
-        "entry_price": 501.82,
-        "current_price": 492.44854736328125,
-        "position_value": 196265.01429328494,
-        "return_pct": -1.867492853357527,
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.850000023841858,
+        "position_value": 170506.9146398026,
+        "return_pct": -14.746542680098711,
         "days_held": 14,
-        "signal": "HOLD (Conflicting signals: BB Upper Band (81.82%), Price Above VWAP)"
+        "signal": "HOLD"
       },
       {
-        "ticker": "NRAIL.NS",
-        "shares": 457.93836149654254,
-        "entry_price": 436.74,
-        "current_price": 508.2892761230469,
-        "position_value": 232765.15827405176,
-        "return_pct": 16.38257913702589,
-        "days_held": 7,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (77.2), Stochastic Overbought, BB Upper Band (118.11%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 16.8%]"
+        "ticker": "PILITA.NS",
+        "shares": 14836.795252225518,
+        "entry_price": 13.48,
+        "current_price": 15.079999923706055,
+        "position_value": 223738.87127160316,
+        "return_pct": 11.86943563580159,
+        "days_held": 14,
+        "signal": "BUY"
       },
       {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 5154.639175257732,
-        "entry_price": 38.8,
-        "current_price": 36.95000076293945,
-        "position_value": 190463.9214584508,
-        "return_pct": -4.768039270774598,
+        "ticker": "FOCUS.NS",
+        "shares": 1617.0763260025872,
+        "entry_price": 123.68,
+        "current_price": 109.52999877929688,
+        "position_value": 177118.36801309325,
+        "return_pct": -11.440815993453372,
         "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), BB Upper Band (97.39%), Price Above VWAP, Short-term Up 12.6%)"
+        "signal": "HOLD"
       }
     ]
   },
   {
-    "date": "2024-01-15 00:00:00",
+    "date": "2024-09-16 00:00:00",
     "phase": "POST-REBALANCE",
-    "cash": 1147.9412221440289,
-    "total_value": 1065837.2203415034,
+    "cash": 377118.36801309325,
+    "total_value": 971923.3337940237,
     "positions": [
       {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 398.5492806185485,
-        "entry_price": 501.82,
-        "current_price": 492.44854736328125,
-        "position_value": 196265.01429328494,
-        "return_pct": -1.867492853357527,
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.850000023841858,
+        "position_value": 170506.9146398026,
+        "return_pct": -14.746542680098711,
         "days_held": 14,
-        "signal": "HOLD (Conflicting signals: BB Upper Band (81.82%), Price Above VWAP)"
+        "signal": "HOLD"
       },
       {
-        "ticker": "NRAIL.NS",
-        "shares": 457.93836149654254,
-        "entry_price": 436.74,
-        "current_price": 508.2892761230469,
-        "position_value": 232765.15827405176,
-        "return_pct": 16.38257913702589,
-        "days_held": 7,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (77.2), Stochastic Overbought, BB Upper Band (118.11%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 16.8%]"
+        "ticker": "PILITA.NS",
+        "shares": 14836.795252225518,
+        "entry_price": 13.48,
+        "current_price": 15.079999923706055,
+        "position_value": 223738.87127160316,
+        "return_pct": 11.86943563580159,
+        "days_held": 14,
+        "signal": "BUY"
       },
       {
-        "ticker": "SCI.NS",
-        "shares": 1161.5750958299454,
-        "entry_price": 172.18,
-        "current_price": 173.6725616455078,
-        "position_value": 201733.72243641285,
-        "return_pct": 0.8668612182064152,
+        "ticker": "STEL.NS",
+        "shares": 372.78657968313144,
+        "entry_price": 536.5,
+        "current_price": 538.0,
+        "position_value": 200559.1798695247,
+        "return_pct": 0.27958993476234856,
         "days_held": 0,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (83.10%), Price Above VWAP]"
-      },
-      {
-        "ticker": "GUJAPOLLO.NS",
-        "shares": 673.7863423508406,
-        "entry_price": 296.83,
-        "current_price": 317.5173645019531,
-        "position_value": 213938.86366064963,
-        "return_pct": 6.969431830324813,
-        "days_held": 0,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Short-term RSI Overbought (71.2), Stochastic Overbought, BB Upper Band (127.23%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 29.8%]"
-      },
-      {
-        "ticker": "DBREALTY.NS",
-        "shares": 898.2708286548394,
-        "entry_price": 222.65,
-        "current_price": 244.89999389648438,
-        "position_value": 219986.52045496015,
-        "return_pct": 9.993260227480066,
-        "days_held": 0,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (101.82%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 18.7%]"
+        "signal": "BUY"
       }
     ]
   },
   {
-    "date": "2024-01-22 00:00:00",
+    "date": "2024-09-23 00:00:00",
     "phase": "PRE-REBALANCE",
-    "cash": 1147.9412221440289,
-    "total_value": 1061847.681622983,
+    "cash": 377118.36801309325,
+    "total_value": 973304.2646041554,
     "positions": [
       {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 398.5492806185485,
-        "entry_price": 501.82,
-        "current_price": 472.8630676269531,
-        "position_value": 188459.2354338022,
-        "return_pct": -5.770382283098894,
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.75,
+        "position_value": 161290.32258064518,
+        "return_pct": -19.354838709677416,
         "days_held": 21,
-        "signal": "HOLD (Conflicting signals: Death Cross (Short < Medium MA), Price Above VWAP)"
+        "signal": "HOLD"
       },
       {
-        "ticker": "NRAIL.NS",
-        "shares": 457.93836149654254,
-        "entry_price": 436.74,
-        "current_price": 511.12530517578125,
-        "position_value": 234063.88477161754,
-        "return_pct": 17.031942385808772,
-        "days_held": 14,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (76.9), Stochastic Overbought, BB Upper Band (110.52%), Price Above VWAP, Short-term Up 21.2%]"
-      },
-      {
-        "ticker": "SCI.NS",
-        "shares": 1161.5750958299454,
-        "entry_price": 172.18,
-        "current_price": 170.57838439941406,
-        "position_value": 198139.60320526667,
-        "return_pct": -0.9301983973666769,
-        "days_held": 7,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), Price Above VWAP]"
-      },
-      {
-        "ticker": "GUJAPOLLO.NS",
-        "shares": 673.7863423508406,
-        "entry_price": 296.83,
-        "current_price": 322.9883728027344,
-        "position_value": 217625.15433260414,
-        "return_pct": 8.812577166302056,
-        "days_held": 7,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (74.8), Stochastic Overbought, BB Upper Band (111.23%), Price Above VWAP, Short-term Up 18.7%]"
-      },
-      {
-        "ticker": "DBREALTY.NS",
-        "shares": 898.2708286548394,
-        "entry_price": 222.65,
-        "current_price": 247.60000610351562,
-        "position_value": 222411.86265754828,
-        "return_pct": 11.205931328774138,
-        "days_held": 7,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Short-term RSI Overbought (70.5), Stochastic Overbought, BB Upper Band (119.49%), Price Above VWAP, Short-term Up 33.3%]"
-      }
-    ]
-  },
-  {
-    "date": "2024-01-22 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 189607.17665594624,
-    "total_value": 1061847.681622983,
-    "positions": [
-      {
-        "ticker": "NRAIL.NS",
-        "shares": 457.93836149654254,
-        "entry_price": 436.74,
-        "current_price": 511.12530517578125,
-        "position_value": 234063.88477161754,
-        "return_pct": 17.031942385808772,
-        "days_held": 14,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (76.9), Stochastic Overbought, BB Upper Band (110.52%), Price Above VWAP, Short-term Up 21.2%]"
-      },
-      {
-        "ticker": "SCI.NS",
-        "shares": 1161.5750958299454,
-        "entry_price": 172.18,
-        "current_price": 170.57838439941406,
-        "position_value": 198139.60320526667,
-        "return_pct": -0.9301983973666769,
-        "days_held": 7,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), Price Above VWAP]"
-      },
-      {
-        "ticker": "GUJAPOLLO.NS",
-        "shares": 673.7863423508406,
-        "entry_price": 296.83,
-        "current_price": 322.9883728027344,
-        "position_value": 217625.15433260414,
-        "return_pct": 8.812577166302056,
-        "days_held": 7,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (74.8), Stochastic Overbought, BB Upper Band (111.23%), Price Above VWAP, Short-term Up 18.7%]"
-      },
-      {
-        "ticker": "DBREALTY.NS",
-        "shares": 898.2708286548394,
-        "entry_price": 222.65,
-        "current_price": 247.60000610351562,
-        "position_value": 222411.86265754828,
-        "return_pct": 11.205931328774138,
-        "days_held": 7,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Short-term RSI Overbought (70.5), Stochastic Overbought, BB Upper Band (119.49%), Price Above VWAP, Short-term Up 33.3%]"
-      }
-    ]
-  },
-  {
-    "date": "2024-01-29 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 189607.17665594624,
-    "total_value": 1091067.553727489,
-    "positions": [
-      {
-        "ticker": "NRAIL.NS",
-        "shares": 457.93836149654254,
-        "entry_price": 436.74,
-        "current_price": 500.8261413574219,
-        "position_value": 229347.50256785357,
-        "return_pct": 14.673751283926789,
+        "ticker": "PILITA.NS",
+        "shares": 14836.795252225518,
+        "entry_price": 13.48,
+        "current_price": 15.4399995803833,
+        "position_value": 229080.11246859495,
+        "return_pct": 14.540056234297479,
         "days_held": 21,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), Stochastic Overbought, BB Upper Band (99.37%), Price Above VWAP, Short-term Up 15.8%]"
+        "signal": "STRONG BUY (Low VIX Opportunity)"
       },
       {
-        "ticker": "SCI.NS",
-        "shares": 1161.5750958299454,
-        "entry_price": 172.18,
-        "current_price": 206.7601776123047,
-        "position_value": 240167.47312382935,
-        "return_pct": 20.08373656191467,
-        "days_held": 14,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (81.7), Stochastic Overbought, BB Upper Band (125.41%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 22.5%]"
-      },
-      {
-        "ticker": "GUJAPOLLO.NS",
-        "shares": 673.7863423508406,
-        "entry_price": 296.83,
-        "current_price": 315.378662109375,
-        "position_value": 212497.83519817743,
-        "return_pct": 6.24891759908871,
-        "days_held": 14,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (87.90%), Price Above VWAP, Short-term Up 17.7%]"
-      },
-      {
-        "ticker": "DBREALTY.NS",
-        "shares": 898.2708286548394,
-        "entry_price": 222.65,
-        "current_price": 244.3000030517578,
-        "position_value": 219447.56618168228,
-        "return_pct": 9.723783090841144,
-        "days_held": 14,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (108.49%), Price Above VWAP, Short-term Up 26.9%]"
+        "ticker": "STEL.NS",
+        "shares": 372.78657968313144,
+        "entry_price": 536.5,
+        "current_price": 552.0999755859375,
+        "position_value": 205815.461541822,
+        "return_pct": 2.907730770910997,
+        "days_held": 7,
+        "signal": "HOLD"
       }
     ]
   },
   {
-    "date": "2024-01-29 00:00:00",
+    "date": "2024-09-23 00:00:00",
     "phase": "POST-REBALANCE",
     "cash": 0.0,
-    "total_value": 1128812.4049593478,
+    "total_value": 972489.1537849368,
     "positions": [
       {
-        "ticker": "NRAIL.NS",
-        "shares": 457.93836149654254,
-        "entry_price": 436.74,
-        "current_price": 500.8261413574219,
-        "position_value": 229347.50256785357,
-        "return_pct": 14.673751283926789,
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.75,
+        "position_value": 161290.32258064518,
+        "return_pct": -19.354838709677416,
         "days_held": 21,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), Stochastic Overbought, BB Upper Band (99.37%), Price Above VWAP, Short-term Up 15.8%]"
+        "signal": "HOLD"
       },
       {
-        "ticker": "SCI.NS",
-        "shares": 1161.5750958299454,
-        "entry_price": 172.18,
-        "current_price": 206.7601776123047,
-        "position_value": 240167.47312382935,
-        "return_pct": 20.08373656191467,
-        "days_held": 14,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (81.7), Stochastic Overbought, BB Upper Band (125.41%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 22.5%]"
+        "ticker": "PILITA.NS",
+        "shares": 14836.795252225518,
+        "entry_price": 13.48,
+        "current_price": 15.4399995803833,
+        "position_value": 229080.11246859495,
+        "return_pct": 14.540056234297479,
+        "days_held": 21,
+        "signal": "STRONG BUY (Low VIX Opportunity)"
       },
       {
-        "ticker": "GUJAPOLLO.NS",
-        "shares": 673.7863423508406,
-        "entry_price": 296.83,
-        "current_price": 315.378662109375,
-        "position_value": 212497.83519817743,
-        "return_pct": 6.24891759908871,
-        "days_held": 14,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (87.90%), Price Above VWAP, Short-term Up 17.7%]"
-      },
-      {
-        "ticker": "DBREALTY.NS",
-        "shares": 898.2708286548394,
-        "entry_price": 222.65,
-        "current_price": 244.3000030517578,
-        "position_value": 219447.56618168228,
-        "return_pct": 9.723783090841144,
-        "days_held": 14,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (108.49%), Price Above VWAP, Short-term Up 26.9%]"
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4414.602483258353,
-        "entry_price": 42.95,
-        "current_price": 51.5,
-        "position_value": 227352.02788780516,
-        "return_pct": 19.906868451688002,
+        "ticker": "SURANAT&P.NS",
+        "shares": 8110.300081103001,
+        "entry_price": 24.66,
+        "current_price": 23.780000686645508,
+        "position_value": 192862.94149753047,
+        "return_pct": -3.568529251234762,
         "days_held": 0,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (144.49%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 10.7%]"
-      }
-    ]
-  },
-  {
-    "date": "2024-02-05 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 1204955.2162364493,
-    "positions": [
-      {
-        "ticker": "NRAIL.NS",
-        "shares": 457.93836149654254,
-        "entry_price": 436.74,
-        "current_price": 489.8304748535156,
-        "position_value": 224312.16506549233,
-        "return_pct": 12.156082532746169,
-        "days_held": 28,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (91.43%), Price Above VWAP)"
+        "signal": "BUY (Low VIX Opportunity)"
       },
       {
-        "ticker": "SCI.NS",
-        "shares": 1161.5750958299454,
-        "entry_price": 172.18,
-        "current_price": 277.17742919921875,
-        "position_value": 321962.3988839804,
-        "return_pct": 60.981199441990206,
-        "days_held": 21,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (90.6), Stochastic Overbought, BB Upper Band (148.79%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 53.7%]"
-      },
-      {
-        "ticker": "GUJAPOLLO.NS",
-        "shares": 673.7863423508406,
-        "entry_price": 296.83,
-        "current_price": 304.6355895996094,
-        "position_value": 205259.29966621258,
-        "return_pct": 2.6296498331062867,
-        "days_held": 21,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Strong Trend (ADX > 25), Stochastic Oversold, Price Above VWAP)"
-      },
-      {
-        "ticker": "DBREALTY.NS",
-        "shares": 898.2708286548394,
-        "entry_price": 222.65,
-        "current_price": 273.04998779296875,
-        "position_value": 245272.83879898384,
-        "return_pct": 22.63641939949191,
-        "days_held": 21,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Short-term RSI Overbought (70.8), Stochastic Overbought, BB Upper Band (108.64%), Price Above VWAP, Short-term Up 18.6%]"
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4414.602483258353,
-        "entry_price": 42.95,
-        "current_price": 47.150001525878906,
-        "position_value": 208148.51382178013,
-        "return_pct": 9.77881612544564,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), BB Upper Band (107.43%), Price Above VWAP, Short-term Up 35.5%)"
-      }
-    ]
-  },
-  {
-    "date": "2024-02-05 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 1204955.2162364493,
-    "positions": [
-      {
-        "ticker": "NRAIL.NS",
-        "shares": 457.93836149654254,
-        "entry_price": 436.74,
-        "current_price": 489.8304748535156,
-        "position_value": 224312.16506549233,
-        "return_pct": 12.156082532746169,
-        "days_held": 28,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (91.43%), Price Above VWAP)"
-      },
-      {
-        "ticker": "SCI.NS",
-        "shares": 1161.5750958299454,
-        "entry_price": 172.18,
-        "current_price": 277.17742919921875,
-        "position_value": 321962.3988839804,
-        "return_pct": 60.981199441990206,
-        "days_held": 21,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (90.6), Stochastic Overbought, BB Upper Band (148.79%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 53.7%]"
-      },
-      {
-        "ticker": "GUJAPOLLO.NS",
-        "shares": 673.7863423508406,
-        "entry_price": 296.83,
-        "current_price": 304.6355895996094,
-        "position_value": 205259.29966621258,
-        "return_pct": 2.6296498331062867,
-        "days_held": 21,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Strong Trend (ADX > 25), Stochastic Oversold, Price Above VWAP)"
-      },
-      {
-        "ticker": "DBREALTY.NS",
-        "shares": 898.2708286548394,
-        "entry_price": 222.65,
-        "current_price": 273.04998779296875,
-        "position_value": 245272.83879898384,
-        "return_pct": 22.63641939949191,
-        "days_held": 21,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Short-term RSI Overbought (70.8), Stochastic Overbought, BB Upper Band (108.64%), Price Above VWAP, Short-term Up 18.6%]"
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4414.602483258353,
-        "entry_price": 42.95,
-        "current_price": 47.150001525878906,
-        "position_value": 208148.51382178013,
-        "return_pct": 9.77881612544564,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), BB Upper Band (107.43%), Price Above VWAP, Short-term Up 35.5%)"
-      }
-    ]
-  },
-  {
-    "date": "2024-02-12 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 1071152.3168561966,
-    "positions": [
-      {
-        "ticker": "NRAIL.NS",
-        "shares": 457.93836149654254,
-        "entry_price": 436.74,
-        "current_price": 456.2463684082031,
-        "position_value": 208932.71438760046,
-        "return_pct": 4.466357193800228,
-        "days_held": 35,
-        "signal": "HOLD (Conflicting signals: Strong Trend (ADX > 25), Stochastic Oversold, Price Above VWAP, Short-term Down 10.3%)"
-      },
-      {
-        "ticker": "SCI.NS",
-        "shares": 1161.5750958299454,
-        "entry_price": 172.18,
-        "current_price": 211.9503936767578,
-        "position_value": 246196.2988462746,
-        "return_pct": 23.0981494231373,
-        "days_held": 28,
-        "signal": "HOLD (Conflicting signals: Strong Trend (ADX > 25), BB Upper Band (89.40%), Price Above VWAP, Short-term Up 36.7%)"
-      },
-      {
-        "ticker": "GUJAPOLLO.NS",
-        "shares": 673.7863423508406,
-        "entry_price": 296.83,
-        "current_price": 279.3695068359375,
-        "position_value": 188235.3581753445,
-        "return_pct": -5.882320912327758,
-        "days_held": 28,
-        "signal": "HOLD (Conflicting signals: Price Above VWAP, Short-term Down 9.6%)"
-      },
-      {
-        "ticker": "DBREALTY.NS",
-        "shares": 898.2708286548394,
-        "entry_price": 222.65,
-        "current_price": 256.79998779296875,
-        "position_value": 230675.9378333427,
-        "return_pct": 15.337968916671343,
-        "days_held": 28,
-        "signal": "HOLD (Conflicting signals: Short-term RSI Overbought (71.1), Stochastic Overbought, BB Upper Band (100.10%), Price Above VWAP, Short-term Up 11.2%)"
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4414.602483258353,
-        "entry_price": 42.95,
-        "current_price": 44.650001525878906,
-        "position_value": 197112.00761363425,
-        "return_pct": 3.958094355946224,
-        "days_held": 14,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (85.78%), Price Above VWAP, Short-term Up 28.5%)"
-      }
-    ]
-  },
-  {
-    "date": "2024-02-12 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 197168.07256294496,
-    "total_value": 1061164.9840477868,
-    "positions": [
-      {
-        "ticker": "SCI.NS",
-        "shares": 1161.5750958299454,
-        "entry_price": 172.18,
-        "current_price": 211.9503936767578,
-        "position_value": 246196.2988462746,
-        "return_pct": 23.0981494231373,
-        "days_held": 28,
-        "signal": "HOLD (Conflicting signals: Strong Trend (ADX > 25), BB Upper Band (89.40%), Price Above VWAP, Short-term Up 36.7%)"
-      },
-      {
-        "ticker": "DBREALTY.NS",
-        "shares": 898.2708286548394,
-        "entry_price": 222.65,
-        "current_price": 256.79998779296875,
-        "position_value": 230675.9378333427,
-        "return_pct": 15.337968916671343,
-        "days_held": 28,
-        "signal": "HOLD (Conflicting signals: Short-term RSI Overbought (71.1), Stochastic Overbought, BB Upper Band (100.10%), Price Above VWAP, Short-term Up 11.2%)"
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4414.602483258353,
-        "entry_price": 42.95,
-        "current_price": 44.650001525878906,
-        "position_value": 197112.00761363425,
-        "return_pct": 3.958094355946224,
-        "days_held": 14,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (85.78%), Price Above VWAP, Short-term Up 28.5%)"
-      },
-      {
-        "ticker": "INDOTHAI.NS",
-        "shares": 556.9789461958338,
-        "entry_price": 359.08,
-        "current_price": 341.14874267578125,
-        "position_value": 190012.66719159033,
-        "return_pct": -4.993666404204839,
+        "ticker": "TERASOFT.NS",
+        "shares": 2755.9597629874606,
+        "entry_price": 72.57,
+        "current_price": 76.19000244140625,
+        "position_value": 209976.581070432,
+        "return_pct": 4.9882905352160085,
         "days_held": 0,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (73.8), Stochastic Overbought, BB Upper Band (111.32%), Price Above VWAP, Short-term Up 17.1%]"
+        "signal": "BUY (Low VIX Opportunity)"
+      },
+      {
+        "ticker": "IZMO.NS",
+        "shares": 403.8274383110711,
+        "entry_price": 453.0,
+        "current_price": 443.95001220703125,
+        "position_value": 179279.19616773416,
+        "return_pct": -1.997789799772351,
+        "days_held": 0,
+        "signal": "BUY (Low VIX Opportunity)"
       }
     ]
   },
   {
-    "date": "2024-02-19 00:00:00",
+    "date": "2024-09-30 00:00:00",
     "phase": "PRE-REBALANCE",
-    "cash": 197168.07256294496,
-    "total_value": 1114456.7870971672,
+    "cash": 0.0,
+    "total_value": 986090.1627878655,
     "positions": [
       {
-        "ticker": "SCI.NS",
-        "shares": 1161.5750958299454,
-        "entry_price": 172.18,
-        "current_price": 238.8496856689453,
-        "position_value": 277441.84651985747,
-        "return_pct": 38.72092325992874,
-        "days_held": 35,
-        "signal": "HOLD (Conflicting signals: Strong Trend (ADX > 25), Price Above VWAP)"
-      },
-      {
-        "ticker": "DBREALTY.NS",
-        "shares": 898.2708286548394,
-        "entry_price": 222.65,
-        "current_price": 270.54998779296875,
-        "position_value": 243027.16172734674,
-        "return_pct": 21.51358086367336,
-        "days_held": 35,
-        "signal": "HOLD (Conflicting signals: Strong Trend (ADX > 25), BB Upper Band (84.24%), Price Above VWAP)"
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4414.602483258353,
-        "entry_price": 42.95,
-        "current_price": 48.79999923706055,
-        "position_value": 215432.5978149332,
-        "return_pct": 13.620487164285317,
-        "days_held": 21,
-        "signal": "HOLD (Conflicting signals: BB Upper Band (80.44%), Price Above VWAP, Short-term Down 14.0%)"
-      },
-      {
-        "ticker": "INDOTHAI.NS",
-        "shares": 556.9789461958338,
-        "entry_price": 359.08,
-        "current_price": 325.66241455078125,
-        "position_value": 181387.10847208492,
-        "return_pct": -9.306445763957539,
-        "days_held": 7,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), BB Upper Band (83.35%), Price Above VWAP]"
-      }
-    ]
-  },
-  {
-    "date": "2024-02-19 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 197168.07256294496,
-    "total_value": 1114456.7870971672,
-    "positions": [
-      {
-        "ticker": "SCI.NS",
-        "shares": 1161.5750958299454,
-        "entry_price": 172.18,
-        "current_price": 238.8496856689453,
-        "position_value": 277441.84651985747,
-        "return_pct": 38.72092325992874,
-        "days_held": 35,
-        "signal": "HOLD (Conflicting signals: Strong Trend (ADX > 25), Price Above VWAP)"
-      },
-      {
-        "ticker": "DBREALTY.NS",
-        "shares": 898.2708286548394,
-        "entry_price": 222.65,
-        "current_price": 270.54998779296875,
-        "position_value": 243027.16172734674,
-        "return_pct": 21.51358086367336,
-        "days_held": 35,
-        "signal": "HOLD (Conflicting signals: Strong Trend (ADX > 25), BB Upper Band (84.24%), Price Above VWAP)"
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4414.602483258353,
-        "entry_price": 42.95,
-        "current_price": 48.79999923706055,
-        "position_value": 215432.5978149332,
-        "return_pct": 13.620487164285317,
-        "days_held": 21,
-        "signal": "HOLD (Conflicting signals: BB Upper Band (80.44%), Price Above VWAP, Short-term Down 14.0%)"
-      },
-      {
-        "ticker": "INDOTHAI.NS",
-        "shares": 556.9789461958338,
-        "entry_price": 359.08,
-        "current_price": 325.66241455078125,
-        "position_value": 181387.10847208492,
-        "return_pct": -9.306445763957539,
-        "days_held": 7,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), BB Upper Band (83.35%), Price Above VWAP]"
-      }
-    ]
-  },
-  {
-    "date": "2024-02-26 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 197168.07256294496,
-    "total_value": 1121185.2875404116,
-    "positions": [
-      {
-        "ticker": "SCI.NS",
-        "shares": 1161.5750958299454,
-        "entry_price": 172.18,
-        "current_price": 237.35250854492188,
-        "position_value": 275702.7628585456,
-        "return_pct": 37.85138142927277,
-        "days_held": 42,
-        "signal": "HOLD (Conflicting signals: Strong Trend (ADX > 25), BB Upper Band (83.72%), Price Above VWAP, Short-term Down 7.3%)"
-      },
-      {
-        "ticker": "DBREALTY.NS",
-        "shares": 898.2708286548394,
-        "entry_price": 222.65,
-        "current_price": 274.0,
-        "position_value": 246126.207051426,
-        "return_pct": 23.063103525713,
-        "days_held": 42,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), BB Upper Band (83.90%), Price Above VWAP]"
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4414.602483258353,
-        "entry_price": 42.95,
-        "current_price": 47.349998474121094,
-        "position_value": 209031.4208461342,
-        "return_pct": 10.24446676163234,
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.659999966621399,
+        "position_value": 152995.38862870037,
+        "return_pct": -23.502305685649816,
         "days_held": 28,
-        "signal": "HOLD (Conflicting signals: Price Above VWAP, Short-term Down 6.1%)"
+        "signal": "HOLD"
       },
       {
-        "ticker": "INDOTHAI.NS",
-        "shares": 556.9789461958338,
-        "entry_price": 359.08,
-        "current_price": 346.79376220703125,
-        "position_value": 193156.82422136085,
-        "return_pct": -3.4215878893195764,
-        "days_held": 14,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), Price Above VWAP]"
-      }
-    ]
-  },
-  {
-    "date": "2024-02-26 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 197168.07256294496,
-    "total_value": 1121185.2875404116,
-    "positions": [
-      {
-        "ticker": "SCI.NS",
-        "shares": 1161.5750958299454,
-        "entry_price": 172.18,
-        "current_price": 237.35250854492188,
-        "position_value": 275702.7628585456,
-        "return_pct": 37.85138142927277,
-        "days_held": 42,
-        "signal": "HOLD (Conflicting signals: Strong Trend (ADX > 25), BB Upper Band (83.72%), Price Above VWAP, Short-term Down 7.3%)"
-      },
-      {
-        "ticker": "DBREALTY.NS",
-        "shares": 898.2708286548394,
-        "entry_price": 222.65,
-        "current_price": 274.0,
-        "position_value": 246126.207051426,
-        "return_pct": 23.063103525713,
-        "days_held": 42,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), BB Upper Band (83.90%), Price Above VWAP]"
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4414.602483258353,
-        "entry_price": 42.95,
-        "current_price": 47.349998474121094,
-        "position_value": 209031.4208461342,
-        "return_pct": 10.24446676163234,
+        "ticker": "PILITA.NS",
+        "shares": 14836.795252225518,
+        "entry_price": 13.48,
+        "current_price": 14.949999809265137,
+        "position_value": 221810.0861908774,
+        "return_pct": 10.905043095438696,
         "days_held": 28,
-        "signal": "HOLD (Conflicting signals: Price Above VWAP, Short-term Down 6.1%)"
+        "signal": "BUY (Low VIX Opportunity)"
       },
       {
-        "ticker": "INDOTHAI.NS",
-        "shares": 556.9789461958338,
-        "entry_price": 359.08,
-        "current_price": 346.79376220703125,
-        "position_value": 193156.82422136085,
-        "return_pct": -3.4215878893195764,
-        "days_held": 14,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), Price Above VWAP]"
+        "ticker": "SURANAT&P.NS",
+        "shares": 8110.300081103001,
+        "entry_price": 24.66,
+        "current_price": 23.350000381469727,
+        "position_value": 189375.50998758903,
+        "return_pct": -5.312245006205489,
+        "days_held": 7,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "TERASOFT.NS",
+        "shares": 2755.9597629874606,
+        "entry_price": 72.57,
+        "current_price": 89.76000213623047,
+        "position_value": 247374.9542131197,
+        "return_pct": 23.687477106559843,
+        "days_held": 7,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "IZMO.NS",
+        "shares": 403.8274383110711,
+        "entry_price": 453.0,
+        "current_price": 432.20001220703125,
+        "position_value": 174534.2237675791,
+        "return_pct": -4.591608784319813,
+        "days_held": 7,
+        "signal": "HOLD"
       }
     ]
   },
   {
-    "date": "2024-03-04 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 197168.07256294496,
-    "total_value": 1082126.8454713298,
+    "date": "2024-09-30 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 221909.17798069873,
+    "total_value": 996057.7996699028,
     "positions": [
       {
-        "ticker": "SCI.NS",
-        "shares": 1161.5750958299454,
-        "entry_price": 172.18,
-        "current_price": 236.05494689941406,
-        "position_value": 274195.5475658196,
-        "return_pct": 37.097773782909776,
-        "days_held": 49,
-        "signal": "HOLD (Conflicting signals: Strong Trend (ADX > 25), Price Above VWAP)"
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.659999966621399,
+        "position_value": 152995.38862870037,
+        "return_pct": -23.502305685649816,
+        "days_held": 28,
+        "signal": "HOLD"
       },
       {
-        "ticker": "DBREALTY.NS",
-        "shares": 898.2708286548394,
-        "entry_price": 222.65,
-        "current_price": 268.1000061035156,
-        "position_value": 240826.41464497248,
-        "return_pct": 20.413207322486244,
-        "days_held": 49,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), Price Above VWAP]"
+        "ticker": "PILITA.NS",
+        "shares": 14836.795252225518,
+        "entry_price": 13.48,
+        "current_price": 14.949999809265137,
+        "position_value": 221810.0861908774,
+        "return_pct": 10.905043095438696,
+        "days_held": 28,
+        "signal": "BUY (Low VIX Opportunity)"
       },
       {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4414.602483258353,
-        "entry_price": 42.95,
-        "current_price": 43.70000076293945,
-        "position_value": 192918.1318864644,
-        "return_pct": 1.746218307193132,
+        "ticker": "SURANAT&P.NS",
+        "shares": 8110.300081103001,
+        "entry_price": 24.66,
+        "current_price": 23.350000381469727,
+        "position_value": 189375.50998758903,
+        "return_pct": -5.312245006205489,
+        "days_held": 7,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "RPOWER.NS",
+        "shares": 4314.994606256742,
+        "entry_price": 46.35,
+        "current_price": 48.65999984741211,
+        "position_value": 209967.63688203716,
+        "return_pct": 4.983818441018571,
+        "days_held": 0,
+        "signal": "BUY (Low VIX Opportunity)"
+      }
+    ]
+  },
+  {
+    "date": "2024-10-07 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 221909.17798069873,
+    "total_value": 991501.8605079051,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.0,
+        "position_value": 184331.79723502306,
+        "return_pct": -7.834101382488476,
         "days_held": 35,
         "signal": "HOLD"
       },
       {
-        "ticker": "INDOTHAI.NS",
-        "shares": 556.9789461958338,
-        "entry_price": 359.08,
-        "current_price": 317.8193359375,
-        "position_value": 177018.67881112845,
-        "return_pct": -11.490660594435777,
-        "days_held": 21,
-        "signal": "HOLD (Conflicting signals: Strong Trend (ADX > 25), Price Above VWAP)"
+        "ticker": "PILITA.NS",
+        "shares": 14836.795252225518,
+        "entry_price": 13.48,
+        "current_price": 13.819999694824219,
+        "position_value": 205044.50585792607,
+        "return_pct": 2.5222529289630438,
+        "days_held": 35,
+        "signal": "BUY (Low VIX Opportunity)"
+      },
+      {
+        "ticker": "SURANAT&P.NS",
+        "shares": 8110.300081103001,
+        "entry_price": 24.66,
+        "current_price": 21.1299991607666,
+        "position_value": 171370.6339072717,
+        "return_pct": -14.314683046364147,
+        "days_held": 14,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "RPOWER.NS",
+        "shares": 4314.994606256742,
+        "entry_price": 46.35,
+        "current_price": 48.400001525878906,
+        "position_value": 208845.7455269856,
+        "return_pct": 4.422872763492783,
+        "days_held": 7,
+        "signal": "HOLD"
       }
     ]
   },
   {
-    "date": "2024-03-04 00:00:00",
+    "date": "2024-10-07 00:00:00",
     "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 1078949.6196240657,
+    "cash": 21909.177980698732,
+    "total_value": 987501.8605079051,
     "positions": [
       {
-        "ticker": "SCI.NS",
-        "shares": 1161.5750958299454,
-        "entry_price": 172.18,
-        "current_price": 236.05494689941406,
-        "position_value": 274195.5475658196,
-        "return_pct": 37.097773782909776,
-        "days_held": 49,
-        "signal": "HOLD (Conflicting signals: Strong Trend (ADX > 25), Price Above VWAP)"
-      },
-      {
-        "ticker": "DBREALTY.NS",
-        "shares": 898.2708286548394,
-        "entry_price": 222.65,
-        "current_price": 268.1000061035156,
-        "position_value": 240826.41464497248,
-        "return_pct": 20.413207322486244,
-        "days_held": 49,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), Price Above VWAP]"
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4414.602483258353,
-        "entry_price": 42.95,
-        "current_price": 43.70000076293945,
-        "position_value": 192918.1318864644,
-        "return_pct": 1.746218307193132,
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.0,
+        "position_value": 184331.79723502306,
+        "return_pct": -7.834101382488476,
         "days_held": 35,
         "signal": "HOLD"
       },
       {
-        "ticker": "INDOTHAI.NS",
-        "shares": 556.9789461958338,
-        "entry_price": 359.08,
-        "current_price": 317.8193359375,
-        "position_value": 177018.67881112845,
-        "return_pct": -11.490660594435777,
-        "days_held": 21,
-        "signal": "HOLD (Conflicting signals: Strong Trend (ADX > 25), Price Above VWAP)"
-      },
-      {
-        "ticker": "KERNEX.NS",
-        "shares": 299.73863265877924,
-        "entry_price": 657.8,
-        "current_price": 647.2000122070312,
-        "position_value": 193990.8467156808,
-        "return_pct": -1.6114301904786723,
-        "days_held": 0,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Price Above VWAP]"
-      }
-    ]
-  },
-  {
-    "date": "2024-03-11 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 1033227.7501531655,
-    "positions": [
-      {
-        "ticker": "SCI.NS",
-        "shares": 1161.5750958299454,
-        "entry_price": 172.18,
-        "current_price": 217.4899444580078,
-        "position_value": 252630.90307585994,
-        "return_pct": 26.315451537929956,
-        "days_held": 56,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), Stochastic Oversold, Price Above VWAP, Short-term Down 5.3%]"
-      },
-      {
-        "ticker": "DBREALTY.NS",
-        "shares": 898.2708286548394,
-        "entry_price": 222.65,
-        "current_price": 267.3500061035156,
-        "position_value": 240152.71152348135,
-        "return_pct": 20.07635576174068,
-        "days_held": 56,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP]"
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4414.602483258353,
-        "entry_price": 42.95,
-        "current_price": 41.95000076293945,
-        "position_value": 185192.5775407623,
-        "return_pct": -2.3282869314564603,
-        "days_held": 42,
-        "signal": "HOLD (Conflicting signals: Short-term Down 7.9%)"
-      },
-      {
-        "ticker": "INDOTHAI.NS",
-        "shares": 556.9789461958338,
-        "entry_price": 359.08,
-        "current_price": 306.82904052734375,
-        "position_value": 170897.3156551987,
-        "return_pct": -14.551342172400645,
-        "days_held": 28,
-        "signal": "HOLD (Conflicting signals: Strong Trend (ADX > 25))"
-      },
-      {
-        "ticker": "KERNEX.NS",
-        "shares": 299.73863265877924,
-        "entry_price": 657.8,
-        "current_price": 615.0499877929688,
-        "position_value": 184354.24235786332,
-        "return_pct": -6.498937702497903,
-        "days_held": 7,
-        "signal": "BUY (PSAR Bullish) [Golden Cross (Short > Medium MA), PSAR Bullish (All Timeframes)]"
-      }
-    ]
-  },
-  {
-    "date": "2024-03-11 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 185192.5775407623,
-    "total_value": 1033227.7501531655,
-    "positions": [
-      {
-        "ticker": "SCI.NS",
-        "shares": 1161.5750958299454,
-        "entry_price": 172.18,
-        "current_price": 217.4899444580078,
-        "position_value": 252630.90307585994,
-        "return_pct": 26.315451537929956,
-        "days_held": 56,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), Strong Trend (ADX > 25), Stochastic Oversold, Price Above VWAP, Short-term Down 5.3%]"
-      },
-      {
-        "ticker": "DBREALTY.NS",
-        "shares": 898.2708286548394,
-        "entry_price": 222.65,
-        "current_price": 267.3500061035156,
-        "position_value": 240152.71152348135,
-        "return_pct": 20.07635576174068,
-        "days_held": 56,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP]"
-      },
-      {
-        "ticker": "INDOTHAI.NS",
-        "shares": 556.9789461958338,
-        "entry_price": 359.08,
-        "current_price": 306.82904052734375,
-        "position_value": 170897.3156551987,
-        "return_pct": -14.551342172400645,
-        "days_held": 28,
-        "signal": "HOLD (Conflicting signals: Strong Trend (ADX > 25))"
-      },
-      {
-        "ticker": "KERNEX.NS",
-        "shares": 299.73863265877924,
-        "entry_price": 657.8,
-        "current_price": 615.0499877929688,
-        "position_value": 184354.24235786332,
-        "return_pct": -6.498937702497903,
-        "days_held": 7,
-        "signal": "BUY (PSAR Bullish) [Golden Cross (Short > Medium MA), PSAR Bullish (All Timeframes)]"
-      }
-    ]
-  },
-  {
-    "date": "2024-03-18 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 185192.5775407623,
-    "total_value": 951412.9309555565,
-    "positions": [
-      {
-        "ticker": "SCI.NS",
-        "shares": 1161.5750958299454,
-        "entry_price": 172.18,
-        "current_price": 202.16883850097656,
-        "position_value": 234834.28795560062,
-        "return_pct": 17.417143977800297,
-        "days_held": 63,
-        "signal": "STRONG SELL (Multi-Timeframe PSAR Confirmed) [Stochastic Oversold, Short-term Down 16.6%]"
-      },
-      {
-        "ticker": "DBREALTY.NS",
-        "shares": 898.2708286548394,
-        "entry_price": 222.65,
-        "current_price": 215.10000610351562,
-        "position_value": 193218.060726266,
-        "return_pct": -3.390969636867002,
-        "days_held": 63,
-        "signal": "STRONG SELL (Multi-Timeframe PSAR Confirmed) [Stochastic Oversold, Short-term Down 19.9%]"
-      },
-      {
-        "ticker": "INDOTHAI.NS",
-        "shares": 556.9789461958338,
-        "entry_price": 359.08,
-        "current_price": 297.737060546875,
-        "position_value": 165833.2742268436,
-        "return_pct": -17.083362886578197,
+        "ticker": "PILITA.NS",
+        "shares": 14836.795252225518,
+        "entry_price": 13.48,
+        "current_price": 13.819999694824219,
+        "position_value": 205044.50585792607,
+        "return_pct": 2.5222529289630438,
         "days_held": 35,
-        "signal": "HOLD (Conflicting signals: Stochastic Oversold, Short-term Down 13.6%)"
+        "signal": "BUY (Low VIX Opportunity)"
       },
       {
-        "ticker": "KERNEX.NS",
-        "shares": 299.73863265877924,
-        "entry_price": 657.8,
-        "current_price": 574.9500122070312,
-        "position_value": 172334.730506084,
-        "return_pct": -12.59501182623422,
+        "ticker": "SURANAT&P.NS",
+        "shares": 8110.300081103001,
+        "entry_price": 24.66,
+        "current_price": 21.1299991607666,
+        "position_value": 171370.6339072717,
+        "return_pct": -14.314683046364147,
         "days_held": 14,
-        "signal": "HOLD (Conflicting signals: Stochastic Oversold, BB Lower Band (-6.01%), Short-term Down 19.5%)"
-      }
-    ]
-  },
-  {
-    "date": "2024-03-18 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 951412.9309555565,
-    "total_value": 951412.9309555565,
-    "positions": []
-  },
-  {
-    "date": "2024-03-25 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 951412.9309555565,
-    "total_value": 951412.9309555565,
-    "positions": []
-  },
-  {
-    "date": "2024-03-25 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 951412.9309555565,
-    "total_value": 951412.9309555565,
-    "positions": []
-  },
-  {
-    "date": "2024-04-01 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 951412.9309555565,
-    "total_value": 951412.9309555565,
-    "positions": []
-  },
-  {
-    "date": "2024-04-01 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 951412.9309555565,
-    "total_value": 951412.9309555565,
-    "positions": []
-  },
-  {
-    "date": "2024-04-08 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 951412.9309555565,
-    "total_value": 951412.9309555565,
-    "positions": []
-  },
-  {
-    "date": "2024-04-08 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 151412.93095555648,
-    "total_value": 935641.5022123313,
-    "positions": [
+        "signal": "HOLD"
+      },
       {
-        "ticker": "SCI.NS",
-        "shares": 870.8146471023643,
-        "entry_price": 229.67,
-        "current_price": 224.67640686035156,
-        "position_value": 195651.50595232428,
-        "return_pct": -2.1742470238378653,
+        "ticker": "RPOWER.NS",
+        "shares": 4314.994606256742,
+        "entry_price": 46.35,
+        "current_price": 48.400001525878906,
+        "position_value": 208845.7455269856,
+        "return_pct": 4.422872763492783,
+        "days_held": 7,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "MEDICO.NS",
+        "shares": 4000.0,
+        "entry_price": 50.0,
+        "current_price": 49.0,
+        "position_value": 196000.0,
+        "return_pct": -2.0,
         "days_held": 0,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, Volume Spike (2x MA), OBV Uptick with Volume, Short-term Up 16.0%]"
-      },
-      {
-        "ticker": "NRAIL.NS",
-        "shares": 416.98809498988805,
-        "entry_price": 479.63,
-        "current_price": 478.8845520019531,
-        "position_value": 199689.1570593804,
-        "return_pct": -0.15542147030979517,
-        "days_held": 0,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, Price Above VWAP, Short-term Up 12.1%]"
-      },
-      {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 408.3466045979828,
-        "entry_price": 489.78,
-        "current_price": 484.0216369628906,
-        "position_value": 197648.59200575386,
-        "return_pct": -1.175703997123065,
-        "days_held": 0,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (92.54%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 12.7%]"
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4273.504273504273,
-        "entry_price": 46.8,
-        "current_price": 44.75,
-        "position_value": 191239.31623931625,
-        "return_pct": -4.3803418803418745,
-        "days_held": 0,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, Volume Spike (2x MA), OBV Uptick with Volume, Short-term Up 20.2%]"
+        "signal": "BUY (Low VIX Opportunity)"
       }
     ]
   },
   {
-    "date": "2024-04-15 00:00:00",
+    "date": "2024-10-14 00:00:00",
     "phase": "PRE-REBALANCE",
-    "cash": 151412.93095555648,
-    "total_value": 939247.9769877396,
+    "cash": 21909.177980698732,
+    "total_value": 1035349.4394669401,
     "positions": [
       {
-        "ticker": "SCI.NS",
-        "shares": 870.8146471023643,
-        "entry_price": 229.67,
-        "current_price": 210.35340881347656,
-        "position_value": 183178.82946268696,
-        "return_pct": -8.410585268656519,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: Golden Cross (Short > Medium MA), PSAR Bullish (All Timeframes))"
-      },
-      {
-        "ticker": "NRAIL.NS",
-        "shares": 416.98809498988805,
-        "entry_price": 479.63,
-        "current_price": 470.1278076171875,
-        "position_value": 196037.6989000636,
-        "return_pct": -1.9811505499682038,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Price Above VWAP)"
-      },
-      {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 408.3466045979828,
-        "entry_price": 489.78,
-        "current_price": 540.18896484375,
-        "position_value": 220584.3296352444,
-        "return_pct": 10.292164817622204,
-        "days_held": 7,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Short-term RSI Overbought (77.2), Stochastic Overbought, BB Upper Band (131.75%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 21.6%]"
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4273.504273504273,
-        "entry_price": 46.8,
-        "current_price": 44.0,
-        "position_value": 188034.18803418803,
-        "return_pct": -5.982905982905977,
-        "days_held": 7,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (All Timeframes), Short-term Up 10.1%]"
-      }
-    ]
-  },
-  {
-    "date": "2024-04-15 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 322625.9484524315,
-    "total_value": 938135.9852002944,
-    "positions": [
-      {
-        "ticker": "NRAIL.NS",
-        "shares": 416.98809498988805,
-        "entry_price": 479.63,
-        "current_price": 470.1278076171875,
-        "position_value": 196037.6989000636,
-        "return_pct": -1.9811505499682038,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Price Above VWAP)"
-      },
-      {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 408.3466045979828,
-        "entry_price": 489.78,
-        "current_price": 540.18896484375,
-        "position_value": 220584.3296352444,
-        "return_pct": 10.292164817622204,
-        "days_held": 7,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Short-term RSI Overbought (77.2), Stochastic Overbought, BB Upper Band (131.75%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 21.6%]"
-      },
-      {
-        "ticker": "INDOTHAI.NS",
-        "shares": 585.2231163130944,
-        "entry_price": 341.75,
-        "current_price": 339.8498840332031,
-        "position_value": 198888.00821255485,
-        "return_pct": -0.5559958937225676,
-        "days_held": 0,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (84.35%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 20.6%]"
-      }
-    ]
-  },
-  {
-    "date": "2024-04-22 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 322625.9484524315,
-    "total_value": 949661.4146721753,
-    "positions": [
-      {
-        "ticker": "NRAIL.NS",
-        "shares": 416.98809498988805,
-        "entry_price": 479.63,
-        "current_price": 479.7801208496094,
-        "position_value": 200062.59860709688,
-        "return_pct": 0.03129930354843933,
-        "days_held": 14,
-        "signal": "HOLD (Conflicting signals: Price Above VWAP, Short-term Up 10.9%)"
-      },
-      {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 408.3466045979828,
-        "entry_price": 489.78,
-        "current_price": 536.2195434570312,
-        "position_value": 218963.4298897592,
-        "return_pct": 9.481714944879595,
-        "days_held": 14,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), BB Upper Band (101.63%), Price Above VWAP, Short-term Up 18.8%]"
-      },
-      {
-        "ticker": "INDOTHAI.NS",
-        "shares": 585.2231163130944,
-        "entry_price": 341.75,
-        "current_price": 355.4361267089844,
-        "position_value": 208009.4377228877,
-        "return_pct": 4.004718861443855,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Price Above VWAP, Short-term Up 20.1%)"
-      }
-    ]
-  },
-  {
-    "date": "2024-04-22 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 122625.9484524315,
-    "total_value": 953339.4846616779,
-    "positions": [
-      {
-        "ticker": "NRAIL.NS",
-        "shares": 416.98809498988805,
-        "entry_price": 479.63,
-        "current_price": 479.7801208496094,
-        "position_value": 200062.59860709688,
-        "return_pct": 0.03129930354843933,
-        "days_held": 14,
-        "signal": "HOLD (Conflicting signals: Price Above VWAP, Short-term Up 10.9%)"
-      },
-      {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 408.3466045979828,
-        "entry_price": 489.78,
-        "current_price": 536.2195434570312,
-        "position_value": 218963.4298897592,
-        "return_pct": 9.481714944879595,
-        "days_held": 14,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), BB Upper Band (101.63%), Price Above VWAP, Short-term Up 18.8%]"
-      },
-      {
-        "ticker": "INDOTHAI.NS",
-        "shares": 585.2231163130944,
-        "entry_price": 341.75,
-        "current_price": 355.4361267089844,
-        "position_value": 208009.4377228877,
-        "return_pct": 4.004718861443855,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Price Above VWAP, Short-term Up 20.1%)"
-      },
-      {
-        "ticker": "SUBROS.NS",
-        "shares": 344.5305770887166,
-        "entry_price": 580.5,
-        "current_price": 591.1755981445312,
-        "position_value": 203678.06998950258,
-        "return_pct": 1.8390349947512918,
-        "days_held": 0,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, Price Above VWAP, Short-term Up 12.9%]"
-      }
-    ]
-  },
-  {
-    "date": "2024-04-29 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 122625.9484524315,
-    "total_value": 949436.2317900236,
-    "positions": [
-      {
-        "ticker": "NRAIL.NS",
-        "shares": 416.98809498988805,
-        "entry_price": 479.63,
-        "current_price": 471.0731201171875,
-        "position_value": 196431.88295860874,
-        "return_pct": -1.7840585206956396,
-        "days_held": 21,
-        "signal": "HOLD (Conflicting signals: Price Above VWAP)"
-      },
-      {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 408.3466045979828,
-        "entry_price": 489.78,
-        "current_price": 539.14697265625,
-        "position_value": 220158.83566346116,
-        "return_pct": 10.079417831730579,
-        "days_held": 21,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), BB Upper Band (92.08%), Price Above VWAP, Short-term Up 10.2%)"
-      },
-      {
-        "ticker": "INDOTHAI.NS",
-        "shares": 585.2231163130944,
-        "entry_price": 341.75,
-        "current_price": 335.95330810546875,
-        "position_value": 196607.64190517555,
-        "return_pct": -1.6961790474122167,
-        "days_held": 14,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Price Above VWAP, Short-term Up 16.6%)"
-      },
-      {
-        "ticker": "SUBROS.NS",
-        "shares": 344.5305770887166,
-        "entry_price": 580.5,
-        "current_price": 620.0086059570312,
-        "position_value": 213611.92281034667,
-        "return_pct": 6.805961405173341,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (92.83%), Price Above VWAP, Short-term Up 19.0%)"
-      }
-    ]
-  },
-  {
-    "date": "2024-04-29 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 332669.754221387,
-    "total_value": 950956.3252791828,
-    "positions": [
-      {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 408.3466045979828,
-        "entry_price": 489.78,
-        "current_price": 539.14697265625,
-        "position_value": 220158.83566346116,
-        "return_pct": 10.079417831730579,
-        "days_held": 21,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), BB Upper Band (92.08%), Price Above VWAP, Short-term Up 10.2%)"
-      },
-      {
-        "ticker": "INDOTHAI.NS",
-        "shares": 585.2231163130944,
-        "entry_price": 341.75,
-        "current_price": 335.95330810546875,
-        "position_value": 196607.64190517555,
-        "return_pct": -1.6961790474122167,
-        "days_held": 14,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Price Above VWAP, Short-term Up 16.6%)"
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4343.105320304017,
-        "entry_price": 46.05,
-        "current_price": 46.400001525878906,
-        "position_value": 201520.0934891592,
-        "return_pct": 0.7600467445796072,
-        "days_held": 0,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), Price Above VWAP]"
-      }
-    ]
-  },
-  {
-    "date": "2024-05-06 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 332669.754221387,
-    "total_value": 942715.1749089737,
-    "positions": [
-      {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 408.3466045979828,
-        "entry_price": 489.78,
-        "current_price": 530.5631713867188,
-        "position_value": 216653.6695605042,
-        "return_pct": 8.326834780252108,
-        "days_held": 28,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), BB Upper Band (87.92%), Price Above VWAP]"
-      },
-      {
-        "ticker": "INDOTHAI.NS",
-        "shares": 585.2231163130944,
-        "entry_price": 341.75,
-        "current_price": 330.4581604003906,
-        "position_value": 193391.754440609,
-        "return_pct": -3.3041227796955006,
-        "days_held": 21,
-        "signal": "STRONG SELL (Multi-Timeframe PSAR Confirmed) [Stochastic Oversold, Short-term Down 7.2%]"
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4343.105320304017,
-        "entry_price": 46.05,
-        "current_price": 46.04999923706055,
-        "position_value": 199999.9966864736,
-        "return_pct": -1.6567631927965888e-06,
-        "days_held": 7,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, Price Above VWAP]"
-      }
-    ]
-  },
-  {
-    "date": "2024-05-06 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 526061.508661996,
-    "total_value": 942715.1749089739,
-    "positions": [
-      {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 408.3466045979828,
-        "entry_price": 489.78,
-        "current_price": 530.5631713867188,
-        "position_value": 216653.6695605042,
-        "return_pct": 8.326834780252108,
-        "days_held": 28,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), BB Upper Band (87.92%), Price Above VWAP]"
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4343.105320304017,
-        "entry_price": 46.05,
-        "current_price": 46.04999923706055,
-        "position_value": 199999.9966864736,
-        "return_pct": -1.6567631927965888e-06,
-        "days_held": 7,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, Price Above VWAP]"
-      }
-    ]
-  },
-  {
-    "date": "2024-05-13 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 526061.508661996,
-    "total_value": 929253.4998127369,
-    "positions": [
-      {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 408.3466045979828,
-        "entry_price": 489.78,
-        "current_price": 515.6777954101562,
-        "position_value": 210575.27682231052,
-        "return_pct": 5.287638411155269,
-        "days_held": 35,
-        "signal": "HOLD (Conflicting signals: Price Above VWAP)"
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4343.105320304017,
-        "entry_price": 46.05,
-        "current_price": 44.349998474121094,
-        "position_value": 192616.71432843036,
-        "return_pct": -3.6916428357848066,
-        "days_held": 14,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Price Above VWAP)"
-      }
-    ]
-  },
-  {
-    "date": "2024-05-13 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 526061.508661996,
-    "total_value": 929253.4998127369,
-    "positions": [
-      {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 408.3466045979828,
-        "entry_price": 489.78,
-        "current_price": 515.6777954101562,
-        "position_value": 210575.27682231052,
-        "return_pct": 5.287638411155269,
-        "days_held": 35,
-        "signal": "HOLD (Conflicting signals: Price Above VWAP)"
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4343.105320304017,
-        "entry_price": 46.05,
-        "current_price": 44.349998474121094,
-        "position_value": 192616.71432843036,
-        "return_pct": -3.6916428357848066,
-        "days_held": 14,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Price Above VWAP)"
-      }
-    ]
-  },
-  {
-    "date": "2024-05-20 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 526061.508661996,
-    "total_value": 931650.0502575617,
-    "positions": [
-      {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 408.3466045979828,
-        "entry_price": 489.78,
-        "current_price": 522.0784912109375,
-        "position_value": 213188.97921962413,
-        "return_pct": 6.594489609812064,
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.180000066757202,
+        "position_value": 200921.66513891265,
+        "return_pct": 0.4608325694563235,
         "days_held": 42,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Price Above VWAP)"
+        "signal": "BUY (Low VIX Opportunity)"
       },
       {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4343.105320304017,
-        "entry_price": 46.05,
-        "current_price": 44.29999923706055,
-        "position_value": 192399.56237594158,
-        "return_pct": -3.800218812029208,
-        "days_held": 21,
-        "signal": "HOLD (Conflicting signals: Price Above VWAP)"
-      }
-    ]
-  },
-  {
-    "date": "2024-05-20 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 518461.07103793754,
-    "total_value": 931648.6256001965,
-    "positions": [
-      {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 408.3466045979828,
-        "entry_price": 489.78,
-        "current_price": 522.0784912109375,
-        "position_value": 213188.97921962413,
-        "return_pct": 6.594489609812064,
+        "ticker": "PILITA.NS",
+        "shares": 14836.795252225518,
+        "entry_price": 13.48,
+        "current_price": 16.149999618530273,
+        "position_value": 239614.23766365388,
+        "return_pct": 19.80711883182695,
         "days_held": 42,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Price Above VWAP)"
+        "signal": "HOLD"
       },
       {
-        "ticker": "SCI.NS",
-        "shares": 853.7522410996329,
-        "entry_price": 234.26,
-        "current_price": 234.25833129882812,
-        "position_value": 199998.57534263478,
-        "return_pct": -0.0007123286826030501,
-        "days_held": 0,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (87.66%), Price Above VWAP]"
+        "ticker": "SURANAT&P.NS",
+        "shares": 8110.300081103001,
+        "entry_price": 24.66,
+        "current_price": 22.780000686645508,
+        "position_value": 184752.64141642748,
+        "return_pct": -7.623679291786263,
+        "days_held": 21,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "RPOWER.NS",
+        "shares": 4314.994606256742,
+        "entry_price": 46.35,
+        "current_price": 43.529998779296875,
+        "position_value": 187831.7099430286,
+        "return_pct": -6.084145028485709,
+        "days_held": 14,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "MEDICO.NS",
+        "shares": 4000.0,
+        "entry_price": 50.0,
+        "current_price": 50.08000183105469,
+        "position_value": 200320.00732421875,
+        "return_pct": 0.160003662109375,
+        "days_held": 7,
+        "signal": "HOLD"
       }
     ]
   },
   {
-    "date": "2024-05-27 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 518461.07103793754,
-    "total_value": 944174.4004762841,
+    "date": "2024-10-14 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 449675.13291159994,
+    "total_value": 1031345.4058136884,
     "positions": [
       {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 408.3466045979828,
-        "entry_price": 489.78,
-        "current_price": 501.8344421386719,
-        "position_value": 204922.3905176495,
-        "return_pct": 2.4611952588247585,
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.180000066757202,
+        "position_value": 200921.66513891265,
+        "return_pct": 0.4608325694563235,
+        "days_held": 42,
+        "signal": "BUY (Low VIX Opportunity)"
+      },
+      {
+        "ticker": "SURANAT&P.NS",
+        "shares": 8110.300081103001,
+        "entry_price": 24.66,
+        "current_price": 22.780000686645508,
+        "position_value": 184752.64141642748,
+        "return_pct": -7.623679291786263,
+        "days_held": 21,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "FOCUS.NS",
+        "shares": 1551.9515791107317,
+        "entry_price": 128.87,
+        "current_price": 126.29000091552734,
+        "position_value": 195995.9663467484,
+        "return_pct": -2.0020168266257943,
+        "days_held": 0,
+        "signal": "BUY (Low VIX Opportunity)"
+      }
+    ]
+  },
+  {
+    "date": "2024-10-21 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 449675.13291159994,
+    "total_value": 1017800.8093243667,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.1600000858306885,
+        "position_value": 199078.34892448742,
+        "return_pct": -0.46082553775628815,
         "days_held": 49,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Stochastic Oversold)"
+        "signal": "BUY (Low VIX Opportunity)"
       },
       {
-        "ticker": "SCI.NS",
-        "shares": 853.7522410996329,
-        "entry_price": 234.26,
-        "current_price": 258.6124267578125,
-        "position_value": 220790.93892069708,
-        "return_pct": 10.395469460348549,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Short-term RSI Overbought (74.1), Stochastic Overbought, BB Upper Band (123.26%), Price Above VWAP, Short-term Up 21.9%)"
-      }
-    ]
-  },
-  {
-    "date": "2024-05-27 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 723383.461555587,
-    "total_value": 944174.4004762841,
-    "positions": [
-      {
-        "ticker": "SCI.NS",
-        "shares": 853.7522410996329,
-        "entry_price": 234.26,
-        "current_price": 258.6124267578125,
-        "position_value": 220790.93892069708,
-        "return_pct": 10.395469460348549,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Short-term RSI Overbought (74.1), Stochastic Overbought, BB Upper Band (123.26%), Price Above VWAP, Short-term Up 21.9%)"
-      }
-    ]
-  },
-  {
-    "date": "2024-06-03 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 723383.461555587,
-    "total_value": 944259.6245845798,
-    "positions": [
-      {
-        "ticker": "SCI.NS",
-        "shares": 853.7522410996329,
-        "entry_price": 234.26,
-        "current_price": 258.7122497558594,
-        "position_value": 220876.1630289929,
-        "return_pct": 10.43808151449645,
-        "days_held": 14,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), BB Upper Band (84.61%), Price Above VWAP, Short-term Up 21.1%]"
-      }
-    ]
-  },
-  {
-    "date": "2024-06-03 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 723383.461555587,
-    "total_value": 944259.6245845798,
-    "positions": [
-      {
-        "ticker": "SCI.NS",
-        "shares": 853.7522410996329,
-        "entry_price": 234.26,
-        "current_price": 258.7122497558594,
-        "position_value": 220876.1630289929,
-        "return_pct": 10.43808151449645,
-        "days_held": 14,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), BB Upper Band (84.61%), Price Above VWAP, Short-term Up 21.1%]"
-      }
-    ]
-  },
-  {
-    "date": "2024-06-10 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 723383.461555587,
-    "total_value": 929645.305387794,
-    "positions": [
-      {
-        "ticker": "SCI.NS",
-        "shares": 853.7522410996329,
-        "entry_price": 234.26,
-        "current_price": 241.59449768066406,
-        "position_value": 206261.843832207,
-        "return_pct": 3.1309219161035053,
-        "days_held": 21,
-        "signal": "HOLD (Conflicting signals: BB Upper Band (80.96%), Price Above VWAP)"
-      }
-    ]
-  },
-  {
-    "date": "2024-06-10 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 523383.461555587,
-    "total_value": 927424.1860427947,
-    "positions": [
-      {
-        "ticker": "SCI.NS",
-        "shares": 853.7522410996329,
-        "entry_price": 234.26,
-        "current_price": 241.59449768066406,
-        "position_value": 206261.843832207,
-        "return_pct": 3.1309219161035053,
-        "days_held": 21,
-        "signal": "HOLD (Conflicting signals: BB Upper Band (80.96%), Price Above VWAP)"
-      },
-      {
-        "ticker": "NAZARA.NS",
-        "shares": 246.79170779861798,
-        "entry_price": 810.4,
-        "current_price": 801.4000244140625,
-        "position_value": 197778.88065500063,
-        "return_pct": -1.1105596724996887,
-        "days_held": 0,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Stochastic Overbought, BB Upper Band (130.85%), Price Above VWAP, Short-term Up 30.8%]"
-      }
-    ]
-  },
-  {
-    "date": "2024-06-17 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 523383.461555587,
-    "total_value": 967382.8726276554,
-    "positions": [
-      {
-        "ticker": "SCI.NS",
-        "shares": 853.7522410996329,
-        "entry_price": 234.26,
-        "current_price": 270.77947998046875,
-        "position_value": 231178.58787711838,
-        "return_pct": 15.58929393855919,
+        "ticker": "SURANAT&P.NS",
+        "shares": 8110.300081103001,
+        "entry_price": 24.66,
+        "current_price": 22.25,
+        "position_value": 180454.17680454176,
+        "return_pct": -9.772911597729117,
         "days_held": 28,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (107.39%), Price Above VWAP]"
+        "signal": "HOLD"
       },
       {
-        "ticker": "NAZARA.NS",
-        "shares": 246.79170779861798,
-        "entry_price": 810.4,
-        "current_price": 862.3499755859375,
-        "position_value": 212820.82319495003,
-        "return_pct": 6.410411597475016,
+        "ticker": "FOCUS.NS",
+        "shares": 1551.9515791107317,
+        "entry_price": 128.87,
+        "current_price": 121.5199966430664,
+        "position_value": 188593.15068373774,
+        "return_pct": -5.703424658131138,
         "days_held": 7,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Stochastic Overbought, BB Upper Band (113.80%), Price Above VWAP, Short-term Up 22.2%]"
+        "signal": "HOLD"
       }
     ]
   },
   {
-    "date": "2024-06-17 00:00:00",
+    "date": "2024-10-21 00:00:00",
     "phase": "POST-REBALANCE",
-    "cash": 123383.46155558701,
-    "total_value": 967383.1578775528,
+    "cash": 638268.2835953376,
+    "total_value": 1017800.8093243669,
     "positions": [
       {
-        "ticker": "SCI.NS",
-        "shares": 853.7522410996329,
-        "entry_price": 234.26,
-        "current_price": 270.77947998046875,
-        "position_value": 231178.58787711838,
-        "return_pct": 15.58929393855919,
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.1600000858306885,
+        "position_value": 199078.34892448742,
+        "return_pct": -0.46082553775628815,
+        "days_held": 49,
+        "signal": "BUY (Low VIX Opportunity)"
+      },
+      {
+        "ticker": "SURANAT&P.NS",
+        "shares": 8110.300081103001,
+        "entry_price": 24.66,
+        "current_price": 22.25,
+        "position_value": 180454.17680454176,
+        "return_pct": -9.772911597729117,
         "days_held": 28,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (107.39%), Price Above VWAP]"
-      },
-      {
-        "ticker": "NAZARA.NS",
-        "shares": 246.79170779861798,
-        "entry_price": 810.4,
-        "current_price": 862.3499755859375,
-        "position_value": 212820.82319495003,
-        "return_pct": 6.410411597475016,
-        "days_held": 7,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Stochastic Overbought, BB Upper Band (113.80%), Price Above VWAP, Short-term Up 22.2%]"
-      },
-      {
-        "ticker": "KDDL.NS",
-        "shares": 74.68343558740389,
-        "entry_price": 2677.97,
-        "current_price": 2677.969970703125,
-        "position_value": 199999.99781200872,
-        "return_pct": -1.093995631015701e-06,
-        "days_held": 0,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), Stochastic Overbought, BB Upper Band (91.84%), Price Above VWAP]"
-      },
-      {
-        "ticker": "SUBROS.NS",
-        "shares": 316.490750557815,
-        "entry_price": 631.93,
-        "current_price": 631.930908203125,
-        "position_value": 200000.2874378887,
-        "return_pct": 0.00014371894435301732,
-        "days_held": 0,
-        "signal": "BUY (PSAR Bullish) [PSAR Bullish (Partial), Stochastic Overbought, Price Above VWAP]"
+        "signal": "HOLD"
       }
     ]
   },
   {
-    "date": "2024-06-24 00:00:00",
+    "date": "2024-10-28 00:00:00",
     "phase": "PRE-REBALANCE",
-    "cash": 123383.46155558701,
-    "total_value": 977356.8064991358,
+    "cash": 638268.2835953376,
+    "total_value": 997362.463355364,
     "positions": [
       {
-        "ticker": "SCI.NS",
-        "shares": 853.7522410996329,
-        "entry_price": 234.26,
-        "current_price": 260.4489440917969,
-        "position_value": 222358.86971040457,
-        "return_pct": 11.17943485520229,
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.049999952316284,
+        "position_value": 188940.0877710861,
+        "return_pct": -5.529956114456947,
+        "days_held": 56,
+        "signal": "BUY (Low VIX Opportunity)"
+      },
+      {
+        "ticker": "SURANAT&P.NS",
+        "shares": 8110.300081103001,
+        "entry_price": 24.66,
+        "current_price": 20.979999542236328,
+        "position_value": 170154.0919889402,
+        "return_pct": -14.922954005529895,
         "days_held": 35,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), BB Upper Band (86.03%), Price Above VWAP)"
-      },
-      {
-        "ticker": "NAZARA.NS",
-        "shares": 246.79170779861798,
-        "entry_price": 810.4,
-        "current_price": 847.3499755859375,
-        "position_value": 209118.94757797077,
-        "return_pct": 4.559473788985381,
-        "days_held": 14,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Stochastic Overbought, BB Upper Band (99.09%), Price Above VWAP]"
-      },
-      {
-        "ticker": "KDDL.NS",
-        "shares": 74.68343558740389,
-        "entry_price": 2677.97,
-        "current_price": 2788.286865234375,
-        "position_value": 208238.84249893576,
-        "return_pct": 4.119421249467888,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), BB Upper Band (89.25%), Price Above VWAP)"
-      },
-      {
-        "ticker": "SUBROS.NS",
-        "shares": 316.490750557815,
-        "entry_price": 631.93,
-        "current_price": 676.9761352539062,
-        "position_value": 214256.68515623765,
-        "return_pct": 7.1283425781188265,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (103.31%), Price Above VWAP)"
+        "signal": "HOLD"
       }
     ]
   },
   {
-    "date": "2024-06-24 00:00:00",
+    "date": "2024-10-28 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 638268.2835953376,
+    "total_value": 997362.463355364,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.049999952316284,
+        "position_value": 188940.0877710861,
+        "return_pct": -5.529956114456947,
+        "days_held": 56,
+        "signal": "BUY (Low VIX Opportunity)"
+      },
+      {
+        "ticker": "SURANAT&P.NS",
+        "shares": 8110.300081103001,
+        "entry_price": 24.66,
+        "current_price": 20.979999542236328,
+        "position_value": 170154.0919889402,
+        "return_pct": -14.922954005529895,
+        "days_held": 35,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2024-11-04 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 638268.2835953376,
+    "total_value": 1005192.4576604465,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.009999990463257,
+        "position_value": 185253.45534223565,
+        "return_pct": -7.37327232888217,
+        "days_held": 63,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "SURANAT&P.NS",
+        "shares": 8110.300081103001,
+        "entry_price": 24.66,
+        "current_price": 22.399999618530273,
+        "position_value": 181670.71872287325,
+        "return_pct": -9.16464063856337,
+        "days_held": 42,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2024-11-04 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 819939.0023182109,
+    "total_value": 1005192.4576604465,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.009999990463257,
+        "position_value": 185253.45534223565,
+        "return_pct": -7.37327232888217,
+        "days_held": 63,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2024-11-11 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 819939.0023182109,
+    "total_value": 1000584.1671243835,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.9600000381469727,
+        "position_value": 180645.1648061726,
+        "return_pct": -9.677417596913699,
+        "days_held": 70,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2024-11-11 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 819939.0023182109,
+    "total_value": 1000584.1671243835,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.9600000381469727,
+        "position_value": 180645.1648061726,
+        "return_pct": -9.677417596913699,
+        "days_held": 70,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2024-11-18 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 819939.0023182109,
+    "total_value": 991367.5750652261,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.8600000143051147,
+        "position_value": 171428.5727470152,
+        "return_pct": -14.285713626492406,
+        "days_held": 77,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2024-11-18 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 819939.0023182109,
+    "total_value": 991367.5750652261,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.8600000143051147,
+        "position_value": 171428.5727470152,
+        "return_pct": -14.285713626492406,
+        "days_held": 77,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2024-11-25 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 819939.0023182109,
+    "total_value": 982150.9830060687,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.7599999904632568,
+        "position_value": 162211.98068785778,
+        "return_pct": -18.894009656071113,
+        "days_held": 84,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2024-11-25 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 819939.0023182109,
+    "total_value": 982150.9830060687,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.7599999904632568,
+        "position_value": 162211.98068785778,
+        "return_pct": -18.894009656071113,
+        "days_held": 84,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2024-12-02 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 819939.0023182109,
+    "total_value": 989524.2588508008,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.840000033378601,
+        "position_value": 169585.25653258996,
+        "return_pct": -15.207371733705017,
+        "days_held": 91,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2024-12-02 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 619939.0023182109,
+    "total_value": 990013.6905665011,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.840000033378601,
+        "position_value": 169585.25653258996,
+        "return_pct": -15.207371733705017,
+        "days_held": 91,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "SOMICONVEY.NS",
+        "shares": 1193.744777366599,
+        "entry_price": 167.54,
+        "current_price": 167.9499969482422,
+        "position_value": 200489.43171570034,
+        "return_pct": 0.24471585785018232,
+        "days_held": 0,
+        "signal": "BUY"
+      }
+    ]
+  },
+  {
+    "date": "2024-12-09 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 619939.0023182109,
+    "total_value": 1043423.7515642402,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.3299999237060547,
+        "position_value": 214746.53674710184,
+        "return_pct": 7.373268373550911,
+        "days_held": 98,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "SOMICONVEY.NS",
+        "shares": 1193.744777366599,
+        "entry_price": 167.54,
+        "current_price": 174.86000061035156,
+        "position_value": 208738.2124989275,
+        "return_pct": 4.369106249463752,
+        "days_held": 7,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2024-12-09 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 628677.2148171384,
+    "total_value": 1047697.0315091445,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.3299999237060547,
+        "position_value": 214746.53674710184,
+        "return_pct": 7.373268373550911,
+        "days_held": 98,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "LOTUSEYE.NS",
+        "shares": 2721.829069134458,
+        "entry_price": 73.48,
+        "current_price": 75.05000305175781,
+        "position_value": 204273.2799449042,
+        "return_pct": 2.1366399724521075,
+        "days_held": 0,
+        "signal": "BUY (Low VIX Opportunity)"
+      }
+    ]
+  },
+  {
+    "date": "2024-12-16 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 628677.2148171384,
+    "total_value": 1042926.3022549367,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.3499999046325684,
+        "position_value": 216589.85296152707,
+        "return_pct": 8.294926480763522,
+        "days_held": 105,
+        "signal": "BUY (Low VIX Opportunity)"
+      },
+      {
+        "ticker": "LOTUSEYE.NS",
+        "shares": 2721.829069134458,
+        "entry_price": 73.48,
+        "current_price": 72.62000274658203,
+        "position_value": 197659.23447627117,
+        "return_pct": -1.1703827618644156,
+        "days_held": 7,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2024-12-16 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 826336.4492934096,
+    "total_value": 1042926.3022549367,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.3499999046325684,
+        "position_value": 216589.85296152707,
+        "return_pct": 8.294926480763522,
+        "days_held": 105,
+        "signal": "BUY (Low VIX Opportunity)"
+      }
+    ]
+  },
+  {
+    "date": "2024-12-23 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 826336.4492934096,
+    "total_value": 1031866.4049683854,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.2300000190734863,
+        "position_value": 205529.9556749757,
+        "return_pct": 2.764977837487853,
+        "days_held": 112,
+        "signal": "BUY (Low VIX Opportunity)"
+      }
+    ]
+  },
+  {
+    "date": "2024-12-23 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 826336.4492934096,
+    "total_value": 1031866.4049683854,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.2300000190734863,
+        "position_value": 205529.9556749757,
+        "return_pct": 2.764977837487853,
+        "days_held": 112,
+        "signal": "BUY (Low VIX Opportunity)"
+      }
+    ]
+  },
+  {
+    "date": "2024-12-30 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 826336.4492934096,
+    "total_value": 1020806.4857077714,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.109999895095825,
+        "position_value": 194470.0364143618,
+        "return_pct": -2.7649817928191123,
+        "days_held": 119,
+        "signal": "BUY (Low VIX Opportunity)"
+      }
+    ]
+  },
+  {
+    "date": "2024-12-30 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 826336.4492934096,
+    "total_value": 1020806.4857077714,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.109999895095825,
+        "position_value": 194470.0364143618,
+        "return_pct": -2.7649817928191123,
+        "days_held": 119,
+        "signal": "BUY (Low VIX Opportunity)"
+      }
+    ]
+  },
+  {
+    "date": "2025-01-06 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 826336.4492934096,
+    "total_value": 1010668.2465284327,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.0,
+        "position_value": 184331.79723502306,
+        "return_pct": -7.834101382488476,
+        "days_held": 126,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-01-06 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 826336.4492934096,
+    "total_value": 1010668.2465284327,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 2.0,
+        "position_value": 184331.79723502306,
+        "return_pct": -7.834101382488476,
+        "days_held": 126,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-01-13 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 826336.4492934096,
+    "total_value": 1009746.5884212201,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.9900000095367432,
+        "position_value": 183410.13912781046,
+        "return_pct": -8.29493043609478,
+        "days_held": 133,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-01-13 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 426336.4492934096,
+    "total_value": 1008404.5810846987,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.9900000095367432,
+        "position_value": 183410.13912781046,
+        "return_pct": -8.29493043609478,
+        "days_held": 133,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "PREMIERPOL.NS",
+        "shares": 2599.090318388564,
+        "entry_price": 76.95,
+        "current_price": 75.41000366210938,
+        "position_value": 195997.41042783463,
+        "return_pct": -2.001294786082687,
+        "days_held": 0,
+        "signal": "BUY (Low VIX Opportunity)"
+      },
+      {
+        "ticker": "SVLL.NS",
+        "shares": 506.7781578613962,
+        "entry_price": 394.65,
+        "current_price": 399.8999938964844,
+        "position_value": 202660.58223564393,
+        "return_pct": 1.3302911178219683,
+        "days_held": 0,
+        "signal": "BUY (Low VIX Opportunity)"
+      }
+    ]
+  },
+  {
+    "date": "2025-01-20 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 426336.4492934096,
+    "total_value": 1001349.8813130322,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.8899999856948853,
+        "position_value": 174193.54706865305,
+        "return_pct": -12.903226465673487,
+        "days_held": 140,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "PREMIERPOL.NS",
+        "shares": 2599.090318388564,
+        "entry_price": 76.95,
+        "current_price": 68.1500015258789,
+        "position_value": 177128.00916407772,
+        "return_pct": -11.435995417961138,
+        "days_held": 7,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "SVLL.NS",
+        "shares": 506.7781578613962,
+        "entry_price": 394.65,
+        "current_price": 441.3999938964844,
+        "position_value": 223691.87578689188,
+        "return_pct": 11.845937893445939,
+        "days_held": 7,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-01-20 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 603464.4584574873,
+    "total_value": 1001349.8813130322,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.8899999856948853,
+        "position_value": 174193.54706865305,
+        "return_pct": -12.903226465673487,
+        "days_held": 140,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "SVLL.NS",
+        "shares": 506.7781578613962,
+        "entry_price": 394.65,
+        "current_price": 441.3999938964844,
+        "position_value": 223691.87578689188,
+        "return_pct": 11.845937893445939,
+        "days_held": 7,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-01-27 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 603464.4584574873,
+    "total_value": 996238.1954256805,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.7899999618530273,
+        "position_value": 164976.9550094956,
+        "return_pct": -17.511522495252194,
+        "days_held": 147,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "SVLL.NS",
+        "shares": 506.7781578613962,
+        "entry_price": 394.65,
+        "current_price": 449.5,
+        "position_value": 227796.7819586976,
+        "return_pct": 13.898390979348797,
+        "days_held": 14,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-01-27 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 603464.4584574873,
+    "total_value": 996238.1954256805,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.7899999618530273,
+        "position_value": 164976.9550094956,
+        "return_pct": -17.511522495252194,
+        "days_held": 147,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "SVLL.NS",
+        "shares": 506.7781578613962,
+        "entry_price": 394.65,
+        "current_price": 449.5,
+        "position_value": 227796.7819586976,
+        "return_pct": 13.898390979348797,
+        "days_held": 14,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-02-03 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 603464.4584574873,
+    "total_value": 994726.6287639845,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.9600000381469727,
+        "position_value": 180645.1648061726,
+        "return_pct": -9.677417596913699,
+        "days_held": 154,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "SVLL.NS",
+        "shares": 506.7781578613962,
+        "entry_price": 394.65,
+        "current_price": 415.6000061035156,
+        "position_value": 210617.00550032468,
+        "return_pct": 5.308502750162333,
+        "days_held": 21,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-02-03 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 814081.4639578119,
+    "total_value": 994726.6287639845,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.9600000381469727,
+        "position_value": 180645.1648061726,
+        "return_pct": -9.677417596913699,
+        "days_held": 154,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-02-10 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 814081.4639578119,
+    "total_value": 985510.0367048271,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.8600000143051147,
+        "position_value": 171428.5727470152,
+        "return_pct": -14.285713626492406,
+        "days_held": 161,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-02-10 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 614081.4639578119,
+    "total_value": 982176.6977200904,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.8600000143051147,
+        "position_value": 171428.5727470152,
+        "return_pct": -14.285713626492406,
+        "days_held": 161,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "DHANBANK.NS",
+        "shares": 7407.407407407408,
+        "entry_price": 27.0,
+        "current_price": 26.549999237060547,
+        "position_value": 196666.66101526332,
+        "return_pct": -1.666669492368345,
+        "days_held": 0,
+        "signal": "BUY (Low VIX Opportunity)"
+      }
+    ]
+  },
+  {
+    "date": "2025-02-17 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 614081.4639578119,
+    "total_value": 928642.3083844073,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.5499999523162842,
+        "position_value": 142857.13846233036,
+        "return_pct": -28.571430768834826,
+        "days_held": 168,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "DHANBANK.NS",
+        "shares": 7407.407407407408,
+        "entry_price": 27.0,
+        "current_price": 23.18000030517578,
+        "position_value": 171703.70596426504,
+        "return_pct": -14.148147017867476,
+        "days_held": 7,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-02-17 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 785785.169922077,
+    "total_value": 928642.3083844073,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.5499999523162842,
+        "position_value": 142857.13846233036,
+        "return_pct": -28.571430768834826,
+        "days_held": 168,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-02-24 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 785785.169922077,
+    "total_value": 948918.8087171474,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.7699999809265137,
+        "position_value": 163133.6387950704,
+        "return_pct": -18.433180602464805,
+        "days_held": 175,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-02-24 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 785785.169922077,
+    "total_value": 948918.8087171474,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.7699999809265137,
+        "position_value": 163133.6387950704,
+        "return_pct": -18.433180602464805,
+        "days_held": 175,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-03-03 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 785785.169922077,
+    "total_value": 956292.0845618795,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.850000023841858,
+        "position_value": 170506.9146398026,
+        "return_pct": -14.746542680098711,
+        "days_held": 182,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-03-03 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 785785.169922077,
+    "total_value": 956292.0845618795,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.850000023841858,
+        "position_value": 170506.9146398026,
+        "return_pct": -14.746542680098711,
+        "days_held": 182,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-03-10 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 785785.169922077,
+    "total_value": 968273.6509426748,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.9800000190734863,
+        "position_value": 182488.48102059783,
+        "return_pct": -8.755759489701088,
+        "days_held": 189,
+        "signal": "BUY (Low VIX Opportunity)"
+      }
+    ]
+  },
+  {
+    "date": "2025-03-10 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 785785.169922077,
+    "total_value": 968273.6509426748,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.9800000190734863,
+        "position_value": 182488.48102059783,
+        "return_pct": -8.755759489701088,
+        "days_held": 189,
+        "signal": "BUY (Low VIX Opportunity)"
+      }
+    ]
+  },
+  {
+    "date": "2025-03-17 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 785785.169922077,
+    "total_value": 959057.0588835174,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.8799999952316284,
+        "position_value": 173271.88896144042,
+        "return_pct": -13.364055519279795,
+        "days_held": 196,
+        "signal": "BUY (Low VIX Opportunity)"
+      }
+    ]
+  },
+  {
+    "date": "2025-03-17 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 785785.169922077,
+    "total_value": 959057.0588835174,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.8799999952316284,
+        "position_value": 173271.88896144042,
+        "return_pct": -13.364055519279795,
+        "days_held": 196,
+        "signal": "BUY (Low VIX Opportunity)"
+      }
+    ]
+  },
+  {
+    "date": "2025-03-24 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 785785.169922077,
+    "total_value": 959057.0588835174,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.8799999952316284,
+        "position_value": 173271.88896144042,
+        "return_pct": -13.364055519279795,
+        "days_held": 203,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-03-24 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 585785.169922077,
+    "total_value": 958702.993232041,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.8799999952316284,
+        "position_value": 173271.88896144042,
+        "return_pct": -13.364055519279795,
+        "days_held": 203,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "JAMNAAUTO.NS",
+        "shares": 2529.0844714213454,
+        "entry_price": 79.08,
+        "current_price": 78.94000244140625,
+        "position_value": 199645.93434852365,
+        "return_pct": -0.1770328257381744,
+        "days_held": 0,
+        "signal": "BUY (Low VIX Opportunity)"
+      }
+    ]
+  },
+  {
+    "date": "2025-03-31 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 585785.169922077,
+    "total_value": 949674.1624408822,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.8799999952316284,
+        "position_value": 173271.88896144042,
+        "return_pct": -13.364055519279795,
+        "days_held": 210,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "JAMNAAUTO.NS",
+        "shares": 2529.0844714213454,
+        "entry_price": 79.08,
+        "current_price": 75.37000274658203,
+        "position_value": 190617.10355736475,
+        "return_pct": -4.691448221317612,
+        "days_held": 7,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-03-31 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 176402.27347944176,
+    "total_value": 949674.1703775395,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.8799999952316284,
+        "position_value": 173271.88896144042,
+        "return_pct": -13.364055519279795,
+        "days_held": 210,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "DHANBANK.NS",
+        "shares": 6722.689075630252,
+        "entry_price": 29.75,
+        "current_price": 29.75,
+        "position_value": 200000.0,
+        "return_pct": 0.0,
+        "days_held": 0,
+        "signal": "BUY (Low VIX Opportunity)"
+      },
+      {
+        "ticker": "E2E.NS",
+        "shares": 94.34852344560807,
+        "entry_price": 2119.8,
+        "current_price": 2119.800048828125,
+        "position_value": 200000.00460686148,
+        "return_pct": 2.3034307396028427e-06,
+        "days_held": 0,
+        "signal": "BUY (Low VIX Opportunity)"
+      },
+      {
+        "ticker": "TBZ.NS",
+        "shares": 1091.1074740861975,
+        "entry_price": 183.3,
+        "current_price": 183.3000030517578,
+        "position_value": 200000.00332979576,
+        "return_pct": 1.664897872957619e-06,
+        "days_held": 0,
+        "signal": "BUY (Low VIX Opportunity)"
+      }
+    ]
+  },
+  {
+    "date": "2025-04-07 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 176402.27347944176,
+    "total_value": 895277.7835446291,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.7799999713897705,
+        "position_value": 164055.296902283,
+        "return_pct": -17.9723515488585,
+        "days_held": 217,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "DHANBANK.NS",
+        "shares": 6722.689075630252,
+        "entry_price": 29.75,
+        "current_price": 28.31999969482422,
+        "position_value": 190386.55257024683,
+        "return_pct": -4.806723714876576,
+        "days_held": 7,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "E2E.NS",
+        "shares": 94.34852344560807,
+        "entry_price": 2119.8,
+        "current_price": 1854.199951171875,
+        "position_value": 174941.027565985,
+        "return_pct": -12.529486217007507,
+        "days_held": 7,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "TBZ.NS",
+        "shares": 1091.1074740861975,
+        "entry_price": 183.3,
+        "current_price": 173.6699981689453,
+        "position_value": 189492.63302667247,
+        "return_pct": -5.253683486663775,
+        "days_held": 7,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-04-07 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 731222.486642346,
+    "total_value": 895277.783544629,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.7799999713897705,
+        "position_value": 164055.296902283,
+        "return_pct": -17.9723515488585,
+        "days_held": 217,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-04-14 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 731222.486642346,
+    "total_value": 895277.783544629,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.7799999713897705,
+        "position_value": 164055.296902283,
+        "return_pct": -17.9723515488585,
+        "days_held": 224,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-04-14 00:00:00",
     "phase": "POST-REBALANCE",
     "cash": 0.0,
-    "total_value": 991054.2094342499,
+    "total_value": 895277.7801662079,
     "positions": [
       {
-        "ticker": "SCI.NS",
-        "shares": 853.7522410996329,
-        "entry_price": 234.26,
-        "current_price": 260.4489440917969,
-        "position_value": 222358.86971040457,
-        "return_pct": 11.17943485520229,
-        "days_held": 35,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), BB Upper Band (86.03%), Price Above VWAP)"
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.7799999713897705,
+        "position_value": 164055.296902283,
+        "return_pct": -17.9723515488585,
+        "days_held": 224,
+        "signal": "HOLD"
       },
       {
-        "ticker": "NAZARA.NS",
-        "shares": 246.79170779861798,
-        "entry_price": 810.4,
-        "current_price": 847.3499755859375,
-        "position_value": 209118.94757797077,
-        "return_pct": 4.559473788985381,
-        "days_held": 14,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Stochastic Overbought, BB Upper Band (99.09%), Price Above VWAP]"
-      },
-      {
-        "ticker": "KDDL.NS",
-        "shares": 74.68343558740389,
-        "entry_price": 2677.97,
-        "current_price": 2788.286865234375,
-        "position_value": 208238.84249893576,
-        "return_pct": 4.119421249467888,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), BB Upper Band (89.25%), Price Above VWAP)"
-      },
-      {
-        "ticker": "SUBROS.NS",
-        "shares": 316.490750557815,
-        "entry_price": 631.93,
-        "current_price": 676.9761352539062,
-        "position_value": 214256.68515623765,
-        "return_pct": 7.1283425781188265,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Stochastic Overbought, BB Upper Band (103.31%), Price Above VWAP)"
-      },
-      {
-        "ticker": "NRAIL.NS",
-        "shares": 267.2836132654283,
-        "entry_price": 461.62,
-        "current_price": 512.86669921875,
-        "position_value": 137080.86449070112,
-        "return_pct": 11.101490234121139,
+        "ticker": "CURAA.NS",
+        "shares": 4139.07284768212,
+        "entry_price": 48.32,
+        "current_price": 48.31999969482422,
+        "position_value": 199999.99873685522,
+        "return_pct": -6.315723955592241e-07,
         "days_held": 0,
-        "signal": "STRONG BUY (Multi-Timeframe PSAR Confirmed) [PSAR Bullish (All Timeframes), Stochastic Overbought, Price Above VWAP, Short-term Up 12.3%]"
+        "signal": "BUY (Low VIX Opportunity)"
+      },
+      {
+        "ticker": "AAREYDRUGS.NS",
+        "shares": 3974.56279809221,
+        "entry_price": 50.32,
+        "current_price": 50.31999969482422,
+        "position_value": 199999.9987870597,
+        "return_pct": -6.064701540823073e-07,
+        "days_held": 0,
+        "signal": "BUY (Low VIX Opportunity)"
+      },
+      {
+        "ticker": "FOCUS.NS",
+        "shares": 1934.2359767891683,
+        "entry_price": 103.4,
+        "current_price": 103.4000015258789,
+        "position_value": 200000.00295140987,
+        "return_pct": 1.4757049328487988e-06,
+        "days_held": 0,
+        "signal": "BUY (Low VIX Opportunity)"
+      },
+      {
+        "ticker": "BYKE.NS",
+        "shares": 1803.9934924710753,
+        "entry_price": 72.74,
+        "current_price": 72.73999786376953,
+        "position_value": 131222.48278860014,
+        "return_pct": -2.9368029469811554e-06,
+        "days_held": 0,
+        "signal": "BUY (Low VIX Opportunity)"
+      }
+    ]
+  },
+  {
+    "date": "2025-04-21 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 0.0,
+    "total_value": 961120.4089995853,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "current_price": 1.7300000190734863,
+        "position_value": 159447.00636621995,
+        "return_pct": -20.276496816890027,
+        "days_held": 231,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "CURAA.NS",
+        "shares": 4139.07284768212,
+        "entry_price": 48.32,
+        "current_price": 58.709999084472656,
+        "position_value": 243004.96309798287,
+        "return_pct": 21.502481548991422,
+        "days_held": 7,
+        "signal": "BUY"
+      },
+      {
+        "ticker": "AAREYDRUGS.NS",
+        "shares": 3974.56279809221,
+        "entry_price": 50.32,
+        "current_price": 57.380001068115234,
+        "position_value": 228060.41759982207,
+        "return_pct": 14.030208799911037,
+        "days_held": 7,
+        "signal": "BUY"
+      },
+      {
+        "ticker": "FOCUS.NS",
+        "shares": 1934.2359767891683,
+        "entry_price": 103.4,
+        "current_price": 103.52999877929688,
+        "position_value": 200251.44831585468,
+        "return_pct": 0.12572415792733976,
+        "days_held": 7,
+        "signal": "BUY"
+      },
+      {
+        "ticker": "BYKE.NS",
+        "shares": 1803.9934924710753,
+        "entry_price": 72.74,
+        "current_price": 72.26000213623047,
+        "position_value": 130356.57361970577,
+        "return_pct": -0.6598815834060024,
+        "days_held": 7,
+        "signal": "BUY"
+      }
+    ]
+  },
+  {
+    "date": "2025-04-21 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 518115.4459016024,
+    "total_value": 963769.6141528803,
+    "positions": [
+      {
+        "ticker": "CURAA.NS",
+        "shares": 4139.07284768212,
+        "entry_price": 48.32,
+        "current_price": 58.709999084472656,
+        "position_value": 243004.96309798287,
+        "return_pct": 21.502481548991422,
+        "days_held": 7,
+        "signal": "BUY"
+      },
+      {
+        "ticker": "PARADEEP.NS",
+        "shares": 1471.7786444918686,
+        "entry_price": 135.89,
+        "current_price": 137.69000244140625,
+        "position_value": 202649.20515329496,
+        "return_pct": 1.3246025766474825,
+        "days_held": 0,
+        "signal": "BUY"
+      }
+    ]
+  },
+  {
+    "date": "2025-04-28 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 518115.4459016024,
+    "total_value": 1021552.2856768933,
+    "positions": [
+      {
+        "ticker": "CURAA.NS",
+        "shares": 4139.07284768212,
+        "entry_price": 48.32,
+        "current_price": 68.66999816894531,
+        "position_value": 284230.1248714624,
+        "return_pct": 42.11506243573119,
+        "days_held": 14,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "PARADEEP.NS",
+        "shares": 1471.7786444918686,
+        "entry_price": 135.89,
+        "current_price": 148.94000244140625,
+        "position_value": 219206.71490382848,
+        "return_pct": 9.603357451914244,
+        "days_held": 7,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-04-28 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 1021552.2856768933,
+    "total_value": 1021552.2856768933,
+    "positions": []
+  },
+  {
+    "date": "2025-05-05 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 1021552.2856768933,
+    "total_value": 1021552.2856768933,
+    "positions": []
+  },
+  {
+    "date": "2025-05-05 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 1021552.2856768933,
+    "total_value": 1021552.2856768933,
+    "positions": []
+  },
+  {
+    "date": "2025-05-12 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 1021552.2856768933,
+    "total_value": 1021552.2856768933,
+    "positions": []
+  },
+  {
+    "date": "2025-05-12 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 1021552.2856768933,
+    "total_value": 1021552.2856768933,
+    "positions": []
+  },
+  {
+    "date": "2025-05-19 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 1021552.2856768933,
+    "total_value": 1021552.2856768933,
+    "positions": []
+  },
+  {
+    "date": "2025-05-19 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 221552.2856768933,
+    "total_value": 1026908.929925503,
+    "positions": [
+      {
+        "ticker": "TATASTEEL.NS",
+        "shares": 1299.0387113535983,
+        "entry_price": 153.96,
+        "current_price": 153.9791259765625,
+        "position_value": 200024.84538394713,
+        "return_pct": 0.012422691973559392,
+        "days_held": 0,
+        "signal": "BUY"
+      },
+      {
+        "ticker": "IOC.NS",
+        "shares": 1381.9789939192924,
+        "entry_price": 144.72,
+        "current_price": 144.69000244140625,
+        "position_value": 199958.54400415457,
+        "return_pct": -0.02072799792271204,
+        "days_held": 0,
+        "signal": "BUY"
+      },
+      {
+        "ticker": "CURAA.NS",
+        "shares": 2298.3222247759136,
+        "entry_price": 87.02,
+        "current_price": 88.76000213623047,
+        "position_value": 203999.08558085604,
+        "return_pct": 1.9995427904280314,
+        "days_held": 0,
+        "signal": "STRONG BUY"
+      },
+      {
+        "ticker": "SILGO.NS",
+        "shares": 3926.187671770711,
+        "entry_price": 50.94,
+        "current_price": 51.290000915527344,
+        "position_value": 201374.16927965195,
+        "return_pct": 0.6870846398259639,
+        "days_held": 0,
+        "signal": "BUY"
+      }
+    ]
+  },
+  {
+    "date": "2025-05-26 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 221552.2856768933,
+    "total_value": 1078435.201189617,
+    "positions": [
+      {
+        "ticker": "TATASTEEL.NS",
+        "shares": 1299.0387113535983,
+        "entry_price": 153.96,
+        "current_price": 158.80653381347656,
+        "position_value": 206295.83503959022,
+        "return_pct": 3.147917519795112,
+        "days_held": 7,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "IOC.NS",
+        "shares": 1381.9789939192924,
+        "entry_price": 144.72,
+        "current_price": 143.5800018310547,
+        "position_value": 198424.54647741112,
+        "return_pct": -0.7877267612944385,
+        "days_held": 7,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "CURAA.NS",
+        "shares": 2298.3222247759136,
+        "entry_price": 87.02,
+        "current_price": 97.9800033569336,
+        "position_value": 225189.6192988591,
+        "return_pct": 12.594809649429553,
+        "days_held": 7,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "SILGO.NS",
+        "shares": 3926.187671770711,
+        "entry_price": 50.94,
+        "current_price": 57.810001373291016,
+        "position_value": 226972.91469686307,
+        "return_pct": 13.486457348431525,
+        "days_held": 7,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-05-26 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 278435.2011896169,
+    "total_value": 1069124.1681189258,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 100000.0,
+        "entry_price": 2.0,
+        "current_price": 2.0199999809265137,
+        "position_value": 201999.99809265137,
+        "return_pct": 0.9999990463256836,
+        "days_held": 0,
+        "signal": "BUY"
+      },
+      {
+        "ticker": "ARSSINFRA.NS",
+        "shares": 3315.100281783524,
+        "entry_price": 60.33,
+        "current_price": 57.310001373291016,
+        "position_value": 189988.4017016112,
+        "return_pct": -5.005799149194402,
+        "days_held": 0,
+        "signal": "BUY"
+      },
+      {
+        "ticker": "DHANBANK.NS",
+        "shares": 6720.430107526881,
+        "entry_price": 29.76,
+        "current_price": 29.790000915527344,
+        "position_value": 200201.61905596333,
+        "return_pct": 0.10080952798166057,
+        "days_held": 0,
+        "signal": "BUY"
+      },
+      {
+        "ticker": "ZENTEC.NS",
+        "shares": 105.70824524312897,
+        "entry_price": 1892.0,
+        "current_price": 1877.800048828125,
+        "position_value": 198498.948079083,
+        "return_pct": -0.7505259604585095,
+        "days_held": 0,
+        "signal": "BUY"
+      }
+    ]
+  },
+  {
+    "date": "2025-06-02 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 278435.2011896169,
+    "total_value": 1107552.5323142319,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 100000.0,
+        "entry_price": 2.0,
+        "current_price": 2.0999999046325684,
+        "position_value": 209999.99046325684,
+        "return_pct": 4.999995231628418,
+        "days_held": 7,
+        "signal": "BUY"
+      },
+      {
+        "ticker": "ARSSINFRA.NS",
+        "shares": 3315.100281783524,
+        "entry_price": 60.33,
+        "current_price": 54.439998626708984,
+        "position_value": 180474.05478769762,
+        "return_pct": -9.762972606151193,
+        "days_held": 7,
+        "signal": "BUY"
+      },
+      {
+        "ticker": "DHANBANK.NS",
+        "shares": 6720.430107526881,
+        "entry_price": 29.76,
+        "current_price": 31.959999084472656,
+        "position_value": 214784.9400838216,
+        "return_pct": 7.392470041910802,
+        "days_held": 7,
+        "signal": "STRONG BUY"
+      },
+      {
+        "ticker": "ZENTEC.NS",
+        "shares": 105.70824524312897,
+        "entry_price": 1892.0,
+        "current_price": 2117.699951171875,
+        "position_value": 223858.34578983882,
+        "return_pct": 11.929172894919397,
+        "days_held": 7,
+        "signal": "BUY"
+      }
+    ]
+  },
+  {
+    "date": "2025-06-02 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 82767.60176715336,
+    "total_value": 1109877.3704680516,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 100000.0,
+        "entry_price": 2.0,
+        "current_price": 2.0999999046325684,
+        "position_value": 209999.99046325684,
+        "return_pct": 4.999995231628418,
+        "days_held": 7,
+        "signal": "BUY"
+      },
+      {
+        "ticker": "DHANBANK.NS",
+        "shares": 6720.430107526881,
+        "entry_price": 29.76,
+        "current_price": 31.959999084472656,
+        "position_value": 214784.9400838216,
+        "return_pct": 7.392470041910802,
+        "days_held": 7,
+        "signal": "STRONG BUY"
+      },
+      {
+        "ticker": "AVONMORE.NS",
+        "shares": 9302.32558139535,
+        "entry_price": 21.5,
+        "current_price": 21.06999969482422,
+        "position_value": 195999.99716115554,
+        "return_pct": -2.0000014194222384,
+        "days_held": 0,
+        "signal": "BUY"
+      },
+      {
+        "ticker": "PARADEEP.NS",
+        "shares": 1160.9008590666358,
+        "entry_price": 172.28,
+        "current_price": 176.19000244140625,
+        "position_value": 204539.1251931812,
+        "return_pct": 2.269562596590579,
+        "days_held": 0,
+        "signal": "STRONG BUY"
+      },
+      {
+        "ticker": "SURANAT&P.NS",
+        "shares": 9920.63492063492,
+        "entry_price": 20.16,
+        "current_price": 20.34000015258789,
+        "position_value": 201785.71579948303,
+        "return_pct": 0.8928578997415202,
+        "days_held": 0,
+        "signal": "BUY"
+      }
+    ]
+  },
+  {
+    "date": "2025-06-09 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 82767.60176715336,
+    "total_value": 1086265.1037591782,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 100000.0,
+        "entry_price": 2.0,
+        "current_price": 2.069999933242798,
+        "position_value": 206999.99332427979,
+        "return_pct": 3.4999966621398926,
+        "days_held": 14,
+        "signal": "STRONG BUY"
+      },
+      {
+        "ticker": "DHANBANK.NS",
+        "shares": 6720.430107526881,
+        "entry_price": 29.76,
+        "current_price": 32.22999954223633,
+        "position_value": 216599.45928922264,
+        "return_pct": 8.299729644611311,
+        "days_held": 14,
+        "signal": "BUY"
+      },
+      {
+        "ticker": "AVONMORE.NS",
+        "shares": 9302.32558139535,
+        "entry_price": 21.5,
+        "current_price": 19.450000762939453,
+        "position_value": 180930.23965525074,
+        "return_pct": -9.534880172374637,
+        "days_held": 7,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "PARADEEP.NS",
+        "shares": 1160.9008590666358,
+        "entry_price": 172.28,
+        "current_price": 173.10000610351562,
+        "position_value": 200951.9457900112,
+        "return_pct": 0.47597289500558615,
+        "days_held": 7,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "SURANAT&P.NS",
+        "shares": 9920.63492063492,
+        "entry_price": 20.16,
+        "current_price": 19.959999084472656,
+        "position_value": 198015.86393326047,
+        "return_pct": -0.9920680333697615,
+        "days_held": 7,
+        "signal": "HOLD"
+      }
+    ]
+  },
+  {
+    "date": "2025-06-09 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 83719.54755716457,
+    "total_value": 1090256.3907579186,
+    "positions": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 100000.0,
+        "entry_price": 2.0,
+        "current_price": 2.069999933242798,
+        "position_value": 206999.99332427979,
+        "return_pct": 3.4999966621398926,
+        "days_held": 14,
+        "signal": "STRONG BUY"
+      },
+      {
+        "ticker": "DHANBANK.NS",
+        "shares": 6720.430107526881,
+        "entry_price": 29.76,
+        "current_price": 32.22999954223633,
+        "position_value": 216599.45928922264,
+        "return_pct": 8.299729644611311,
+        "days_held": 14,
+        "signal": "BUY"
+      },
+      {
+        "ticker": "AVONMORE.NS",
+        "shares": 9302.32558139535,
+        "entry_price": 21.5,
+        "current_price": 19.450000762939453,
+        "position_value": 180930.23965525074,
+        "return_pct": -9.534880172374637,
+        "days_held": 7,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "SURANAT&P.NS",
+        "shares": 9920.63492063492,
+        "entry_price": 20.16,
+        "current_price": 19.959999084472656,
+        "position_value": 198015.86393326047,
+        "return_pct": -0.9920680333697615,
+        "days_held": 7,
+        "signal": "HOLD"
+      },
+      {
+        "ticker": "CURAA.NS",
+        "shares": 1742.9193899782135,
+        "entry_price": 114.75,
+        "current_price": 117.04000091552734,
+        "position_value": 203991.28699874048,
+        "return_pct": 1.995643499370234,
+        "days_held": 0,
+        "signal": "BUY"
       }
     ]
   }

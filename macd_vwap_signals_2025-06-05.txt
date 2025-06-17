@@ -172,19 +172,19 @@ TDPOWERSYS.NS
 ABB.NS
 JASH.NS
 CUMMINSIND.NS
-PITTIENG.NS
+                        PITTIENG.NS -looks promising
 VOLTAMP.NS
 SHANTIGEAR.NS
 DHANUKA.NS
 LTFOODS.NS
 PIDILITIND.NS
-SOLARINDS.NS
+                    SOLARINDS.NS
 TIMETECHNO.NS
 STEELCAS.NS
 ASHOKA.NS
-JSWINFRA.NS
-ZYDUSLIFE.NS
+                    JSWINFRA.NS -- looks promising
+                    ZYDUSLIFE.NS
 INDRAMEDCO.NS
-RAINBOW.NS
-SELAN.NS
-RAILTEL.NS
+                    RAINBOW.NS -- looks promising
+                    SELAN.NS -- looks promising,
+                    RAILTEL.NS

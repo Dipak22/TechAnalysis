@@ -1,409 +1,753 @@
 [
   {
-    "date": "2024-01-01 00:00:00",
+    "date": "2024-07-01 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2024-07-08 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2024-07-15 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2024-07-22 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2024-07-29 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2024-08-05 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2024-08-12 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2024-08-19 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2024-08-26 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2024-09-02 00:00:00",
     "opened": [
       {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 398.5492806185485,
-        "price": 501.82,
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "price": 2.17,
         "amount": 200000.0
       },
       {
-        "ticker": "GOODLUCK.NS",
-        "shares": 213.89459274469542,
-        "price": 935.04,
+        "ticker": "PILITA.NS",
+        "shares": 14836.795252225518,
+        "price": 13.48,
         "amount": 200000.0
       }
     ],
     "closed": []
   },
   {
-    "date": "2024-01-08 00:00:00",
+    "date": "2024-09-09 00:00:00",
     "opened": [
       {
-        "ticker": "NRAIL.NS",
-        "shares": 457.93836149654254,
-        "price": 436.74,
+        "ticker": "FOCUS.NS",
+        "shares": 1617.0763260025872,
+        "price": 123.68,
         "amount": 200000.0
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 5154.639175257732,
-        "price": 38.8,
-        "amount": 199999.99999999997
       }
     ],
-    "closed": [
-      {
-        "ticker": "GOODLUCK.NS",
-        "shares": 213.89459274469542,
-        "entry_price": 935.04,
-        "exit_price": 984.9899291992188,
-        "return_pct": 5.342009881846637,
-        "days_held": 7
-      }
-    ]
+    "closed": []
   },
   {
-    "date": "2024-01-15 00:00:00",
+    "date": "2024-09-16 00:00:00",
     "opened": [
       {
-        "ticker": "SCI.NS",
-        "shares": 1161.5750958299454,
-        "price": 172.18,
-        "amount": 200000.0
-      },
-      {
-        "ticker": "GUJAPOLLO.NS",
-        "shares": 673.7863423508406,
-        "price": 296.83,
+        "ticker": "STEL.NS",
+        "shares": 372.78657968313144,
+        "price": 536.5,
         "amount": 200000.00000000003
-      },
-      {
-        "ticker": "DBREALTY.NS",
-        "shares": 898.2708286548394,
-        "price": 222.65,
-        "amount": 200000.0
       }
     ],
     "closed": [
       {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 5154.639175257732,
-        "entry_price": 38.8,
-        "exit_price": 36.95000076293945,
-        "return_pct": -4.768039270774598,
+        "ticker": "FOCUS.NS",
+        "shares": 1617.0763260025872,
+        "entry_price": 123.68,
+        "exit_price": 109.52999877929688,
+        "return_pct": -11.440815993453372,
         "days_held": 7
       }
     ]
   },
   {
-    "date": "2024-01-22 00:00:00",
-    "opened": [],
+    "date": "2024-09-23 00:00:00",
+    "opened": [
+      {
+        "ticker": "SURANAT&P.NS",
+        "shares": 8110.300081103001,
+        "price": 24.66,
+        "amount": 200000.0
+      },
+      {
+        "ticker": "TERASOFT.NS",
+        "shares": 2755.9597629874606,
+        "price": 72.57,
+        "amount": 200000.0
+      },
+      {
+        "ticker": "IZMO.NS",
+        "shares": 403.8274383110711,
+        "price": 453.0,
+        "amount": 182933.8295549152
+      }
+    ],
     "closed": [
       {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 398.5492806185485,
-        "entry_price": 501.82,
-        "exit_price": 472.8630676269531,
-        "return_pct": -5.770382283098894,
-        "days_held": 21
+        "ticker": "STEL.NS",
+        "shares": 372.78657968313144,
+        "entry_price": 536.5,
+        "exit_price": 552.0999755859375,
+        "return_pct": 2.907730770910997,
+        "days_held": 7
       }
     ]
   },
   {
-    "date": "2024-01-29 00:00:00",
+    "date": "2024-09-30 00:00:00",
     "opened": [
       {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4414.602483258353,
-        "price": 42.95,
-        "amount": 189607.17665594624
+        "ticker": "RPOWER.NS",
+        "shares": 4314.994606256742,
+        "price": 46.35,
+        "amount": 200000.00000000003
+      }
+    ],
+    "closed": [
+      {
+        "ticker": "TERASOFT.NS",
+        "shares": 2755.9597629874606,
+        "entry_price": 72.57,
+        "exit_price": 89.76000213623047,
+        "return_pct": 23.687477106559843,
+        "days_held": 7
+      },
+      {
+        "ticker": "IZMO.NS",
+        "shares": 403.8274383110711,
+        "entry_price": 453.0,
+        "exit_price": 432.20001220703125,
+        "return_pct": -4.591608784319813,
+        "days_held": 7
+      }
+    ]
+  },
+  {
+    "date": "2024-10-07 00:00:00",
+    "opened": [
+      {
+        "ticker": "MEDICO.NS",
+        "shares": 4000.0,
+        "price": 50.0,
+        "amount": 200000.0
       }
     ],
     "closed": []
   },
   {
-    "date": "2024-02-05 00:00:00",
-    "opened": [],
-    "closed": []
-  },
-  {
-    "date": "2024-02-12 00:00:00",
+    "date": "2024-10-14 00:00:00",
     "opened": [
       {
-        "ticker": "INDOTHAI.NS",
-        "shares": 556.9789461958338,
-        "price": 359.08,
+        "ticker": "FOCUS.NS",
+        "shares": 1551.9515791107317,
+        "price": 128.87,
         "amount": 200000.0
       }
     ],
     "closed": [
       {
-        "ticker": "NRAIL.NS",
-        "shares": 457.93836149654254,
-        "entry_price": 436.74,
-        "exit_price": 456.2463684082031,
-        "return_pct": 4.466357193800228,
-        "days_held": 35
+        "ticker": "PILITA.NS",
+        "shares": 14836.795252225518,
+        "entry_price": 13.48,
+        "exit_price": 16.149999618530273,
+        "return_pct": 19.80711883182695,
+        "days_held": 42
       },
       {
-        "ticker": "GUJAPOLLO.NS",
-        "shares": 673.7863423508406,
-        "entry_price": 296.83,
-        "exit_price": 279.3695068359375,
-        "return_pct": -5.882320912327758,
-        "days_held": 28
+        "ticker": "RPOWER.NS",
+        "shares": 4314.994606256742,
+        "entry_price": 46.35,
+        "exit_price": 43.529998779296875,
+        "return_pct": -6.084145028485709,
+        "days_held": 14
+      },
+      {
+        "ticker": "MEDICO.NS",
+        "shares": 4000.0,
+        "entry_price": 50.0,
+        "exit_price": 50.08000183105469,
+        "return_pct": 0.160003662109375,
+        "days_held": 7
       }
     ]
   },
   {
-    "date": "2024-02-19 00:00:00",
-    "opened": [],
-    "closed": []
-  },
-  {
-    "date": "2024-02-26 00:00:00",
-    "opened": [],
-    "closed": []
-  },
-  {
-    "date": "2024-03-04 00:00:00",
-    "opened": [
-      {
-        "ticker": "KERNEX.NS",
-        "shares": 299.73863265877924,
-        "price": 657.8,
-        "amount": 197168.07256294496
-      }
-    ],
-    "closed": []
-  },
-  {
-    "date": "2024-03-11 00:00:00",
+    "date": "2024-10-21 00:00:00",
     "opened": [],
     "closed": [
       {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4414.602483258353,
-        "entry_price": 42.95,
-        "exit_price": 41.95000076293945,
-        "return_pct": -2.3282869314564603,
+        "ticker": "FOCUS.NS",
+        "shares": 1551.9515791107317,
+        "entry_price": 128.87,
+        "exit_price": 121.5199966430664,
+        "return_pct": -5.703424658131138,
+        "days_held": 7
+      }
+    ]
+  },
+  {
+    "date": "2024-10-28 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2024-11-04 00:00:00",
+    "opened": [],
+    "closed": [
+      {
+        "ticker": "SURANAT&P.NS",
+        "shares": 8110.300081103001,
+        "entry_price": 24.66,
+        "exit_price": 22.399999618530273,
+        "return_pct": -9.16464063856337,
         "days_held": 42
       }
     ]
   },
   {
-    "date": "2024-03-18 00:00:00",
+    "date": "2024-11-11 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2024-11-18 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2024-11-25 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2024-12-02 00:00:00",
+    "opened": [
+      {
+        "ticker": "SOMICONVEY.NS",
+        "shares": 1193.744777366599,
+        "price": 167.54,
+        "amount": 200000.0
+      }
+    ],
+    "closed": []
+  },
+  {
+    "date": "2024-12-09 00:00:00",
+    "opened": [
+      {
+        "ticker": "LOTUSEYE.NS",
+        "shares": 2721.829069134458,
+        "price": 73.48,
+        "amount": 200000.0
+      }
+    ],
+    "closed": [
+      {
+        "ticker": "SOMICONVEY.NS",
+        "shares": 1193.744777366599,
+        "entry_price": 167.54,
+        "exit_price": 174.86000061035156,
+        "return_pct": 4.369106249463752,
+        "days_held": 7
+      }
+    ]
+  },
+  {
+    "date": "2024-12-16 00:00:00",
     "opened": [],
     "closed": [
       {
-        "ticker": "INDOTHAI.NS",
-        "shares": 556.9789461958338,
-        "entry_price": 359.08,
-        "exit_price": 297.737060546875,
-        "return_pct": -17.083362886578197,
-        "days_held": 35
+        "ticker": "LOTUSEYE.NS",
+        "shares": 2721.829069134458,
+        "entry_price": 73.48,
+        "exit_price": 72.62000274658203,
+        "return_pct": -1.1703827618644156,
+        "days_held": 7
+      }
+    ]
+  },
+  {
+    "date": "2024-12-23 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2024-12-30 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2025-01-06 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2025-01-13 00:00:00",
+    "opened": [
+      {
+        "ticker": "PREMIERPOL.NS",
+        "shares": 2599.090318388564,
+        "price": 76.95,
+        "amount": 200000.0
       },
       {
-        "ticker": "KERNEX.NS",
-        "shares": 299.73863265877924,
-        "entry_price": 657.8,
-        "exit_price": 574.9500122070312,
-        "return_pct": -12.59501182623422,
+        "ticker": "SVLL.NS",
+        "shares": 506.7781578613962,
+        "price": 394.65,
+        "amount": 200000.0
+      }
+    ],
+    "closed": []
+  },
+  {
+    "date": "2025-01-20 00:00:00",
+    "opened": [],
+    "closed": [
+      {
+        "ticker": "PREMIERPOL.NS",
+        "shares": 2599.090318388564,
+        "entry_price": 76.95,
+        "exit_price": 68.1500015258789,
+        "return_pct": -11.435995417961138,
+        "days_held": 7
+      }
+    ]
+  },
+  {
+    "date": "2025-01-27 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2025-02-03 00:00:00",
+    "opened": [],
+    "closed": [
+      {
+        "ticker": "SVLL.NS",
+        "shares": 506.7781578613962,
+        "entry_price": 394.65,
+        "exit_price": 415.6000061035156,
+        "return_pct": 5.308502750162333,
+        "days_held": 21
+      }
+    ]
+  },
+  {
+    "date": "2025-02-10 00:00:00",
+    "opened": [
+      {
+        "ticker": "DHANBANK.NS",
+        "shares": 7407.407407407408,
+        "price": 27.0,
+        "amount": 200000.0
+      }
+    ],
+    "closed": []
+  },
+  {
+    "date": "2025-02-17 00:00:00",
+    "opened": [],
+    "closed": [
+      {
+        "ticker": "DHANBANK.NS",
+        "shares": 7407.407407407408,
+        "entry_price": 27.0,
+        "exit_price": 23.18000030517578,
+        "return_pct": -14.148147017867476,
+        "days_held": 7
+      }
+    ]
+  },
+  {
+    "date": "2025-02-24 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2025-03-03 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2025-03-10 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2025-03-17 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2025-03-24 00:00:00",
+    "opened": [
+      {
+        "ticker": "JAMNAAUTO.NS",
+        "shares": 2529.0844714213454,
+        "price": 79.08,
+        "amount": 200000.0
+      }
+    ],
+    "closed": []
+  },
+  {
+    "date": "2025-03-31 00:00:00",
+    "opened": [
+      {
+        "ticker": "DHANBANK.NS",
+        "shares": 6722.689075630252,
+        "price": 29.75,
+        "amount": 200000.0
+      },
+      {
+        "ticker": "E2E.NS",
+        "shares": 94.34852344560807,
+        "price": 2119.8,
+        "amount": 200000.0
+      },
+      {
+        "ticker": "TBZ.NS",
+        "shares": 1091.1074740861975,
+        "price": 183.3,
+        "amount": 200000.0
+      }
+    ],
+    "closed": [
+      {
+        "ticker": "JAMNAAUTO.NS",
+        "shares": 2529.0844714213454,
+        "entry_price": 79.08,
+        "exit_price": 75.37000274658203,
+        "return_pct": -4.691448221317612,
+        "days_held": 7
+      }
+    ]
+  },
+  {
+    "date": "2025-04-07 00:00:00",
+    "opened": [],
+    "closed": [
+      {
+        "ticker": "DHANBANK.NS",
+        "shares": 6722.689075630252,
+        "entry_price": 29.75,
+        "exit_price": 28.31999969482422,
+        "return_pct": -4.806723714876576,
+        "days_held": 7
+      },
+      {
+        "ticker": "E2E.NS",
+        "shares": 94.34852344560807,
+        "entry_price": 2119.8,
+        "exit_price": 1854.199951171875,
+        "return_pct": -12.529486217007507,
+        "days_held": 7
+      },
+      {
+        "ticker": "TBZ.NS",
+        "shares": 1091.1074740861975,
+        "entry_price": 183.3,
+        "exit_price": 173.6699981689453,
+        "return_pct": -5.253683486663775,
+        "days_held": 7
+      }
+    ]
+  },
+  {
+    "date": "2025-04-14 00:00:00",
+    "opened": [
+      {
+        "ticker": "CURAA.NS",
+        "shares": 4139.07284768212,
+        "price": 48.32,
+        "amount": 200000.00000000003
+      },
+      {
+        "ticker": "AAREYDRUGS.NS",
+        "shares": 3974.56279809221,
+        "price": 50.32,
+        "amount": 200000.0
+      },
+      {
+        "ticker": "FOCUS.NS",
+        "shares": 1934.2359767891683,
+        "price": 103.4,
+        "amount": 200000.0
+      },
+      {
+        "ticker": "BYKE.NS",
+        "shares": 1803.9934924710753,
+        "price": 72.74,
+        "amount": 131222.48664234602
+      }
+    ],
+    "closed": []
+  },
+  {
+    "date": "2025-04-21 00:00:00",
+    "opened": [
+      {
+        "ticker": "PARADEEP.NS",
+        "shares": 1471.7786444918686,
+        "price": 135.89,
+        "amount": 200000.0
+      }
+    ],
+    "closed": [
+      {
+        "ticker": "ORTEL.NS",
+        "shares": 92165.89861751153,
+        "entry_price": 2.17,
+        "exit_price": 1.7300000190734863,
+        "return_pct": -20.276496816890027,
+        "days_held": 231
+      },
+      {
+        "ticker": "AAREYDRUGS.NS",
+        "shares": 3974.56279809221,
+        "entry_price": 50.32,
+        "exit_price": 57.380001068115234,
+        "return_pct": 14.030208799911037,
+        "days_held": 7
+      },
+      {
+        "ticker": "FOCUS.NS",
+        "shares": 1934.2359767891683,
+        "entry_price": 103.4,
+        "exit_price": 103.52999877929688,
+        "return_pct": 0.12572415792733976,
+        "days_held": 7
+      },
+      {
+        "ticker": "BYKE.NS",
+        "shares": 1803.9934924710753,
+        "entry_price": 72.74,
+        "exit_price": 72.26000213623047,
+        "return_pct": -0.6598815834060024,
+        "days_held": 7
+      }
+    ]
+  },
+  {
+    "date": "2025-04-28 00:00:00",
+    "opened": [],
+    "closed": [
+      {
+        "ticker": "CURAA.NS",
+        "shares": 4139.07284768212,
+        "entry_price": 48.32,
+        "exit_price": 68.66999816894531,
+        "return_pct": 42.11506243573119,
         "days_held": 14
-      }
-    ]
-  },
-  {
-    "date": "2024-03-25 00:00:00",
-    "opened": [],
-    "closed": []
-  },
-  {
-    "date": "2024-04-01 00:00:00",
-    "opened": [],
-    "closed": []
-  },
-  {
-    "date": "2024-04-08 00:00:00",
-    "opened": [
-      {
-        "ticker": "SCI.NS",
-        "shares": 870.8146471023643,
-        "price": 229.67,
-        "amount": 200000.0
       },
       {
-        "ticker": "NRAIL.NS",
-        "shares": 416.98809498988805,
-        "price": 479.63,
-        "amount": 200000.0
-      },
-      {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 408.3466045979828,
-        "price": 489.78,
-        "amount": 200000.0
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4273.504273504273,
-        "price": 46.8,
-        "amount": 199999.99999999997
-      }
-    ],
-    "closed": []
-  },
-  {
-    "date": "2024-04-15 00:00:00",
-    "opened": [
-      {
-        "ticker": "INDOTHAI.NS",
-        "shares": 585.2231163130944,
-        "price": 341.75,
-        "amount": 200000.0
-      }
-    ],
-    "closed": [
-      {
-        "ticker": "SCI.NS",
-        "shares": 870.8146471023643,
-        "entry_price": 229.67,
-        "exit_price": 210.35340881347656,
-        "return_pct": -8.410585268656519,
-        "days_held": 7
-      },
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4273.504273504273,
-        "entry_price": 46.8,
-        "exit_price": 44.0,
-        "return_pct": -5.982905982905977,
+        "ticker": "PARADEEP.NS",
+        "shares": 1471.7786444918686,
+        "entry_price": 135.89,
+        "exit_price": 148.94000244140625,
+        "return_pct": 9.603357451914244,
         "days_held": 7
       }
     ]
   },
   {
-    "date": "2024-04-22 00:00:00",
+    "date": "2025-05-05 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2025-05-12 00:00:00",
+    "opened": [],
+    "closed": []
+  },
+  {
+    "date": "2025-05-19 00:00:00",
     "opened": [
       {
-        "ticker": "SUBROS.NS",
-        "shares": 344.5305770887166,
-        "price": 580.5,
-        "amount": 199999.99999999997
+        "ticker": "TATASTEEL.NS",
+        "shares": 1299.0387113535983,
+        "price": 153.96,
+        "amount": 200000.0
+      },
+      {
+        "ticker": "IOC.NS",
+        "shares": 1381.9789939192924,
+        "price": 144.72,
+        "amount": 200000.0
+      },
+      {
+        "ticker": "CURAA.NS",
+        "shares": 2298.3222247759136,
+        "price": 87.02,
+        "amount": 200000.0
+      },
+      {
+        "ticker": "SILGO.NS",
+        "shares": 3926.187671770711,
+        "price": 50.94,
+        "amount": 200000.0
       }
     ],
     "closed": []
   },
   {
-    "date": "2024-04-29 00:00:00",
+    "date": "2025-05-26 00:00:00",
     "opened": [
       {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4343.105320304017,
-        "price": 46.05,
+        "ticker": "ORTEL.NS",
+        "shares": 100000.0,
+        "price": 2.0,
+        "amount": 200000.0
+      },
+      {
+        "ticker": "ARSSINFRA.NS",
+        "shares": 3315.100281783524,
+        "price": 60.33,
+        "amount": 200000.0
+      },
+      {
+        "ticker": "DHANBANK.NS",
+        "shares": 6720.430107526881,
+        "price": 29.76,
+        "amount": 200000.0
+      },
+      {
+        "ticker": "ZENTEC.NS",
+        "shares": 105.70824524312897,
+        "price": 1892.0,
         "amount": 200000.0
       }
     ],
     "closed": [
       {
-        "ticker": "NRAIL.NS",
-        "shares": 416.98809498988805,
-        "entry_price": 479.63,
-        "exit_price": 471.0731201171875,
-        "return_pct": -1.7840585206956396,
-        "days_held": 21
+        "ticker": "TATASTEEL.NS",
+        "shares": 1299.0387113535983,
+        "entry_price": 153.96,
+        "exit_price": 158.80653381347656,
+        "return_pct": 3.147917519795112,
+        "days_held": 7
       },
       {
-        "ticker": "SUBROS.NS",
-        "shares": 344.5305770887166,
-        "entry_price": 580.5,
-        "exit_price": 620.0086059570312,
-        "return_pct": 6.805961405173341,
+        "ticker": "IOC.NS",
+        "shares": 1381.9789939192924,
+        "entry_price": 144.72,
+        "exit_price": 143.5800018310547,
+        "return_pct": -0.7877267612944385,
+        "days_held": 7
+      },
+      {
+        "ticker": "CURAA.NS",
+        "shares": 2298.3222247759136,
+        "entry_price": 87.02,
+        "exit_price": 97.9800033569336,
+        "return_pct": 12.594809649429553,
+        "days_held": 7
+      },
+      {
+        "ticker": "SILGO.NS",
+        "shares": 3926.187671770711,
+        "entry_price": 50.94,
+        "exit_price": 57.810001373291016,
+        "return_pct": 13.486457348431525,
         "days_held": 7
       }
     ]
   },
   {
-    "date": "2024-05-06 00:00:00",
-    "opened": [],
-    "closed": [
-      {
-        "ticker": "INDOTHAI.NS",
-        "shares": 585.2231163130944,
-        "entry_price": 341.75,
-        "exit_price": 330.4581604003906,
-        "return_pct": -3.3041227796955006,
-        "days_held": 21
-      }
-    ]
-  },
-  {
-    "date": "2024-05-13 00:00:00",
-    "opened": [],
-    "closed": []
-  },
-  {
-    "date": "2024-05-20 00:00:00",
+    "date": "2025-06-02 00:00:00",
     "opened": [
       {
-        "ticker": "SCI.NS",
-        "shares": 853.7522410996329,
-        "price": 234.26,
-        "amount": 200000.0
-      }
-    ],
-    "closed": [
-      {
-        "ticker": "OSWALAGRO.NS",
-        "shares": 4343.105320304017,
-        "entry_price": 46.05,
-        "exit_price": 44.29999923706055,
-        "return_pct": -3.800218812029208,
-        "days_held": 21
-      }
-    ]
-  },
-  {
-    "date": "2024-05-27 00:00:00",
-    "opened": [],
-    "closed": [
-      {
-        "ticker": "JUBLINGREA.NS",
-        "shares": 408.3466045979828,
-        "entry_price": 489.78,
-        "exit_price": 501.8344421386719,
-        "return_pct": 2.4611952588247585,
-        "days_held": 49
-      }
-    ]
-  },
-  {
-    "date": "2024-06-03 00:00:00",
-    "opened": [],
-    "closed": []
-  },
-  {
-    "date": "2024-06-10 00:00:00",
-    "opened": [
-      {
-        "ticker": "NAZARA.NS",
-        "shares": 246.79170779861798,
-        "price": 810.4,
-        "amount": 200000.0
-      }
-    ],
-    "closed": []
-  },
-  {
-    "date": "2024-06-17 00:00:00",
-    "opened": [
-      {
-        "ticker": "KDDL.NS",
-        "shares": 74.68343558740389,
-        "price": 2677.97,
+        "ticker": "AVONMORE.NS",
+        "shares": 9302.32558139535,
+        "price": 21.5,
         "amount": 200000.0
       },
       {
-        "ticker": "SUBROS.NS",
-        "shares": 316.490750557815,
-        "price": 631.93,
+        "ticker": "PARADEEP.NS",
+        "shares": 1160.9008590666358,
+        "price": 172.28,
+        "amount": 200000.00000000003
+      },
+      {
+        "ticker": "SURANAT&P.NS",
+        "shares": 9920.63492063492,
+        "price": 20.16,
         "amount": 200000.0
       }
     ],
-    "closed": []
+    "closed": [
+      {
+        "ticker": "ARSSINFRA.NS",
+        "shares": 3315.100281783524,
+        "entry_price": 60.33,
+        "exit_price": 54.439998626708984,
+        "return_pct": -9.762972606151193,
+        "days_held": 7
+      },
+      {
+        "ticker": "ZENTEC.NS",
+        "shares": 105.70824524312897,
+        "entry_price": 1892.0,
+        "exit_price": 2117.699951171875,
+        "return_pct": 11.929172894919397,
+        "days_held": 7
+      }
+    ]
   },
   {
-    "date": "2024-06-24 00:00:00",
+    "date": "2025-06-09 00:00:00",
     "opened": [
       {
-        "ticker": "NRAIL.NS",
-        "shares": 267.2836132654283,
-        "price": 461.62,
-        "amount": 123383.46155558701
+        "ticker": "CURAA.NS",
+        "shares": 1742.9193899782135,
+        "price": 114.75,
+        "amount": 200000.0
       }
     ],
-    "closed": []
+    "closed": [
+      {
+        "ticker": "PARADEEP.NS",
+        "shares": 1160.9008590666358,
+        "entry_price": 172.28,
+        "exit_price": 173.10000610351562,
+        "return_pct": 0.47597289500558615,
+        "days_held": 7
+      }
+    ]
   }
 ]
