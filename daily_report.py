@@ -7,7 +7,7 @@ from ta.volatility import BollingerBands, AverageTrueRange
 from ta.volume import VolumeWeightedAveragePrice, OnBalanceVolumeIndicator, AccDistIndexIndicator
 from datetime import datetime, timedelta
 from sector_mapping import sector_stocks  # Replace with your stock list
-from my_stocks import my_stocks
+from my_stocks import my_stocks, PENNY_STOCKS
 
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -43,7 +43,7 @@ class FixedPSARIndicator(PSARIndicator):
         return psar
 
 def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50):
-    """Calculate momentum, volume, and trend signals across three timeframes with PSAR"""
+    """Calculate momentum, volume, and trend signals across three timeframes with PSAR and candlestick patterns"""
     try:
         # Download data - extended for long-term indicators
         end_date = datetime.today()
@@ -56,7 +56,7 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
 
         # Initialize indicators dictionary
         indicators = {}
-        
+
         # Short-term indicators (14 days)
         indicators['short'] = {
             'RSI': RSIIndicator(close=df['Close'], window=short_period).rsi(),
@@ -84,7 +84,7 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
                 max_step=0.2
             ).psar()
         }
-        
+
         # Medium-term indicators (26 days)
         indicators['medium'] = {
             'RSI': RSIIndicator(close=df['Close'], window=medium_period).rsi(),
@@ -128,7 +128,7 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
                 max_step=0.1
             ).psar()
         }
-        
+
         # Volume indicators
         volume_indicators = {
             'OBV': OnBalanceVolumeIndicator(close=df['Close'], volume=df['Volume']).on_balance_volume(),
@@ -145,6 +145,14 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
         # Get latest values
         latest = {
             'price': df['Close'].iloc[-1],
+            'open': df['Open'].iloc[-1],
+            'high': df['High'].iloc[-1],
+            'low': df['Low'].iloc[-1],
+            'close': df['Close'].iloc[-1],
+            'prev_close': df['Close'].iloc[-2],
+            'prev_open': df['Open'].iloc[-2],
+            'prev_high': df['High'].iloc[-2],
+            'prev_low': df['Low'].iloc[-2],
             'short': {k: v.iloc[-1] for k, v in indicators['short'].items()},
             'medium': {k: v.iloc[-1] if not isinstance(v, dict) else {sk: sv.iloc[-1] for sk, sv in v.items()} 
                       for k, v in indicators['medium'].items()},
@@ -152,12 +160,16 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
                 'upper': v.bollinger_hband().iloc[-1],
                 'middle': v.bollinger_mavg().iloc[-1],
                 'lower': v.bollinger_lband().iloc[-1],
-                'percent': (df['Close'].iloc[-1] - v.bollinger_lband().iloc[-1]) / 
-                          (v.bollinger_hband().iloc[-1] - v.bollinger_lband().iloc[-1])
+                'percent': np.divide(
+                                (df['Close'].iloc[-1] - v.bollinger_lband().iloc[-1]),
+                                (v.bollinger_hband().iloc[-1] - v.bollinger_lband().iloc[-1]),
+                                out=np.zeros(1),
+                                where=(v.bollinger_hband().iloc[-1] - v.bollinger_lband().iloc[-1]) != 0
+                )[0]
             } for k, v in indicators['long'].items()},
             'volume': {k: v.iloc[-1] for k, v in volume_indicators.items()}
         }
-        
+
         # Previous values for trend analysis
         prev = {
             'short': {k: v.iloc[-2] for k, v in indicators['short'].items()},
@@ -171,8 +183,69 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
             'medium': (latest['price'] - df['Close'].iloc[-medium_period]) / df['Close'].iloc[-medium_period] * 100,
             'long': (latest['price'] - df['Close'].iloc[-long_period]) / df['Close'].iloc[-long_period] * 100
         }
-        
-        # Trend analysis with PSAR
+
+        # Detect candlestick patterns (using last 3 candles for better reliability)
+        def is_bullish_engulfing():
+            return (latest['prev_close'] < latest['prev_open'] and  # Previous candle is bearish
+                    latest['close'] > latest['open'] and            # Current candle is bullish
+                    latest['close'] > latest['prev_open'] and       # Current close > previous open
+                    latest['open'] < latest['prev_close'])          # Current open < previous close
+
+        def is_bearish_engulfing():
+            return (latest['prev_close'] > latest['prev_open'] and  # Previous candle is bullish
+                    latest['close'] < latest['open'] and            # Current candle is bearish
+                    latest['close'] < latest['prev_open'] and       # Current close < previous open
+                    latest['open'] > latest['prev_close'])          # Current open > previous close
+
+        def is_hammer():
+            body = abs(latest['close'] - latest['open'])
+            lower_wick = latest['low'] - min(latest['close'], latest['open'])
+            upper_wick = max(latest['close'], latest['open']) - latest['high']
+            return (lower_wick >= 2 * body and  # Long lower wick
+                    upper_wick <= body * 0.5 and  # Small or no upper wick
+                    latest['close'] > latest['open'])  # Bullish candle
+
+        def is_shooting_star():
+            body = abs(latest['close'] - latest['open'])
+            lower_wick = latest['low'] - min(latest['close'], latest['open'])
+            upper_wick = max(latest['close'], latest['open']) - latest['high']
+            return (upper_wick >= 2 * body and  # Long upper wick
+                    lower_wick <= body * 0.5 and  # Small or no lower wick
+                    latest['close'] < latest['open'])  # Bearish candle
+
+        def is_morning_star():
+            if len(df) < 3:
+                return False
+            prev2_close = df['Close'].iloc[-3]
+            prev2_open = df['Open'].iloc[-3]
+            return (latest['prev_close'] < latest['prev_open'] and  # Middle candle is bearish
+                    prev2_close < prev2_open and                    # First candle is bearish
+                    latest['close'] > latest['open'] and            # Third candle is bullish
+                    latest['close'] > (latest['prev_open'] + latest['prev_close'])/2)  # Closes above midpoint
+
+        def is_evening_star():
+            if len(df) < 3:
+                return False
+            prev2_close = df['Close'].iloc[-3]
+            prev2_open = df['Open'].iloc[-3]
+            return (latest['prev_close'] > latest['prev_open'] and  # Middle candle is bullish
+                    prev2_close > prev2_open and                    # First candle is bullish
+                    latest['close'] < latest['open'] and            # Third candle is bearish
+                    latest['close'] < (latest['prev_open'] + latest['prev_close'])/2)  # Closes below midpoint
+
+        def is_piercing_line():
+            return (latest['prev_close'] < latest['prev_open'] and  # Previous candle is bearish
+                    latest['close'] > latest['open'] and            # Current candle is bullish
+                    latest['open'] < latest['prev_close'] and       # Opens below previous close
+                    latest['close'] > (latest['prev_open'] + latest['prev_close'])/2)  # Closes above midpoint
+
+        def is_dark_cloud_cover():
+            return (latest['prev_close'] > latest['prev_open'] and  # Previous candle is bullish
+                    latest['close'] < latest['open'] and            # Current candle is bearish
+                    latest['open'] > latest['prev_close'] and       # Opens above previous close
+                    latest['close'] < (latest['prev_open'] + latest['prev_close'])/2)  # Closes below midpoint
+
+        # Trend analysis with PSAR and candlestick patterns
         trends = {
             # Moving average trends
             'short_term_up': latest['price'] > latest['short']['SMA'] > latest['short']['EMA'],
@@ -191,6 +264,16 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
             'sar_short_bearish': latest['price'] < latest['short']['PSAR'],
             'sar_medium_bearish': latest['price'] < latest['medium']['PSAR'],
             'sar_long_bearish': latest['price'] < latest['long']['PSAR'],
+            
+            # Candlestick patterns
+            'bullish_engulfing': is_bullish_engulfing(),
+            'bearish_engulfing': is_bearish_engulfing(),
+            'hammer': is_hammer(),
+            'shooting_star': is_shooting_star(),
+            'morning_star': is_morning_star(),
+            'evening_star': is_evening_star(),
+            'piercing_line': is_piercing_line(),
+            'dark_cloud_cover': is_dark_cloud_cover(),
         }
         
         # Momentum signals
@@ -204,7 +287,7 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
             'bb_position': latest['long']['BB']['percent'],
             'atr': latest['short']['ATR']
         }
-        
+
         # Volume signals
         volume = {
             'obv_trend': '↑' if latest['volume']['OBV'] > volume_indicators['OBV'].iloc[-2] else '↓',
@@ -227,7 +310,25 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
             signal_reasons.append("PSAR Bullish (Partial)")
         if trends['adx_strength']:
             signal_reasons.append("Strong Trend (ADX > 25)")
-            
+
+        # Candlestick pattern reasons
+        if trends['bullish_engulfing']:
+            signal_reasons.append("Bullish Engulfing Pattern")
+        if trends['bearish_engulfing']:
+            signal_reasons.append("Bearish Engulfing Pattern")
+        if trends['hammer']:
+            signal_reasons.append("Hammer Pattern (Bullish)")
+        if trends['shooting_star']:
+            signal_reasons.append("Shooting Star (Bearish)")
+        if trends['morning_star']:
+            signal_reasons.append("Morning Star Pattern (Strong Bullish)")
+        if trends['evening_star']:
+            signal_reasons.append("Evening Star Pattern (Strong Bearish)")
+        if trends['piercing_line']:
+            signal_reasons.append("Piercing Line (Bullish)")
+        if trends['dark_cloud_cover']:
+            signal_reasons.append("Dark Cloud Cover (Bearish)")
+
         # Momentum reasons
         if momentum['rsi_short'] > 70:
             signal_reasons.append(f"Short-term RSI Overbought ({momentum['rsi_short']:.1f})")
@@ -258,8 +359,8 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
         
         # Generate composite score (0-100)
         score = 50  # Neutral starting point
-        
-        # Trend factors (30%)
+
+        # Trend factors (25%)
         score += 5 if trends['short_term_up'] else -10
         score += 5 if trends['medium_term_up'] else -5
         score += 5 if trends['long_term_up'] else -3
@@ -272,20 +373,24 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
         score += 5 if trends['sar_medium_bullish'] else -5
         score += 5 if trends['sar_long_bullish'] else -5
         
-        # Momentum factors (25%)
+        # Candlestick pattern factors (15%)
+        score += 10 if trends['bullish_engulfing'] or trends['hammer'] or trends['morning_star'] or trends['piercing_line'] else 0
+        score += -10 if trends['bearish_engulfing'] or trends['shooting_star'] or trends['evening_star'] or trends['dark_cloud_cover'] else 0
+        
+        # Momentum factors (20%)
         score += 5 * ((momentum['rsi_short'] - 50) / 10)  # Normalized RSI contribution
         score += 5 if momentum['stoch_oversold'] else (-5 if momentum['stoch_overbought'] else 0)
         score += 5 * (momentum['roc_short'] / 5)  # Normalized ROC contribution
         score += 5 * (momentum['roc_medium'] / 3)  # Normalized ROC contribution
         score += 5 * (momentum['bb_position'] - 0.5)  # BB position contribution
         
-        # Volume factors (20%)
+        # Volume factors (15%)
         score += 10 if volume['obv_trend'] == '↑' else -10
         score += 5 if volume['adi_trend'] == '↑' else -3
         score += 5 if volume['volume_spike'] and volume['obv_trend'] == '↑' else (
                  -5 if volume['volume_spike'] and volume['obv_trend'] == '↓' else 0)
         score += 5 if volume['vwap_relation'] == 'above' else -3
-        
+
         # Price action factors (10%)
         score += 5 * (price_changes['short'] / 5)  # Normalized short-term change
         score += 3 * (price_changes['medium'] / 3)  # Normalized medium-term change
@@ -294,48 +399,52 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
         # Cap score between 0 and 100
         score = max(0, min(100, score))
         
-        # Generate trading signal
+        # Generate trading signal with candlestick pattern confirmation
         signal = "HOLD"
         signal_strength = ""
         
-        # STRONG BUY: All PSAR timeframes bullish + high score
+        # STRONG BUY: All PSAR timeframes bullish + high score + bullish pattern
         if (score > 80 and 
             trends['sar_short_bullish'] and 
             trends['sar_medium_bullish'] and 
             trends['sar_long_bullish'] and 
-            volume['obv_trend'] == '↑'):
+            volume['obv_trend'] == '↑' and
+            (trends['bullish_engulfing'] or trends['hammer'] or trends['morning_star'])):
             signal = "STRONG BUY"
-            signal_strength = "(Multi-Timeframe PSAR Confirmed)"
+            signal_strength = "(Multi-Timeframe PSAR + Bullish Pattern)"
         
-        # BUY: Partial PSAR confirmation
+        # BUY: Partial PSAR confirmation + bullish pattern
         elif (score > 65 and 
               (trends['sar_short_bullish'] or trends['sar_medium_bullish']) and 
-              volume['obv_trend'] == '↑'):
+              volume['obv_trend'] == '↑' and
+              (trends['bullish_engulfing'] or trends['hammer'])):
             signal = "BUY"
-            signal_strength = "(PSAR Bullish)"
-            
-        # STRONG SELL: All PSAR timeframes bearish + low score
+            signal_strength = "(PSAR Bullish + Pattern)"
+
+        # STRONG SELL: All PSAR timeframes bearish + low score + bearish pattern
         elif (score < 20 and 
               trends['sar_short_bearish'] and 
               trends['sar_medium_bearish'] and 
               trends['sar_long_bearish'] and 
-              volume['obv_trend'] == '↓'):
+              volume['obv_trend'] == '↓' and
+              (trends['bearish_engulfing'] or trends['shooting_star'] or trends['evening_star'])):
             signal = "STRONG SELL"
-            signal_strength = "(Multi-Timeframe PSAR Confirmed)"
+            signal_strength = "(Multi-Timeframe PSAR + Bearish Pattern)"
             
-        # SELL: Partial PSAR confirmation
+        # SELL: Partial PSAR confirmation + bearish pattern
         elif (score < 35 and 
               (trends['sar_short_bearish'] or trends['sar_medium_bearish']) and 
-              volume['obv_trend'] == '↓'):
+              volume['obv_trend'] == '↓' and
+              (trends['bearish_engulfing'] or trends['shooting_star'])):
             signal = "SELL"
-            signal_strength = "(PSAR Bearish)"
+            signal_strength = "(PSAR Bearish + Pattern)"
         
         # Add reasons if not already included
         if signal != "HOLD" and signal_reasons:
             signal += f" {signal_strength} [{', '.join(signal_reasons)}]"
         elif signal == "HOLD" and signal_reasons:
             signal = f"HOLD (Conflicting signals: {', '.join(signal_reasons)})"
-            
+
         # Prepare result dictionary
         result = {
             'Ticker': ticker,
@@ -356,15 +465,35 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
             'Volume_Spike': 'Yes' if volume['volume_spike'] else 'No',
             'OBV_Trend': volume['obv_trend'],
             'VWAP_Relation': volume['vwap_relation'],
+            'Candle_Pattern': get_candle_pattern_name(trends),
             'Score': f"{score:.1f}",
             'Signal': signal
         }
         
         return result
-        
     except Exception as e:
         print(f"Error processing {ticker}: {str(e)}")
         return None
+
+def get_candle_pattern_name(trends):
+    """Helper method to get the name of the most significant candle pattern"""
+    if trends['morning_star']:
+        return "Morning Star"
+    if trends['evening_star']:
+        return "Evening Star"
+    if trends['bullish_engulfing']:
+        return "Bullish Engulfing"
+    if trends['bearish_engulfing']:
+        return "Bearish Engulfing"
+    if trends['hammer']:
+        return "Hammer"
+    if trends['shooting_star']:
+        return "Shooting Star"
+    if trends['piercing_line']:
+        return "Piercing Line"
+    if trends['dark_cloud_cover']:
+        return "Dark Cloud Cover"
+    return "None"
 
 def generate_html_report(short_period,medium_period, long_period, results, output_file='momentum_report.html'):
     """Generate HTML report with dynamic period headers"""
@@ -548,5 +677,5 @@ def analyze_stocks(stock_list, short_period=14, medium_period=26, long_period=50
 
 # Example usage
 if __name__ == "__main__":
-    stocks = my_stocks # Replace with your stock list
+    stocks = PENNY_STOCKS # Replace with your stock list
     analyze_stocks(stocks, short_period=10, medium_period=20, long_period=50)
