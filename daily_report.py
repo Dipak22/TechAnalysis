@@ -2,17 +2,50 @@ import yfinance as yf
 import pandas as pd
 import numpy as np
 from ta.momentum import RSIIndicator, ROCIndicator, StochasticOscillator
-from ta.trend import MACD, SMAIndicator, EMAIndicator, ADXIndicator
+from ta.trend import MACD, SMAIndicator, EMAIndicator, ADXIndicator, PSARIndicator
 from ta.volatility import BollingerBands, AverageTrueRange
 from ta.volume import VolumeWeightedAveragePrice, OnBalanceVolumeIndicator, AccDistIndexIndicator
 from datetime import datetime, timedelta
-from sector_mapping import sector_stocks  # Assuming this is a list of stock tickers
-from my_stocks import my_stocks  # Assuming this is a list of stock tickers
+from sector_mapping import sector_stocks  # Replace with your stock list
+from my_stocks import my_stocks
+
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+
+# Custom PSAR to avoid warnings
+class FixedPSARIndicator(PSARIndicator):
+    def __init__(self, high, low, close, step=0.02, max_step=0.2):
+        super().__init__(high=high, low=low, close=close, step=step, max_step=max_step)
+        
+    def _calc_psar(self):
+        psar = self._close.copy()
+        psar.iloc[:] = np.nan
+        
+        for i in range(2, len(self._close)):
+            if i == 2:
+                if self._close.iloc[i] > self._close.iloc[i-1]:
+                    trend = 1
+                    psar.iloc[i] = min(self._low.iloc[i-1], self._low.iloc[i-2])
+                else:
+                    trend = -1
+                    psar.iloc[i] = max(self._high.iloc[i-1], self._high.iloc[i-2])
+                continue
+                
+            # Rest of original logic with .iloc
+            prev_psar = psar.iloc[i-1]
+            if trend == 1:
+                psar.iloc[i] = prev_psar + self._step * (self._high.iloc[i-1] - prev_psar)
+                psar.iloc[i] = min(psar.iloc[i], self._low.iloc[i-1], self._low.iloc[i-2])
+            else:
+                psar.iloc[i] = prev_psar + self._step * (self._low.iloc[i-1] - prev_psar)
+                psar.iloc[i] = max(psar.iloc[i], self._high.iloc[i-1], self._high.iloc[i-2])
+            
+        return psar
 
 def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50):
-    """Calculate momentum, volume, and moving average signals across multiple timeframes"""
+    """Calculate momentum, volume, and trend signals across three timeframes with PSAR"""
     try:
-        # Download data with volume - get more data for longer indicators
+        # Download data - extended for long-term indicators
         end_date = datetime.today()
         start_date = end_date - timedelta(days=long_period*3)
         stock = yf.Ticker(ticker)
@@ -21,7 +54,7 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
         if df.empty or len(df) < long_period:
             return None
 
-        # Calculate indicators for multiple timeframes
+        # Initialize indicators dictionary
         indicators = {}
         
         # Short-term indicators (14 days)
@@ -42,7 +75,14 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
                 low=df['Low'],
                 close=df['Close'],
                 window=short_period
-            ).average_true_range()
+            ).average_true_range(),
+            'PSAR': FixedPSARIndicator(
+                high=df['High'],
+                low=df['Low'],
+                close=df['Close'],
+                step=0.02,  # Standard acceleration
+                max_step=0.2
+            ).psar()
         }
         
         # Medium-term indicators (26 days)
@@ -58,7 +98,14 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
                 low=df['Low'],
                 close=df['Close'],
                 window=medium_period
-            ).adx()
+            ).adx(),
+            'PSAR': FixedPSARIndicator(
+                high=df['High'],
+                low=df['Low'],
+                close=df['Close'],
+                step=0.015,  # Slightly slower
+                max_step=0.15
+            ).psar()
         }
         
         # Long-term indicators (50 days)
@@ -72,7 +119,14 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
                 close=df['Close'],
                 volume=df['Volume'],
                 window=long_period
-            ).volume_weighted_average_price()
+            ).volume_weighted_average_price(),
+            'PSAR': FixedPSARIndicator(
+                high=df['High'],
+                low=df['Low'],
+                close=df['Close'],
+                step=0.01,  # Slow acceleration for long-term
+                max_step=0.1
+            ).psar()
         }
         
         # Volume indicators
@@ -111,15 +165,16 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
                      for k, v in indicators['medium'].items()},
         }
         
-        # Price changes for different periods
+        # Price changes
         price_changes = {
             'short': (latest['price'] - df['Close'].iloc[-short_period]) / df['Close'].iloc[-short_period] * 100,
             'medium': (latest['price'] - df['Close'].iloc[-medium_period]) / df['Close'].iloc[-medium_period] * 100,
             'long': (latest['price'] - df['Close'].iloc[-long_period]) / df['Close'].iloc[-long_period] * 100
         }
         
-        # Trend analysis
+        # Trend analysis with PSAR
         trends = {
+            # Moving average trends
             'short_term_up': latest['price'] > latest['short']['SMA'] > latest['short']['EMA'],
             'medium_term_up': latest['price'] > latest['medium']['SMA'] > latest['medium']['EMA'],
             'long_term_up': latest['price'] > latest['long']['SMA'] > latest['long']['EMA'],
@@ -127,7 +182,15 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
             'death_cross': latest['short']['SMA'] < latest['medium']['SMA'] and prev['short']['SMA'] >= prev['medium']['SMA'],
             'macd_bullish': latest['medium']['MACD_diff'] > 0 and prev['medium']['MACD_diff'] <= 0,
             'macd_bearish': latest['medium']['MACD_diff'] < 0 and prev['medium']['MACD_diff'] >= 0,
-            'adx_strength': latest['medium']['ADX'] > 25  # Strong trend threshold
+            'adx_strength': latest['medium']['ADX'] > 25,
+            
+            # PSAR trends
+            'sar_short_bullish': latest['price'] > latest['short']['PSAR'],
+            'sar_medium_bullish': latest['price'] > latest['medium']['PSAR'],
+            'sar_long_bullish': latest['price'] > latest['long']['PSAR'],
+            'sar_short_bearish': latest['price'] < latest['short']['PSAR'],
+            'sar_medium_bearish': latest['price'] < latest['medium']['PSAR'],
+            'sar_long_bearish': latest['price'] < latest['long']['PSAR'],
         }
         
         # Momentum signals
@@ -158,10 +221,10 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
             signal_reasons.append("Golden Cross (Short > Medium MA)")
         if trends['death_cross']:
             signal_reasons.append("Death Cross (Short < Medium MA)")
-        if trends['macd_bullish']:
-            signal_reasons.append("MACD Bullish Cross")
-        if trends['macd_bearish']:
-            signal_reasons.append("MACD Bearish Cross")
+        if trends['sar_short_bullish'] and trends['sar_medium_bullish'] and trends['sar_long_bullish']:
+            signal_reasons.append("PSAR Bullish (All Timeframes)")
+        elif trends['sar_short_bullish'] or trends['sar_medium_bullish']:
+            signal_reasons.append("PSAR Bullish (Partial)")
         if trends['adx_strength']:
             signal_reasons.append("Strong Trend (ADX > 25)")
             
@@ -197,29 +260,33 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
         score = 50  # Neutral starting point
         
         # Trend factors (30%)
-        score += 15 if trends['short_term_up'] else -10
-        score += 10 if trends['medium_term_up'] else -5
+        score += 5 if trends['short_term_up'] else -10
+        score += 5 if trends['medium_term_up'] else -5
         score += 5 if trends['long_term_up'] else -3
-        score += 10 if trends['golden_cross'] else (-10 if trends['death_cross'] else 0)
+        score += 5 if trends['golden_cross'] else (-10 if trends['death_cross'] else 0)
         score += 5 if trends['macd_bullish'] else (-5 if trends['macd_bearish'] else 0)
         score += 5 if trends['adx_strength'] else 0
         
-        # Momentum factors (30%)
+        # PSAR factors (15%)
+        score += 5 if trends['sar_short_bullish'] else -5
+        score += 5 if trends['sar_medium_bullish'] else -5
+        score += 5 if trends['sar_long_bullish'] else -5
+        
+        # Momentum factors (25%)
         score += 5 * ((momentum['rsi_short'] - 50) / 10)  # Normalized RSI contribution
         score += 5 if momentum['stoch_oversold'] else (-5 if momentum['stoch_overbought'] else 0)
         score += 5 * (momentum['roc_short'] / 5)  # Normalized ROC contribution
         score += 5 * (momentum['roc_medium'] / 3)  # Normalized ROC contribution
-        score += 10 * (momentum['bb_position'] - 0.5)  # BB position contribution
-        score += 5 * (1 - (momentum['atr'] / latest['price']))  # Normalized ATR contribution
+        score += 5 * (momentum['bb_position'] - 0.5)  # BB position contribution
         
         # Volume factors (20%)
-        score += 10 if volume['obv_trend'] == '↑' else -5
+        score += 10 if volume['obv_trend'] == '↑' else -10
         score += 5 if volume['adi_trend'] == '↑' else -3
         score += 5 if volume['volume_spike'] and volume['obv_trend'] == '↑' else (
                  -5 if volume['volume_spike'] and volume['obv_trend'] == '↓' else 0)
         score += 5 if volume['vwap_relation'] == 'above' else -3
         
-        # Price action factors (20%)
+        # Price action factors (10%)
         score += 5 * (price_changes['short'] / 5)  # Normalized short-term change
         score += 3 * (price_changes['medium'] / 3)  # Normalized medium-term change
         score += 2 * (price_changes['long'] / 2)  # Normalized long-term change
@@ -227,45 +294,41 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
         # Cap score between 0 and 100
         score = max(0, min(100, score))
         
-        # Generate trading signal based on score and confirmation
+        # Generate trading signal
         signal = "HOLD"
         signal_strength = ""
         
-        # Strong Buy conditions
-        if (score > 75 and 
-            trends['short_term_up'] and 
-            trends['medium_term_up'] and 
-            volume['obv_trend'] == '↑' and 
-            not momentum['stoch_overbought'] and 
-            momentum['bb_position'] < 0.8):
+        # STRONG BUY: All PSAR timeframes bullish + high score
+        if (score > 80 and 
+            trends['sar_short_bullish'] and 
+            trends['sar_medium_bullish'] and 
+            trends['sar_long_bullish'] and 
+            volume['obv_trend'] == '↑'):
             signal = "STRONG BUY"
-            signal_strength = "(Multi-timeframe uptrend with volume confirmation)"
+            signal_strength = "(Multi-Timeframe PSAR Confirmed)"
         
-        # Buy conditions
-        elif (score > 60 and 
-              (trends['short_term_up'] or trends['medium_term_up']) and 
-              volume['obv_trend'] == '↑' and 
-              not momentum['stoch_overbought']):
+        # BUY: Partial PSAR confirmation
+        elif (score > 65 and 
+              (trends['sar_short_bullish'] or trends['sar_medium_bullish']) and 
+              volume['obv_trend'] == '↑'):
             signal = "BUY"
-            signal_strength = "(Uptrend with positive momentum)"
+            signal_strength = "(PSAR Bullish)"
             
-        # Strong Sell conditions
-        elif (score < 25 and 
-              not trends['short_term_up'] and 
-              not trends['medium_term_up'] and 
-              volume['obv_trend'] == '↓' and 
-              not momentum['stoch_oversold'] and 
-              momentum['bb_position'] > 0.2):
+        # STRONG SELL: All PSAR timeframes bearish + low score
+        elif (score < 20 and 
+              trends['sar_short_bearish'] and 
+              trends['sar_medium_bearish'] and 
+              trends['sar_long_bearish'] and 
+              volume['obv_trend'] == '↓'):
             signal = "STRONG SELL"
-            signal_strength = "(Multi-timeframe downtrend with volume confirmation)"
+            signal_strength = "(Multi-Timeframe PSAR Confirmed)"
             
-        # Sell conditions
-        elif (score < 40 and 
-              (not trends['short_term_up'] or not trends['medium_term_up']) and 
-              volume['obv_trend'] == '↓' and 
-              not momentum['stoch_oversold']):
+        # SELL: Partial PSAR confirmation
+        elif (score < 35 and 
+              (trends['sar_short_bearish'] or trends['sar_medium_bearish']) and 
+              volume['obv_trend'] == '↓'):
             signal = "SELL"
-            signal_strength = "(Downtrend with negative momentum)"
+            signal_strength = "(PSAR Bearish)"
         
         # Add reasons if not already included
         if signal != "HOLD" and signal_reasons:
@@ -277,16 +340,18 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
         result = {
             'Ticker': ticker,
             'Price': f"{latest['price']:.2f}",
-            'Change_14D': f"{price_changes['short']:.1f}%",
-            'Change_26D': f"{price_changes['medium']:.1f}%",
-            'Change_50D': f"{price_changes['long']:.1f}%",
-            'RSI_14': f"{momentum['rsi_short']:.1f}",
-            'RSI_26': f"{momentum['rsi_medium']:.1f}",
-            'Stoch_%K': f"{latest['short']['Stoch_%K']:.1f}",
-            'MACD_diff': f"{latest['medium']['MACD_diff']:.3f}",
+            f'Change_{short_period}D': f"{price_changes['short']:.1f}%",
+            f'Change_{medium_period}D': f"{price_changes['medium']:.1f}%",
+            f'Change_{long_period}D': f"{price_changes['long']:.1f}%",
+            f'RSI_{short_period}': f"{momentum['rsi_short']:.1f}",
+            f'RSI_{medium_period}': f"{momentum['rsi_medium']:.1f}",
+            f'Stoch_%K_{short_period}': f"{latest['short']['Stoch_%K']:.1f}",
+            f'MACD_diff_{medium_period}': f"{latest['medium']['MACD_diff']:.3f}",
             'BB_%': f"{momentum['bb_position']:.2%}",
-            'SMA_14/26': f"{latest['short']['SMA']:.1f}/{latest['medium']['SMA']:.1f}",
-            'SMA_50': f"{latest['long']['SMA']:.1f}",
+            f'SMA_{short_period}/{medium_period}/{long_period}': f"{latest['short']['SMA']:.1f}/{latest['medium']['SMA']:.1f}/{latest['long']['SMA']:.1f}",
+            f'PSAR_{short_period}': 'Bullish' if trends['sar_short_bullish'] else 'Bearish',
+            f'PSAR_{medium_period}': 'Bullish' if trends['sar_medium_bullish'] else 'Bearish',
+            f'PSAR_{long_period}': 'Bullish' if trends['sar_long_bullish'] else 'Bearish',
             'Volume': f"{df['Volume'].iloc[-1]/1e6:.1f}M",
             'Volume_Spike': 'Yes' if volume['volume_spike'] else 'No',
             'OBV_Trend': volume['obv_trend'],
@@ -301,12 +366,24 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
         print(f"Error processing {ticker}: {str(e)}")
         return None
 
-def generate_html_report(results, output_file='momentum_report.html'):
-    """Generate enhanced HTML report with all indicators"""
+def generate_html_report(short_period,medium_period, long_period, results, output_file='momentum_report.html'):
+    """Generate HTML report with dynamic period headers"""
+    
+    # Extract periods from the first result's keys
+    def extract_period(key_prefix):
+        for key in results[0].keys():
+            if key.startswith(key_prefix):
+                return key.split('_')[-1].replace('D','')
+        return None
+    
+    short_period =str(short_period)
+    medium_period = str(medium_period)  # Second RSI is medium period
+    long_period = str(long_period)   # Last PSAR is long period
+
     html_template = f"""
     <html>
     <head>
-        <title>Multi-Timeframe Stock Momentum Report</title>
+        <title>Multi-Timeframe Stock Analysis Report</title>
         <style>
             body {{ font-family: Arial; margin: 20px; }}
             h1 {{ color: #333366; }}
@@ -318,8 +395,6 @@ def generate_html_report(results, output_file='momentum_report.html'):
             .sell {{ background-color: #ffe6e6; }}
             .strong-sell {{ background-color: #ffcccc; }}
             .hold {{ background-color: #ffffe6; }}
-            .arrow-up {{ color: green; font-weight: bold; }}
-            .arrow-down {{ color: red; font-weight: bold; }}
             .positive {{ color: green; }}
             .negative {{ color: red; }}
             .neutral {{ color: gray; }}
@@ -343,22 +418,23 @@ def generate_html_report(results, output_file='momentum_report.html'):
         </style>
     </head>
     <body>
-        <h1>Multi-Timeframe Stock Momentum Report ({datetime.today().strftime('%Y-%m-%d')})</h1>
+        <h1>Multi-Timeframe Stock Analysis Report ({datetime.today().strftime('%Y-%m-%d')})</h1>
+        <h3>Analysis Periods: Short ({short_period}D), Medium ({medium_period}D), Long ({long_period}D)</h3>
         <table>
             <tr>
                 <th>Rank</th>
                 <th>Ticker</th>
                 <th>Price</th>
-                <th>14D Chg</th>
-                <th>26D Chg</th>
-                <th>50D Chg</th>
-                <th>RSI (14/26)</th>
+                <th>{short_period}D Chg</th>
+                <th>{medium_period}D Chg</th>
+                <th>{long_period}D Chg</th>
+                <th>RSI ({short_period}/{medium_period})</th>
                 <th>Stoch %K</th>
                 <th>MACD Diff</th>
                 <th>BB %</th>
-                <th>SMA (14/26/50)</th>
+                <th>SMA ({short_period}/{medium_period}/{long_period})</th>
+                <th>PSAR ({short_period}/{medium_period}/{long_period})</th>
                 <th>Volume</th>
-                <th>OBV</th>
                 <th>Score</th>
                 <th>Signal</th>
             </tr>
@@ -373,41 +449,49 @@ def generate_html_report(results, output_file='momentum_report.html'):
                     <td>{i+1}</td>
                     <td><b>{r['Ticker']}</b></td>
                     <td>{r['Price']}</td>
-                    <td class="{{'positive' if float(r['Change_14D'].strip('%')) > 0 else 'negative'}}">
-                        {r['Change_14D']} {'↑' if float(r['Change_14D'].strip('%')) > 0 else '↓'}
+                    <td class="{{'positive' if float(r[f'Change_{short_period}D'].strip('%')) > 0 else 'negative'}}">
+                        {r[f'Change_{short_period}D']}
                     </td>
-                    <td class="{{'positive' if float(r['Change_26D'].strip('%')) > 0 else 'negative'}}">
-                        {r['Change_26D']} {'↑' if float(r['Change_26D'].strip('%')) > 0 else '↓'}
+                    <td class="{{'positive' if float(r[f'Change_{medium_period}D'].strip('%')) > 0 else 'negative'}}">
+                        {r[f'Change_{medium_period}D']}
                     </td>
-                    <td class="{{'positive' if float(r['Change_50D'].strip('%')) > 0 else 'negative'}}">
-                        {r['Change_50D']} {'↑' if float(r['Change_50D'].strip('%')) > 0 else '↓'}
+                    <td class="{{'positive' if float(r[f'Change_{long_period}D'].strip('%')) > 0 else 'negative'}}">
+                        {r[f'Change_{long_period}D']}
                     </td>
                     <td>
-                        <span class="{{'positive' if float(r['RSI_14']) < 30 else 'negative' if float(r['RSI_14']) > 70 else 'neutral'}}">
-                            {r['RSI_14']}
+                        <span class="{{'positive' if float(r[f'RSI_{short_period}']) < 30 else 'negative' if float(r[f'RSI_{short_period}']) > 70 else 'neutral'}}">
+                            {r[f'RSI_{short_period}']}
                         </span>/
-                        <span class="{{'positive' if float(r['RSI_26']) < 30 else 'negative' if float(r['RSI_26']) > 70 else 'neutral'}}">
-                            {r['RSI_26']}
+                        <span class="{{'positive' if float(r[f'RSI_{medium_period}']) < 30 else 'negative' if float(r[f'RSI_{medium_period}']) > 70 else 'neutral'}}">
+                            {r[f'RSI_{medium_period}']}
                         </span>
                     </td>
-                    <td class="{{'positive' if float(r['Stoch_%K']) < 20 else 'negative' if float(r['Stoch_%K']) > 80 else 'neutral'}}">
-                        {r['Stoch_%K']}
+                    <td class="{{'positive' if float(r[f'Stoch_%K_{short_period}']) < 20 else 'negative' if float(r[f'Stoch_%K_{short_period}']) > 80 else 'neutral'}}">
+                        {r[f'Stoch_%K_{short_period}']}
                     </td>
-                    <td class="{{'positive' if float(r['MACD_diff']) > 0 else 'negative'}}">
-                        {r['MACD_diff']}
+                    <td class="{{'positive' if float(r[f'MACD_diff_{medium_period}']) > 0 else 'negative'}}">
+                        {r[f'MACD_diff_{medium_period}']}
                     </td>
                     <td class="{{'positive' if float(r['BB_%'].strip('%'))/100 < 0.2 else 'negative' if float(r['BB_%'].strip('%'))/100 > 0.8 else 'neutral'}}">
                         {r['BB_%']}
                     </td>
-                    <td>{r['SMA_14/26']}/{r['SMA_50']}</td>
+                    <td>{r[f'SMA_{short_period}/{medium_period}/{long_period}']}</td>
+                    <td>
+                        <span class="{{'positive' if r[f'PSAR_{short_period}'] == 'Bullish' else 'negative'}}">
+                            {r[f'PSAR_{short_period}']}
+                        </span>/
+                        <span class="{{'positive' if r[f'PSAR_{medium_period}'] == 'Bullish' else 'negative'}}">
+                            {r[f'PSAR_{medium_period}']}
+                        </span>/
+                        <span class="{{'positive' if r[f'PSAR_{long_period}'] == 'Bullish' else 'negative'}}">
+                            {r[f'PSAR_{long_period}']}
+                        </span>
+                    </td>
                     <td>
                         {r['Volume']} 
                         <span class="{{'positive' if r['Volume_Spike'] == 'Yes' else 'neutral'}}">
-                            ({r['Volume_Spike']})
+                            ({r['Volume_Spike']}) {r['OBV_Trend']}
                         </span>
-                    </td>
-                    <td class="{{'positive' if r['OBV_Trend'] == '↑' else 'negative'}}">
-                        {r['OBV_Trend']}
                     </td>
                     <td>
                         <div class="score-bar">
@@ -423,18 +507,15 @@ def generate_html_report(results, output_file='momentum_report.html'):
         </table>
         <h3>Indicator Legend:</h3>
         <ul>
-            <li><b>Score</b>: 0-100 composite rating (higher = more bullish)</li>
-            <li><b>RSI</b>: Overbought (>70), Oversold (<30)</li>
-            <li><b>Stochastic %K</b>: Overbought (>80), Oversold (<20)</li>
-            <li><b>BB %</b>: Price position within Bollinger Bands (0% = lower band, 100% = upper band)</li>
-            <li><b>Volume Spike</b>: Volume > 2x 20-day average</li>
-            <li><b>OBV Trend</b>: ↑ = Accumulation, ↓ = Distribution</li>
+            <li><b>Timeframes</b>: Short ({short_period}D), Medium ({medium_period}D), Long ({long_period}D)</li>
+            <li><b>PSAR</b>: Bullish (Price > SAR), Bearish (Price < SAR)</li>
+            <li><b>Score</b>: 0-100 (Higher = Stronger Bullish)</li>
             <li><b>Signal Strength</b>:
                 <ul>
-                    <li>STRONG BUY: Multi-timeframe uptrend with volume confirmation</li>
-                    <li>BUY: Uptrend with positive momentum</li>
-                    <li>STRONG SELL: Multi-timeframe downtrend with volume confirmation</li>
-                    <li>SELL: Downtrend with negative momentum</li>
+                    <li><span class="strong-buy">STRONG BUY</span>: All PSAR timeframes bullish + score >80</li>
+                    <li><span class="buy">BUY</span>: Partial PSAR bullish + score >65</li>
+                    <li><span class="strong-sell">STRONG SELL</span>: All PSAR timeframes bearish + score <20</li>
+                    <li><span class="sell">SELL</span>: Partial PSAR bearish + score <35</li>
                 </ul>
             </li>
         </ul>
@@ -447,7 +528,7 @@ def generate_html_report(results, output_file='momentum_report.html'):
     print(f"Report generated: {output_file}")
 
 def analyze_stocks(stock_list, short_period=14, medium_period=26, long_period=50):
-    """Main analysis function with multiple timeframes"""
+    """Main analysis function"""
     results = []
     for ticker in stock_list:
         print(f"Processing {ticker}...")
@@ -462,12 +543,10 @@ def analyze_stocks(stock_list, short_period=14, medium_period=26, long_period=50
     # Sort by score
     results.sort(key=lambda x: float(x['Score']), reverse=True)
     current_date = datetime.now().strftime("%Y-%m-%d")
-    OUTPUT_FILE = f"daily_momentum_report_{current_date}.html"
-    generate_html_report(results, output_file=OUTPUT_FILE)
+    OUTPUT_FILE = f"momentum_report_{current_date}.html"
+    generate_html_report(short_period,medium_period, long_period, results, output_file=OUTPUT_FILE)
 
 # Example usage
 if __name__ == "__main__":
-    stocks = [stock for stocks in sector_stocks.values() for stock in stocks]  # Replace with your stock list
-    #stocks = ["AAPL", "GOOGL", "MSFT", "AMZN", "TSLA"]  # Example stock list
-    #stocks = my_stocks  # Assuming my_stocks is a list of stock tickers
-    analyze_stocks(stocks, short_period=14, medium_period=26, long_period=50)
+    stocks = my_stocks # Replace with your stock list
+    analyze_stocks(stocks, short_period=10, medium_period=20, long_period=50)
