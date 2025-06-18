@@ -42,11 +42,11 @@ class FixedPSARIndicator(PSARIndicator):
             
         return psar
 
-def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50):
+def calculate_signals(ticker, current_date = datetime.today(),short_period=5, medium_period=10, long_period=20):
     """Calculate momentum, volume, and trend signals across three timeframes with PSAR and candlestick patterns"""
     try:
         # Download data - extended for long-term indicators
-        end_date = datetime.today()
+        end_date = current_date
         start_date = end_date - timedelta(days=long_period*3)
         stock = yf.Ticker(ticker)
         df = stock.history(start=start_date, end=end_date, interval='1d')
@@ -759,19 +759,26 @@ def generate_html_report(short_period,medium_period, long_period, results, outpu
 def analyze_stocks(stock_list, short_period=14, medium_period=26, long_period=50):
     """Main analysis function"""
     results = []
-    results = calculate_and_sort_signals(stock_list, short_period, medium_period, long_period)
+    for ticker in stock_list:
+        print(f"Analyzing {ticker}...")
+        try:
+            signal = calculate_signals(ticker, datetime.today(),short_period, medium_period, long_period)
+            if signal:
+                results.append(signal)
+        except Exception as e:
+            print(f"Error processing {ticker}: {str(e)}")
     
     if not results:
         print("No valid results.")
         return
     
     # Sort by score
-    #results.sort(key=lambda x: float(x['Score']), reverse=True)
+    results.sort(key=lambda x: float(x['Score']), reverse=True)
     current_date = datetime.now().strftime("%Y-%m-%d")
     OUTPUT_FILE = f"momentum_report_{current_date}.html"
     generate_html_report(short_period,medium_period, long_period, results, output_file=OUTPUT_FILE)
 
 # Example usage
 if __name__ == "__main__":
-    stocks = my_stocks # Replace with your stock list
+    stocks = [stock for stocks in sector_stocks.values() for stock in stocks] # Replace with your stock list
     analyze_stocks(stocks, short_period=5, medium_period=10, long_period=20)

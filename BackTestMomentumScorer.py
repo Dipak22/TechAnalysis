@@ -3,343 +3,11 @@ import pandas as pd
 from datetime import datetime, timedelta
 import matplotlib.pyplot as plt
 import json
-import numpy as np
 from pathlib import Path
 from MLTechnicalScorer import MLTechnicalScorer
 from my_stocks import my_stocks
 from sector_mapping import sector_stocks
-from daily_report import FixedPSARIndicator
-from ta.momentum import RSIIndicator, ROCIndicator, StochasticOscillator
-from ta.trend import MACD, SMAIndicator, EMAIndicator, ADXIndicator, PSARIndicator
-from ta.volatility import BollingerBands, AverageTrueRange
-from ta.volume import VolumeWeightedAveragePrice, OnBalanceVolumeIndicator, AccDistIndexIndicator
-
-def calculate_signals(ticker, current_date, short_period=14, medium_period=26, long_period=50):
-    """Calculate momentum, volume, and trend signals across three timeframes with PSAR"""
-    try:
-        # Download data - extended for long-term indicators
-        end_date = current_date
-        start_date = end_date - timedelta(days=long_period*3)
-        stock = yf.Ticker(ticker)
-        df = stock.history(start=start_date, end=end_date, interval='1d')
-        
-        if df.empty or len(df) < long_period:
-            return None
-
-        # Initialize indicators dictionary
-        indicators = {}
-
-        # Short-term indicators (14 days)
-        indicators['short'] = {
-            'RSI': RSIIndicator(close=df['Close'], window=short_period).rsi(),
-            'ROC': ROCIndicator(close=df['Close'], window=short_period).roc(),
-            'Stoch_%K': StochasticOscillator(
-                high=df['High'],
-                low=df['Low'],
-                close=df['Close'],
-                window=short_period,
-                smooth_window=3
-            ).stoch(),
-            'SMA': SMAIndicator(close=df['Close'], window=short_period).sma_indicator(),
-            'EMA': EMAIndicator(close=df['Close'], window=short_period).ema_indicator(),
-            'ATR': AverageTrueRange(
-                high=df['High'],
-                low=df['Low'],
-                close=df['Close'],
-                window=short_period
-            ).average_true_range(),
-            'PSAR': FixedPSARIndicator(
-                high=df['High'],
-                low=df['Low'],
-                close=df['Close'],
-                step=0.02,  # Standard acceleration
-                max_step=0.2
-            ).psar()
-        }
-
-        # Medium-term indicators (26 days)
-        indicators['medium'] = {
-            'RSI': RSIIndicator(close=df['Close'], window=medium_period).rsi(),
-            'ROC': ROCIndicator(close=df['Close'], window=medium_period).roc(),
-            'SMA': SMAIndicator(close=df['Close'], window=medium_period).sma_indicator(),
-            'EMA': EMAIndicator(close=df['Close'], window=medium_period).ema_indicator(),
-            'MACD': MACD(close=df['Close'], window_slow=26, window_fast=12, window_sign=9).macd(),
-            'MACD_diff': MACD(close=df['Close'], window_slow=26, window_fast=12, window_sign=9).macd_diff(),
-            'ADX': ADXIndicator(
-                high=df['High'],
-                low=df['Low'],
-                close=df['Close'],
-                window=medium_period
-            ).adx(),
-            'PSAR': FixedPSARIndicator(
-                high=df['High'],
-                low=df['Low'],
-                close=df['Close'],
-                step=0.015,  # Slightly slower
-                max_step=0.15
-            ).psar()
-        }
-        
-        # Long-term indicators (50 days)
-        indicators['long'] = {
-            'SMA': SMAIndicator(close=df['Close'], window=long_period).sma_indicator(),
-            'EMA': EMAIndicator(close=df['Close'], window=long_period).ema_indicator(),
-            'BB': BollingerBands(close=df['Close'], window=long_period, window_dev=2),
-            'VWAP': VolumeWeightedAveragePrice(
-                high=df['High'],
-                low=df['Low'],
-                close=df['Close'],
-                volume=df['Volume'],
-                window=long_period
-            ).volume_weighted_average_price(),
-            'PSAR': FixedPSARIndicator(
-                high=df['High'],
-                low=df['Low'],
-                close=df['Close'],
-                step=0.01,  # Slow acceleration for long-term
-                max_step=0.1
-            ).psar()
-        }
-
-        # Volume indicators
-        volume_indicators = {
-            'OBV': OnBalanceVolumeIndicator(close=df['Close'], volume=df['Volume']).on_balance_volume(),
-            'ADI': AccDistIndexIndicator(
-                high=df['High'],
-                low=df['Low'],
-                close=df['Close'],
-                volume=df['Volume']
-            ).acc_dist_index(),
-            'Volume_MA': df['Volume'].rolling(20).mean(),
-            'Volume_Spike': df['Volume'] > (df['Volume'].rolling(20).mean() * 2)
-        }
-        
-        # Get latest values
-        latest = {
-            'price': df['Close'].iloc[-1],
-            'short': {k: v.iloc[-1] for k, v in indicators['short'].items()},
-            'medium': {k: v.iloc[-1] if not isinstance(v, dict) else {sk: sv.iloc[-1] for sk, sv in v.items()} 
-                      for k, v in indicators['medium'].items()},
-            'long': {k: v.iloc[-1] if not hasattr(v, 'bollinger_hband') else {
-                'upper': v.bollinger_hband().iloc[-1],
-                'middle': v.bollinger_mavg().iloc[-1],
-                'lower': v.bollinger_lband().iloc[-1],
-                'percent': np.divide(
-                                (df['Close'].iloc[-1] - v.bollinger_lband().iloc[-1]),
-                                (v.bollinger_hband().iloc[-1] - v.bollinger_lband().iloc[-1]),
-                                out=np.zeros(1),
-    where=(v.bollinger_hband().iloc[-1] - v.bollinger_lband().iloc[-1]) != 0
-)[0]
-            } for k, v in indicators['long'].items()},
-            'volume': {k: v.iloc[-1] for k, v in volume_indicators.items()}
-        }
-
-        # Previous values for trend analysis
-        prev = {
-            'short': {k: v.iloc[-2] for k, v in indicators['short'].items()},
-            'medium': {k: v.iloc[-2] if not isinstance(v, dict) else {sk: sv.iloc[-2] for sk, sv in v.items()} 
-                     for k, v in indicators['medium'].items()},
-        }
-        
-        # Price changes
-        price_changes = {
-            'short': (latest['price'] - df['Close'].iloc[-short_period]) / df['Close'].iloc[-short_period] * 100,
-            'medium': (latest['price'] - df['Close'].iloc[-medium_period]) / df['Close'].iloc[-medium_period] * 100,
-            'long': (latest['price'] - df['Close'].iloc[-long_period]) / df['Close'].iloc[-long_period] * 100
-        }
-
-        # Trend analysis with PSAR
-        trends = {
-            # Moving average trends
-            'short_term_up': latest['price'] > latest['short']['SMA'] > latest['short']['EMA'],
-            'medium_term_up': latest['price'] > latest['medium']['SMA'] > latest['medium']['EMA'],
-            'long_term_up': latest['price'] > latest['long']['SMA'] > latest['long']['EMA'],
-            'golden_cross': latest['short']['SMA'] > latest['medium']['SMA'] and prev['short']['SMA'] <= prev['medium']['SMA'],
-            'death_cross': latest['short']['SMA'] < latest['medium']['SMA'] and prev['short']['SMA'] >= prev['medium']['SMA'],
-            'macd_bullish': latest['medium']['MACD_diff'] > 0 and prev['medium']['MACD_diff'] <= 0,
-            'macd_bearish': latest['medium']['MACD_diff'] < 0 and prev['medium']['MACD_diff'] >= 0,
-            'adx_strength': latest['medium']['ADX'] > 25,
-            
-            # PSAR trends
-            'sar_short_bullish': latest['price'] > latest['short']['PSAR'],
-            'sar_medium_bullish': latest['price'] > latest['medium']['PSAR'],
-            'sar_long_bullish': latest['price'] > latest['long']['PSAR'],
-            'sar_short_bearish': latest['price'] < latest['short']['PSAR'],
-            'sar_medium_bearish': latest['price'] < latest['medium']['PSAR'],
-            'sar_long_bearish': latest['price'] < latest['long']['PSAR'],
-        }
-        
-        # Momentum signals
-        momentum = {
-            'rsi_short': latest['short']['RSI'],
-            'rsi_medium': latest['medium']['RSI'],
-            'stoch_overbought': latest['short']['Stoch_%K'] > 80,
-            'stoch_oversold': latest['short']['Stoch_%K'] < 20,
-            'roc_short': latest['short']['ROC'],
-            'roc_medium': latest['medium']['ROC'],
-            'bb_position': latest['long']['BB']['percent'],
-            'atr': latest['short']['ATR']
-        }
-
-        # Volume signals
-        volume = {
-            'obv_trend': '↑' if latest['volume']['OBV'] > volume_indicators['OBV'].iloc[-2] else '↓',
-            'adi_trend': '↑' if latest['volume']['ADI'] > volume_indicators['ADI'].iloc[-2] else '↓',
-            'volume_spike': latest['volume']['Volume_Spike'],
-            'vwap_relation': 'above' if latest['price'] > latest['long']['VWAP'] else 'below'
-        }
-        
-        # Generate signal reasons
-        signal_reasons = []
-        
-        # Trend reasons
-        if trends['golden_cross']:
-            signal_reasons.append("Golden Cross (Short > Medium MA)")
-        if trends['death_cross']:
-            signal_reasons.append("Death Cross (Short < Medium MA)")
-        if trends['sar_short_bullish'] and trends['sar_medium_bullish'] and trends['sar_long_bullish']:
-            signal_reasons.append("PSAR Bullish (All Timeframes)")
-        elif trends['sar_short_bullish'] or trends['sar_medium_bullish']:
-            signal_reasons.append("PSAR Bullish (Partial)")
-        if trends['adx_strength']:
-            signal_reasons.append("Strong Trend (ADX > 25)")
-
-        # Momentum reasons
-        if momentum['rsi_short'] > 70:
-            signal_reasons.append(f"Short-term RSI Overbought ({momentum['rsi_short']:.1f})")
-        if momentum['rsi_short'] < 30:
-            signal_reasons.append(f"Short-term RSI Oversold ({momentum['rsi_short']:.1f})")
-        if momentum['stoch_overbought']:
-            signal_reasons.append("Stochastic Overbought")
-        if momentum['stoch_oversold']:
-            signal_reasons.append("Stochastic Oversold")
-        if momentum['bb_position'] > 0.8:
-            signal_reasons.append(f"BB Upper Band ({momentum['bb_position']:.2%})")
-        if momentum['bb_position'] < 0.2:
-            signal_reasons.append(f"BB Lower Band ({momentum['bb_position']:.2%})")
-            
-        # Volume reasons
-        if volume['volume_spike']:
-            signal_reasons.append("Volume Spike (2x MA)")
-        if volume['obv_trend'] == '↑' and volume['volume_spike']:
-            signal_reasons.append("OBV Uptick with Volume")
-        if volume['vwap_relation'] == 'above':
-            signal_reasons.append("Price Above VWAP")
-            
-        # Price change reasons
-        if price_changes['short'] > 10:
-            signal_reasons.append(f"Short-term Up {price_changes['short']:.1f}%")
-        if price_changes['short'] < -5:
-            signal_reasons.append(f"Short-term Down {abs(price_changes['short']):.1f}%")
-        
-        # Generate composite score (0-100)
-        score = 50  # Neutral starting point
-
-        # Trend factors (30%)
-        score += 5 if trends['short_term_up'] else -10
-        score += 5 if trends['medium_term_up'] else -5
-        score += 5 if trends['long_term_up'] else -3
-        score += 5 if trends['golden_cross'] else (-10 if trends['death_cross'] else 0)
-        score += 5 if trends['macd_bullish'] else (-5 if trends['macd_bearish'] else 0)
-        score += 5 if trends['adx_strength'] else 0
-        
-        # PSAR factors (15%)
-        score += 5 if trends['sar_short_bullish'] else -5
-        score += 5 if trends['sar_medium_bullish'] else -5
-        score += 5 if trends['sar_long_bullish'] else -5
-        
-        # Momentum factors (25%)
-        score += 5 * ((momentum['rsi_short'] - 50) / 10)  # Normalized RSI contribution
-        score += 5 if momentum['stoch_oversold'] else (-5 if momentum['stoch_overbought'] else 0)
-        score += 5 * (momentum['roc_short'] / 5)  # Normalized ROC contribution
-        score += 5 * (momentum['roc_medium'] / 3)  # Normalized ROC contribution
-        score += 5 * (momentum['bb_position'] - 0.5)  # BB position contribution
-        
-        # Volume factors (20%)
-        score += 10 if volume['obv_trend'] == '↑' else -10
-        score += 5 if volume['adi_trend'] == '↑' else -3
-        score += 5 if volume['volume_spike'] and volume['obv_trend'] == '↑' else (
-                 -5 if volume['volume_spike'] and volume['obv_trend'] == '↓' else 0)
-        score += 5 if volume['vwap_relation'] == 'above' else -3
-
-        # Price action factors (10%)
-        score += 5 * (price_changes['short'] / 5)  # Normalized short-term change
-        score += 3 * (price_changes['medium'] / 3)  # Normalized medium-term change
-        score += 2 * (price_changes['long'] / 2)  # Normalized long-term change
-        
-        # Cap score between 0 and 100
-        #score = max(0, min(100, score))
-        
-        # Generate trading signal
-        signal = "HOLD"
-        signal_strength = ""
-        
-        # STRONG BUY: All PSAR timeframes bullish + high score
-        if (score > 80 and 
-            trends['sar_short_bullish'] and 
-            trends['sar_medium_bullish'] and 
-            trends['sar_long_bullish'] and 
-            volume['obv_trend'] == '↑'):
-            signal = "STRONG BUY"
-            signal_strength = "(Multi-Timeframe PSAR Confirmed)"
-        
-        # BUY: Partial PSAR confirmation
-        elif (score > 65 and 
-              (trends['sar_short_bullish'] or trends['sar_medium_bullish']) and 
-              volume['obv_trend'] == '↑'):
-            signal = "BUY"
-            signal_strength = "(PSAR Bullish)"
-
-        # STRONG SELL: All PSAR timeframes bearish + low score
-        elif (score < 20 and 
-              trends['sar_short_bearish'] and 
-              trends['sar_medium_bearish'] and 
-              trends['sar_long_bearish'] and 
-              volume['obv_trend'] == '↓'):
-            signal = "STRONG SELL"
-            signal_strength = "(Multi-Timeframe PSAR Confirmed)"
-            
-        # SELL: Partial PSAR confirmation
-        elif (score < 35 and 
-              (trends['sar_short_bearish'] or trends['sar_medium_bearish']) and 
-              volume['obv_trend'] == '↓'):
-            signal = "SELL"
-            signal_strength = "(PSAR Bearish)"
-        
-        # Add reasons if not already included
-        if signal != "HOLD" and signal_reasons:
-            signal += f" {signal_strength} [{', '.join(signal_reasons)}]"
-        elif signal == "HOLD" and signal_reasons:
-            signal = f"HOLD (Conflicting signals: {', '.join(signal_reasons)})"
-
-        # Prepare result dictionary
-        result = {
-            'Ticker': ticker,
-            'Price': f"{latest['price']:.2f}",
-            f'Change_{short_period}D': f"{price_changes['short']:.1f}%",
-            f'Change_{medium_period}D': f"{price_changes['medium']:.1f}%",
-            f'Change_{long_period}D': f"{price_changes['long']:.1f}%",
-            f'RSI_{short_period}': f"{momentum['rsi_short']:.1f}",
-            f'RSI_{medium_period}': f"{momentum['rsi_medium']:.1f}",
-            f'Stoch_%K_{short_period}': f"{latest['short']['Stoch_%K']:.1f}",
-            f'MACD_diff_{medium_period}': f"{latest['medium']['MACD_diff']:.3f}",
-            'BB_%': f"{momentum['bb_position']:.2%}",
-            f'SMA_{short_period}/{medium_period}/{long_period}': f"{latest['short']['SMA']:.1f}/{latest['medium']['SMA']:.1f}/{latest['long']['SMA']:.1f}",
-            f'PSAR_{short_period}': 'Bullish' if trends['sar_short_bullish'] else 'Bearish',
-            f'PSAR_{medium_period}': 'Bullish' if trends['sar_medium_bullish'] else 'Bearish',
-            f'PSAR_{long_period}': 'Bullish' if trends['sar_long_bullish'] else 'Bearish',
-            'Volume': f"{df['Volume'].iloc[-1]/1e6:.1f}M",
-            'Volume_Spike': 'Yes' if volume['volume_spike'] else 'No',
-            'OBV_Trend': volume['obv_trend'],
-            'VWAP_Relation': volume['vwap_relation'],
-            'Score': f"{score:.1f}",
-            'Signal': signal
-        }
-        
-        return result
-    except Exception as e:
-        print(f"Error processing {ticker}: {str(e)}")
-        return None
+from daily_report import calculate_signals
 
 class StrategyBacktester:
     def __init__(self, capital=1_000_000, top_n=5):
@@ -382,9 +50,10 @@ class StrategyBacktester:
         
         # Calculate current positions
         for ticker, position in self.portfolio['holdings'].items():
-            current_price = self.get_current_price(ticker, date)
-            if current_price is None:
-                current_price = position['last_price']
+            current_price = position['last_price']
+            #current_price = self.get_current_price(ticker, date)
+            #if current_price is None:
+            #    current_price = position['last_price']
             
             position_value = position['shares'] * current_price
             log_entry['total_value'] += position_value
@@ -400,7 +69,7 @@ class StrategyBacktester:
                 'position_value': position_value,
                 'return_pct': position_return,
                 'days_held': days_held,
-                'signal': self.get_current_signal(ticker, date)
+                'signal': position['signal']  # Last known signal
             })
         
         self.weekly_log.append(log_entry)
@@ -427,7 +96,7 @@ class StrategyBacktester:
     def get_current_signal(self, ticker, date):
         """Get current signal for a ticker"""
         try:
-            signal_data = self.scorer.calculate_score_and_signals(ticker, date)
+            signal_data = calculate_signals(ticker, date)
             return signal_data['Signal'] if signal_data else "NO SIGNAL"
         except:
             return "ERROR"
@@ -466,15 +135,28 @@ class StrategyBacktester:
             ticker = stock['Ticker']
             current_price = float(stock['Price'])
             
-            if ticker not in self.portfolio['holdings']:
-                if stock['Signal'].startswith(('BUY', 'STRONG BUY')):
-                    shares = position_size / current_price
-                    opened_positions.append(self.open_position(ticker, shares, current_price, current_date))
-            
             # Handle existing positions
+            if ticker in self.portfolio['holdings']:
+                position = self.portfolio['holdings'][ticker]
+                #print(ticker, current_price, position['entry_price'])
+                return_pct = (current_price - position['entry_price']) / position['entry_price'] * 100
+                if stock['Signal'].startswith(('SELL', 'STRONG SELL')) or return_pct <= 0:
+                    closed_positions.append(self.close_position(ticker, current_date))
+                else:
+                    shares = position_size / current_price
+                    cost = shares * current_price
+                    if cost > self.portfolio['cash']:
+                        continue
+                    opened_positions.append(self.open_position(ticker, shares, current_price, current_date,stock['Signal']))
+
+            # Handle new positions
             else:
-                if stock['Signal'].startswith(('SELL', 'STRONG SELL')):
-                    self.close_position(ticker, current_date)
+                shares = position_size / current_price
+                cost = shares * current_price
+                if cost > self.portfolio['cash']:
+                    continue
+                opened_positions.append(self.open_position(ticker, shares, current_price, current_date,stock['Signal']))
+            
 
         # Log transaction details
         self.log_transactions(current_date, opened_positions, closed_positions)
@@ -553,17 +235,30 @@ class StrategyBacktester:
         except:
             return None
     
-    def open_position(self, ticker, shares, price, date):
+    def open_position(self, ticker, shares, price, date, signal):
         cost = shares * price
+        total_shares = 0
+        avg_price = 0
         if cost > self.portfolio['cash']:
             shares = self.portfolio['cash'] / price
             cost = shares * price
-        
+        if ticker in self.portfolio['holdings']:
+            existing_shares = self.portfolio['holdings'][ticker]['shares']
+            total_shares = shares + existing_shares
+            entry_price = self.portfolio['holdings'][ticker]['entry_price']
+            #print(ticker, entry_price, existing_shares, shares, price, total_shares)
+            avg_price = (entry_price * existing_shares + price * shares) / total_shares
+            date = self.portfolio['holdings'][ticker]['entry_date']  # Keep original entry date
+        else:
+            total_shares = shares
+            avg_price = price
+
         self.portfolio['holdings'][ticker] = {
-            'shares': shares,
-            'entry_price': price,
+            'shares': total_shares,
+            'entry_price': avg_price,
             'entry_date': date,
-            'last_price': price  # Initialize last known price
+            'last_price': price,
+            'signal': signal  # Initialize last known price
         }
         self.portfolio['cash'] -= cost
 
@@ -786,9 +481,10 @@ class StrategyBacktester:
 # Example usage
 if __name__ == "__main__":
     # Configuration
-    start_date = datetime(2024, 7, 1)
-    end_date = datetime(2025, 6, 14)
-    stock_universe = [stock for stocks in sector_stocks.values() for stock in stocks]
+    start_date = datetime(2025, 5, 15)
+    end_date = datetime(2025, 6, 18)
+    #stock_universe = [stock for stocks in sector_stocks.values() for stock in stocks]
+    stock_universe = my_stocks  # Use your own stock universe
     # Run backtest
-    backtester = StrategyBacktester(capital=1_000_000, top_n=5)
+    backtester = StrategyBacktester(capital=1_000_000, top_n=7)
     backtester.run_backtest(start_date, end_date, stock_universe)

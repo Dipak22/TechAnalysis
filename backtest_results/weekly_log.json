@@ -1,4590 +1,520 @@
 [
   {
-    "date": "2024-07-01 00:00:00",
+    "date": "2025-05-19 00:00:00",
     "phase": "PRE-REBALANCE",
     "cash": 1000000,
     "total_value": 1000000,
     "positions": []
   },
   {
-    "date": "2024-07-01 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 600000.0,
-    "total_value": 1033845.1914526257,
-    "positions": [
-      {
-        "ticker": "TITAGARH.NS",
-        "shares": 107.59398334445139,
-        "entry_price": 1858.84,
-        "current_price": 1824.5599365234375,
-        "position_value": 196311.671421256,
-        "return_pct": -1.8441642893719963,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "GRPLTD.NS",
-        "shares": 62.31869155675208,
-        "entry_price": 3209.31,
-        "current_price": 3811.593505859375,
-        "position_value": 237533.5200313697,
-        "return_pct": 18.766760015684838,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      }
-    ]
-  },
-  {
-    "date": "2024-07-08 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 600000.0,
-    "total_value": 1013594.0536729054,
-    "positions": [
-      {
-        "ticker": "TITAGARH.NS",
-        "shares": 107.59398334445139,
-        "entry_price": 1858.84,
-        "current_price": 1822.4610595703125,
-        "position_value": 196085.84488931944,
-        "return_pct": -1.9570775553402884,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "GRPLTD.NS",
-        "shares": 62.31869155675208,
-        "entry_price": 3209.31,
-        "current_price": 3490.25634765625,
-        "position_value": 217508.2087835859,
-        "return_pct": 8.754104391792941,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      }
-    ]
-  },
-  {
-    "date": "2024-07-08 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 396085.8448893195,
-    "total_value": 1007537.1218725492,
-    "positions": [
-      {
-        "ticker": "GRPLTD.NS",
-        "shares": 62.31869155675208,
-        "entry_price": 3209.31,
-        "current_price": 3490.25634765625,
-        "position_value": 217508.2087835859,
-        "return_pct": 8.754104391792941,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "MAZDOCK.NS",
-        "shares": 70.42997499735888,
-        "entry_price": 2839.7,
-        "current_price": 2786.929931640625,
-        "position_value": 196283.40540484033,
-        "return_pct": -1.8582972975798437,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "COCHINSHIP.NS",
-        "shares": 70.97282450549685,
-        "entry_price": 2817.98,
-        "current_price": 2785.0048828125,
-        "position_value": 197659.66279480336,
-        "return_pct": -1.1701686025983158,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      }
-    ]
-  },
-  {
-    "date": "2024-07-15 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 396085.8448893195,
-    "total_value": 987462.563276621,
-    "positions": [
-      {
-        "ticker": "GRPLTD.NS",
-        "shares": 62.31869155675208,
-        "entry_price": 3209.31,
-        "current_price": 3341.651611328125,
-        "position_value": 208247.356056481,
-        "return_pct": 4.123678028240496,
-        "days_held": 14,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "MAZDOCK.NS",
-        "shares": 70.42997499735888,
-        "entry_price": 2839.7,
-        "current_price": 2693.185791015625,
-        "position_value": 189681.00792447268,
-        "return_pct": -5.159496037763666,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "COCHINSHIP.NS",
-        "shares": 70.97282450549685,
-        "entry_price": 2817.98,
-        "current_price": 2725.66796875,
-        "position_value": 193448.35440634782,
-        "return_pct": -3.275822796826096,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      }
-    ]
-  },
-  {
-    "date": "2024-07-15 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 404333.2009458005,
-    "total_value": 977467.9056581542,
-    "positions": [
-      {
-        "ticker": "MAZDOCK.NS",
-        "shares": 70.42997499735888,
-        "entry_price": 2839.7,
-        "current_price": 2693.185791015625,
-        "position_value": 189681.00792447268,
-        "return_pct": -5.159496037763666,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "COCHINSHIP.NS",
-        "shares": 70.97282450549685,
-        "entry_price": 2817.98,
-        "current_price": 2725.66796875,
-        "position_value": 193448.35440634782,
-        "return_pct": -3.275822796826096,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "GPTINFRA.NS",
-        "shares": 1015.5892956888234,
-        "entry_price": 196.93,
-        "current_price": 187.08876037597656,
-        "position_value": 190005.3423815331,
-        "return_pct": -4.997328809233456,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      }
-    ]
-  },
-  {
-    "date": "2024-07-22 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 404333.2009458005,
-    "total_value": 939129.1125803718,
-    "positions": [
-      {
-        "ticker": "MAZDOCK.NS",
-        "shares": 70.42997499735888,
-        "entry_price": 2839.7,
-        "current_price": 2659.573486328125,
-        "position_value": 187313.69414572846,
-        "return_pct": -6.343152927135782,
-        "days_held": 14,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "COCHINSHIP.NS",
-        "shares": 70.97282450549685,
-        "entry_price": 2817.98,
-        "current_price": 2651.882080078125,
-        "position_value": 188211.5614786567,
-        "return_pct": -5.894219260671652,
-        "days_held": 14,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "GPTINFRA.NS",
-        "shares": 1015.5892956888234,
-        "entry_price": 196.93,
-        "current_price": 156.8258514404297,
-        "position_value": 159270.65601018604,
-        "return_pct": -20.36467199490698,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      }
-    ]
-  },
-  {
-    "date": "2024-07-22 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 751815.4184346433,
-    "total_value": 939129.1125803718,
-    "positions": [
-      {
-        "ticker": "MAZDOCK.NS",
-        "shares": 70.42997499735888,
-        "entry_price": 2839.7,
-        "current_price": 2659.573486328125,
-        "position_value": 187313.69414572846,
-        "return_pct": -6.343152927135782,
-        "days_held": 14,
-        "signal": "NO SIGNAL"
-      }
-    ]
-  },
-  {
-    "date": "2024-07-29 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 751815.4184346433,
-    "total_value": 939665.5393210927,
-    "positions": [
-      {
-        "ticker": "MAZDOCK.NS",
-        "shares": 70.42997499735888,
-        "entry_price": 2839.7,
-        "current_price": 2667.18994140625,
-        "position_value": 187850.1208864493,
-        "return_pct": -6.074939556775358,
-        "days_held": 21,
-        "signal": "NO SIGNAL"
-      }
-    ]
-  },
-  {
-    "date": "2024-07-29 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 139665.53932109266,
-    "total_value": 961387.1381922176,
-    "positions": [
-      {
-        "ticker": "INSPIRISYS.NS",
-        "shares": 1258.2573136206356,
-        "entry_price": 158.95,
-        "current_price": 166.88999938964844,
-        "position_value": 209990.56230216855,
-        "return_pct": 4.995281151084272,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "EIMCOELECO.NS",
-        "shares": 59.41841257768957,
-        "entry_price": 3365.96,
-        "current_price": 3300.23779296875,
-        "position_value": 196094.89078710086,
-        "return_pct": -1.9525546064495727,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "PGIL.NS",
-        "shares": 207.3613271124935,
-        "entry_price": 964.5,
-        "current_price": 1011.711181640625,
-        "position_value": 209789.77327954897,
-        "return_pct": 4.894886639774495,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "INDIANHUME.NS",
-        "shares": 388.462659026901,
-        "entry_price": 514.85,
-        "current_price": 529.9000244140625,
-        "position_value": 205846.37250230648,
-        "return_pct": 2.923186251153244,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      }
-    ]
-  },
-  {
-    "date": "2024-08-05 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 139665.53932109266,
-    "total_value": 923323.7747569095,
-    "positions": [
-      {
-        "ticker": "INSPIRISYS.NS",
-        "shares": 1258.2573136206356,
-        "entry_price": 158.95,
-        "current_price": 175.32000732421875,
-        "position_value": 220597.68143972164,
-        "return_pct": 10.298840719860813,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "EIMCOELECO.NS",
-        "shares": 59.41841257768957,
-        "entry_price": 3365.96,
-        "current_price": 2950.992919921875,
-        "position_value": 175343.3148297588,
-        "return_pct": -12.32834258512059,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "PGIL.NS",
-        "shares": 207.3613271124935,
-        "entry_price": 964.5,
-        "current_price": 926.9973754882812,
-        "position_value": 192223.40601104847,
-        "return_pct": -3.8882969944757644,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "INDIANHUME.NS",
-        "shares": 388.462659026901,
-        "entry_price": 514.85,
-        "current_price": 503.25,
-        "position_value": 195493.83315528792,
-        "return_pct": -2.2530834223560303,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      }
-    ]
-  },
-  {
-    "date": "2024-08-05 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 897629.6447752372,
-    "positions": [
-      {
-        "ticker": "INSPIRISYS.NS",
-        "shares": 1258.2573136206356,
-        "entry_price": 158.95,
-        "current_price": 175.32000732421875,
-        "position_value": 220597.68143972164,
-        "return_pct": 10.298840719860813,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "ZENTEC.NS",
-        "shares": 117.0631204345383,
-        "entry_price": 1708.48,
-        "current_price": 1637.920654296875,
-        "position_value": 191740.10281617285,
-        "return_pct": -4.129948591913574,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "INDIAGLYCO.NS",
-        "shares": 160.82470910830742,
-        "entry_price": 1243.59,
-        "current_price": 1157.3348388671875,
-        "position_value": 186128.03880172526,
-        "return_pct": -6.93598059913737,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "SELAN.NS",
-        "shares": 204.61404675430967,
-        "entry_price": 977.45,
-        "current_price": 963.25,
-        "position_value": 197094.48053608878,
-        "return_pct": -1.4527597319556034,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "SMSPHARMA.NS",
-        "shares": 328.81819825609887,
-        "entry_price": 312.41,
-        "current_price": 310.4126892089844,
-        "position_value": 102069.34118152862,
-        "return_pct": -0.6393235783155629,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      }
-    ]
-  },
-  {
-    "date": "2024-08-12 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 885915.1221011438,
-    "positions": [
-      {
-        "ticker": "INSPIRISYS.NS",
-        "shares": 1258.2573136206356,
-        "entry_price": 158.95,
-        "current_price": 159.9600067138672,
-        "position_value": 201270.84833452935,
-        "return_pct": 0.6354241672646738,
-        "days_held": 14,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "ZENTEC.NS",
-        "shares": 117.0631204345383,
-        "entry_price": 1708.48,
-        "current_price": 1721.07080078125,
-        "position_value": 201473.91842822277,
-        "return_pct": 0.7369592141113728,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "INDIAGLYCO.NS",
-        "shares": 160.82470910830742,
-        "entry_price": 1243.59,
-        "current_price": 1279.656494140625,
-        "position_value": 205800.3834287225,
-        "return_pct": 2.9001917143612514,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "SELAN.NS",
-        "shares": 204.61404675430967,
-        "entry_price": 977.45,
-        "current_price": 893.9000244140625,
-        "position_value": 182904.50138913753,
-        "return_pct": -8.547749305431228,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "SMSPHARMA.NS",
-        "shares": 328.81819825609887,
-        "entry_price": 312.41,
-        "current_price": 287.287841796875,
-        "position_value": 94465.47052053161,
-        "return_pct": -8.041406550086434,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      }
-    ]
-  },
-  {
-    "date": "2024-08-12 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 905838.7084376395,
-    "positions": [
-      {
-        "ticker": "ZENTEC.NS",
-        "shares": 117.0631204345383,
-        "entry_price": 1708.48,
-        "current_price": 1721.07080078125,
-        "position_value": 201473.91842822277,
-        "return_pct": 0.7369592141113728,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "20MICRONS.NS",
-        "shares": 611.807892321811,
-        "entry_price": 326.9,
-        "current_price": 314.45001220703125,
-        "position_value": 192382.9992089515,
-        "return_pct": -3.8085003955242365,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "SMSLIFE.NS",
-        "shares": 176.6612784976725,
-        "entry_price": 1132.11,
-        "current_price": 1347.7872314453125,
-        "position_value": 238101.81544996734,
-        "return_pct": 19.05090772498367,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "ORCHPHARMA.NS",
-        "shares": 127.65685836471565,
-        "entry_price": 1566.7,
-        "current_price": 1478.449951171875,
-        "position_value": 188734.27601606882,
-        "return_pct": -5.6328619919656,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "INSECTICID.NS",
-        "shares": 92.93039528192476,
-        "entry_price": 908.65,
-        "current_price": 916.2308959960938,
-        "position_value": 85145.69933442908,
-        "return_pct": 0.8343031966206761,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      }
-    ]
-  },
-  {
-    "date": "2024-08-19 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 895613.5581724616,
-    "positions": [
-      {
-        "ticker": "ZENTEC.NS",
-        "shares": 117.0631204345383,
-        "entry_price": 1708.48,
-        "current_price": 1695.8359375,
-        "position_value": 198519.84658878067,
-        "return_pct": -0.7400767056096658,
-        "days_held": 14,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "20MICRONS.NS",
-        "shares": 611.807892321811,
-        "entry_price": 326.9,
-        "current_price": 330.0,
-        "position_value": 201896.60446619763,
-        "return_pct": 0.948302233098814,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "SMSLIFE.NS",
-        "shares": 176.6612784976725,
-        "entry_price": 1132.11,
-        "current_price": 1310.375,
-        "position_value": 231492.5228113876,
-        "return_pct": 15.746261405693804,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "ORCHPHARMA.NS",
-        "shares": 127.65685836471565,
-        "entry_price": 1566.7,
-        "current_price": 1406.1500244140625,
-        "position_value": 179504.69450616743,
-        "return_pct": -10.247652746916291,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "INSECTICID.NS",
-        "shares": 92.93039528192476,
-        "entry_price": 908.65,
-        "current_price": 906.0532836914062,
-        "position_value": 84199.88979992829,
-        "return_pct": -0.28577739598236146,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      }
-    ]
-  },
-  {
-    "date": "2024-08-19 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 903210.0348914361,
-    "positions": [
-      {
-        "ticker": "20MICRONS.NS",
-        "shares": 611.807892321811,
-        "entry_price": 326.9,
-        "current_price": 330.0,
-        "position_value": 201896.60446619763,
-        "return_pct": 0.948302233098814,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "SMSLIFE.NS",
-        "shares": 176.6612784976725,
-        "entry_price": 1132.11,
-        "current_price": 1310.375,
-        "position_value": 231492.5228113876,
-        "return_pct": 15.746261405693804,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "OIL.NS",
-        "shares": 303.342838075593,
-        "entry_price": 659.32,
-        "current_price": 670.8526611328125,
-        "position_value": 203498.3501585914,
-        "return_pct": 1.7491750792957061,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "THYROCARE.NS",
-        "shares": 226.873121206965,
-        "entry_price": 881.55,
-        "current_price": 885.9000244140625,
-        "position_value": 200986.90361614487,
-        "return_pct": 0.49345180807243444,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "GRPLTD.NS",
-        "shares": 14.33082240784808,
-        "entry_price": 4342.0,
-        "current_price": 4559.10009765625,
-        "position_value": 65335.65383911456,
-        "return_pct": 5.0000022491075535,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      }
-    ]
-  },
-  {
-    "date": "2024-08-26 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 907371.9382898116,
-    "positions": [
-      {
-        "ticker": "20MICRONS.NS",
-        "shares": 611.807892321811,
-        "entry_price": 326.9,
-        "current_price": 322.1000061035156,
-        "position_value": 197063.32585103434,
-        "return_pct": -1.4683370744828244,
-        "days_held": 14,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "SMSLIFE.NS",
-        "shares": 176.6612784976725,
-        "entry_price": 1132.11,
-        "current_price": 1371.1136474609375,
-        "position_value": 242222.68992605622,
-        "return_pct": 21.111344963028117,
-        "days_held": 14,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "OIL.NS",
-        "shares": 303.342838075593,
-        "entry_price": 659.32,
-        "current_price": 683.3055419921875,
-        "position_value": 207275.84238069147,
-        "return_pct": 3.6379211903457267,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "THYROCARE.NS",
-        "shares": 226.873121206965,
-        "entry_price": 881.55,
-        "current_price": 904.5999755859375,
-        "position_value": 205229.41990492598,
-        "return_pct": 2.6147099524629964,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "GRPLTD.NS",
-        "shares": 14.33082240784808,
-        "entry_price": 4342.0,
-        "current_price": 3878.39990234375,
-        "position_value": 55580.66022710362,
-        "return_pct": -10.677109572921465,
-        "days_held": 7,
-        "signal": "NO SIGNAL"
-      }
-    ]
-  },
-  {
-    "date": "2024-08-26 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 110308.6124387772,
-    "total_value": 900906.420654341,
-    "positions": [
-      {
-        "ticker": "20MICRONS.NS",
-        "shares": 611.807892321811,
-        "entry_price": 326.9,
-        "current_price": 322.1000061035156,
-        "position_value": 197063.32585103434,
-        "return_pct": -1.4683370744828244,
-        "days_held": 14,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "INDRAMEDCO.NS",
-        "shares": 506.7396371744198,
-        "entry_price": 394.68,
-        "current_price": 387.25213623046875,
-        "position_value": 196236.00700844673,
-        "return_pct": -1.8819964957766433,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "UFLEX.NS",
-        "shares": 237.053894202847,
-        "entry_price": 843.69,
-        "current_price": 800.8966064453125,
-        "position_value": 189855.6594117063,
-        "return_pct": -5.072170294146849,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      },
-      {
-        "ticker": "E2E.NS",
-        "shares": 79.0107849721487,
-        "entry_price": 2531.3,
-        "current_price": 2625.5,
-        "position_value": 207442.8159443764,
-        "return_pct": 3.7214079721881963,
-        "days_held": 0,
-        "signal": "NO SIGNAL"
-      }
-    ]
-  },
-  {
-    "date": "2024-09-02 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 110308.6124387772,
-    "total_value": 879754.2947281466,
-    "positions": [
-      {
-        "ticker": "20MICRONS.NS",
-        "shares": 611.807892321811,
-        "entry_price": 326.9,
-        "current_price": 318.5,
-        "position_value": 194860.8137044968,
-        "return_pct": -2.569593147751599,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "INDRAMEDCO.NS",
-        "shares": 506.7396371744198,
-        "entry_price": 394.68,
-        "current_price": 415.92828369140625,
-        "position_value": 210767.34756836234,
-        "return_pct": 5.38367378418117,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "UFLEX.NS",
-        "shares": 237.053894202847,
-        "entry_price": 843.69,
-        "current_price": 757.5,
-        "position_value": 179568.32485865662,
-        "return_pct": -10.215837570671699,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "E2E.NS",
-        "shares": 79.0107849721487,
-        "entry_price": 2531.3,
-        "current_price": 2331.949951171875,
-        "position_value": 184249.19615785367,
-        "return_pct": -7.875401921073171,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-09-02 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 679754.2947281466,
-    "total_value": 884926.2325940877,
-    "positions": [
-      {
-        "ticker": "GODFRYPHLP.NS",
-        "shares": 30.91371672524816,
-        "entry_price": 6469.62,
-        "current_price": 6636.92236328125,
-        "position_value": 205171.93786594112,
-        "return_pct": 2.5859689329705624,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-09-09 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 679754.2947281466,
-    "total_value": 890073.4268071946,
-    "positions": [
-      {
-        "ticker": "GODFRYPHLP.NS",
-        "shares": 30.91371672524816,
-        "entry_price": 6469.62,
-        "current_price": 6803.42431640625,
-        "position_value": 210319.13207904794,
-        "return_pct": 5.159566039523962,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-09-09 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 79754.29472814663,
-    "total_value": 909315.6127949144,
-    "positions": [
-      {
-        "ticker": "GODFRYPHLP.NS",
-        "shares": 30.91371672524816,
-        "entry_price": 6469.62,
-        "current_price": 6803.42431640625,
-        "position_value": 210319.13207904794,
-        "return_pct": 5.159566039523962,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "INDRAMEDCO.NS",
-        "shares": 429.0924694271615,
-        "entry_price": 466.1,
-        "current_price": 441.03851318359375,
-        "position_value": 189246.30473443196,
-        "return_pct": -5.376847632784011,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "SMSLIFE.NS",
-        "shares": 120.14393243105239,
-        "entry_price": 1664.67,
-        "current_price": 1747.8826904296875,
-        "position_value": 209997.49985639044,
-        "return_pct": 4.998749928195223,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PANACEABIO.NS",
-        "shares": 813.2726089785297,
-        "entry_price": 245.92,
-        "current_price": 270.510009765625,
-        "position_value": 219998.38139689737,
-        "return_pct": 9.999190698448688,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-09-16 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 79754.29472814663,
-    "total_value": 994788.7016246482,
-    "positions": [
-      {
-        "ticker": "GODFRYPHLP.NS",
-        "shares": 30.91371672524816,
-        "entry_price": 6469.62,
-        "current_price": 8186.3857421875,
-        "position_value": 253071.6098375948,
-        "return_pct": 26.535804918797396,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "INDRAMEDCO.NS",
-        "shares": 429.0924694271615,
-        "entry_price": 466.1,
-        "current_price": 468.8999938964844,
-        "position_value": 201201.45629542344,
-        "return_pct": 0.6007281477117254,
-        "days_held": 7,
-        "signal": "STRONG BUY"
-      },
-      {
-        "ticker": "SMSLIFE.NS",
-        "shares": 120.14393243105239,
-        "entry_price": 1664.67,
-        "current_price": 1580.0023193359375,
-        "position_value": 189827.69189520294,
-        "return_pct": -5.086154052398528,
-        "days_held": 7,
-        "signal": "BUY"
-      },
-      {
-        "ticker": "PANACEABIO.NS",
-        "shares": 813.2726089785297,
-        "entry_price": 245.92,
-        "current_price": 333.1400146484375,
-        "position_value": 270933.64886828035,
-        "return_pct": 35.46682443414018,
-        "days_held": 7,
-        "signal": "BUY"
-      }
-    ]
-  },
-  {
-    "date": "2024-09-16 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 270783.44291877304,
-    "total_value": 991717.8880252701,
-    "positions": [
-      {
-        "ticker": "GODFRYPHLP.NS",
-        "shares": 30.91371672524816,
-        "entry_price": 6469.62,
-        "current_price": 8186.3857421875,
-        "position_value": 253071.6098375948,
-        "return_pct": 26.535804918797396,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PANACEABIO.NS",
-        "shares": 813.2726089785297,
-        "entry_price": 245.92,
-        "current_price": 333.1400146484375,
-        "position_value": 270933.64886828035,
-        "return_pct": 35.46682443414018,
-        "days_held": 7,
-        "signal": "BUY"
-      },
-      {
-        "ticker": "TBZ.NS",
-        "shares": 610.5006105006105,
-        "entry_price": 327.6,
-        "current_price": 322.57000732421875,
-        "position_value": 196929.18640062195,
-        "return_pct": -1.535406799689033,
-        "days_held": 0,
-        "signal": "STRONG BUY"
-      }
-    ]
-  },
-  {
-    "date": "2024-09-23 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 270783.44291877304,
-    "total_value": 923342.3297813495,
-    "positions": [
-      {
-        "ticker": "GODFRYPHLP.NS",
-        "shares": 30.91371672524816,
-        "entry_price": 6469.62,
-        "current_price": 7308.546875,
-        "position_value": 225934.34776694767,
-        "return_pct": 12.967173883473837,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PANACEABIO.NS",
-        "shares": 813.2726089785297,
-        "entry_price": 245.92,
-        "current_price": 312.1600036621094,
-        "position_value": 253871.18059703105,
-        "return_pct": 26.935590298515528,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TBZ.NS",
-        "shares": 610.5006105006105,
-        "entry_price": 327.6,
-        "current_price": 282.9700012207031,
-        "position_value": 172753.35849859775,
-        "return_pct": -13.62332075070113,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-09-23 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 243536.8014173708,
-    "total_value": 933341.9841313547,
-    "positions": [
-      {
-        "ticker": "GODFRYPHLP.NS",
-        "shares": 30.91371672524816,
-        "entry_price": 6469.62,
-        "current_price": 7308.546875,
-        "position_value": 225934.34776694767,
-        "return_pct": 12.967173883473837,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PANACEABIO.NS",
-        "shares": 813.2726089785297,
-        "entry_price": 245.92,
-        "current_price": 312.1600036621094,
-        "position_value": 253871.18059703105,
-        "return_pct": 26.935590298515528,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "E2E.NS",
-        "shares": 69.12999896305001,
-        "entry_price": 2893.1,
-        "current_price": 3037.75,
-        "position_value": 209999.65435000518,
-        "return_pct": 4.999827175002595,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-09-30 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 243536.8014173708,
-    "total_value": 917871.8873532041,
-    "positions": [
-      {
-        "ticker": "GODFRYPHLP.NS",
-        "shares": 30.91371672524816,
-        "entry_price": 6469.62,
-        "current_price": 6936.029296875,
-        "position_value": 214418.44488161593,
-        "return_pct": 7.209222440807962,
-        "days_held": 28,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PANACEABIO.NS",
-        "shares": 813.2726089785297,
-        "entry_price": 245.92,
-        "current_price": 300.57000732421875,
-        "position_value": 244445.35403726314,
-        "return_pct": 22.222677018631572,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "E2E.NS",
-        "shares": 69.12999896305001,
-        "entry_price": 2893.1,
-        "current_price": 3116.89990234375,
-        "position_value": 215471.28701695413,
-        "return_pct": 7.735643508477069,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-09-30 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 117871.88735320407,
-    "total_value": 955887.4734356442,
-    "positions": [
-      {
-        "ticker": "ZEEMEDIA.NS",
-        "shares": 9638.55421686747,
-        "entry_price": 20.75,
-        "current_price": 22.81999969482422,
-        "position_value": 219951.80428746232,
-        "return_pct": 9.975902143731174,
-        "days_held": 0,
-        "signal": "BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "RPOWER.NS",
-        "shares": 4314.994606256742,
-        "entry_price": 46.35,
-        "current_price": 48.65999984741211,
-        "position_value": 209967.63688203716,
-        "return_pct": 4.983818441018571,
-        "days_held": 0,
-        "signal": "BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "NDRAUTO.NS",
-        "shares": 217.74632553075668,
-        "entry_price": 918.5,
-        "current_price": 905.9500122070312,
-        "position_value": 197267.2862726252,
-        "return_pct": -1.366356863687398,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "JMFINANCIL.NS",
-        "shares": 1425.9232853272495,
-        "entry_price": 140.26,
-        "current_price": 147.85427856445312,
-        "position_value": 210828.85864031533,
-        "return_pct": 5.4144293201576605,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-10-07 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 117871.88735320407,
-    "total_value": 887836.5952661622,
-    "positions": [
-      {
-        "ticker": "ZEEMEDIA.NS",
-        "shares": 9638.55421686747,
-        "entry_price": 20.75,
-        "current_price": 21.5,
-        "position_value": 207228.9156626506,
-        "return_pct": 3.614457831325301,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "RPOWER.NS",
-        "shares": 4314.994606256742,
-        "entry_price": 46.35,
-        "current_price": 48.400001525878906,
-        "position_value": 208845.7455269856,
-        "return_pct": 4.422872763492783,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "NDRAUTO.NS",
-        "shares": 217.74632553075668,
-        "entry_price": 918.5,
-        "current_price": 737.0999755859375,
-        "position_value": 160500.81123264835,
-        "return_pct": -19.74959438367583,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "JMFINANCIL.NS",
-        "shares": 1425.9232853272495,
-        "entry_price": 140.26,
-        "current_price": 135.62387084960938,
-        "position_value": 193389.23549067357,
-        "return_pct": -3.3053822546632086,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-10-07 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 71761.93407652597,
-    "total_value": 866857.7767612182,
-    "positions": [
-      {
-        "ticker": "ZEEMEDIA.NS",
-        "shares": 9638.55421686747,
-        "entry_price": 20.75,
-        "current_price": 21.5,
-        "position_value": 207228.9156626506,
-        "return_pct": 3.614457831325301,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "RPOWER.NS",
-        "shares": 4314.994606256742,
-        "entry_price": 46.35,
-        "current_price": 48.400001525878906,
-        "position_value": 208845.7455269856,
-        "return_pct": 4.422872763492783,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "SVLL.NS",
-        "shares": 628.930817610063,
-        "entry_price": 318.0,
-        "current_price": 315.1000061035156,
-        "position_value": 198176.1044676199,
-        "return_pct": -0.9119477661900551,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "DALMIASUG.NS",
-        "shares": 358.1597750756613,
-        "entry_price": 558.41,
-        "current_price": 504.9284973144531,
-        "position_value": 180845.07702743617,
-        "return_pct": -9.577461486281916,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-10-14 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 71761.93407652597,
-    "total_value": 858796.0413994469,
-    "positions": [
-      {
-        "ticker": "ZEEMEDIA.NS",
-        "shares": 9638.55421686747,
-        "entry_price": 20.75,
-        "current_price": 22.469999313354492,
-        "position_value": 216578.30663474207,
-        "return_pct": 8.289153317371047,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "RPOWER.NS",
-        "shares": 4314.994606256742,
-        "entry_price": 46.35,
-        "current_price": 43.529998779296875,
-        "position_value": 187831.7099430286,
-        "return_pct": -6.084145028485709,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "SVLL.NS",
-        "shares": 628.930817610063,
-        "entry_price": 318.0,
-        "current_price": 311.95001220703125,
-        "position_value": 196194.9762308373,
-        "return_pct": -1.902511884581368,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "DALMIASUG.NS",
-        "shares": 358.1597750756613,
-        "entry_price": 558.41,
-        "current_price": 520.5194091796875,
-        "position_value": 186429.11451431297,
-        "return_pct": -6.7854427428435145,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-10-14 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 860025.8572848081,
-    "positions": [
-      {
-        "ticker": "ZEEMEDIA.NS",
-        "shares": 9638.55421686747,
-        "entry_price": 20.75,
-        "current_price": 22.469999313354492,
-        "position_value": 216578.30663474207,
-        "return_pct": 8.289153317371047,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PANACEABIO.NS",
-        "shares": 648.613588454678,
-        "entry_price": 308.35,
-        "current_price": 315.95001220703125,
-        "position_value": 204929.47118990187,
-        "return_pct": 2.464735594950941,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "JMFINANCIL.NS",
-        "shares": 1324.2402171753956,
-        "entry_price": 151.03,
-        "current_price": 152.74249267578125,
-        "position_value": 202267.75167288783,
-        "return_pct": 1.1338758364439177,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "RPGLIFE.NS",
-        "shares": 71.25298371869322,
-        "entry_price": 2806.9,
-        "current_price": 2686.449951171875,
-        "position_value": 191417.5746319338,
-        "return_pct": -4.2912126840331,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "SKIPPER.NS",
-        "shares": 77.02560621183147,
-        "entry_price": 548.1,
-        "current_price": 582.0499877929688,
-        "position_value": 44832.75315534253,
-        "return_pct": 6.194122932488365,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-10-21 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 851234.8919277159,
-    "positions": [
-      {
-        "ticker": "ZEEMEDIA.NS",
-        "shares": 9638.55421686747,
-        "entry_price": 20.75,
-        "current_price": 21.8700008392334,
-        "position_value": 210795.18881188816,
-        "return_pct": 5.397594405944089,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PANACEABIO.NS",
-        "shares": 648.613588454678,
-        "entry_price": 308.35,
-        "current_price": 326.29998779296875,
-        "position_value": 211642.6059951151,
-        "return_pct": 5.821302997557557,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "JMFINANCIL.NS",
-        "shares": 1324.2402171753956,
-        "entry_price": 151.03,
-        "current_price": 144.34024047851562,
-        "position_value": 191141.15139841835,
-        "return_pct": -4.429424300790821,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "RPGLIFE.NS",
-        "shares": 71.25298371869322,
-        "entry_price": 2806.9,
-        "current_price": 2749.85009765625,
-        "position_value": 195935.02423714774,
-        "return_pct": -2.032487881426132,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "SKIPPER.NS",
-        "shares": 77.02560621183147,
-        "entry_price": 548.1,
-        "current_price": 541.6500244140625,
-        "position_value": 41720.92148514648,
-        "return_pct": -1.1767881017948407,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-10-21 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 28797.097120712628,
-    "total_value": 870320.3976691738,
-    "positions": [
-      {
-        "ticker": "ZEEMEDIA.NS",
-        "shares": 9638.55421686747,
-        "entry_price": 20.75,
-        "current_price": 21.8700008392334,
-        "position_value": 210795.18881188816,
-        "return_pct": 5.397594405944089,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PANACEABIO.NS",
-        "shares": 648.613588454678,
-        "entry_price": 308.35,
-        "current_price": 326.29998779296875,
-        "position_value": 211642.6059951151,
-        "return_pct": 5.821302997557557,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "NSIL.NS",
-        "shares": 28.376039272438355,
-        "entry_price": 7048.2,
-        "current_price": 7753.0,
-        "position_value": 219999.43247921456,
-        "return_pct": 9.99971623960728,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "E2E.NS",
-        "shares": 52.2240935855757,
-        "entry_price": 3829.65,
-        "current_price": 3812.14990234375,
-        "position_value": 199086.07326224327,
-        "return_pct": -0.45696336887835937,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-10-28 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 28797.097120712628,
-    "total_value": 759533.5711973105,
-    "positions": [
-      {
-        "ticker": "ZEEMEDIA.NS",
-        "shares": 9638.55421686747,
-        "entry_price": 20.75,
-        "current_price": 18.239999771118164,
-        "position_value": 175807.22670957266,
-        "return_pct": -12.096386645213668,
-        "days_held": 28,
-        "signal": "SELL (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "PANACEABIO.NS",
-        "shares": 648.613588454678,
-        "entry_price": 308.35,
-        "current_price": 296.95001220703125,
-        "position_value": 192605.813009263,
-        "return_pct": -3.697093495368501,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "NSIL.NS",
-        "shares": 28.376039272438355,
-        "entry_price": 7048.2,
-        "current_price": 5932.5498046875,
-        "position_value": 168342.266243509,
-        "return_pct": -15.828866878245506,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "E2E.NS",
-        "shares": 52.2240935855757,
-        "entry_price": 3829.65,
-        "current_price": 3714.39990234375,
-        "position_value": 193981.16811425323,
-        "return_pct": -3.009415942873372,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-10-28 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 197210.13683954824,
-    "total_value": 764613.2369909108,
-    "positions": [
-      {
-        "ticker": "NSIL.NS",
-        "shares": 28.376039272438355,
-        "entry_price": 7048.2,
-        "current_price": 5932.5498046875,
-        "position_value": 168342.266243509,
-        "return_pct": -15.828866878245506,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "E2E.NS",
-        "shares": 52.2240935855757,
-        "entry_price": 3829.65,
-        "current_price": 3714.39990234375,
-        "position_value": 193981.16811425323,
-        "return_pct": -3.009415942873372,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "YATHARTH.NS",
-        "shares": 307.85807742630647,
-        "entry_price": 649.65,
-        "current_price": 666.1500244140625,
-        "position_value": 205079.6657936004,
-        "return_pct": 2.5398328968002035,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-11-04 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 197210.13683954824,
-    "total_value": 838161.9333689543,
-    "positions": [
-      {
-        "ticker": "NSIL.NS",
-        "shares": 28.376039272438355,
-        "entry_price": 7048.2,
-        "current_price": 6421.2001953125,
-        "position_value": 182208.22891837635,
-        "return_pct": -8.895885540811836,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "E2E.NS",
-        "shares": 52.2240935855757,
-        "entry_price": 3829.65,
-        "current_price": 4740.5,
-        "position_value": 247568.3156424216,
-        "return_pct": 23.784157821210812,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "YATHARTH.NS",
-        "shares": 307.85807742630647,
-        "entry_price": 649.65,
-        "current_price": 685.9500122070312,
-        "position_value": 211175.2519686081,
-        "return_pct": 5.587625984304052,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-11-04 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 785427.6894224318,
-    "positions": [
-      {
-        "ticker": "E2E.NS",
-        "shares": 52.2240935855757,
-        "entry_price": 3829.65,
-        "current_price": 4740.5,
-        "position_value": 247568.3156424216,
-        "return_pct": 23.784157821210812,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PRUDENT.NS",
-        "shares": 56.81011219997159,
-        "entry_price": 3520.5,
-        "current_price": 2955.5,
-        "position_value": 167902.28660701605,
-        "return_pct": -16.048856696491974,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "POLYMED.NS",
-        "shares": 63.9202275560101,
-        "entry_price": 3128.9,
-        "current_price": 2876.14990234375,
-        "position_value": 183844.1562430087,
-        "return_pct": -8.07792187849564,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "AJMERA.NS",
-        "shares": 205.53609158474362,
-        "entry_price": 927.3,
-        "current_price": 905.5,
-        "position_value": 186112.93092998533,
-        "return_pct": -2.350911247708396,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-11-11 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 788858.412720542,
-    "positions": [
-      {
-        "ticker": "E2E.NS",
-        "shares": 52.2240935855757,
-        "entry_price": 3829.65,
-        "current_price": 4865.2998046875,
-        "position_value": 254085.8723218832,
-        "return_pct": 27.0429361609416,
-        "days_held": 21,
-        "signal": "BUY"
-      },
-      {
-        "ticker": "PRUDENT.NS",
-        "shares": 56.81011219997159,
-        "entry_price": 3520.5,
-        "current_price": 2937.800048828125,
-        "position_value": 166896.7503950078,
-        "return_pct": -16.551624802496097,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "POLYMED.NS",
-        "shares": 63.9202275560101,
-        "entry_price": 3128.9,
-        "current_price": 2731.85009765625,
-        "position_value": 174620.4798910959,
-        "return_pct": -12.689760054452046,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "AJMERA.NS",
-        "shares": 205.53609158474362,
-        "entry_price": 927.3,
-        "current_price": 940.25,
-        "position_value": 193255.3101125552,
-        "return_pct": 1.396527553111188,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-11-11 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 134772.54039865884,
-    "total_value": 828844.237513884,
-    "positions": [
-      {
-        "ticker": "E2E.NS",
-        "shares": 52.2240935855757,
-        "entry_price": 3829.65,
-        "current_price": 4865.2998046875,
-        "position_value": 254085.8723218832,
-        "return_pct": 27.0429361609416,
-        "days_held": 21,
-        "signal": "BUY"
-      },
-      {
-        "ticker": "JSWHL.NS",
-        "shares": 12.957689903044084,
-        "entry_price": 15434.85,
-        "current_price": 16978.30078125,
-        "position_value": 219999.55660404862,
-        "return_pct": 9.999778302024312,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 1715.56013038257,
-        "entry_price": 116.58,
-        "current_price": 128.22999572753906,
-        "position_value": 219986.2681892933,
-        "return_pct": 9.99313409464665,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-11-18 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 134772.54039865884,
-    "total_value": 908977.5521734726,
-    "positions": [
-      {
-        "ticker": "E2E.NS",
-        "shares": 52.2240935855757,
-        "entry_price": 3829.65,
-        "current_price": 4628.4501953125,
-        "position_value": 241716.61615617614,
-        "return_pct": 20.858308078088072,
-        "days_held": 28,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "JSWHL.NS",
-        "shares": 12.957689903044084,
-        "entry_price": 15434.85,
-        "current_price": 18449.19921875,
-        "position_value": 239059.00243604567,
-        "return_pct": 19.529501218022848,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 1715.56013038257,
-        "entry_price": 116.58,
-        "current_price": 171.0399932861328,
-        "position_value": 293429.3931825919,
-        "return_pct": 46.71469659129595,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-11-18 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 927422.6709731412,
-    "positions": [
-      {
-        "ticker": "E2E.NS",
-        "shares": 52.2240935855757,
-        "entry_price": 3829.65,
-        "current_price": 4628.4501953125,
-        "position_value": 241716.61615617614,
-        "return_pct": 20.858308078088072,
-        "days_held": 28,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "JSWHL.NS",
-        "shares": 12.957689903044084,
-        "entry_price": 15434.85,
-        "current_price": 18449.19921875,
-        "position_value": 239059.00243604567,
-        "return_pct": 19.529501218022848,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 1715.56013038257,
-        "entry_price": 116.58,
-        "current_price": 171.0399932861328,
-        "position_value": 293429.3931825919,
-        "return_pct": 46.71469659129595,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "NSIL.NS",
-        "shares": 16.36075537006256,
-        "entry_price": 8237.55,
-        "current_price": 9364.9501953125,
-        "position_value": 153217.6591983274,
-        "return_pct": 13.68611049781186,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PIXTRANS.NS",
-        "shares": 0.0,
-        "entry_price": 2157.1,
-        "current_price": 2234.75,
-        "position_value": 0.0,
-        "return_pct": 3.599740392193227,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-11-25 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 926458.4643831158,
-    "positions": [
-      {
-        "ticker": "E2E.NS",
-        "shares": 52.2240935855757,
-        "entry_price": 3829.65,
-        "current_price": 4248.10009765625,
-        "position_value": 221853.17706089327,
-        "return_pct": 10.926588530446644,
-        "days_held": 35,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "JSWHL.NS",
-        "shares": 12.957689903044084,
-        "entry_price": 15434.85,
-        "current_price": 15842.599609375,
-        "position_value": 205283.4929963686,
-        "return_pct": 2.6417464981843013,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 1715.56013038257,
-        "entry_price": 116.58,
-        "current_price": 207.8699951171875,
-        "position_value": 356613.47592586634,
-        "return_pct": 78.30673796293318,
-        "days_held": 14,
-        "signal": "BUY"
-      },
-      {
-        "ticker": "NSIL.NS",
-        "shares": 16.36075537006256,
-        "entry_price": 8237.55,
-        "current_price": 8722.599609375,
-        "position_value": 142708.31839998762,
-        "return_pct": 5.888275147040088,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PIXTRANS.NS",
-        "shares": 0.0,
-        "entry_price": 2157.1,
-        "current_price": 2292.199951171875,
-        "position_value": 0.0,
-        "return_pct": 6.263036074909606,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-11-25 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 221853.17706089327,
-    "total_value": 926458.4643831158,
-    "positions": [
-      {
-        "ticker": "JSWHL.NS",
-        "shares": 12.957689903044084,
-        "entry_price": 15434.85,
-        "current_price": 15842.599609375,
-        "position_value": 205283.4929963686,
-        "return_pct": 2.6417464981843013,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 1715.56013038257,
-        "entry_price": 116.58,
-        "current_price": 207.8699951171875,
-        "position_value": 356613.47592586634,
-        "return_pct": 78.30673796293318,
-        "days_held": 14,
-        "signal": "BUY"
-      },
-      {
-        "ticker": "NSIL.NS",
-        "shares": 16.36075537006256,
-        "entry_price": 8237.55,
-        "current_price": 8722.599609375,
-        "position_value": 142708.31839998762,
-        "return_pct": 5.888275147040088,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PIXTRANS.NS",
-        "shares": 0.0,
-        "entry_price": 2157.1,
-        "current_price": 2292.199951171875,
-        "position_value": 0.0,
-        "return_pct": 6.263036074909606,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-12-02 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 221853.17706089327,
-    "total_value": 885473.8042846542,
-    "positions": [
-      {
-        "ticker": "JSWHL.NS",
-        "shares": 12.957689903044084,
-        "entry_price": 15434.85,
-        "current_price": 14433.2001953125,
-        "position_value": 187020.9324394147,
-        "return_pct": -6.489533780292652,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 1715.56013038257,
-        "entry_price": 116.58,
-        "current_price": 201.3000030517578,
-        "position_value": 345342.25948148535,
-        "return_pct": 72.67112974074269,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "NSIL.NS",
-        "shares": 16.36075537006256,
-        "entry_price": 8237.55,
-        "current_price": 8022.7001953125,
-        "position_value": 131257.43530286092,
-        "return_pct": -2.608176031556704,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PIXTRANS.NS",
-        "shares": 0.0,
-        "entry_price": 2157.1,
-        "current_price": 2660.699951171875,
-        "position_value": 0.0,
-        "return_pct": 23.34615693161537,
-        "days_held": 14,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-12-02 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 140131.54480316886,
-    "total_value": 907499.232219234,
-    "positions": [
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 1715.56013038257,
-        "entry_price": 116.58,
-        "current_price": 201.3000030517578,
-        "position_value": 345342.25948148535,
-        "return_pct": 72.67112974074269,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PIXTRANS.NS",
-        "shares": 0.0,
-        "entry_price": 2157.1,
-        "current_price": 2660.699951171875,
-        "position_value": 0.0,
-        "return_pct": 23.34615693161537,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "MCL.NS",
-        "shares": 3985.6516540454363,
-        "entry_price": 50.18,
-        "current_price": 53.20000076293945,
-        "position_value": 212036.6710360281,
-        "return_pct": 6.018335518014056,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PANACEABIO.NS",
-        "shares": 449.9437570303712,
-        "entry_price": 444.5,
-        "current_price": 466.70001220703125,
-        "position_value": 209988.75689855174,
-        "return_pct": 4.994378449275872,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-12-09 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 140131.54480316886,
-    "total_value": 962779.7386115977,
-    "positions": [
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 1715.56013038257,
-        "entry_price": 116.58,
-        "current_price": 181.94000244140625,
-        "position_value": 312129.014310184,
-        "return_pct": 56.064507155092,
-        "days_held": 28,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PIXTRANS.NS",
-        "shares": 0.0,
-        "entry_price": 2157.1,
-        "current_price": 2713.800048828125,
-        "position_value": 0.0,
-        "return_pct": 25.807799769511153,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "MCL.NS",
-        "shares": 3985.6516540454363,
-        "entry_price": 50.18,
-        "current_price": 77.04000091552734,
-        "position_value": 307054.6070766335,
-        "return_pct": 53.52730353831675,
-        "days_held": 7,
-        "signal": "STRONG BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "PANACEABIO.NS",
-        "shares": 449.9437570303712,
-        "entry_price": 444.5,
-        "current_price": 452.20001220703125,
-        "position_value": 203464.57242161137,
-        "return_pct": 1.7322862108056805,
-        "days_held": 7,
-        "signal": "BUY (Low VIX Opportunity)"
-      }
-    ]
-  },
-  {
-    "date": "2024-12-09 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 959715.32922887,
-    "positions": [
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 1715.56013038257,
-        "entry_price": 116.58,
-        "current_price": 181.94000244140625,
-        "position_value": 312129.014310184,
-        "return_pct": 56.064507155092,
-        "days_held": 28,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PIXTRANS.NS",
-        "shares": 0.0,
-        "entry_price": 2157.1,
-        "current_price": 2713.800048828125,
-        "position_value": 0.0,
-        "return_pct": 25.807799769511153,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "MCL.NS",
-        "shares": 3985.6516540454363,
-        "entry_price": 50.18,
-        "current_price": 77.04000091552734,
-        "position_value": 307054.6070766335,
-        "return_pct": 53.52730353831675,
-        "days_held": 7,
-        "signal": "STRONG BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "KIRIINDUS.NS",
-        "shares": 330.82458026631383,
-        "entry_price": 604.55,
-        "current_price": 603.5499877929688,
-        "position_value": 199669.17138134773,
-        "return_pct": -0.16541430932614418,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TI.NS",
-        "shares": 333.3630115491126,
-        "entry_price": 430.75,
-        "current_price": 422.54998779296875,
-        "position_value": 140862.53646070484,
-        "return_pct": -1.9036592471343587,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-12-16 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 918988.1503958994,
-    "positions": [
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 1715.56013038257,
-        "entry_price": 116.58,
-        "current_price": 189.08999633789062,
-        "position_value": 324395.25877147133,
-        "return_pct": 62.19762938573565,
-        "days_held": 35,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PIXTRANS.NS",
-        "shares": 0.0,
-        "entry_price": 2157.1,
-        "current_price": 2472.300048828125,
-        "position_value": 0.0,
-        "return_pct": 14.612213102226374,
-        "days_held": 28,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "MCL.NS",
-        "shares": 3985.6516540454363,
-        "entry_price": 50.18,
-        "current_price": 59.59000015258789,
-        "position_value": 237504.98267272973,
-        "return_pct": 18.75249133636487,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "KIRIINDUS.NS",
-        "shares": 330.82458026631383,
-        "entry_price": 604.55,
-        "current_price": 667.3499755859375,
-        "position_value": 220775.77556395254,
-        "return_pct": 10.387887781976271,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TI.NS",
-        "shares": 333.3630115491126,
-        "entry_price": 430.75,
-        "current_price": 408.8999938964844,
-        "position_value": 136312.1333877458,
-        "return_pct": -5.07254929855267,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-12-16 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 918515.0363065721,
-    "positions": [
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 1715.56013038257,
-        "entry_price": 116.58,
-        "current_price": 189.08999633789062,
-        "position_value": 324395.25877147133,
-        "return_pct": 62.19762938573565,
-        "days_held": 35,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "MCL.NS",
-        "shares": 3985.6516540454363,
-        "entry_price": 50.18,
-        "current_price": 59.59000015258789,
-        "position_value": 237504.98267272973,
-        "return_pct": 18.75249133636487,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "KIRIINDUS.NS",
-        "shares": 330.82458026631383,
-        "entry_price": 604.55,
-        "current_price": 667.3499755859375,
-        "position_value": 220775.77556395254,
-        "return_pct": 10.387887781976271,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "IZMO.NS",
-        "shares": 215.0542453068483,
-        "entry_price": 633.85,
-        "current_price": 631.6500244140625,
-        "position_value": 135839.0192984185,
-        "return_pct": -0.34708142083103616,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "BYKE.NS",
-        "shares": 0.0,
-        "entry_price": 97.56,
-        "current_price": 102.37000274658203,
-        "position_value": 0.0,
-        "return_pct": 4.930302118267763,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-12-23 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 920653.447975036,
-    "positions": [
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 1715.56013038257,
-        "entry_price": 116.58,
-        "current_price": 200.55999755859375,
-        "position_value": 344072.735561149,
-        "return_pct": 72.03636778057451,
-        "days_held": 42,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "MCL.NS",
-        "shares": 3985.6516540454363,
-        "entry_price": 50.18,
-        "current_price": 63.15999984741211,
-        "position_value": 251733.75786134758,
-        "return_pct": 25.866878930673792,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "KIRIINDUS.NS",
-        "shares": 330.82458026631383,
-        "entry_price": 604.55,
-        "current_price": 615.2999877929688,
-        "position_value": 203556.3601994769,
-        "return_pct": 1.7781800997384494,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "IZMO.NS",
-        "shares": 215.0542453068483,
-        "entry_price": 633.85,
-        "current_price": 564.0,
-        "position_value": 121290.59435306244,
-        "return_pct": -11.0199574031711,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "BYKE.NS",
-        "shares": 0.0,
-        "entry_price": 97.56,
-        "current_price": 96.06999969482422,
-        "position_value": 0.0,
-        "return_pct": -1.5272655854610326,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-12-23 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 920653.447975036,
-    "positions": [
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 1715.56013038257,
-        "entry_price": 116.58,
-        "current_price": 200.55999755859375,
-        "position_value": 344072.735561149,
-        "return_pct": 72.03636778057451,
-        "days_held": 42,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "MCL.NS",
-        "shares": 3985.6516540454363,
-        "entry_price": 50.18,
-        "current_price": 63.15999984741211,
-        "position_value": 251733.75786134758,
-        "return_pct": 25.866878930673792,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "KIRIINDUS.NS",
-        "shares": 330.82458026631383,
-        "entry_price": 604.55,
-        "current_price": 615.2999877929688,
-        "position_value": 203556.3601994769,
-        "return_pct": 1.7781800997384494,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "IZMO.NS",
-        "shares": 215.0542453068483,
-        "entry_price": 633.85,
-        "current_price": 564.0,
-        "position_value": 121290.59435306244,
-        "return_pct": -11.0199574031711,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "ZENTEC.NS",
-        "shares": 0.0,
-        "entry_price": 2493.05,
-        "current_price": 2577.0,
-        "position_value": 0.0,
-        "return_pct": 3.367361264314787,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-12-30 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 874191.1926348542,
-    "positions": [
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 1715.56013038257,
-        "entry_price": 116.58,
-        "current_price": 184.9600067138672,
-        "position_value": 317310.013233603,
-        "return_pct": 58.6550066168015,
-        "days_held": 49,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "MCL.NS",
-        "shares": 3985.6516540454363,
-        "entry_price": 50.18,
-        "current_price": 59.09000015258789,
-        "position_value": 235512.156845707,
-        "return_pct": 17.75607842285351,
-        "days_held": 28,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "KIRIINDUS.NS",
-        "shares": 330.82458026631383,
-        "entry_price": 604.55,
-        "current_price": 610.1500244140625,
-        "position_value": 201852.62572626336,
-        "return_pct": 0.9263128631316758,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "IZMO.NS",
-        "shares": 215.0542453068483,
-        "entry_price": 633.85,
-        "current_price": 555.75,
-        "position_value": 119516.39682928093,
-        "return_pct": -12.321527175199183,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "ZENTEC.NS",
-        "shares": 0.0,
-        "entry_price": 2493.05,
-        "current_price": 2429.5,
-        "position_value": 0.0,
-        "return_pct": -2.549086460359807,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2024-12-30 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 474191.19263485423,
-    "total_value": 856060.0055432668,
-    "positions": [
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 3044.603440401888,
-        "entry_price": 65.69,
-        "current_price": 66.4800033569336,
-        "position_value": 202405.24693844907,
-        "return_pct": 1.2026234692245334,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TRIVENI.NS",
-        "shares": 400.3202562049639,
-        "entry_price": 499.6,
-        "current_price": 448.29998779296875,
-        "position_value": 179463.56596996344,
-        "return_pct": -10.26821701501827,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-01-06 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 474191.19263485423,
-    "total_value": 845604.6325268517,
-    "positions": [
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 3044.603440401888,
-        "entry_price": 65.69,
-        "current_price": 65.83999633789062,
-        "position_value": 200456.6793663895,
-        "return_pct": 0.22833968319474393,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TRIVENI.NS",
-        "shares": 400.3202562049639,
-        "entry_price": 499.6,
-        "current_price": 427.04998779296875,
-        "position_value": 170956.76052560797,
-        "return_pct": -14.521619737196012,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-01-06 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 45604.632526851725,
-    "total_value": 847784.4071788043,
-    "positions": [
-      {
-        "ticker": "ARSSINFRA.NS",
-        "shares": 7024.938531787847,
-        "entry_price": 28.47,
-        "current_price": 28.469999313354492,
-        "position_value": 199999.9951763575,
-        "return_pct": -2.411821238762317e-06,
-        "days_held": 0,
-        "signal": "STRONG BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "AVONMORE.NS",
-        "shares": 8543.357539513028,
-        "entry_price": 23.41,
-        "current_price": 24.84000015258789,
-        "position_value": 212217.00258511654,
-        "return_pct": 6.108501292558268,
-        "days_held": 0,
-        "signal": "BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "PREMIERPOL.NS",
-        "shares": 2348.5204321277597,
-        "entry_price": 85.16,
-        "current_price": 83.44999694824219,
-        "position_value": 195984.02289394598,
-        "return_pct": -2.007988553027019,
-        "days_held": 0,
-        "signal": "BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "JSWHL.NS",
-        "shares": 11.257838269895414,
-        "entry_price": 17765.4,
-        "current_price": 17230.55078125,
-        "position_value": 193978.75399653259,
-        "return_pct": -3.010623001733715,
-        "days_held": 0,
-        "signal": "BUY (Low VIX Opportunity)"
-      }
-    ]
-  },
-  {
-    "date": "2025-01-13 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 45604.632526851725,
-    "total_value": 831204.9684678045,
-    "positions": [
-      {
-        "ticker": "ARSSINFRA.NS",
-        "shares": 7024.938531787847,
-        "entry_price": 28.47,
-        "current_price": 29.889999389648438,
-        "position_value": 209975.40842745654,
-        "return_pct": 4.9877042137282706,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "AVONMORE.NS",
-        "shares": 8543.357539513028,
-        "entry_price": 23.41,
-        "current_price": 24.56999969482422,
-        "position_value": 209910.2921386093,
-        "return_pct": 4.95514606930465,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PREMIERPOL.NS",
-        "shares": 2348.5204321277597,
-        "entry_price": 85.16,
-        "current_price": 75.41000366210938,
-        "position_value": 177101.93438729306,
-        "return_pct": -11.449032806353477,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "JSWHL.NS",
-        "shares": 11.257838269895414,
-        "entry_price": 17765.4,
-        "current_price": 16753.900390625,
-        "position_value": 188612.70098759385,
-        "return_pct": -5.6936495062030765,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-01-13 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 222706.5669141448,
-    "total_value": 831204.9684678045,
-    "positions": [
-      {
-        "ticker": "ARSSINFRA.NS",
-        "shares": 7024.938531787847,
-        "entry_price": 28.47,
-        "current_price": 29.889999389648438,
-        "position_value": 209975.40842745654,
-        "return_pct": 4.9877042137282706,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "AVONMORE.NS",
-        "shares": 8543.357539513028,
-        "entry_price": 23.41,
-        "current_price": 24.56999969482422,
-        "position_value": 209910.2921386093,
-        "return_pct": 4.95514606930465,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "JSWHL.NS",
-        "shares": 11.257838269895414,
-        "entry_price": 17765.4,
-        "current_price": 16753.900390625,
-        "position_value": 188612.70098759385,
-        "return_pct": -5.6936495062030765,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-01-20 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 222706.5669141448,
-    "total_value": 868702.9115727479,
-    "positions": [
-      {
-        "ticker": "ARSSINFRA.NS",
-        "shares": 7024.938531787847,
-        "entry_price": 28.47,
-        "current_price": 31.3799991607666,
-        "position_value": 220442.5652319396,
-        "return_pct": 10.221282615969802,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "AVONMORE.NS",
-        "shares": 8543.357539513028,
-        "entry_price": 23.41,
-        "current_price": 25.6299991607666,
-        "position_value": 218966.24656784793,
-        "return_pct": 9.483123283923971,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "JSWHL.NS",
-        "shares": 11.257838269895414,
-        "entry_price": 17765.4,
-        "current_price": 18350.55078125,
-        "position_value": 206587.53285881545,
-        "return_pct": 3.2937664294077162,
-        "days_held": 14,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-01-20 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 22706.566914144787,
-    "total_value": 872701.0828634186,
-    "positions": [
-      {
-        "ticker": "ARSSINFRA.NS",
-        "shares": 7024.938531787847,
-        "entry_price": 28.47,
-        "current_price": 31.3799991607666,
-        "position_value": 220442.5652319396,
-        "return_pct": 10.221282615969802,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "AVONMORE.NS",
-        "shares": 8543.357539513028,
-        "entry_price": 23.41,
-        "current_price": 25.6299991607666,
-        "position_value": 218966.24656784793,
-        "return_pct": 9.483123283923971,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "JSWHL.NS",
-        "shares": 11.257838269895414,
-        "entry_price": 17765.4,
-        "current_price": 18350.55078125,
-        "position_value": 206587.53285881545,
-        "return_pct": 3.2937664294077162,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 914.9130832570906,
-        "entry_price": 218.6,
-        "current_price": 222.97000122070312,
-        "position_value": 203998.17129067075,
-        "return_pct": 1.9990856453353756,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-01-27 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 22706.566914144787,
-    "total_value": 853198.0625798348,
-    "positions": [
-      {
-        "ticker": "ARSSINFRA.NS",
-        "shares": 7024.938531787847,
-        "entry_price": 28.47,
-        "current_price": 29.81999969482422,
-        "position_value": 209483.66487407248,
-        "return_pct": 4.741832437036249,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "AVONMORE.NS",
-        "shares": 8543.357539513028,
-        "entry_price": 23.41,
-        "current_price": 22.280000686645508,
-        "position_value": 190346.01184660834,
-        "return_pct": -4.826994076695824,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "JSWHL.NS",
-        "shares": 11.257838269895414,
-        "entry_price": 17765.4,
-        "current_price": 18250.849609375,
-        "position_value": 205465.11319052766,
-        "return_pct": 2.732556595263819,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 914.9130832570906,
-        "entry_price": 218.6,
-        "current_price": 246.13999938964844,
-        "position_value": 225196.70575448166,
-        "return_pct": 12.598352877240826,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-01-27 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 228171.68010467244,
-    "total_value": 853198.0625798348,
-    "positions": [
-      {
-        "ticker": "ARSSINFRA.NS",
-        "shares": 7024.938531787847,
-        "entry_price": 28.47,
-        "current_price": 29.81999969482422,
-        "position_value": 209483.66487407248,
-        "return_pct": 4.741832437036249,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "AVONMORE.NS",
-        "shares": 8543.357539513028,
-        "entry_price": 23.41,
-        "current_price": 22.280000686645508,
-        "position_value": 190346.01184660834,
-        "return_pct": -4.826994076695824,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 914.9130832570906,
-        "entry_price": 218.6,
-        "current_price": 246.13999938964844,
-        "position_value": 225196.70575448166,
-        "return_pct": 12.598352877240826,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-02-03 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 228171.68010467244,
-    "total_value": 864338.5999915777,
-    "positions": [
-      {
-        "ticker": "ARSSINFRA.NS",
-        "shares": 7024.938531787847,
-        "entry_price": 28.47,
-        "current_price": 28.31999969482422,
-        "position_value": 198946.25707639073,
-        "return_pct": -0.526871461804637,
-        "days_held": 28,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "AVONMORE.NS",
-        "shares": 8543.357539513028,
-        "entry_price": 23.41,
-        "current_price": 23.889999389648438,
-        "position_value": 204100.80640451462,
-        "return_pct": 2.0504032022573146,
-        "days_held": 28,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 914.9130832570906,
-        "entry_price": 218.6,
-        "current_price": 254.8000030517578,
-        "position_value": 233119.85640599986,
-        "return_pct": 16.55992820299992,
-        "days_held": 14,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-02-03 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 855752.5309222038,
-    "positions": [
-      {
-        "ticker": "AVONMORE.NS",
-        "shares": 8543.357539513028,
-        "entry_price": 23.41,
-        "current_price": 23.889999389648438,
-        "position_value": 204100.80640451462,
-        "return_pct": 2.0504032022573146,
-        "days_held": 28,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 914.9130832570906,
-        "entry_price": 218.6,
-        "current_price": 254.8000030517578,
-        "position_value": 233119.85640599986,
-        "return_pct": 16.55992820299992,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "MEDICO.NS",
-        "shares": 2671.2969146520636,
-        "entry_price": 74.87,
-        "current_price": 73.2699966430664,
-        "position_value": 195725.91596919036,
-        "return_pct": -2.1370420154048326,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "RPGLIFE.NS",
-        "shares": 81.09149147525696,
-        "entry_price": 2466.35,
-        "current_price": 2415.449951171875,
-        "position_value": 195872.43912436394,
-        "return_pct": -2.063780437818027,
-        "days_held": 0,
-        "signal": "BUY"
-      },
-      {
-        "ticker": "AVANTIFEED.NS",
-        "shares": 37.25759041157267,
-        "entry_price": 727.85,
-        "current_price": 722.9000244140625,
-        "position_value": 26933.513018135025,
-        "return_pct": -0.6800818281153428,
-        "days_held": 0,
-        "signal": "BUY"
-      }
-    ]
-  },
-  {
-    "date": "2025-02-10 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 849563.9815067713,
-    "positions": [
-      {
-        "ticker": "AVONMORE.NS",
-        "shares": 8543.357539513028,
-        "entry_price": 23.41,
-        "current_price": 26.229999542236328,
-        "position_value": 224092.26435058803,
-        "return_pct": 12.04613217529401,
-        "days_held": 35,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 914.9130832570906,
-        "entry_price": 218.6,
-        "current_price": 239.64999389648438,
-        "position_value": 219258.9148183755,
-        "return_pct": 9.629457409187731,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "MEDICO.NS",
-        "shares": 2671.2969146520636,
-        "entry_price": 74.87,
-        "current_price": 68.91999816894531,
-        "position_value": 184105.77846652947,
-        "return_pct": -7.947110766735263,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "RPGLIFE.NS",
-        "shares": 81.09149147525696,
-        "entry_price": 2466.35,
-        "current_price": 2397.550048828125,
-        "position_value": 194420.90934604782,
-        "return_pct": -2.7895453269760946,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "AVANTIFEED.NS",
-        "shares": 37.25759041157267,
-        "entry_price": 727.85,
-        "current_price": 743.0999755859375,
-        "position_value": 27686.11452523051,
-        "return_pct": 2.095208571262963,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-02-10 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 246199.28822186636,
-    "total_value": 853603.8756768121,
-    "positions": [
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 914.9130832570906,
-        "entry_price": 218.6,
-        "current_price": 239.64999389648438,
-        "position_value": 219258.9148183755,
-        "return_pct": 9.629457409187731,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "MEDICO.NS",
-        "shares": 2671.2969146520636,
-        "entry_price": 74.87,
-        "current_price": 68.91999816894531,
-        "position_value": 184105.77846652947,
-        "return_pct": -7.947110766735263,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "GODFRYPHLP.NS",
-        "shares": 36.56006361451069,
-        "entry_price": 5470.45,
-        "current_price": 5580.9501953125,
-        "position_value": 204039.89417004085,
-        "return_pct": 2.0199470850204313,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-02-17 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 246199.28822186636,
-    "total_value": 882037.4715832693,
-    "positions": [
-      {
-        "ticker": "TERASOFT.NS",
-        "shares": 914.9130832570906,
-        "entry_price": 218.6,
-        "current_price": 216.64999389648438,
-        "position_value": 198215.91390346238,
-        "return_pct": -0.8920430482688103,
-        "days_held": 28,
-        "signal": "SELL (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "MEDICO.NS",
-        "shares": 2671.2969146520636,
-        "entry_price": 74.87,
-        "current_price": 67.5,
-        "position_value": 180312.5417390143,
-        "return_pct": -9.843729130492859,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "GODFRYPHLP.NS",
-        "shares": 36.56006361451069,
-        "entry_price": 5470.45,
-        "current_price": 7038.0,
-        "position_value": 257309.72771892624,
-        "return_pct": 28.65486385946312,
-        "days_held": 7,
-        "signal": "BUY (Low VIX Opportunity)"
-      }
-    ]
-  },
-  {
-    "date": "2025-02-17 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 624727.743864343,
-    "total_value": 882037.4715832693,
-    "positions": [
-      {
-        "ticker": "GODFRYPHLP.NS",
-        "shares": 36.56006361451069,
-        "entry_price": 5470.45,
-        "current_price": 7038.0,
-        "position_value": 257309.72771892624,
-        "return_pct": 28.65486385946312,
-        "days_held": 7,
-        "signal": "BUY (Low VIX Opportunity)"
-      }
-    ]
-  },
-  {
-    "date": "2025-02-24 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 624727.743864343,
-    "total_value": 828955.9187916799,
-    "positions": [
-      {
-        "ticker": "GODFRYPHLP.NS",
-        "shares": 36.56006361451069,
-        "entry_price": 5470.45,
-        "current_price": 5586.10009765625,
-        "position_value": 204228.17492733686,
-        "return_pct": 2.11408746366844,
-        "days_held": 14,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-02-24 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 826515.5516309964,
-    "positions": [
-      {
-        "ticker": "GODFRYPHLP.NS",
-        "shares": 36.56006361451069,
-        "entry_price": 5470.45,
-        "current_price": 5586.10009765625,
-        "position_value": 204228.17492733686,
-        "return_pct": 2.11408746366844,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "GODREJIND.NS",
-        "shares": 176.75651789659744,
-        "entry_price": 1131.5,
-        "current_price": 1101.800048828125,
-        "position_value": 194750.3400491604,
-        "return_pct": -2.6248299754197966,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "CAMLINFINE.NS",
-        "shares": 1291.3223140495868,
-        "entry_price": 154.88,
-        "current_price": 161.00999450683594,
-        "position_value": 207915.79869167865,
-        "return_pct": 3.957899345839322,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "MEDANTA.NS",
-        "shares": 161.87123143539316,
-        "entry_price": 1235.55,
-        "current_price": 1208.0999755859375,
-        "position_value": 195556.63074516412,
-        "return_pct": -2.221684627417948,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "MANORG.NS",
-        "shares": 51.807550522403176,
-        "entry_price": 477.3,
-        "current_price": 464.5,
-        "position_value": 24064.607217656274,
-        "return_pct": -2.6817515189608234,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-03-03 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 784165.8021496332,
-    "positions": [
-      {
-        "ticker": "GODFRYPHLP.NS",
-        "shares": 36.56006361451069,
-        "entry_price": 5470.45,
-        "current_price": 5099.85009765625,
-        "position_value": 186450.84399478105,
-        "return_pct": -6.774578002609472,
-        "days_held": 21,
-        "signal": "SELL (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "GODREJIND.NS",
-        "shares": 176.75651789659744,
-        "entry_price": 1131.5,
-        "current_price": 1103.449951171875,
-        "position_value": 195041.9710423111,
-        "return_pct": -2.479014478844454,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "CAMLINFINE.NS",
-        "shares": 1291.3223140495868,
-        "entry_price": 154.88,
-        "current_price": 144.13999938964844,
-        "position_value": 186131.19755894685,
-        "return_pct": -6.934401220526574,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "MEDANTA.NS",
-        "shares": 161.87123143539316,
-        "entry_price": 1235.55,
-        "current_price": 1213.4000244140625,
-        "position_value": 196414.5561756404,
-        "return_pct": -1.7927219121797948,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "MANORG.NS",
-        "shares": 51.807550522403176,
-        "entry_price": 477.3,
-        "current_price": 388.5,
-        "position_value": 20127.233377953635,
-        "return_pct": -18.6046511627907,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-03-03 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 389123.831107322,
-    "total_value": 773254.1985346434,
-    "positions": [
-      {
-        "ticker": "GODREJIND.NS",
-        "shares": 176.75651789659744,
-        "entry_price": 1131.5,
-        "current_price": 1103.449951171875,
-        "position_value": 195041.9710423111,
-        "return_pct": -2.479014478844454,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "SILGO.NS",
-        "shares": 4604.051565377533,
-        "entry_price": 43.44,
-        "current_price": 41.06999969482422,
-        "position_value": 189088.39638501024,
-        "return_pct": -5.455801807494887,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-03-10 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 389123.831107322,
-    "total_value": 770624.6695254963,
-    "positions": [
-      {
-        "ticker": "GODREJIND.NS",
-        "shares": 176.75651789659744,
-        "entry_price": 1131.5,
-        "current_price": 1152.6500244140625,
-        "position_value": 203738.40466885772,
-        "return_pct": 1.8692023344288555,
-        "days_held": 14,
-        "signal": "BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "SILGO.NS",
-        "shares": 4604.051565377533,
-        "entry_price": 43.44,
-        "current_price": 38.61000061035156,
-        "position_value": 177762.4337493166,
-        "return_pct": -11.118783125341702,
-        "days_held": 7,
-        "signal": "BUY (Low VIX Opportunity)"
-      }
-    ]
-  },
-  {
-    "date": "2025-03-10 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 756275.5192972643,
-    "positions": [
-      {
-        "ticker": "GODREJIND.NS",
-        "shares": 176.75651789659744,
-        "entry_price": 1131.5,
-        "current_price": 1152.6500244140625,
-        "position_value": 203738.40466885772,
-        "return_pct": 1.8692023344288555,
-        "days_held": 14,
-        "signal": "BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "CAMLINFINE.NS",
-        "shares": 1178.6198361718427,
-        "entry_price": 169.69,
-        "current_price": 165.69000244140625,
-        "position_value": 195285.52353280244,
-        "return_pct": -2.357238233598767,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "ORTEL.NS",
-        "shares": 96153.84615384616,
-        "entry_price": 2.08,
-        "current_price": 1.9800000190734863,
-        "position_value": 190384.61721860446,
-        "return_pct": -4.8076913906977765,
-        "days_held": 0,
-        "signal": "BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "COMSYN.NS",
-        "shares": 1929.0979638959498,
-        "entry_price": 86.51,
-        "current_price": 86.5,
-        "position_value": 166866.97387699966,
-        "return_pct": -0.011559357299740048,
-        "days_held": 0,
-        "signal": "BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "AVANTIFEED.NS",
-        "shares": 0.0,
-        "entry_price": 798.7,
-        "current_price": 823.3499755859375,
-        "position_value": 0.0,
-        "return_pct": 3.086262124193997,
-        "days_held": 0,
-        "signal": "STRONG BUY (Low VIX Opportunity)"
-      }
-    ]
-  },
-  {
-    "date": "2025-03-17 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 736447.968466176,
-    "positions": [
-      {
-        "ticker": "GODREJIND.NS",
-        "shares": 176.75651789659744,
-        "entry_price": 1131.5,
-        "current_price": 1140.199951171875,
-        "position_value": 201537.77307501106,
-        "return_pct": 0.7688865375055236,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "CAMLINFINE.NS",
-        "shares": 1178.6198361718427,
-        "entry_price": 169.69,
-        "current_price": 167.24000549316406,
-        "position_value": 197112.3878757311,
-        "return_pct": -1.4438060621344424,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "ORTEL.NS",
-        "shares": 96153.84615384616,
-        "entry_price": 2.08,
-        "current_price": 1.8799999952316284,
-        "position_value": 180769.23031073352,
-        "return_pct": -9.615384844633253,
-        "days_held": 7,
-        "signal": "BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "COMSYN.NS",
-        "shares": 1929.0979638959498,
-        "entry_price": 86.51,
-        "current_price": 81.4000015258789,
-        "position_value": 157028.5772047002,
-        "return_pct": -5.906829816346201,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "AVANTIFEED.NS",
-        "shares": 0.0,
-        "entry_price": 798.7,
-        "current_price": 891.7000122070312,
-        "position_value": 0.0,
-        "return_pct": 11.643922900592363,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-03-17 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 782493.4353070612,
-    "positions": [
-      {
-        "ticker": "GODREJIND.NS",
-        "shares": 176.75651789659744,
-        "entry_price": 1131.5,
-        "current_price": 1140.199951171875,
-        "position_value": 201537.77307501106,
-        "return_pct": 0.7688865375055236,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "AVANTIFEED.NS",
-        "shares": 0.0,
-        "entry_price": 798.7,
-        "current_price": 891.7000122070312,
-        "position_value": 0.0,
-        "return_pct": 11.643922900592363,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 110.8499984741211,
-        "position_value": 239987.0068718794,
-        "return_pct": 19.993503435939704,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "ARSSINFRA.NS",
-        "shares": 5529.444290848769,
-        "entry_price": 36.17,
-        "current_price": 36.16999816894531,
-        "position_value": 199999.9898752851,
-        "return_pct": -5.062357448729064e-06,
-        "days_held": 0,
-        "signal": "BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "STEELCAS.NS",
-        "shares": 136.4521041682663,
-        "entry_price": 988.7,
-        "current_price": 1033.0999755859375,
-        "position_value": 140968.6654848857,
-        "return_pct": 4.490742953973648,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-03-24 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 783635.1999284395,
-    "positions": [
-      {
-        "ticker": "GODREJIND.NS",
-        "shares": 176.75651789659744,
-        "entry_price": 1131.5,
-        "current_price": 1237.6500244140625,
-        "position_value": 218762.7086900685,
-        "return_pct": 9.381354345034246,
-        "days_held": 28,
-        "signal": "STRONG BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "AVANTIFEED.NS",
-        "shares": 0.0,
-        "entry_price": 798.7,
-        "current_price": 932.0,
-        "position_value": 0.0,
-        "return_pct": 16.68962063352948,
-        "days_held": 14,
-        "signal": "STRONG BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 102.5999984741211,
-        "position_value": 222125.99799549923,
-        "return_pct": 11.06299899774962,
-        "days_held": 7,
-        "signal": "BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "ARSSINFRA.NS",
-        "shares": 5529.444290848769,
-        "entry_price": 36.17,
-        "current_price": 36.9900016784668,
-        "position_value": 204534.15359948462,
-        "return_pct": 2.2670767997423145,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "STEELCAS.NS",
-        "shares": 136.4521041682663,
-        "entry_price": 988.7,
-        "current_price": 1012.9000244140625,
-        "position_value": 138212.33964338712,
-        "return_pct": 2.4476610108286088,
-        "days_held": 7,
-        "signal": "BUY (Low VIX Opportunity)"
-      }
-    ]
-  },
-  {
-    "date": "2025-03-24 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 161509.20193294028,
-    "total_value": 787956.1197897865,
-    "positions": [
-      {
-        "ticker": "AVANTIFEED.NS",
-        "shares": 0.0,
-        "entry_price": 798.7,
-        "current_price": 932.0,
-        "position_value": 0.0,
-        "return_pct": 16.68962063352948,
-        "days_held": 14,
-        "signal": "STRONG BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 102.5999984741211,
-        "position_value": 222125.99799549923,
-        "return_pct": 11.06299899774962,
-        "days_held": 7,
-        "signal": "BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "VADILALIND.NS",
-        "shares": 38.48818412747287,
-        "entry_price": 5196.4,
-        "current_price": 5153.10009765625,
-        "position_value": 198333.46538589217,
-        "return_pct": -0.8332673070539149,
-        "days_held": 0,
-        "signal": "STRONG BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "JSWHL.NS",
-        "shares": 8.712831604925363,
-        "entry_price": 22954.65,
-        "current_price": 23641.849609375,
-        "position_value": 205987.45447545484,
-        "return_pct": 2.9937272377274255,
-        "days_held": 0,
-        "signal": "BUY (Low VIX Opportunity)"
-      }
-    ]
-  },
-  {
-    "date": "2025-03-31 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 161509.20193294028,
-    "total_value": 758884.8945263812,
-    "positions": [
-      {
-        "ticker": "AVANTIFEED.NS",
-        "shares": 0.0,
-        "entry_price": 798.7,
-        "current_price": 913.6500244140625,
-        "position_value": 0.0,
-        "return_pct": 14.39214027971234,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 101.77999877929688,
-        "position_value": 220350.72262242233,
-        "return_pct": 10.175361311211171,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "VADILALIND.NS",
-        "shares": 38.48818412747287,
-        "entry_price": 5196.4,
-        "current_price": 4592.39990234375,
-        "position_value": 176753.1330283947,
-        "return_pct": -11.623433485802664,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "JSWHL.NS",
-        "shares": 8.712831604925363,
-        "entry_price": 22954.65,
-        "current_price": 22985.849609375,
-        "position_value": 200271.8369426238,
-        "return_pct": 0.13591847131190649,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-03-31 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 138262.33496133494,
-    "total_value": 758884.0445573407,
-    "positions": [
-      {
-        "ticker": "AVANTIFEED.NS",
-        "shares": 0.0,
-        "entry_price": 798.7,
-        "current_price": 913.6500244140625,
-        "position_value": 0.0,
-        "return_pct": 14.39214027971234,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 101.77999877929688,
-        "position_value": 220350.72262242233,
-        "return_pct": 10.175361311211171,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "JSWHL.NS",
-        "shares": 8.712831604925363,
-        "entry_price": 22954.65,
-        "current_price": 22985.849609375,
-        "position_value": 200271.8369426238,
-        "return_pct": 0.13591847131190649,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TARIL.NS",
-        "shares": 373.1482518004403,
-        "entry_price": 535.98,
-        "current_price": 535.9777221679688,
-        "position_value": 199999.15003095963,
-        "return_pct": -0.0004249845201813855,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-04-07 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 138262.33496133494,
-    "total_value": 835588.133176962,
-    "positions": [
-      {
-        "ticker": "AVANTIFEED.NS",
-        "shares": 0.0,
-        "entry_price": 798.7,
-        "current_price": 692.8499755859375,
-        "position_value": 0.0,
-        "return_pct": -13.252788833612438,
-        "days_held": 28,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 141.6300048828125,
-        "position_value": 306624.8211362037,
-        "return_pct": 53.31241056810187,
-        "days_held": 21,
-        "signal": "STRONG BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "JSWHL.NS",
-        "shares": 8.712831604925363,
-        "entry_price": 22954.65,
-        "current_price": 24680.80078125,
-        "position_value": 215039.6610817416,
-        "return_pct": 7.519830540870798,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TARIL.NS",
-        "shares": 373.1482518004403,
-        "entry_price": 535.98,
-        "current_price": 470.7547607421875,
-        "position_value": 175661.3159976818,
-        "return_pct": -12.169342001159094,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-04-07 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 113923.65095901676,
-    "total_value": 830031.4453923706,
-    "positions": [
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 141.6300048828125,
-        "position_value": 306624.8211362037,
-        "return_pct": 53.31241056810187,
-        "days_held": 21,
-        "signal": "STRONG BUY (Low VIX Opportunity)"
-      },
-      {
-        "ticker": "JSWHL.NS",
-        "shares": 8.712831604925363,
-        "entry_price": 22954.65,
-        "current_price": 24680.80078125,
-        "position_value": 215039.6610817416,
-        "return_pct": 7.519830540870798,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "SILGO.NS",
-        "shares": 4055.972419387548,
-        "entry_price": 49.31,
-        "current_price": 47.939998626708984,
-        "position_value": 194443.31221540857,
-        "return_pct": -2.7783438922957164,
-        "days_held": 0,
-        "signal": "BUY (Low VIX Opportunity)"
-      }
-    ]
-  },
-  {
-    "date": "2025-04-14 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 113923.65095901676,
-    "total_value": 868769.1837707148,
-    "positions": [
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 163.94000244140625,
-        "position_value": 354925.31379390834,
-        "return_pct": 77.46265689695416,
-        "days_held": 28,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "JSWHL.NS",
-        "shares": 8.712831604925363,
-        "entry_price": 22954.65,
-        "current_price": 23401.69921875,
-        "position_value": 203895.06456208217,
-        "return_pct": 1.9475322810410898,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "SILGO.NS",
-        "shares": 4055.972419387548,
-        "entry_price": 49.31,
-        "current_price": 48.33000183105469,
-        "position_value": 196025.15445570752,
-        "return_pct": -1.9874227721462479,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-04-14 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 868770.0588419937,
-    "positions": [
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 163.94000244140625,
-        "position_value": 354925.31379390834,
-        "return_pct": 77.46265689695416,
-        "days_held": 28,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "CURAA.NS",
-        "shares": 4139.07284768212,
-        "entry_price": 48.32,
-        "current_price": 48.31999969482422,
-        "position_value": 199999.99873685522,
-        "return_pct": -6.315723955592241e-07,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "VADILALIND.NS",
-        "shares": 34.592201188242115,
-        "entry_price": 5781.65,
-        "current_price": 5781.64990234375,
-        "position_value": 199999.99662185536,
-        "return_pct": -1.6890723173523497e-06,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TARIL.NS",
-        "shares": 209.12958094091601,
-        "entry_price": 544.37,
-        "current_price": 544.3742065429688,
-        "position_value": 113844.74968937472,
-        "return_pct": 0.0007727360010186919,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-04-21 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 1015067.9661673241,
-    "positions": [
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 199.24000549316406,
-        "position_value": 431348.78868405294,
-        "return_pct": 115.67439434202649,
-        "days_held": 35,
-        "signal": "STRONG BUY"
-      },
-      {
-        "ticker": "CURAA.NS",
-        "shares": 4139.07284768212,
-        "entry_price": 48.32,
-        "current_price": 58.709999084472656,
-        "position_value": 243004.96309798287,
-        "return_pct": 21.502481548991422,
-        "days_held": 7,
-        "signal": "BUY"
-      },
-      {
-        "ticker": "VADILALIND.NS",
-        "shares": 34.592201188242115,
-        "entry_price": 5781.65,
-        "current_price": 6544.5,
-        "position_value": 226388.66067645053,
-        "return_pct": 13.194330338225255,
-        "days_held": 7,
-        "signal": "BUY"
-      },
-      {
-        "ticker": "TARIL.NS",
-        "shares": 209.12958094091601,
-        "entry_price": 544.37,
-        "current_price": 546.6732788085938,
-        "position_value": 114325.55370883776,
-        "return_pct": 0.42310906342997323,
-        "days_held": 7,
-        "signal": "BUY"
-      }
-    ]
-  },
-  {
-    "date": "2025-04-21 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 1.4551915228366852e-11,
-    "total_value": 1019406.4609889468,
-    "positions": [
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 199.24000549316406,
-        "position_value": 431348.78868405294,
-        "return_pct": 115.67439434202649,
-        "days_held": 35,
-        "signal": "STRONG BUY"
-      },
-      {
-        "ticker": "CURAA.NS",
-        "shares": 4139.07284768212,
-        "entry_price": 48.32,
-        "current_price": 58.709999084472656,
-        "position_value": 243004.96309798287,
-        "return_pct": 21.502481548991422,
-        "days_held": 7,
-        "signal": "BUY"
-      },
-      {
-        "ticker": "VADILALIND.NS",
-        "shares": 34.592201188242115,
-        "entry_price": 5781.65,
-        "current_price": 6544.5,
-        "position_value": 226388.66067645053,
-        "return_pct": 13.194330338225255,
-        "days_held": 7,
-        "signal": "BUY"
-      },
-      {
-        "ticker": "BALAJITELE.NS",
-        "shares": 1386.1003116978388,
-        "entry_price": 82.48,
-        "current_price": 85.61000061035156,
-        "position_value": 118664.04853046047,
-        "return_pct": 3.794860099844275,
-        "days_held": 0,
-        "signal": "BUY"
-      }
-    ]
-  },
-  {
-    "date": "2025-04-28 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 1.4551915228366852e-11,
-    "total_value": 990868.1081236968,
-    "positions": [
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 170.38999938964844,
-        "position_value": 368889.36867211177,
-        "return_pct": 84.44468433605591,
-        "days_held": 42,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "CURAA.NS",
-        "shares": 4139.07284768212,
-        "entry_price": 48.32,
-        "current_price": 68.66999816894531,
-        "position_value": 284230.1248714624,
-        "return_pct": 42.11506243573119,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "VADILALIND.NS",
-        "shares": 34.592201188242115,
-        "entry_price": 5781.65,
-        "current_price": 6821.0,
-        "position_value": 235953.40430499945,
-        "return_pct": 17.976702152499726,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "BALAJITELE.NS",
-        "shares": 1386.1003116978388,
-        "entry_price": 82.48,
-        "current_price": 73.44000244140625,
-        "position_value": 101795.21027512325,
-        "return_pct": -10.960229823707266,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-04-28 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 985778.7781793098,
-    "positions": [
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 170.38999938964844,
-        "position_value": 368889.36867211177,
-        "return_pct": 84.44468433605591,
-        "days_held": 42,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "CURAA.NS",
-        "shares": 4139.07284768212,
-        "entry_price": 48.32,
-        "current_price": 68.66999816894531,
-        "position_value": 284230.1248714624,
-        "return_pct": 42.11506243573119,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "VADILALIND.NS",
-        "shares": 34.592201188242115,
-        "entry_price": 5781.65,
-        "current_price": 6821.0,
-        "position_value": 235953.40430499945,
-        "return_pct": 17.976702152499726,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "SVLL.NS",
-        "shares": 172.22774769498903,
-        "entry_price": 591.05,
-        "current_price": 561.5,
-        "position_value": 96705.88033073634,
-        "return_pct": -4.999577023940438,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-05-05 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 999633.2244416737,
-    "positions": [
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 182.72000122070312,
-        "position_value": 395583.46226608165,
-        "return_pct": 97.79173113304086,
-        "days_held": 49,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "CURAA.NS",
-        "shares": 4139.07284768212,
-        "entry_price": 48.32,
-        "current_price": 74.30999755859375,
-        "position_value": 307574.4932061,
-        "return_pct": 53.78724660304998,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "VADILALIND.NS",
-        "shares": 34.592201188242115,
-        "entry_price": 5781.65,
-        "current_price": 6006.0,
-        "position_value": 207760.76033658214,
-        "return_pct": 3.8803801682910652,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "SVLL.NS",
-        "shares": 172.22774769498903,
-        "entry_price": 591.05,
-        "current_price": 515.0999755859375,
-        "position_value": 88714.50863290986,
-        "return_pct": -12.850016819907362,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-05-05 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 1005113.7981443456,
-    "positions": [
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 182.72000122070312,
-        "position_value": 395583.46226608165,
-        "return_pct": 97.79173113304086,
-        "days_held": 49,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "CURAA.NS",
-        "shares": 4139.07284768212,
-        "entry_price": 48.32,
-        "current_price": 74.30999755859375,
-        "position_value": 307574.4932061,
-        "return_pct": 53.78724660304998,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PARADEEP.NS",
-        "shares": 1382.1700069108501,
-        "entry_price": 144.7,
-        "current_price": 146.77999877929688,
-        "position_value": 202874.91192715534,
-        "return_pct": 1.4374559635776687,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TFCILTD.NS",
-        "shares": 470.33574965625974,
-        "entry_price": 205.12,
-        "current_price": 210.66000366210938,
-        "position_value": 99080.93074500863,
-        "return_pct": 2.7008598196711047,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "GODFRYPHLP.NS",
-        "shares": 0.0,
-        "entry_price": 8395.0,
-        "current_price": 8806.5,
-        "position_value": 0.0,
-        "return_pct": 4.90172721858249,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-05-12 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 1013722.8617175219,
-    "positions": [
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 172.6699981689453,
-        "position_value": 373825.4993915248,
-        "return_pct": 86.91274969576241,
-        "days_held": 56,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "CURAA.NS",
-        "shares": 4139.07284768212,
-        "entry_price": 48.32,
-        "current_price": 82.01000213623047,
-        "position_value": 339445.37308042415,
-        "return_pct": 69.72268654021207,
-        "days_held": 28,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "PARADEEP.NS",
-        "shares": 1382.1700069108501,
-        "entry_price": 144.7,
-        "current_price": 147.38999938964844,
-        "position_value": 203718.0364749806,
-        "return_pct": 1.8590182374902897,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "TFCILTD.NS",
-        "shares": 470.33574965625974,
-        "entry_price": 205.12,
-        "current_price": 205.6699981689453,
-        "position_value": 96733.95277059246,
-        "return_pct": 0.2681348327541478,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "GODFRYPHLP.NS",
-        "shares": 0.0,
-        "entry_price": 8395.0,
-        "current_price": 8603.0,
-        "position_value": 0.0,
-        "return_pct": 2.4776652769505656,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-05-12 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 1022487.7000596158,
-    "positions": [
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 172.6699981689453,
-        "position_value": 373825.4993915248,
-        "return_pct": 86.91274969576241,
-        "days_held": 56,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "CURAA.NS",
-        "shares": 4139.07284768212,
-        "entry_price": 48.32,
-        "current_price": 82.01000213623047,
-        "position_value": 339445.37308042415,
-        "return_pct": 69.72268654021207,
-        "days_held": 28,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "FAZE3Q.NS",
-        "shares": 333.9734491107957,
-        "entry_price": 598.85,
-        "current_price": 620.4500122070312,
-        "position_value": 207213.8305776175,
-        "return_pct": 3.606915288808755,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "THYROCARE.NS",
-        "shares": 106.96623282459062,
-        "entry_price": 939.1,
-        "current_price": 953.5999755859375,
-        "position_value": 102002.99701004932,
-        "return_pct": 1.5440289198101882,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "ELECON.NS",
-        "shares": 0.0,
-        "entry_price": 620.71,
-        "current_price": 641.6591186523438,
-        "position_value": 0.0,
-        "return_pct": 3.3750251570530057,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-05-19 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 1125278.4966471859,
-    "positions": [
-      {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 202.5500030517578,
-        "position_value": 438514.8366567608,
-        "return_pct": 119.25741832838041,
-        "days_held": 63,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "CURAA.NS",
-        "shares": 4139.07284768212,
-        "entry_price": 48.32,
-        "current_price": 88.76000213623047,
-        "position_value": 367384.11480227846,
-        "return_pct": 83.69205740113922,
-        "days_held": 35,
-        "signal": "STRONG BUY"
-      },
-      {
-        "ticker": "FAZE3Q.NS",
-        "shares": 333.9734491107957,
-        "entry_price": 598.85,
-        "current_price": 646.7000122070312,
-        "position_value": 215980.6336167759,
-        "return_pct": 7.9903168083879486,
-        "days_held": 7,
-        "signal": "STRONG BUY"
-      },
-      {
-        "ticker": "THYROCARE.NS",
-        "shares": 106.96623282459062,
-        "entry_price": 939.1,
-        "current_price": 966.6500244140625,
-        "position_value": 103398.91157137082,
-        "return_pct": 2.9336624868557637,
-        "days_held": 7,
-        "signal": "STRONG BUY"
-      },
-      {
-        "ticker": "ELECON.NS",
-        "shares": 0.0,
-        "entry_price": 620.71,
-        "current_price": 672.689453125,
-        "position_value": 0.0,
-        "return_pct": 8.374192960480734,
-        "days_held": 7,
-        "signal": "STRONG BUY"
-      }
-    ]
-  },
-  {
     "date": "2025-05-19 00:00:00",
     "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 1124085.3050980747,
+    "cash": 5.820766091346741e-11,
+    "total_value": 1013138.0189717629,
     "positions": [
       {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 202.5500030517578,
-        "position_value": 438514.8366567608,
-        "return_pct": 119.25741832838041,
-        "days_held": 63,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "CURAA.NS",
-        "shares": 4139.07284768212,
-        "entry_price": 48.32,
-        "current_price": 88.76000213623047,
-        "position_value": 367384.11480227846,
-        "return_pct": 83.69205740113922,
-        "days_held": 35,
-        "signal": "STRONG BUY"
-      },
-      {
-        "ticker": "FAZE3Q.NS",
-        "shares": 333.9734491107957,
-        "entry_price": 598.85,
-        "current_price": 646.7000122070312,
-        "position_value": 215980.6336167759,
-        "return_pct": 7.9903168083879486,
-        "days_held": 7,
-        "signal": "STRONG BUY"
-      },
-      {
-        "ticker": "INTELLECT.NS",
-        "shares": 96.2253143840406,
-        "entry_price": 1074.55,
-        "current_price": 1062.1500244140625,
-        "position_value": 102205.72002225957,
-        "return_pct": -1.1539691578742222,
+        "ticker": "BEL.NS",
+        "shares": 392.5725277745064,
+        "entry_price": 363.9,
+        "current_price": 363.75,
+        "position_value": 142798.2569779767,
+        "return_pct": -0.04122011541631692,
         "days_held": 0,
-        "signal": "STRONG BUY"
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (93.5), Stochastic Overbought, BB Upper Band (116.15%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 12.7%)"
       },
       {
-        "ticker": "APARINDS.NS",
-        "shares": -1.768584738498645e-15,
-        "entry_price": 8228.0,
-        "current_price": 7816.0,
-        "position_value": -1.382325831610541e-11,
-        "return_pct": -5.007292173067574,
+        "ticker": "JMFINANCIL.NS",
+        "shares": 1263.551590811453,
+        "entry_price": 113.06,
+        "current_price": 115.43292236328125,
+        "position_value": 145855.452684139,
+        "return_pct": 2.098816878897265,
         "days_held": 0,
-        "signal": "BUY"
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (90.0), Stochastic Overbought, BB Upper Band (106.59%), Price Above VWAP)"
+      },
+      {
+        "ticker": "ZEEL.NS",
+        "shares": 1101.6977161806346,
+        "entry_price": 129.67,
+        "current_price": 128.52999877929688,
+        "position_value": 141601.20611585112,
+        "return_pct": -0.8791557189042282,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (91.8), Stochastic Overbought, BB Upper Band (104.83%), Price Above VWAP, Short-term Up 10.7%)"
+      },
+      {
+        "ticker": "JIOFIN.NS",
+        "shares": 515.729757607014,
+        "entry_price": 277.0,
+        "current_price": 277.04998779296875,
+        "position_value": 142882.92304949395,
+        "return_pct": 0.018046134645758122,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Short-term RSI Overbought (81.4), Stochastic Overbought, BB Upper Band (107.01%), Price Above VWAP)"
+      },
+      {
+        "ticker": "DLF.NS",
+        "shares": 199.54901921657057,
+        "entry_price": 715.9,
+        "current_price": 737.6500244140625,
+        "position_value": 147197.3388969055,
+        "return_pct": 3.038137227833849,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: Golden Cross (Short > Medium MA), PSAR Bullish (All Timeframes), Short-term RSI Overbought (73.3), Stochastic Overbought, BB Upper Band (102.19%), Price Above VWAP)"
+      },
+      {
+        "ticker": "RPOWER.NS",
+        "shares": 3169.6725728232277,
+        "entry_price": 45.07,
+        "current_price": 45.689998626708984,
+        "position_value": 144822.3354994104,
+        "return_pct": 1.3756348495872732,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Short-term RSI Overbought (80.6), Stochastic Overbought, BB Upper Band (86.90%), Price Above VWAP)"
+      },
+      {
+        "ticker": "LTFOODS.NS",
+        "shares": 385.2154317301951,
+        "entry_price": 370.85,
+        "current_price": 384.1499938964844,
+        "position_value": 147980.50574798606,
+        "return_pct": 3.5863540235902254,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (85.21%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)"
       }
     ]
   },
   {
     "date": "2025-05-26 00:00:00",
     "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 1099356.7123109174,
+    "cash": 5.820766091346741e-11,
+    "total_value": 1013138.0189717629,
     "positions": [
       {
-        "ticker": "NACLIND.NS",
-        "shares": 2164.970772894566,
-        "entry_price": 92.38,
-        "current_price": 185.1199951171875,
-        "position_value": 400779.3789070957,
-        "return_pct": 100.38968945354785,
-        "days_held": 70,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "CURAA.NS",
-        "shares": 4139.07284768212,
-        "entry_price": 48.32,
-        "current_price": 97.9800033569336,
-        "position_value": 405546.37151048676,
-        "return_pct": 102.77318575524336,
-        "days_held": 42,
-        "signal": "BUY"
-      },
-      {
-        "ticker": "FAZE3Q.NS",
-        "shares": 333.9734491107957,
-        "entry_price": 598.85,
-        "current_price": 564.5499877929688,
-        "position_value": 188544.70661867538,
-        "return_pct": -5.727646690662315,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "INTELLECT.NS",
-        "shares": 96.2253143840406,
-        "entry_price": 1074.55,
-        "current_price": 1085.8499755859375,
-        "position_value": 104486.25527465965,
-        "return_pct": 1.0516007245765713,
+        "ticker": "BEL.NS",
+        "shares": 392.5725277745064,
+        "entry_price": 363.9,
+        "current_price": 363.75,
+        "position_value": 142798.2569779767,
+        "return_pct": -0.04122011541631692,
         "days_held": 7,
-        "signal": "HOLD"
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (93.5), Stochastic Overbought, BB Upper Band (116.15%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 12.7%)"
       },
       {
-        "ticker": "APARINDS.NS",
-        "shares": -1.768584738498645e-15,
-        "entry_price": 8228.0,
-        "current_price": 7622.0,
-        "position_value": -1.3480152876836672e-11,
-        "return_pct": -7.365094798249879,
+        "ticker": "JMFINANCIL.NS",
+        "shares": 1263.551590811453,
+        "entry_price": 113.06,
+        "current_price": 115.43292236328125,
+        "position_value": 145855.452684139,
+        "return_pct": 2.098816878897265,
         "days_held": 7,
-        "signal": "HOLD"
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (90.0), Stochastic Overbought, BB Upper Band (106.59%), Price Above VWAP)"
+      },
+      {
+        "ticker": "ZEEL.NS",
+        "shares": 1101.6977161806346,
+        "entry_price": 129.67,
+        "current_price": 128.52999877929688,
+        "position_value": 141601.20611585112,
+        "return_pct": -0.8791557189042282,
+        "days_held": 7,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (91.8), Stochastic Overbought, BB Upper Band (104.83%), Price Above VWAP, Short-term Up 10.7%)"
+      },
+      {
+        "ticker": "JIOFIN.NS",
+        "shares": 515.729757607014,
+        "entry_price": 277.0,
+        "current_price": 277.04998779296875,
+        "position_value": 142882.92304949395,
+        "return_pct": 0.018046134645758122,
+        "days_held": 7,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Short-term RSI Overbought (81.4), Stochastic Overbought, BB Upper Band (107.01%), Price Above VWAP)"
+      },
+      {
+        "ticker": "DLF.NS",
+        "shares": 199.54901921657057,
+        "entry_price": 715.9,
+        "current_price": 737.6500244140625,
+        "position_value": 147197.3388969055,
+        "return_pct": 3.038137227833849,
+        "days_held": 7,
+        "signal": "HOLD (Conflicting signals: Golden Cross (Short > Medium MA), PSAR Bullish (All Timeframes), Short-term RSI Overbought (73.3), Stochastic Overbought, BB Upper Band (102.19%), Price Above VWAP)"
+      },
+      {
+        "ticker": "RPOWER.NS",
+        "shares": 3169.6725728232277,
+        "entry_price": 45.07,
+        "current_price": 45.689998626708984,
+        "position_value": 144822.3354994104,
+        "return_pct": 1.3756348495872732,
+        "days_held": 7,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Short-term RSI Overbought (80.6), Stochastic Overbought, BB Upper Band (86.90%), Price Above VWAP)"
+      },
+      {
+        "ticker": "LTFOODS.NS",
+        "shares": 385.2154317301951,
+        "entry_price": 370.85,
+        "current_price": 384.1499938964844,
+        "position_value": 147980.50574798606,
+        "return_pct": 3.5863540235902254,
+        "days_held": 7,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (85.21%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)"
       }
     ]
   },
   {
     "date": "2025-05-26 00:00:00",
     "phase": "POST-REBALANCE",
-    "cash": 305265.63418175536,
-    "total_value": 1106183.6464434399,
+    "cash": 151586.60141240488,
+    "total_value": 1066883.9490010315,
     "positions": [
       {
-        "ticker": "CURAA.NS",
-        "shares": 4139.07284768212,
-        "entry_price": 48.32,
-        "current_price": 97.9800033569336,
-        "position_value": 405546.37151048676,
-        "return_pct": 102.77318575524336,
-        "days_held": 42,
-        "signal": "BUY"
-      },
-      {
-        "ticker": "FAZE3Q.NS",
-        "shares": 333.9734491107957,
-        "entry_price": 598.85,
-        "current_price": 564.5499877929688,
-        "position_value": 188544.70661867538,
-        "return_pct": -5.727646690662315,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "APARINDS.NS",
-        "shares": -1.768584738498645e-15,
-        "entry_price": 8228.0,
-        "current_price": 7622.0,
-        "position_value": -1.3480152876836672e-11,
-        "return_pct": -7.365094798249879,
+        "ticker": "BEL.NS",
+        "shares": 764.7902006696155,
+        "entry_price": 373.5851812224154,
+        "current_price": 384.54998779296875,
+        "position_value": 294100.06233168277,
+        "return_pct": 2.935021816088963,
         "days_held": 7,
-        "signal": "HOLD"
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (96.5), Stochastic Overbought, BB Upper Band (92.70%), Price Above VWAP)"
       },
       {
-        "ticker": "SVLL.NS",
-        "shares": 308.21390044691015,
-        "entry_price": 648.9,
-        "current_price": 671.0499877929688,
-        "position_value": 206826.93413252235,
-        "return_pct": 3.4134670662611764,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-06-02 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 305265.63418175536,
-    "total_value": 1150444.0105927396,
-    "positions": [
-      {
-        "ticker": "CURAA.NS",
-        "shares": 4139.07284768212,
-        "entry_price": 48.32,
-        "current_price": 106.0199966430664,
-        "position_value": 438824.48941666563,
-        "return_pct": 119.41224470833278,
-        "days_held": 49,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "FAZE3Q.NS",
-        "shares": 333.9734491107957,
-        "entry_price": 598.85,
-        "current_price": 541.5999755859375,
-        "position_value": 180880.01188475828,
-        "return_pct": -9.55999405762086,
-        "days_held": 21,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "APARINDS.NS",
-        "shares": -1.768584738498645e-15,
-        "entry_price": 8228.0,
-        "current_price": 8060.5,
-        "position_value": -1.4255677284668329e-11,
-        "return_pct": -2.035731648031113,
-        "days_held": 14,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "SVLL.NS",
-        "shares": 308.21390044691015,
-        "entry_price": 648.9,
-        "current_price": 731.5499877929688,
-        "position_value": 225473.8751095604,
-        "return_pct": 12.736937554780209,
+        "ticker": "DLF.NS",
+        "shares": 383.5247344221634,
+        "entry_price": 744.9696462074511,
+        "current_price": 777.7999877929688,
+        "position_value": 298305.53375186026,
+        "return_pct": 4.406936813151098,
         "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-06-02 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 0.0,
-    "total_value": 1144095.7265712963,
-    "positions": [
-      {
-        "ticker": "CURAA.NS",
-        "shares": 4139.07284768212,
-        "entry_price": 48.32,
-        "current_price": 106.0199966430664,
-        "position_value": 438824.48941666563,
-        "return_pct": 119.41224470833278,
-        "days_held": 49,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "ZENTEC.NS",
-        "shares": 93.46667912889055,
-        "entry_price": 2139.8,
-        "current_price": 2117.699951171875,
-        "position_value": 197934.38182744881,
-        "return_pct": -1.032809086275595,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "INTELLECT.NS",
-        "shares": 170.56841925717455,
-        "entry_price": 1172.55,
-        "current_price": 1192.800048828125,
-        "position_value": 203454.0188184939,
-        "return_pct": 1.7270094092469446,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "BDL.NS",
-        "shares": 99.23096005953857,
-        "entry_price": 2015.5,
-        "current_price": 1974.5999755859375,
-        "position_value": 195941.451310934,
-        "return_pct": -2.029274344532994,
-        "days_held": 0,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "NUCLEUS.NS",
-        "shares": 87.05652316505405,
-        "entry_price": 1282.15,
-        "current_price": 1239.9000244140625,
-        "position_value": 107941.3851977539,
-        "return_pct": -3.2952443618872667,
-        "days_held": 0,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-06-09 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 0.0,
-    "total_value": 1168560.6656576586,
-    "positions": [
-      {
-        "ticker": "CURAA.NS",
-        "shares": 4139.07284768212,
-        "entry_price": 48.32,
-        "current_price": 117.04000091552734,
-        "position_value": 484437.08988214965,
-        "return_pct": 142.2185449410748,
-        "days_held": 56,
-        "signal": "BUY"
-      },
-      {
-        "ticker": "ZENTEC.NS",
-        "shares": 93.46667912889055,
-        "entry_price": 2139.8,
-        "current_price": 2013.699951171875,
-        "position_value": 188213.8471980442,
-        "return_pct": -5.893076400977903,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "INTELLECT.NS",
-        "shares": 170.56841925717455,
-        "entry_price": 1172.55,
-        "current_price": 1149.199951171875,
-        "position_value": 196017.2190818089,
-        "return_pct": -1.9913904590955571,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "BDL.NS",
-        "shares": 99.23096005953857,
-        "entry_price": 2015.5,
-        "current_price": 1948.5999755859375,
-        "position_value": 193361.446349386,
-        "return_pct": -3.319276825306996,
-        "days_held": 7,
-        "signal": "HOLD"
-      },
-      {
-        "ticker": "NUCLEUS.NS",
-        "shares": 87.05652316505405,
-        "entry_price": 1282.15,
-        "current_price": 1223.699951171875,
-        "position_value": 106531.06314626984,
-        "return_pct": -4.55875278462934,
-        "days_held": 7,
-        "signal": "HOLD"
-      }
-    ]
-  },
-  {
-    "date": "2025-06-09 00:00:00",
-    "phase": "POST-REBALANCE",
-    "cash": 1.4551915228366852e-11,
-    "total_value": 1195305.1057299215,
-    "positions": [
-      {
-        "ticker": "CURAA.NS",
-        "shares": 4139.07284768212,
-        "entry_price": 48.32,
-        "current_price": 117.04000091552734,
-        "position_value": 484437.08988214965,
-        "return_pct": 142.2185449410748,
-        "days_held": 56,
-        "signal": "BUY"
-      },
-      {
-        "ticker": "CAMLINFINE.NS",
-        "shares": 755.0874013667081,
-        "entry_price": 264.87,
-        "current_price": 272.5199890136719,
-        "position_value": 205776.41032481735,
-        "return_pct": 2.88820516240868,
-        "days_held": 0,
-        "signal": "HOLD"
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (88.3), Stochastic Overbought, BB Upper Band (95.84%), Price Above VWAP)"
       },
       {
         "ticker": "RPOWER.NS",
-        "shares": 3244.6463335496433,
-        "entry_price": 61.64,
+        "shares": 3169.6725728232277,
+        "entry_price": 45.07,
+        "current_price": 50.68000030517578,
+        "position_value": 160639.0069579885,
+        "return_pct": 12.447304870591926,
+        "days_held": 7,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Short-term RSI Overbought (80.6), Stochastic Overbought, BB Upper Band (86.90%), Price Above VWAP)"
+      },
+      {
+        "ticker": "LTFOODS.NS",
+        "shares": 385.2154317301951,
+        "entry_price": 370.85,
+        "current_price": 421.20001220703125,
+        "position_value": 162252.744547095,
+        "return_pct": 13.576921182966489,
+        "days_held": 7,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (85.21%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)"
+      }
+    ]
+  },
+  {
+    "date": "2025-06-02 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 151586.60141240488,
+    "total_value": 1066883.9490010315,
+    "positions": [
+      {
+        "ticker": "BEL.NS",
+        "shares": 764.7902006696155,
+        "entry_price": 373.5851812224154,
+        "current_price": 384.54998779296875,
+        "position_value": 294100.06233168277,
+        "return_pct": 2.935021816088963,
+        "days_held": 14,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (96.5), Stochastic Overbought, BB Upper Band (92.70%), Price Above VWAP)"
+      },
+      {
+        "ticker": "DLF.NS",
+        "shares": 383.5247344221634,
+        "entry_price": 744.9696462074511,
+        "current_price": 777.7999877929688,
+        "position_value": 298305.53375186026,
+        "return_pct": 4.406936813151098,
+        "days_held": 14,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (88.3), Stochastic Overbought, BB Upper Band (95.84%), Price Above VWAP)"
+      },
+      {
+        "ticker": "RPOWER.NS",
+        "shares": 3169.6725728232277,
+        "entry_price": 45.07,
+        "current_price": 50.68000030517578,
+        "position_value": 160639.0069579885,
+        "return_pct": 12.447304870591926,
+        "days_held": 14,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Short-term RSI Overbought (80.6), Stochastic Overbought, BB Upper Band (86.90%), Price Above VWAP)"
+      },
+      {
+        "ticker": "LTFOODS.NS",
+        "shares": 385.2154317301951,
+        "entry_price": 370.85,
+        "current_price": 421.20001220703125,
+        "position_value": 162252.744547095,
+        "return_pct": 13.576921182966489,
+        "days_held": 14,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (85.21%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)"
+      }
+    ]
+  },
+  {
+    "date": "2025-06-02 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 19371.37560045236,
+    "total_value": 1138943.3919012405,
+    "positions": [
+      {
+        "ticker": "DLF.NS",
+        "shares": 383.5247344221634,
+        "entry_price": 744.9696462074511,
+        "current_price": 810.7000122070312,
+        "position_value": 310923.5068777463,
+        "return_pct": 8.823227407211203,
+        "days_held": 14,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (88.3), Stochastic Overbought, BB Upper Band (95.84%), Price Above VWAP)"
+      },
+      {
+        "ticker": "RPOWER.NS",
+        "shares": 3169.6725728232277,
+        "entry_price": 45.07,
+        "current_price": 61.970001220703125,
+        "position_value": 196424.61320708465,
+        "return_pct": 37.49722924495923,
+        "days_held": 14,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Short-term RSI Overbought (80.6), Stochastic Overbought, BB Upper Band (86.90%), Price Above VWAP)"
+      },
+      {
+        "ticker": "LTFOODS.NS",
+        "shares": 709.9645630262689,
+        "entry_price": 402.4345729263028,
+        "current_price": 445.8999938964844,
+        "position_value": 316573.19432013354,
+        "return_pct": 10.800618012046728,
+        "days_held": 14,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (85.6), Stochastic Overbought, BB Upper Band (96.83%), Price Above VWAP)"
+      },
+      {
+        "ticker": "JMFINANCIL.NS",
+        "shares": 1139.3025189978696,
+        "entry_price": 125.39,
+        "current_price": 131.26568603515625,
+        "position_value": 149551.326757837,
+        "return_pct": 4.685928730485884,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (73.6), BB Upper Band (84.06%), Price Above VWAP)"
+      },
+      {
+        "ticker": "PARADEEP.NS",
+        "shares": 829.2148993333113,
+        "entry_price": 172.28,
+        "current_price": 176.19000244140625,
+        "position_value": 146099.37513798656,
+        "return_pct": 2.269562596590579,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (80.0), BB Upper Band (102.49%), Price Above VWAP)"
+      }
+    ]
+  },
+  {
+    "date": "2025-06-09 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 19371.37560045236,
+    "total_value": 1138943.3919012405,
+    "positions": [
+      {
+        "ticker": "DLF.NS",
+        "shares": 383.5247344221634,
+        "entry_price": 744.9696462074511,
+        "current_price": 810.7000122070312,
+        "position_value": 310923.5068777463,
+        "return_pct": 8.823227407211203,
+        "days_held": 21,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (88.3), Stochastic Overbought, BB Upper Band (95.84%), Price Above VWAP)"
+      },
+      {
+        "ticker": "RPOWER.NS",
+        "shares": 3169.6725728232277,
+        "entry_price": 45.07,
+        "current_price": 61.970001220703125,
+        "position_value": 196424.61320708465,
+        "return_pct": 37.49722924495923,
+        "days_held": 21,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Short-term RSI Overbought (80.6), Stochastic Overbought, BB Upper Band (86.90%), Price Above VWAP)"
+      },
+      {
+        "ticker": "LTFOODS.NS",
+        "shares": 709.9645630262689,
+        "entry_price": 402.4345729263028,
+        "current_price": 445.8999938964844,
+        "position_value": 316573.19432013354,
+        "return_pct": 10.800618012046728,
+        "days_held": 21,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (85.6), Stochastic Overbought, BB Upper Band (96.83%), Price Above VWAP)"
+      },
+      {
+        "ticker": "JMFINANCIL.NS",
+        "shares": 1139.3025189978696,
+        "entry_price": 125.39,
+        "current_price": 131.26568603515625,
+        "position_value": 149551.326757837,
+        "return_pct": 4.685928730485884,
+        "days_held": 7,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (73.6), BB Upper Band (84.06%), Price Above VWAP)"
+      },
+      {
+        "ticker": "PARADEEP.NS",
+        "shares": 829.2148993333113,
+        "entry_price": 172.28,
+        "current_price": 176.19000244140625,
+        "position_value": 146099.37513798656,
+        "return_pct": 2.269562596590579,
+        "days_held": 7,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (80.0), BB Upper Band (102.49%), Price Above VWAP)"
+      }
+    ]
+  },
+  {
+    "date": "2025-06-09 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 20051.33687903179,
+    "total_value": 1212450.978560183,
+    "positions": [
+      {
+        "ticker": "DLF.NS",
+        "shares": 545.7978563136189,
+        "entry_price": 785.2200656595631,
+        "current_price": 878.5999755859375,
+        "position_value": 479537.9832320026,
+        "return_pct": 11.892196087467251,
+        "days_held": 21,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (94.1), Stochastic Overbought, BB Upper Band (106.02%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)"
+      },
+      {
+        "ticker": "RPOWER.NS",
+        "shares": 3169.6725728232277,
+        "entry_price": 45.07,
         "current_price": 64.62000274658203,
-        "position_value": 209669.05498566525,
-        "return_pct": 4.834527492832626,
-        "days_held": 0,
-        "signal": "HOLD"
+        "position_value": 204824.2503616027,
+        "return_pct": 43.37697525312188,
+        "days_held": 21,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Short-term RSI Overbought (80.6), Stochastic Overbought, BB Upper Band (86.90%), Price Above VWAP)"
       },
       {
-        "ticker": "SVLL.NS",
-        "shares": 256.9538125521937,
-        "entry_price": 778.35,
-        "current_price": 815.0,
-        "position_value": 209417.3572300379,
-        "return_pct": 4.708678615018947,
-        "days_held": 0,
-        "signal": "HOLD"
+        "ticker": "LTFOODS.NS",
+        "shares": 709.9645630262689,
+        "entry_price": 402.4345729263028,
+        "current_price": 471.3999938964844,
+        "position_value": 334677.2906773034,
+        "return_pct": 17.13705173705618,
+        "days_held": 21,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (85.6), Stochastic Overbought, BB Upper Band (96.83%), Price Above VWAP)"
       },
       {
-        "ticker": "EIMCOELECO.NS",
-        "shares": 32.56577169140056,
-        "entry_price": 2583.19,
-        "current_price": 2640.968994140625,
-        "position_value": 86005.19330725138,
-        "return_pct": 2.236730327255252,
-        "days_held": 0,
-        "signal": "HOLD"
+        "ticker": "JMFINANCIL.NS",
+        "shares": 1139.3025189978696,
+        "entry_price": 125.39,
+        "current_price": 152.1633758544922,
+        "position_value": 173360.11741024256,
+        "return_pct": 21.35208218716978,
+        "days_held": 7,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (73.6), BB Upper Band (84.06%), Price Above VWAP)"
+      }
+    ]
+  },
+  {
+    "date": "2025-06-16 00:00:00",
+    "phase": "PRE-REBALANCE",
+    "cash": 20051.33687903179,
+    "total_value": 1212450.978560183,
+    "positions": [
+      {
+        "ticker": "DLF.NS",
+        "shares": 545.7978563136189,
+        "entry_price": 785.2200656595631,
+        "current_price": 878.5999755859375,
+        "position_value": 479537.9832320026,
+        "return_pct": 11.892196087467251,
+        "days_held": 28,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (94.1), Stochastic Overbought, BB Upper Band (106.02%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)"
+      },
+      {
+        "ticker": "RPOWER.NS",
+        "shares": 3169.6725728232277,
+        "entry_price": 45.07,
+        "current_price": 64.62000274658203,
+        "position_value": 204824.2503616027,
+        "return_pct": 43.37697525312188,
+        "days_held": 28,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Short-term RSI Overbought (80.6), Stochastic Overbought, BB Upper Band (86.90%), Price Above VWAP)"
+      },
+      {
+        "ticker": "LTFOODS.NS",
+        "shares": 709.9645630262689,
+        "entry_price": 402.4345729263028,
+        "current_price": 471.3999938964844,
+        "position_value": 334677.2906773034,
+        "return_pct": 17.13705173705618,
+        "days_held": 28,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (85.6), Stochastic Overbought, BB Upper Band (96.83%), Price Above VWAP)"
+      },
+      {
+        "ticker": "JMFINANCIL.NS",
+        "shares": 1139.3025189978696,
+        "entry_price": 125.39,
+        "current_price": 152.1633758544922,
+        "position_value": 173360.11741024256,
+        "return_pct": 21.35208218716978,
+        "days_held": 14,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (73.6), BB Upper Band (84.06%), Price Above VWAP)"
+      }
+    ]
+  },
+  {
+    "date": "2025-06-16 00:00:00",
+    "phase": "POST-REBALANCE",
+    "cash": 20051.33687903179,
+    "total_value": 1184629.6564766224,
+    "positions": [
+      {
+        "ticker": "DLF.NS",
+        "shares": 545.7978563136189,
+        "entry_price": 785.2200656595631,
+        "current_price": 859.0,
+        "position_value": 468840.35857339867,
+        "return_pct": 9.39608366712633,
+        "days_held": 28,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (94.1), Stochastic Overbought, BB Upper Band (106.02%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)"
+      },
+      {
+        "ticker": "RPOWER.NS",
+        "shares": 3169.6725728232277,
+        "entry_price": 45.07,
+        "current_price": 66.9800033569336,
+        "position_value": 212304.67956808014,
+        "return_pct": 48.61327569765608,
+        "days_held": 28,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Short-term RSI Overbought (80.6), Stochastic Overbought, BB Upper Band (86.90%), Price Above VWAP)"
+      },
+      {
+        "ticker": "LTFOODS.NS",
+        "shares": 709.9645630262689,
+        "entry_price": 402.4345729263028,
+        "current_price": 451.0,
+        "position_value": 320194.0179248473,
+        "return_pct": 12.067906273696549,
+        "days_held": 28,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (85.6), Stochastic Overbought, BB Upper Band (96.83%), Price Above VWAP)"
+      },
+      {
+        "ticker": "JMFINANCIL.NS",
+        "shares": 1139.3025189978696,
+        "entry_price": 125.39,
+        "current_price": 143.27999877929688,
+        "position_value": 163239.26353126462,
+        "return_pct": 14.267484471885217,
+        "days_held": 14,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (73.6), BB Upper Band (84.06%), Price Above VWAP)"
       }
     ]
   }
