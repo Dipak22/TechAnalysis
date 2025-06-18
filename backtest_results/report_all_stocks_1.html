@@ -1,0 +1,515 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Strategy Backtest Report</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; }
+                h1, h2 { color: #2c3e50; }
+                .log-entry { margin-bottom: 30px; border: 1px solid #ddd; padding: 15px; border-radius: 5px; }
+                .phase { font-weight: bold; color: #3498db; }
+                .position { margin: 10px 0; padding: 8px; background: #f8f9fa; border-radius: 4px; }
+                .positive { color: #27ae60; }
+                .negative { color: #e74c3c; }
+                .transaction { margin: 15px 0; }
+                table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+                th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+                tr:hover { background-color: #f5f5f5; }
+            </style>
+        </head>
+        <body>
+        <h1>Strategy Backtest Report</h1>
+            <h2>Weekly Portfolio Snapshots</h2>
+            
+            <div class="log-entry">
+                <h3>Date: 2025-05-19 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $8,517.03 | 
+                <strong>Total Value:</strong> $1,001,680.01</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>TCIFINANCE.NS</strong>: 40,566.96 shares<br>
+                    Entry: $12.35 | Current: $12.37<br>
+                    Value: $501,813.34 | 
+                    <span class="positive">Return: +0.16%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: Golden Cross (Short > Medium MA), PSAR Bullish (Partial), Short-term RSI Overbought (73.6), Stochastic Overbought, Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 10.3%)
+                </div>
+                
+                <div class="position">
+                    <strong>ROML.NS</strong>: 7,918.35 shares<br>
+                    Entry: $47.39 | Current: $47.45<br>
+                    Value: $375,725.61 | 
+                    <span class="positive">Return: +0.13%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: Morning Star Pattern (Strong Bullish), Stochastic Overbought)
+                </div>
+                
+                <div class="position">
+                    <strong>OILCOUNTUB.NS</strong>: 1,711.17 shares<br>
+                    Entry: $67.34 | Current: $67.57<br>
+                    Value: $115,624.03 | 
+                    <span class="positive">Return: +0.34%</span><br>
+                    Days Held: 0 | Signal: HOLD
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2025-05-26 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $767,484.48 | 
+                <strong>Total Value:</strong> $974,301.22</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>OILCOUNTUB.NS</strong>: 1,711.17 shares<br>
+                    Entry: $67.34 | Current: $67.93<br>
+                    Value: $116,240.05 | 
+                    <span class="positive">Return: +0.88%</span><br>
+                    Days Held: 7 | Signal: HOLD
+                </div>
+                
+                <div class="position">
+                    <strong>SHAH.NS</strong>: 29,124.34 shares<br>
+                    Entry: $3.13 | Current: $3.11<br>
+                    Value: $90,576.68 | 
+                    <span class="negative">Return: -0.64%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Stochastic Oversold)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2025-06-02 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $208,784.88 | 
+                <strong>Total Value:</strong> $985,889.20</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>OILCOUNTUB.NS</strong>: 1,711.17 shares<br>
+                    Entry: $67.34 | Current: $70.05<br>
+                    Value: $119,867.75 | 
+                    <span class="positive">Return: +4.02%</span><br>
+                    Days Held: 14 | Signal: HOLD
+                </div>
+                
+                <div class="position">
+                    <strong>ARTNIRMAN.NS</strong>: 6,814.41 shares<br>
+                    Entry: $48.64 | Current: $50.66<br>
+                    Value: $345,218.15 | 
+                    <span class="positive">Return: +4.15%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (80.7), Stochastic Overbought, BB Upper Band (97.38%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>TCIFINANCE.NS</strong>: 25,061.72 shares<br>
+                    Entry: $12.67 | Current: $12.45<br>
+                    Value: $312,018.42 | 
+                    <span class="negative">Return: -1.74%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: Golden Cross (Short > Medium MA), PSAR Bullish (All Timeframes), Short-term RSI Overbought (75.9), BB Upper Band (83.14%), Price Above VWAP)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2025-06-09 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $339,005.36 | 
+                <strong>Total Value:</strong> $1,067,656.70</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>OILCOUNTUB.NS</strong>: 2,518.64 shares<br>
+                    Entry: $70.68 | Current: $77.38<br>
+                    Value: $194,892.35 | 
+                    <span class="positive">Return: +9.48%</span><br>
+                    Days Held: 21 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Bearish Engulfing Pattern, Dark Cloud Cover (Bearish), BB Upper Band (97.09%), Volume Spike (2x MA), Price Above VWAP, Short-term Up 11.0%)
+                </div>
+                
+                <div class="position">
+                    <strong>ARTNIRMAN.NS</strong>: 3,892.02 shares<br>
+                    Entry: $48.64 | Current: $58.73<br>
+                    Value: $228,578.23 | 
+                    <span class="positive">Return: +20.74%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (80.7), Stochastic Overbought, BB Upper Band (97.38%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>CALSOFT.NS</strong>: 17,758.82 shares<br>
+                    Entry: $10.78 | Current: $11.26<br>
+                    Value: $199,964.37 | 
+                    <span class="positive">Return: +4.45%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: Golden Cross (Short > Medium MA), Morning Star Pattern (Strong Bullish))
+                </div>
+                
+                <div class="position">
+                    <strong>ROML.NS</strong>: 2,222.10 shares<br>
+                    Entry: $47.68 | Current: $47.35<br>
+                    Value: $105,216.39 | 
+                    <span class="negative">Return: -0.69%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: Strong Trend (ADX > 25), BB Upper Band (81.24%), Price Above VWAP)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2025-06-16 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $160,352.60 | 
+                <strong>Total Value:</strong> $1,205,458.35</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>ARTNIRMAN.NS</strong>: 2,858.57 shares<br>
+                    Entry: $48.64 | Current: $67.72<br>
+                    Value: $193,582.10 | 
+                    <span class="positive">Return: +39.23%</span><br>
+                    Days Held: 14 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (80.7), Stochastic Overbought, BB Upper Band (97.38%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>CALSOFT.NS</strong>: 15,019.89 shares<br>
+                    Entry: $10.78 | Current: $14.36<br>
+                    Value: $215,685.63 | 
+                    <span class="positive">Return: +33.21%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: Golden Cross (Short > Medium MA), Morning Star Pattern (Strong Bullish))
+                </div>
+                
+                <div class="position">
+                    <strong>ROML.NS</strong>: 3,278.64 shares<br>
+                    Entry: $52.51 | Current: $60.89<br>
+                    Value: $199,636.13 | 
+                    <span class="positive">Return: +15.96%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (96.9), Stochastic Overbought, BB Upper Band (148.41%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 32.4%)
+                </div>
+                
+                <div class="position">
+                    <strong>TCIFINANCE.NS</strong>: 12,621.14 shares<br>
+                    Entry: $16.28 | Current: $17.09<br>
+                    Value: $215,695.23 | 
+                    <span class="positive">Return: +4.98%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (96.8), Stochastic Overbought, BB Upper Band (137.41%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 30.3%)
+                </div>
+                
+                <div class="position">
+                    <strong>SHAH.NS</strong>: 45,559.23 shares<br>
+                    Entry: $4.51 | Current: $4.84<br>
+                    Value: $220,506.66 | 
+                    <span class="positive">Return: +7.32%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (98.0), Stochastic Overbought, BB Upper Band (147.68%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 46.4%)
+                </div>
+                
+            </div>
+            
+            
+            <h2>Transaction History</h2>
+            
+            <div class="transaction">
+                <h3>Transactions on 2025-05-19 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>TCIFINANCE.NS</td>
+                    <td>40,566.96</td>
+                    <td>$12.35</td>
+                    <td>$501,002.00</td>
+                </tr>
+                
+                <tr>
+                    <td>ROML.NS</td>
+                    <td>7,918.35</td>
+                    <td>$47.39</td>
+                    <td>$375,250.50</td>
+                </tr>
+                
+                <tr>
+                    <td>OILCOUNTUB.NS</td>
+                    <td>1,711.17</td>
+                    <td>$67.34</td>
+                    <td>$115,230.46</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                <p>No positions closed</p>
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2025-05-26 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>SHAH.NS</td>
+                    <td>29,124.34</td>
+                    <td>$3.13</td>
+                    <td>$91,159.17</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>TCIFINANCE.NS</td>
+                    <td>40,566.96</td>
+                    <td>$12.35</td>
+                    <td>$12.03</td>
+                    <td class="negative">-2.59%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>ROML.NS</td>
+                    <td>7,918.35</td>
+                    <td>$47.39</td>
+                    <td>$45.73</td>
+                    <td class="negative">-3.50%</td>
+                    <td>7</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2025-06-02 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>ARTNIRMAN.NS</td>
+                    <td>6,814.41</td>
+                    <td>$48.64</td>
+                    <td>$331,453.04</td>
+                </tr>
+                
+                <tr>
+                    <td>TCIFINANCE.NS</td>
+                    <td>25,061.72</td>
+                    <td>$12.67</td>
+                    <td>$317,532.01</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>SHAH.NS</td>
+                    <td>29,124.34</td>
+                    <td>$3.13</td>
+                    <td>$3.10</td>
+                    <td class="negative">-0.96%</td>
+                    <td>7</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2025-06-09 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>OILCOUNTUB.NS</td>
+                    <td>807.47</td>
+                    <td>$77.75</td>
+                    <td>$62,780.47</td>
+                </tr>
+                
+                <tr>
+                    <td>CALSOFT.NS</td>
+                    <td>17,758.82</td>
+                    <td>$10.78</td>
+                    <td>$191,440.13</td>
+                </tr>
+                
+                <tr>
+                    <td>ROML.NS</td>
+                    <td>2,222.10</td>
+                    <td>$47.68</td>
+                    <td>$105,949.69</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>ARTNIRMAN.NS</td>
+                    <td>2,922.39</td>
+                    <td>$48.64</td>
+                    <td>$62.58</td>
+                    <td class="positive">+28.66%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>TCIFINANCE.NS</td>
+                    <td>25,061.72</td>
+                    <td>$12.67</td>
+                    <td>$12.27</td>
+                    <td class="negative">-3.16%</td>
+                    <td>7</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2025-06-16 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>TCIFINANCE.NS</td>
+                    <td>12,621.14</td>
+                    <td>$16.28</td>
+                    <td>$205,472.11</td>
+                </tr>
+                
+                <tr>
+                    <td>SHAH.NS</td>
+                    <td>45,559.23</td>
+                    <td>$4.51</td>
+                    <td>$205,472.11</td>
+                </tr>
+                
+                <tr>
+                    <td>ROML.NS</td>
+                    <td>1,056.54</td>
+                    <td>$62.67</td>
+                    <td>$66,213.15</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>OILCOUNTUB.NS</td>
+                    <td>2,518.64</td>
+                    <td>$70.68</td>
+                    <td>$78.69</td>
+                    <td class="positive">+11.34%</td>
+                    <td>28</td>
+                </tr>
+                
+                <tr>
+                    <td>CALSOFT.NS</td>
+                    <td>2,738.93</td>
+                    <td>$10.78</td>
+                    <td>$13.68</td>
+                    <td class="positive">+26.90%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>ARTNIRMAN.NS</td>
+                    <td>1,033.45</td>
+                    <td>$48.64</td>
+                    <td>$60.81</td>
+                    <td class="positive">+25.02%</td>
+                    <td>14</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+            
+            <h2>Performance Summary</h2>
+            <img src="performance_plot.png" width="800">
+        </body>
+        </html>
+        

@@ -1,3 +1,4 @@
+from operator import itemgetter
 import yfinance as yf
 import pandas as pd
 from datetime import datetime, timedelta
@@ -5,7 +6,7 @@ import matplotlib.pyplot as plt
 import json
 from pathlib import Path
 from MLTechnicalScorer import MLTechnicalScorer
-from my_stocks import my_stocks
+from my_stocks import my_stocks,PENNY_STOCKS
 from sector_mapping import sector_stocks
 from daily_report import calculate_signals
 
@@ -26,12 +27,13 @@ class StrategyBacktester:
         self.weekly_log = []
         self.output_dir = Path("backtest_results")
         self.output_dir.mkdir(exist_ok=True)
+        self.current_portfolio_value = capital
         
     def run_backtest(self, start_date, end_date, stock_universe):
         current_date = start_date
         while current_date <= end_date:
             if current_date.weekday() == 0:  # Run weekly on Mondays
-                self.log_weekly_status(current_date, "PRE-REBALANCE")
+                #self.log_weekly_status(current_date, "PRE-REBALANCE")
                 self.run_weekly_rebalance(current_date, stock_universe)
                 self.log_weekly_status(current_date, "POST-REBALANCE")
             current_date += timedelta(days=1)
@@ -71,6 +73,8 @@ class StrategyBacktester:
                 'days_held': days_held,
                 'signal': position['signal']  # Last known signal
             })
+
+        self.current_portfolio_value = log_entry['total_value']
         
         self.weekly_log.append(log_entry)
         #self.print_weekly_log(log_entry)
@@ -124,45 +128,105 @@ class StrategyBacktester:
         # Close positions not in top stocks
         for ticker in list(self.portfolio['holdings'].keys()):
             if ticker not in top_tickers:
-                closed_positions.append(self.close_position(ticker, current_date))
+                closing_price = float(list(map(itemgetter('Price'), filter(lambda x: x['Ticker'] == ticker, signals)))[0])
+                print(f"Closing position for {ticker} on {current_date.strftime('%Y-%m-%d')} at ${closing_price:.2f}")
+                #print(names)
+                closed_positions.append(self.close_position(ticker, current_date,closing_price))
         
-        # Calculate position size
-        position_size = self.capital / len(top_stocks) if top_stocks else 0
-        
-        
-        # Open new positions
-        for stock in top_stocks:
+        # Calculate position sizes based on scores (weighted allocation)
+        total_score = sum(float(stock['Score']) for stock in top_stocks)
+        if total_score > 0:
+    
+            # Calculate weighted position sizes
+            position_sizes = [
+                (float(stock['Score']) / total_score) * (self.current_portfolio_value + self.portfolio['cash'])
+                for stock in top_stocks
+            ]
+        else:
+            position_sizes = [0] * len(top_stocks)
+
+        # Open/rebalance positions
+        for stock, position_size in zip(top_stocks, position_sizes):
             ticker = stock['Ticker']
             current_price = float(stock['Price'])
             
-            # Handle existing positions
-            if ticker in self.portfolio['holdings']:
-                position = self.portfolio['holdings'][ticker]
-                #print(ticker, current_price, position['entry_price'])
-                return_pct = (current_price - position['entry_price']) / position['entry_price'] * 100
-                if stock['Signal'].startswith(('SELL', 'STRONG SELL')) or return_pct <= 0:
-                    closed_positions.append(self.close_position(ticker, current_date))
-                else:
-                    shares = position_size / current_price
-                    cost = shares * current_price
-                    if cost > self.portfolio['cash']:
-                        continue
-                    opened_positions.append(self.open_position(ticker, shares, current_price, current_date,stock['Signal']))
-
-            # Handle new positions
-            else:
-                shares = position_size / current_price
-                cost = shares * current_price
-                if cost > self.portfolio['cash']:
-                    continue
-                opened_positions.append(self.open_position(ticker, shares, current_price, current_date,stock['Signal']))
+            # Skip if no allocation or price is zero
+            if position_size <= 0 or current_price <= 0:
+                continue
+                
+            # Calculate target shares
+            target_shares = position_size / current_price
             
+            # Handle existing position
+            if ticker in self.portfolio['holdings']:
+                current_position = self.portfolio['holdings'][ticker]
+                current_shares = current_position['shares']
+                return_pct = (current_price - current_position['entry_price']) / current_position['entry_price'] * 100
+                if stock['Signal'].startswith(('SELL', 'STRONG SELL')) or return_pct <= 0:
+                    closed_positions.append(self.close_position(ticker, current_date,current_price))
+                else:
+                    # Calculate difference
+                    shares_diff = target_shares - current_shares
+                
+                    if shares_diff > 0:  # Need to buy more
+                        cost = shares_diff * current_price
+                        if cost > self.portfolio['cash']:
+                            continue  # Not enough cash
+                        opened_positions.append(self.open_position(
+                            ticker, shares_diff, current_price, current_date, stock['Signal']
+                        ))
+                    elif shares_diff < 0:  # Need to sell some
+                        closed_shares = -shares_diff
+                        closed_positions.append(self.close_partial_position(
+                            ticker, closed_shares, current_price, current_date
+                        ))
 
+            else:  # New position
+                cost = target_shares * current_price
+                if cost > self.portfolio['cash']:
+                    continue  # Not enough cash
+                opened_positions.append(self.open_position(
+                    ticker, target_shares, current_price, current_date, stock['Signal']
+                ))
+    
         # Log transaction details
         self.log_transactions(current_date, opened_positions, closed_positions)
         
         # Record portfolio snapshot
         self.record_portfolio(current_date)
+        
+        
+    def close_partial_position(self, ticker, shares_to_close, current_price, date):
+        """Close a portion of a position"""
+        if ticker not in self.portfolio['holdings']:
+            return None
+            
+        position = self.portfolio['holdings'][ticker]
+        
+        # Can't close more shares than we have
+        shares_to_close = min(shares_to_close, position['shares'])
+        
+        proceeds = shares_to_close * current_price
+        self.portfolio['cash'] += proceeds
+        self.current_portfolio_value -=proceeds
+        
+        return_pct = (current_price - position['entry_price']) / position['entry_price'] * 100
+        days_held = (date - position['entry_date']).days
+
+        # Update remaining position
+        position['shares'] -= shares_to_close
+        if position['shares'] <= 0:
+            del self.portfolio['holdings'][ticker]
+        
+        return {
+            'ticker': ticker,
+            'shares': shares_to_close,
+            'entry_price': position['entry_price'],
+            'exit_price': current_price,
+            'return_pct': return_pct,
+            'days_held': days_held
+        }
+
 
     def log_transactions(self, date, opened, closed):
         """Log detailed transaction information"""
@@ -269,10 +333,10 @@ class StrategyBacktester:
             'amount': cost
         }
     
-    def close_position(self, ticker, date):
+    def close_position(self, ticker, date, current_price=None):
         if ticker in self.portfolio['holdings']:
             position = self.portfolio['holdings'][ticker]
-            current_price = self.get_current_price(ticker, date)
+            current_price = current_price
             
             # Use last known price if current unavailable
             if current_price is None:
@@ -280,6 +344,7 @@ class StrategyBacktester:
             
             proceeds = position['shares'] * current_price
             self.portfolio['cash'] += proceeds
+            self.current_portfolio_value -= proceeds
             return_pct = (current_price - position['entry_price']) / position['entry_price'] * 100
             days_held = (date - position['entry_date']).days
         
@@ -362,7 +427,7 @@ class StrategyBacktester:
         </html>
         """
         
-        with open(self.output_dir / "report_all_stocks.html", "w") as f:
+        with open(self.output_dir / "report_entire_stocks_1.html", "w") as f:
             f.write(html_content)
 
     def generate_weekly_log_html(self):
@@ -483,8 +548,9 @@ if __name__ == "__main__":
     # Configuration
     start_date = datetime(2025, 5, 15)
     end_date = datetime(2025, 6, 18)
-    #stock_universe = [stock for stocks in sector_stocks.values() for stock in stocks]
-    stock_universe = my_stocks  # Use your own stock universe
+    stock_universe = [stock for stocks in sector_stocks.values() for stock in stocks]
+    #stock_universe = my_stocks  # Use your own stock universe
+    #stock_universe = PENNY_STOCKS
     # Run backtest
     backtester = StrategyBacktester(capital=1_000_000, top_n=7)
     backtester.run_backtest(start_date, end_date, stock_universe)

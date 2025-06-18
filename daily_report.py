@@ -775,10 +775,11 @@ def analyze_stocks(stock_list, short_period=14, medium_period=26, long_period=50
     # Sort by score
     results.sort(key=lambda x: float(x['Score']), reverse=True)
     current_date = datetime.now().strftime("%Y-%m-%d")
-    OUTPUT_FILE = f"momentum_report_{current_date}.html"
+    OUTPUT_FILE = f"momentum_report_my_stocks_{current_date}.html"
     generate_html_report(short_period,medium_period, long_period, results, output_file=OUTPUT_FILE)
 
 # Example usage
 if __name__ == "__main__":
-    stocks = [stock for stocks in sector_stocks.values() for stock in stocks] # Replace with your stock list
+    #stocks = [stock for stocks in sector_stocks.values() for stock in stocks] # Replace with your stock list
+    stocks = my_stocks
     analyze_stocks(stocks, short_period=5, medium_period=10, long_period=20)

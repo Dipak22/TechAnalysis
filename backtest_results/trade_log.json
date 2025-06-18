@@ -4,45 +4,21 @@
     "opened": [
       {
         "ticker": "BEL.NS",
-        "shares": 392.5725277745064,
+        "shares": 785.1450555490127,
         "price": 363.9,
-        "amount": 142857.14285714287
+        "amount": 285714.2857142857
       },
       {
-        "ticker": "JMFINANCIL.NS",
-        "shares": 1263.551590811453,
-        "price": 113.06,
-        "amount": 142857.14285714287
+        "ticker": "BDL.NS",
+        "shares": 155.11090429657204,
+        "price": 1842.0,
+        "amount": 285714.2857142857
       },
       {
-        "ticker": "ZEEL.NS",
-        "shares": 1101.6977161806346,
-        "price": 129.67,
-        "amount": 142857.14285714287
-      },
-      {
-        "ticker": "JIOFIN.NS",
-        "shares": 515.729757607014,
-        "price": 277.0,
-        "amount": 142857.14285714287
-      },
-      {
-        "ticker": "DLF.NS",
-        "shares": 199.54901921657057,
-        "price": 715.9,
-        "amount": 142857.14285714287
-      },
-      {
-        "ticker": "RPOWER.NS",
-        "shares": 3169.6725728232277,
-        "price": 45.07,
-        "amount": 142857.14285714287
-      },
-      {
-        "ticker": "LTFOODS.NS",
-        "shares": 385.2154317301951,
-        "price": 370.85,
-        "amount": 142857.14285714287
+        "ticker": "JYOTICNC.NS",
+        "shares": 226.9735348858323,
+        "price": 1258.8,
+        "amount": 285714.2857142857
       }
     ],
     "closed": []
@@ -51,41 +27,59 @@
     "date": "2025-05-26 00:00:00",
     "opened": [
       {
-        "ticker": "BEL.NS",
-        "shares": 372.2176728951091,
-        "price": 383.8,
-        "amount": 142857.14285714287
+        "ticker": "PARADEEP.NS",
+        "shares": 1036.0859850315323,
+        "price": 157.21,
+        "amount": 162883.0777068072
       },
       {
-        "ticker": "DLF.NS",
-        "shares": 183.97571520559288,
-        "price": 776.5,
-        "amount": 142857.14285714287
+        "ticker": "SOLARINDS.NS",
+        "shares": 10.62234757446245,
+        "price": 15334.0,
+        "amount": 162883.0777068072
+      },
+      {
+        "ticker": "MAZDOCK.NS",
+        "shares": 46.50746015669908,
+        "price": 3502.3,
+        "amount": 162883.0777068072
+      },
+      {
+        "ticker": "ZENTEC.NS",
+        "shares": 86.09042162093404,
+        "price": 1892.0,
+        "amount": 162883.0777068072
+      },
+      {
+        "ticker": "CURAA.NS",
+        "shares": 1695.6389517677203,
+        "price": 96.06,
+        "amount": 162883.0777068072
       }
     ],
     "closed": [
       {
-        "ticker": "JMFINANCIL.NS",
-        "shares": 1263.551590811453,
-        "entry_price": 113.06,
-        "exit_price": 119.86963653564453,
-        "return_pct": 6.023028954223005,
+        "ticker": "BDL.NS",
+        "shares": 155.11090429657204,
+        "entry_price": 1842.0,
+        "exit_price": 1909.1,
+        "return_pct": 3.6427795874049895,
         "days_held": 7
       },
       {
-        "ticker": "JIOFIN.NS",
-        "shares": 515.729757607014,
-        "entry_price": 277.0,
-        "exit_price": 281.75,
-        "return_pct": 1.7148014440433215,
+        "ticker": "JYOTICNC.NS",
+        "shares": 226.9735348858323,
+        "entry_price": 1258.8,
+        "exit_price": 1238.4,
+        "return_pct": -1.620591039084832,
         "days_held": 7
       },
       {
-        "ticker": "ZEEL.NS",
-        "shares": 1101.6977161806346,
-        "entry_price": 129.67,
-        "exit_price": 127.55999755859375,
-        "return_pct": -1.6272094095829703,
+        "ticker": "BEL.NS",
+        "shares": 360.74933458286574,
+        "entry_price": 363.9,
+        "exit_price": 383.8,
+        "return_pct": 5.468535311898883,
         "days_held": 7
       }
     ]
@@ -94,32 +88,78 @@
     "date": "2025-06-02 00:00:00",
     "opened": [
       {
-        "ticker": "JMFINANCIL.NS",
-        "shares": 1139.3025189978696,
-        "price": 125.39,
-        "amount": 142857.14285714287
+        "ticker": "POWERINDIA.NS",
+        "shares": 7.981325366758165,
+        "price": 19298.0,
+        "amount": 154023.61692769907
       },
       {
-        "ticker": "LTFOODS.NS",
-        "shares": 324.7491312960738,
-        "price": 439.9,
-        "amount": 142857.14285714287
+        "ticker": "BDL.NS",
+        "shares": 76.41955689789089,
+        "price": 2015.5,
+        "amount": 154023.61692769907
       },
       {
-        "ticker": "PARADEEP.NS",
-        "shares": 829.2148993333113,
-        "price": 172.28,
-        "amount": 142857.14285714287
+        "ticker": "JYOTICNC.NS",
+        "shares": 118.88207543045623,
+        "price": 1295.6,
+        "amount": 154023.61692769907
+      },
+      {
+        "ticker": "INTELLECT.NS",
+        "shares": 131.3578243381511,
+        "price": 1172.55,
+        "amount": 154023.61692769904
       }
     ],
     "closed": [
       {
         "ticker": "BEL.NS",
-        "shares": 764.7902006696155,
-        "entry_price": 373.5851812224154,
-        "exit_price": 387.5,
-        "return_pct": 3.7246709658165984,
+        "shares": 424.39572096614694,
+        "entry_price": 363.9,
+        "exit_price": 384.6,
+        "return_pct": 5.68837592745261,
         "days_held": 14
+      },
+      {
+        "ticker": "SOLARINDS.NS",
+        "shares": 10.62234757446245,
+        "entry_price": 15334.0,
+        "exit_price": 16104.0,
+        "return_pct": 5.0215208034433285,
+        "days_held": 7
+      },
+      {
+        "ticker": "MAZDOCK.NS",
+        "shares": 46.50746015669908,
+        "entry_price": 3502.3,
+        "exit_price": 3478.2,
+        "return_pct": -0.6881192359306845,
+        "days_held": 7
+      },
+      {
+        "ticker": "PARADEEP.NS",
+        "shares": 142.055238991951,
+        "entry_price": 157.21,
+        "exit_price": 172.28,
+        "return_pct": 9.585904204567134,
+        "days_held": 7
+      },
+      {
+        "ticker": "ZENTEC.NS",
+        "shares": 14.110041712672029,
+        "entry_price": 1892.0,
+        "exit_price": 2139.8,
+        "return_pct": 13.097251585623686,
+        "days_held": 7
+      },
+      {
+        "ticker": "CURAA.NS",
+        "shares": 213.93027521457884,
+        "entry_price": 96.06,
+        "exit_price": 103.95,
+        "return_pct": 8.213616489693942,
+        "days_held": 7
       }
     ]
   },
@@ -127,26 +167,170 @@
     "date": "2025-06-09 00:00:00",
     "opened": [
       {
-        "ticker": "DLF.NS",
-        "shares": 162.27312189145553,
-        "price": 880.35,
-        "amount": 142857.14285714287
+        "ticker": "POLICYBZR.NS",
+        "shares": 80.94525559075232,
+        "price": 1916.7,
+        "amount": 155147.77139079498
+      },
+      {
+        "ticker": "SVLL.NS",
+        "shares": 199.3290568392047,
+        "price": 778.35,
+        "amount": 155147.77139079498
+      },
+      {
+        "ticker": "COCHINSHIP.NS",
+        "shares": 64.84755335038453,
+        "price": 2392.5,
+        "amount": 155147.77139079498
+      },
+      {
+        "ticker": "NDRAUTO.NS",
+        "shares": 145.61029694114967,
+        "price": 1065.5,
+        "amount": 155147.77139079498
+      },
+      {
+        "ticker": "FIEMIND.NS",
+        "shares": 82.47276812183445,
+        "price": 1881.2,
+        "amount": 155147.77139079498
       }
     ],
     "closed": [
       {
         "ticker": "PARADEEP.NS",
-        "shares": 829.2148993333113,
-        "entry_price": 172.28,
-        "exit_price": 173.10000610351562,
-        "return_pct": 0.47597289500558615,
+        "shares": 894.0307460395813,
+        "entry_price": 157.21,
+        "exit_price": 171.8,
+        "return_pct": 9.28058011576872,
+        "days_held": 14
+      },
+      {
+        "ticker": "ZENTEC.NS",
+        "shares": 71.98037990826201,
+        "entry_price": 1892.0,
+        "exit_price": 2083.4,
+        "return_pct": 10.116279069767446,
+        "days_held": 14
+      },
+      {
+        "ticker": "POWERINDIA.NS",
+        "shares": 7.981325366758165,
+        "entry_price": 19298.0,
+        "exit_price": 18203.0,
+        "return_pct": -5.674163125712509,
         "days_held": 7
+      },
+      {
+        "ticker": "BDL.NS",
+        "shares": 76.41955689789089,
+        "entry_price": 2015.5,
+        "exit_price": 1933.6,
+        "return_pct": -4.063507814438109,
+        "days_held": 7
+      },
+      {
+        "ticker": "JYOTICNC.NS",
+        "shares": 118.88207543045623,
+        "entry_price": 1295.6,
+        "exit_price": 1216.2,
+        "return_pct": -6.12843470206853,
+        "days_held": 7
+      },
+      {
+        "ticker": "INTELLECT.NS",
+        "shares": 131.3578243381511,
+        "entry_price": 1172.55,
+        "exit_price": 1162.9,
+        "return_pct": -0.8229926229158555,
+        "days_held": 7
+      },
+      {
+        "ticker": "CURAA.NS",
+        "shares": 129.658381208523,
+        "entry_price": 96.06,
+        "exit_price": 114.75,
+        "return_pct": 19.456589631480323,
+        "days_held": 14
       }
     ]
   },
   {
     "date": "2025-06-16 00:00:00",
-    "opened": [],
-    "closed": []
+    "opened": [
+      {
+        "ticker": "NAZARA.NS",
+        "shares": 128.61323273196086,
+        "price": 1327.8,
+        "amount": 170772.65042149762
+      },
+      {
+        "ticker": "SJS.NS",
+        "shares": 140.0694311199948,
+        "price": 1219.2,
+        "amount": 170772.65042149764
+      },
+      {
+        "ticker": "FIEMIND.NS",
+        "shares": 7.773308304470916,
+        "price": 1892.3,
+        "amount": 14709.431304550315
+      },
+      {
+        "ticker": "IXIGO.NS",
+        "shares": 910.9818117011503,
+        "price": 187.46,
+        "amount": 170772.65042149764
+      },
+      {
+        "ticker": "NH.NS",
+        "shares": 89.26955066466161,
+        "price": 1913.0,
+        "amount": 170772.65042149764
+      }
+    ],
+    "closed": [
+      {
+        "ticker": "POLICYBZR.NS",
+        "shares": 80.94525559075232,
+        "entry_price": 1916.7,
+        "exit_price": 1890.4,
+        "return_pct": -1.372150049564353,
+        "days_held": 7
+      },
+      {
+        "ticker": "SVLL.NS",
+        "shares": 199.3290568392047,
+        "entry_price": 778.35,
+        "exit_price": 773.3,
+        "return_pct": -0.6488083766942979,
+        "days_held": 7
+      },
+      {
+        "ticker": "COCHINSHIP.NS",
+        "shares": 64.84755335038453,
+        "entry_price": 2392.5,
+        "exit_price": 2161.6,
+        "return_pct": -9.65099268547545,
+        "days_held": 7
+      },
+      {
+        "ticker": "NDRAUTO.NS",
+        "shares": 145.61029694114967,
+        "entry_price": 1065.5,
+        "exit_price": 988.1,
+        "return_pct": -7.264195213514779,
+        "days_held": 7
+      },
+      {
+        "ticker": "CURAA.NS",
+        "shares": 3.880638586920213,
+        "entry_price": 96.06,
+        "exit_price": 126.67,
+        "return_pct": 31.865500728711222,
+        "days_held": 21
+      }
+    ]
   }
 ]

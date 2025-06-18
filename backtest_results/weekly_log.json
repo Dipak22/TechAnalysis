@@ -1,520 +1,321 @@
 [
   {
     "date": "2025-05-19 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 1000000,
-    "total_value": 1000000,
-    "positions": []
-  },
-  {
-    "date": "2025-05-19 00:00:00",
     "phase": "POST-REBALANCE",
-    "cash": 5.820766091346741e-11,
-    "total_value": 1013138.0189717629,
+    "cash": 142857.14285714296,
+    "total_value": 997324.4010905075,
     "positions": [
       {
         "ticker": "BEL.NS",
-        "shares": 392.5725277745064,
+        "shares": 785.1450555490127,
         "entry_price": 363.9,
         "current_price": 363.75,
-        "position_value": 142798.2569779767,
+        "position_value": 285596.51395595336,
         "return_pct": -0.04122011541631692,
         "days_held": 0,
         "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (93.5), Stochastic Overbought, BB Upper Band (116.15%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 12.7%)"
       },
       {
-        "ticker": "JMFINANCIL.NS",
-        "shares": 1263.551590811453,
-        "entry_price": 113.06,
-        "current_price": 115.43292236328125,
-        "position_value": 145855.452684139,
-        "return_pct": 2.098816878897265,
+        "ticker": "BDL.NS",
+        "shares": 155.11090429657204,
+        "entry_price": 1842.0,
+        "current_price": 1823.9000244140625,
+        "position_value": 282906.78213340504,
+        "return_pct": -0.9826262533082247,
         "days_held": 0,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (90.0), Stochastic Overbought, BB Upper Band (106.59%), Price Above VWAP)"
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (88.7), BB Upper Band (105.43%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 17.3%)"
       },
       {
-        "ticker": "ZEEL.NS",
-        "shares": 1101.6977161806346,
-        "entry_price": 129.67,
-        "current_price": 128.52999877929688,
-        "position_value": 141601.20611585112,
-        "return_pct": -0.8791557189042282,
+        "ticker": "JYOTICNC.NS",
+        "shares": 226.9735348858323,
+        "entry_price": 1258.8,
+        "current_price": 1259.9000244140625,
+        "position_value": 285963.96214400616,
+        "return_pct": 0.08738675040217235,
         "days_held": 0,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (91.8), Stochastic Overbought, BB Upper Band (104.83%), Price Above VWAP, Short-term Up 10.7%)"
-      },
-      {
-        "ticker": "JIOFIN.NS",
-        "shares": 515.729757607014,
-        "entry_price": 277.0,
-        "current_price": 277.04998779296875,
-        "position_value": 142882.92304949395,
-        "return_pct": 0.018046134645758122,
-        "days_held": 0,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Short-term RSI Overbought (81.4), Stochastic Overbought, BB Upper Band (107.01%), Price Above VWAP)"
-      },
-      {
-        "ticker": "DLF.NS",
-        "shares": 199.54901921657057,
-        "entry_price": 715.9,
-        "current_price": 737.6500244140625,
-        "position_value": 147197.3388969055,
-        "return_pct": 3.038137227833849,
-        "days_held": 0,
-        "signal": "HOLD (Conflicting signals: Golden Cross (Short > Medium MA), PSAR Bullish (All Timeframes), Short-term RSI Overbought (73.3), Stochastic Overbought, BB Upper Band (102.19%), Price Above VWAP)"
-      },
-      {
-        "ticker": "RPOWER.NS",
-        "shares": 3169.6725728232277,
-        "entry_price": 45.07,
-        "current_price": 45.689998626708984,
-        "position_value": 144822.3354994104,
-        "return_pct": 1.3756348495872732,
-        "days_held": 0,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Short-term RSI Overbought (80.6), Stochastic Overbought, BB Upper Band (86.90%), Price Above VWAP)"
-      },
-      {
-        "ticker": "LTFOODS.NS",
-        "shares": 385.2154317301951,
-        "entry_price": 370.85,
-        "current_price": 384.1499938964844,
-        "position_value": 147980.50574798606,
-        "return_pct": 3.5863540235902254,
-        "days_held": 0,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (85.21%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)"
-      }
-    ]
-  },
-  {
-    "date": "2025-05-26 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 5.820766091346741e-11,
-    "total_value": 1013138.0189717629,
-    "positions": [
-      {
-        "ticker": "BEL.NS",
-        "shares": 392.5725277745064,
-        "entry_price": 363.9,
-        "current_price": 363.75,
-        "position_value": 142798.2569779767,
-        "return_pct": -0.04122011541631692,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (93.5), Stochastic Overbought, BB Upper Band (116.15%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 12.7%)"
-      },
-      {
-        "ticker": "JMFINANCIL.NS",
-        "shares": 1263.551590811453,
-        "entry_price": 113.06,
-        "current_price": 115.43292236328125,
-        "position_value": 145855.452684139,
-        "return_pct": 2.098816878897265,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (90.0), Stochastic Overbought, BB Upper Band (106.59%), Price Above VWAP)"
-      },
-      {
-        "ticker": "ZEEL.NS",
-        "shares": 1101.6977161806346,
-        "entry_price": 129.67,
-        "current_price": 128.52999877929688,
-        "position_value": 141601.20611585112,
-        "return_pct": -0.8791557189042282,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (91.8), Stochastic Overbought, BB Upper Band (104.83%), Price Above VWAP, Short-term Up 10.7%)"
-      },
-      {
-        "ticker": "JIOFIN.NS",
-        "shares": 515.729757607014,
-        "entry_price": 277.0,
-        "current_price": 277.04998779296875,
-        "position_value": 142882.92304949395,
-        "return_pct": 0.018046134645758122,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Short-term RSI Overbought (81.4), Stochastic Overbought, BB Upper Band (107.01%), Price Above VWAP)"
-      },
-      {
-        "ticker": "DLF.NS",
-        "shares": 199.54901921657057,
-        "entry_price": 715.9,
-        "current_price": 737.6500244140625,
-        "position_value": 147197.3388969055,
-        "return_pct": 3.038137227833849,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: Golden Cross (Short > Medium MA), PSAR Bullish (All Timeframes), Short-term RSI Overbought (73.3), Stochastic Overbought, BB Upper Band (102.19%), Price Above VWAP)"
-      },
-      {
-        "ticker": "RPOWER.NS",
-        "shares": 3169.6725728232277,
-        "entry_price": 45.07,
-        "current_price": 45.689998626708984,
-        "position_value": 144822.3354994104,
-        "return_pct": 1.3756348495872732,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Short-term RSI Overbought (80.6), Stochastic Overbought, BB Upper Band (86.90%), Price Above VWAP)"
-      },
-      {
-        "ticker": "LTFOODS.NS",
-        "shares": 385.2154317301951,
-        "entry_price": 370.85,
-        "current_price": 384.1499938964844,
-        "position_value": 147980.50574798606,
-        "return_pct": 3.5863540235902254,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (85.21%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)"
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Short-term RSI Overbought (78.9), Stochastic Overbought, BB Upper Band (96.42%), Price Above VWAP)"
       }
     ]
   },
   {
     "date": "2025-05-26 00:00:00",
     "phase": "POST-REBALANCE",
-    "cash": 151586.60141240488,
-    "total_value": 1066883.9490010315,
+    "cash": 44103.601931211364,
+    "total_value": 1034061.7165626823,
     "positions": [
       {
         "ticker": "BEL.NS",
-        "shares": 764.7902006696155,
-        "entry_price": 373.5851812224154,
+        "shares": 424.39572096614694,
+        "entry_price": 363.9,
         "current_price": 384.54998779296875,
-        "position_value": 294100.06233168277,
-        "return_pct": 2.935021816088963,
+        "position_value": 163201.36931691997,
+        "return_pct": 5.674632534478915,
         "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (96.5), Stochastic Overbought, BB Upper Band (92.70%), Price Above VWAP)"
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (93.5), Stochastic Overbought, BB Upper Band (116.15%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 12.7%)"
       },
       {
-        "ticker": "DLF.NS",
-        "shares": 383.5247344221634,
-        "entry_price": 744.9696462074511,
-        "current_price": 777.7999877929688,
-        "position_value": 298305.53375186026,
-        "return_pct": 4.406936813151098,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (88.3), Stochastic Overbought, BB Upper Band (95.84%), Price Above VWAP)"
+        "ticker": "PARADEEP.NS",
+        "shares": 1036.0859850315323,
+        "entry_price": 157.21,
+        "current_price": 159.36000061035156,
+        "position_value": 165110.6632070017,
+        "return_pct": 1.3675978693159179,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (89.32%), Price Above VWAP)"
       },
       {
-        "ticker": "RPOWER.NS",
-        "shares": 3169.6725728232277,
-        "entry_price": 45.07,
-        "current_price": 50.68000030517578,
-        "position_value": 160639.0069579885,
-        "return_pct": 12.447304870591926,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Short-term RSI Overbought (80.6), Stochastic Overbought, BB Upper Band (86.90%), Price Above VWAP)"
+        "ticker": "SOLARINDS.NS",
+        "shares": 10.62234757446245,
+        "entry_price": 15334.0,
+        "current_price": 15885.0,
+        "position_value": 168735.99122033603,
+        "return_pct": 3.593322029476979,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (84.7), Stochastic Overbought, BB Upper Band (119.09%), Price Above VWAP, Short-term Up 11.9%)"
       },
       {
-        "ticker": "LTFOODS.NS",
-        "shares": 385.2154317301951,
-        "entry_price": 370.85,
-        "current_price": 421.20001220703125,
-        "position_value": 162252.744547095,
-        "return_pct": 13.576921182966489,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (85.21%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)"
-      }
-    ]
-  },
-  {
-    "date": "2025-06-02 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 151586.60141240488,
-    "total_value": 1066883.9490010315,
-    "positions": [
-      {
-        "ticker": "BEL.NS",
-        "shares": 764.7902006696155,
-        "entry_price": 373.5851812224154,
-        "current_price": 384.54998779296875,
-        "position_value": 294100.06233168277,
-        "return_pct": 2.935021816088963,
-        "days_held": 14,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (96.5), Stochastic Overbought, BB Upper Band (92.70%), Price Above VWAP)"
+        "ticker": "MAZDOCK.NS",
+        "shares": 46.50746015669908,
+        "entry_price": 3502.3,
+        "current_price": 3550.199951171875,
+        "position_value": 165110.782777441,
+        "return_pct": 1.367671278070834,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (74.4), BB Upper Band (89.16%), Price Above VWAP)"
       },
       {
-        "ticker": "DLF.NS",
-        "shares": 383.5247344221634,
-        "entry_price": 744.9696462074511,
-        "current_price": 777.7999877929688,
-        "position_value": 298305.53375186026,
-        "return_pct": 4.406936813151098,
-        "days_held": 14,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (88.3), Stochastic Overbought, BB Upper Band (95.84%), Price Above VWAP)"
+        "ticker": "ZENTEC.NS",
+        "shares": 86.09042162093404,
+        "entry_price": 1892.0,
+        "current_price": 1877.800048828125,
+        "position_value": 161660.5979234238,
+        "return_pct": -0.7505259604585095,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (87.8), BB Upper Band (86.84%), Price Above VWAP)"
       },
       {
-        "ticker": "RPOWER.NS",
-        "shares": 3169.6725728232277,
-        "entry_price": 45.07,
-        "current_price": 50.68000030517578,
-        "position_value": 160639.0069579885,
-        "return_pct": 12.447304870591926,
-        "days_held": 14,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Short-term RSI Overbought (80.6), Stochastic Overbought, BB Upper Band (86.90%), Price Above VWAP)"
-      },
-      {
-        "ticker": "LTFOODS.NS",
-        "shares": 385.2154317301951,
-        "entry_price": 370.85,
-        "current_price": 421.20001220703125,
-        "position_value": 162252.744547095,
-        "return_pct": 13.576921182966489,
-        "days_held": 14,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (85.21%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)"
+        "ticker": "CURAA.NS",
+        "shares": 1695.6389517677203,
+        "entry_price": 96.06,
+        "current_price": 97.9800033569336,
+        "position_value": 166138.7101863486,
+        "return_pct": 1.9987542753837098,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (100.0), Stochastic Overbought, BB Upper Band (94.03%), Price Above VWAP)"
       }
     ]
   },
   {
     "date": "2025-06-02 00:00:00",
     "phase": "POST-REBALANCE",
-    "cash": 19371.37560045236,
-    "total_value": 1138943.3919012405,
+    "cash": 960.2576990335947,
+    "total_value": 1085074.1420365311,
     "positions": [
       {
-        "ticker": "DLF.NS",
-        "shares": 383.5247344221634,
-        "entry_price": 744.9696462074511,
-        "current_price": 810.7000122070312,
-        "position_value": 310923.5068777463,
-        "return_pct": 8.823227407211203,
-        "days_held": 14,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (88.3), Stochastic Overbought, BB Upper Band (95.84%), Price Above VWAP)"
-      },
-      {
-        "ticker": "RPOWER.NS",
-        "shares": 3169.6725728232277,
-        "entry_price": 45.07,
-        "current_price": 61.970001220703125,
-        "position_value": 196424.61320708465,
-        "return_pct": 37.49722924495923,
-        "days_held": 14,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Short-term RSI Overbought (80.6), Stochastic Overbought, BB Upper Band (86.90%), Price Above VWAP)"
-      },
-      {
-        "ticker": "LTFOODS.NS",
-        "shares": 709.9645630262689,
-        "entry_price": 402.4345729263028,
-        "current_price": 445.8999938964844,
-        "position_value": 316573.19432013354,
-        "return_pct": 10.800618012046728,
-        "days_held": 14,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (85.6), Stochastic Overbought, BB Upper Band (96.83%), Price Above VWAP)"
-      },
-      {
-        "ticker": "JMFINANCIL.NS",
-        "shares": 1139.3025189978696,
-        "entry_price": 125.39,
-        "current_price": 131.26568603515625,
-        "position_value": 149551.326757837,
-        "return_pct": 4.685928730485884,
-        "days_held": 0,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (73.6), BB Upper Band (84.06%), Price Above VWAP)"
-      },
-      {
         "ticker": "PARADEEP.NS",
-        "shares": 829.2148993333113,
-        "entry_price": 172.28,
+        "shares": 894.0307460395813,
+        "entry_price": 157.21,
         "current_price": 176.19000244140625,
-        "position_value": 146099.37513798656,
-        "return_pct": 2.269562596590579,
+        "position_value": 157519.27932740608,
+        "return_pct": 12.073024897529573,
+        "days_held": 7,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), BB Upper Band (89.32%), Price Above VWAP)"
+      },
+      {
+        "ticker": "ZENTEC.NS",
+        "shares": 71.98037990826201,
+        "entry_price": 1892.0,
+        "current_price": 2117.699951171875,
+        "position_value": 152432.84701705948,
+        "return_pct": 11.929172894919397,
+        "days_held": 7,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (87.8), BB Upper Band (86.84%), Price Above VWAP)"
+      },
+      {
+        "ticker": "CURAA.NS",
+        "shares": 1481.7086765531415,
+        "entry_price": 96.06,
+        "current_price": 106.0199966430664,
+        "position_value": 157090.7489141664,
+        "return_pct": 10.368516180581306,
+        "days_held": 7,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (100.0), Stochastic Overbought, BB Upper Band (94.03%), Price Above VWAP)"
+      },
+      {
+        "ticker": "POWERINDIA.NS",
+        "shares": 7.981325366758165,
+        "entry_price": 19298.0,
+        "current_price": 19221.0,
+        "position_value": 153409.0548744587,
+        "return_pct": -0.3990050782464504,
         "days_held": 0,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (80.0), BB Upper Band (102.49%), Price Above VWAP)"
-      }
-    ]
-  },
-  {
-    "date": "2025-06-09 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 19371.37560045236,
-    "total_value": 1138943.3919012405,
-    "positions": [
-      {
-        "ticker": "DLF.NS",
-        "shares": 383.5247344221634,
-        "entry_price": 744.9696462074511,
-        "current_price": 810.7000122070312,
-        "position_value": 310923.5068777463,
-        "return_pct": 8.823227407211203,
-        "days_held": 21,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (88.3), Stochastic Overbought, BB Upper Band (95.84%), Price Above VWAP)"
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (83.0), Stochastic Overbought, BB Upper Band (103.98%), Price Above VWAP, Short-term Up 18.1%)"
       },
       {
-        "ticker": "RPOWER.NS",
-        "shares": 3169.6725728232277,
-        "entry_price": 45.07,
-        "current_price": 61.970001220703125,
-        "position_value": 196424.61320708465,
-        "return_pct": 37.49722924495923,
-        "days_held": 21,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Short-term RSI Overbought (80.6), Stochastic Overbought, BB Upper Band (86.90%), Price Above VWAP)"
+        "ticker": "BDL.NS",
+        "shares": 76.41955689789089,
+        "entry_price": 2015.5,
+        "current_price": 1974.5999755859375,
+        "position_value": 150898.0551848635,
+        "return_pct": -2.029274344532994,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (79.7), BB Upper Band (84.37%), Price Above VWAP)"
       },
       {
-        "ticker": "LTFOODS.NS",
-        "shares": 709.9645630262689,
-        "entry_price": 402.4345729263028,
-        "current_price": 445.8999938964844,
-        "position_value": 316573.19432013354,
-        "return_pct": 10.800618012046728,
-        "days_held": 21,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (85.6), Stochastic Overbought, BB Upper Band (96.83%), Price Above VWAP)"
+        "ticker": "JYOTICNC.NS",
+        "shares": 118.88207543045623,
+        "entry_price": 1295.6,
+        "current_price": 1312.9000244140625,
+        "position_value": 156080.27973504039,
+        "return_pct": 1.3352905537251152,
+        "days_held": 0,
+        "signal": "STRONG BUY (Multi-Timeframe PSAR + Bullish Pattern) [PSAR Bullish (All Timeframes), Morning Star Pattern (Strong Bullish), Short-term RSI Overbought (82.0), Stochastic Overbought, BB Upper Band (96.85%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP]"
       },
       {
-        "ticker": "JMFINANCIL.NS",
-        "shares": 1139.3025189978696,
-        "entry_price": 125.39,
-        "current_price": 131.26568603515625,
-        "position_value": 149551.326757837,
-        "return_pct": 4.685928730485884,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (73.6), BB Upper Band (84.06%), Price Above VWAP)"
-      },
-      {
-        "ticker": "PARADEEP.NS",
-        "shares": 829.2148993333113,
-        "entry_price": 172.28,
-        "current_price": 176.19000244140625,
-        "position_value": 146099.37513798656,
-        "return_pct": 2.269562596590579,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (80.0), BB Upper Band (102.49%), Price Above VWAP)"
+        "ticker": "INTELLECT.NS",
+        "shares": 131.3578243381511,
+        "entry_price": 1172.55,
+        "current_price": 1192.800048828125,
+        "position_value": 156683.6192845029,
+        "return_pct": 1.7270094092469446,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (88.7), Stochastic Overbought, BB Upper Band (85.45%), Price Above VWAP)"
       }
     ]
   },
   {
     "date": "2025-06-09 00:00:00",
     "phase": "POST-REBALANCE",
-    "cash": 20051.33687903179,
-    "total_value": 1212450.978560183,
+    "cash": 134047.42058942726,
+    "total_value": 1061361.1323610563,
     "positions": [
       {
-        "ticker": "DLF.NS",
-        "shares": 545.7978563136189,
-        "entry_price": 785.2200656595631,
-        "current_price": 878.5999755859375,
-        "position_value": 479537.9832320026,
-        "return_pct": 11.892196087467251,
-        "days_held": 21,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (94.1), Stochastic Overbought, BB Upper Band (106.02%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)"
-      },
-      {
-        "ticker": "RPOWER.NS",
-        "shares": 3169.6725728232277,
-        "entry_price": 45.07,
-        "current_price": 64.62000274658203,
-        "position_value": 204824.2503616027,
-        "return_pct": 43.37697525312188,
-        "days_held": 21,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Short-term RSI Overbought (80.6), Stochastic Overbought, BB Upper Band (86.90%), Price Above VWAP)"
-      },
-      {
-        "ticker": "LTFOODS.NS",
-        "shares": 709.9645630262689,
-        "entry_price": 402.4345729263028,
-        "current_price": 471.3999938964844,
-        "position_value": 334677.2906773034,
-        "return_pct": 17.13705173705618,
-        "days_held": 21,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (85.6), Stochastic Overbought, BB Upper Band (96.83%), Price Above VWAP)"
-      },
-      {
-        "ticker": "JMFINANCIL.NS",
-        "shares": 1139.3025189978696,
-        "entry_price": 125.39,
-        "current_price": 152.1633758544922,
-        "position_value": 173360.11741024256,
-        "return_pct": 21.35208218716978,
-        "days_held": 7,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (73.6), BB Upper Band (84.06%), Price Above VWAP)"
-      }
-    ]
-  },
-  {
-    "date": "2025-06-16 00:00:00",
-    "phase": "PRE-REBALANCE",
-    "cash": 20051.33687903179,
-    "total_value": 1212450.978560183,
-    "positions": [
-      {
-        "ticker": "DLF.NS",
-        "shares": 545.7978563136189,
-        "entry_price": 785.2200656595631,
-        "current_price": 878.5999755859375,
-        "position_value": 479537.9832320026,
-        "return_pct": 11.892196087467251,
-        "days_held": 28,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (94.1), Stochastic Overbought, BB Upper Band (106.02%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)"
-      },
-      {
-        "ticker": "RPOWER.NS",
-        "shares": 3169.6725728232277,
-        "entry_price": 45.07,
-        "current_price": 64.62000274658203,
-        "position_value": 204824.2503616027,
-        "return_pct": 43.37697525312188,
-        "days_held": 28,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Short-term RSI Overbought (80.6), Stochastic Overbought, BB Upper Band (86.90%), Price Above VWAP)"
-      },
-      {
-        "ticker": "LTFOODS.NS",
-        "shares": 709.9645630262689,
-        "entry_price": 402.4345729263028,
-        "current_price": 471.3999938964844,
-        "position_value": 334677.2906773034,
-        "return_pct": 17.13705173705618,
-        "days_held": 28,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (85.6), Stochastic Overbought, BB Upper Band (96.83%), Price Above VWAP)"
-      },
-      {
-        "ticker": "JMFINANCIL.NS",
-        "shares": 1139.3025189978696,
-        "entry_price": 125.39,
-        "current_price": 152.1633758544922,
-        "position_value": 173360.11741024256,
-        "return_pct": 21.35208218716978,
+        "ticker": "CURAA.NS",
+        "shares": 1352.0502953446185,
+        "entry_price": 96.06,
+        "current_price": 117.04000091552734,
+        "position_value": 158243.96780497316,
+        "return_pct": 21.84051729703034,
         "days_held": 14,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (73.6), BB Upper Band (84.06%), Price Above VWAP)"
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (100.0), Stochastic Overbought, BB Upper Band (94.03%), Price Above VWAP)"
+      },
+      {
+        "ticker": "POLICYBZR.NS",
+        "shares": 80.94525559075232,
+        "entry_price": 1916.7,
+        "current_price": 1904.300048828125,
+        "position_value": 154144.0541738747,
+        "return_pct": -0.6469427230069935,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (82.3), Stochastic Overbought, BB Upper Band (112.27%), Price Above VWAP)"
+      },
+      {
+        "ticker": "SVLL.NS",
+        "shares": 199.3290568392047,
+        "entry_price": 778.35,
+        "current_price": 815.0,
+        "position_value": 162453.18132395184,
+        "return_pct": 4.708678615018947,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (86.5), Stochastic Overbought, BB Upper Band (92.88%), Price Above VWAP)"
+      },
+      {
+        "ticker": "COCHINSHIP.NS",
+        "shares": 64.84755335038453,
+        "entry_price": 2392.5,
+        "current_price": 2301.300048828125,
+        "position_value": 149233.67769162435,
+        "return_pct": -3.811910184822362,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (91.3), BB Upper Band (107.00%), Price Above VWAP, Short-term Up 24.4%)"
+      },
+      {
+        "ticker": "NDRAUTO.NS",
+        "shares": 145.61029694114967,
+        "entry_price": 1065.5,
+        "current_price": 1010.75,
+        "position_value": 147175.60763326703,
+        "return_pct": -5.138432660722665,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (84.6), Stochastic Overbought, BB Upper Band (107.69%), Price Above VWAP, Short-term Up 11.8%)"
+      },
+      {
+        "ticker": "FIEMIND.NS",
+        "shares": 82.47276812183445,
+        "entry_price": 1881.2,
+        "current_price": 1892.300048828125,
+        "position_value": 156063.22314393797,
+        "return_pct": 0.5900515005382179,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (92.1), Stochastic Overbought, BB Upper Band (100.82%), Price Above VWAP)"
       }
     ]
   },
   {
     "date": "2025-06-16 00:00:00",
     "phase": "POST-REBALANCE",
-    "cash": 20051.33687903179,
-    "total_value": 1184629.6564766224,
+    "cash": 27951.02464094787,
+    "total_value": 1067186.575687348,
     "positions": [
       {
-        "ticker": "DLF.NS",
-        "shares": 545.7978563136189,
-        "entry_price": 785.2200656595631,
-        "current_price": 859.0,
-        "position_value": 468840.35857339867,
-        "return_pct": 9.39608366712633,
-        "days_held": 28,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (94.1), Stochastic Overbought, BB Upper Band (106.02%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)"
+        "ticker": "CURAA.NS",
+        "shares": 1348.1696567576982,
+        "entry_price": 96.06,
+        "current_price": 129.1999969482422,
+        "position_value": 174183.51553880732,
+        "return_pct": 34.499268111849034,
+        "days_held": 21,
+        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (100.0), Stochastic Overbought, BB Upper Band (94.03%), Price Above VWAP)"
       },
       {
-        "ticker": "RPOWER.NS",
-        "shares": 3169.6725728232277,
-        "entry_price": 45.07,
-        "current_price": 66.9800033569336,
-        "position_value": 212304.67956808014,
-        "return_pct": 48.61327569765608,
-        "days_held": 28,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (Partial), Short-term RSI Overbought (80.6), Stochastic Overbought, BB Upper Band (86.90%), Price Above VWAP)"
+        "ticker": "FIEMIND.NS",
+        "shares": 90.24607642630536,
+        "entry_price": 1882.1560938890248,
+        "current_price": 1944.5,
+        "position_value": 175483.49561095078,
+        "return_pct": 3.312366403264486,
+        "days_held": 7,
+        "signal": "BUY (PSAR Bullish + Pattern) [PSAR Bullish (Partial), Strong Trend (ADX > 25), Bullish Engulfing Pattern, Piercing Line (Bullish), Short-term RSI Overbought (78.2), Price Above VWAP]"
       },
       {
-        "ticker": "LTFOODS.NS",
-        "shares": 709.9645630262689,
-        "entry_price": 402.4345729263028,
-        "current_price": 451.0,
-        "position_value": 320194.0179248473,
-        "return_pct": 12.067906273696549,
-        "days_held": 28,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (85.6), Stochastic Overbought, BB Upper Band (96.83%), Price Above VWAP)"
+        "ticker": "NAZARA.NS",
+        "shares": 128.61323273196086,
+        "entry_price": 1327.8,
+        "current_price": 1332.0999755859375,
+        "position_value": 171325.68418227357,
+        "return_pct": 0.3238421137172425,
+        "days_held": 0,
+        "signal": "STRONG BUY (Multi-Timeframe PSAR + Bullish Pattern) [Golden Cross (Short > Medium MA), PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Bullish Engulfing Pattern, Morning Star Pattern (Strong Bullish), Piercing Line (Bullish), Short-term RSI Overbought (74.9), Stochastic Overbought, BB Upper Band (104.81%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP]"
       },
       {
-        "ticker": "JMFINANCIL.NS",
-        "shares": 1139.3025189978696,
-        "entry_price": 125.39,
-        "current_price": 143.27999877929688,
-        "position_value": 163239.26353126462,
-        "return_pct": 14.267484471885217,
-        "days_held": 14,
-        "signal": "HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Short-term RSI Overbought (73.6), BB Upper Band (84.06%), Price Above VWAP)"
+        "ticker": "SJS.NS",
+        "shares": 140.0694311199948,
+        "entry_price": 1219.2,
+        "current_price": 1252.800048828125,
+        "position_value": 175478.99014645716,
+        "return_pct": 2.7559095167425323,
+        "days_held": 0,
+        "signal": "BUY (PSAR Bullish + Pattern) [PSAR Bullish (Partial), Strong Trend (ADX > 25), Bullish Engulfing Pattern, Morning Star Pattern (Strong Bullish), Piercing Line (Bullish), Short-term RSI Overbought (77.2), Stochastic Overbought, BB Upper Band (106.08%), Price Above VWAP]"
+      },
+      {
+        "ticker": "IXIGO.NS",
+        "shares": 910.9818117011503,
+        "entry_price": 187.46,
+        "current_price": 186.72999572753906,
+        "position_value": 170107.62980682158,
+        "return_pct": -0.389418687965937,
+        "days_held": 0,
+        "signal": "HOLD (Conflicting signals: Golden Cross (Short > Medium MA), PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Piercing Line (Bullish), Stochastic Overbought, BB Upper Band (109.44%), Price Above VWAP)"
+      },
+      {
+        "ticker": "NH.NS",
+        "shares": 89.26955066466161,
+        "entry_price": 1913.0,
+        "current_price": 1934.0999755859375,
+        "position_value": 172656.23576108963,
+        "return_pct": 1.102978336954391,
+        "days_held": 0,
+        "signal": "STRONG BUY (Multi-Timeframe PSAR + Bullish Pattern) [PSAR Bullish (All Timeframes), Strong Trend (ADX > 25), Bullish Engulfing Pattern, Piercing Line (Bullish), Short-term RSI Overbought (88.4), Stochastic Overbought, BB Upper Band (128.46%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP]"
       }
     ]
   }
