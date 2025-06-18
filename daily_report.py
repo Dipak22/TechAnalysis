@@ -495,6 +495,47 @@ def get_candle_pattern_name(trends):
         return "Dark Cloud Cover"
     return "None"
 
+def calculate_and_sort_signals(tickers, short_period=14, medium_period=26, long_period=50):
+    """
+    Calculate signals for multiple tickers and sort them by signal strength
+    Returns: DataFrame sorted by signal strength (Strong Buy -> Hold -> Strong Sell)
+    """
+    all_signals = []
+    
+    for ticker in tickers:
+        signal_data = calculate_signals(ticker, short_period, medium_period, long_period)
+        if signal_data is not None:
+            # Add signal strength score for sorting
+            signal_strength = 0
+            if "STRONG BUY" in signal_data['Signal']:
+                signal_strength = 4
+            elif "BUY" in signal_data['Signal']:
+                signal_strength = 3
+            elif "HOLD" in signal_data['Signal']:
+                signal_strength = 2
+            elif "SELL" in signal_data['Signal']:
+                signal_strength = 1
+            elif "STRONG SELL" in signal_data['Signal']:
+                signal_strength = 0
+            
+            signal_data['Signal_Strength'] = signal_strength
+            all_signals.append(signal_data)
+    
+    if not all_signals:
+        return []
+    # Sort the list of dictionaries
+    sorted_signals = sorted(
+        all_signals,
+        key=lambda x: (x['Signal_Strength'], float(x['Score'])),
+        reverse=True
+    )
+    
+    # Add ranking to each dictionary
+    for rank, signal in enumerate(sorted_signals, start=1):
+        signal['Rank'] = rank
+    
+    return sorted_signals
+
 def generate_html_report(short_period,medium_period, long_period, results, output_file='momentum_report.html'):
     """Generate HTML report with dynamic period headers"""
     
@@ -659,23 +700,19 @@ def generate_html_report(short_period,medium_period, long_period, results, outpu
 def analyze_stocks(stock_list, short_period=14, medium_period=26, long_period=50):
     """Main analysis function"""
     results = []
-    for ticker in stock_list:
-        print(f"Processing {ticker}...")
-        data = calculate_signals(ticker, short_period, medium_period, long_period)
-        if data:
-            results.append(data)
+    results = calculate_and_sort_signals(stock_list, short_period, medium_period, long_period)
     
     if not results:
         print("No valid results.")
         return
     
     # Sort by score
-    results.sort(key=lambda x: float(x['Score']), reverse=True)
+    #results.sort(key=lambda x: float(x['Score']), reverse=True)
     current_date = datetime.now().strftime("%Y-%m-%d")
     OUTPUT_FILE = f"momentum_report_{current_date}.html"
     generate_html_report(short_period,medium_period, long_period, results, output_file=OUTPUT_FILE)
 
 # Example usage
 if __name__ == "__main__":
-    stocks = PENNY_STOCKS # Replace with your stock list
+    stocks = my_stocks # Replace with your stock list
     analyze_stocks(stocks, short_period=10, medium_period=20, long_period=50)
