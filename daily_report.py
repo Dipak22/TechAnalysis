@@ -357,54 +357,113 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
         if price_changes['short'] < -5:
             signal_reasons.append(f"Short-term Down {abs(price_changes['short']):.1f}%")
         
-        # Generate composite score (0-100)
+       # Generate composite score (0-100)
         score = 50  # Neutral starting point
 
-        # Trend factors (25%)
-        score += 5 if trends['short_term_up'] else -10
-        score += 5 if trends['medium_term_up'] else -5
-        score += 5 if trends['long_term_up'] else -3
-        score += 5 if trends['golden_cross'] else (-10 if trends['death_cross'] else 0)
-        score += 5 if trends['macd_bullish'] else (-5 if trends['macd_bearish'] else 0)
-        score += 5 if trends['adx_strength'] else 0
-        
-        # PSAR factors (15%)
-        score += 5 if trends['sar_short_bullish'] else -5
-        score += 5 if trends['sar_medium_bullish'] else -5
-        score += 5 if trends['sar_long_bullish'] else -5
-        
-        # Candlestick pattern factors (15%)
-        score += 10 if trends['bullish_engulfing'] or trends['hammer'] or trends['morning_star'] or trends['piercing_line'] else 0
-        score += -10 if trends['bearish_engulfing'] or trends['shooting_star'] or trends['evening_star'] or trends['dark_cloud_cover'] else 0
-        
-        # Momentum factors (20%)
-        score += 5 * ((momentum['rsi_short'] - 50) / 10)  # Normalized RSI contribution
-        score += 5 if momentum['stoch_oversold'] else (-5 if momentum['stoch_overbought'] else 0)
-        score += 5 * (momentum['roc_short'] / 5)  # Normalized ROC contribution
-        score += 5 * (momentum['roc_medium'] / 3)  # Normalized ROC contribution
-        score += 5 * (momentum['bb_position'] - 0.5)  # BB position contribution
-        
-        # Volume factors (15%)
-        score += 10 if volume['obv_trend'] == '↑' else -10
-        score += 5 if volume['adi_trend'] == '↑' else -3
-        score += 5 if volume['volume_spike'] and volume['obv_trend'] == '↑' else (
-                 -5 if volume['volume_spike'] and volume['obv_trend'] == '↓' else 0)
-        score += 5 if volume['vwap_relation'] == 'above' else -3
+        # 1. Trend Strength (25% weight)
+        trend_score = 0
+        # Weighted by timeframe importance (short < medium < long)
+        trend_score += 3 if trends['short_term_up'] else -3
+        trend_score += 5 if trends['medium_term_up'] else -5
+        trend_score += 7 if trends['long_term_up'] else -7
 
-        # Price action factors (10%)
-        score += 5 * (price_changes['short'] / 5)  # Normalized short-term change
-        score += 3 * (price_changes['medium'] / 3)  # Normalized medium-term change
-        score += 2 * (price_changes['long'] / 2)  # Normalized long-term change
-        
-        # Cap score between 0 and 100
-        score = max(0, min(100, score))
-        
+        # Major trend signals get higher weights
+        trend_score += 10 if trends['golden_cross'] else (-10 if trends['death_cross'] else 0)
+        trend_score += 7 if trends['macd_bullish'] else (-7 if trends['macd_bearish'] else 0)
+        trend_score += 8 if trends['adx_strength'] else -3  # ADX measures trend strength
+
+        # Normalize trend score to 25 points max
+        score += (trend_score / 42) * 25  # 42 is max possible trend score
+
+        # 2. PSAR Confirmation (15% weight)
+        psar_score = 0
+        # Weighted by timeframe importance
+        psar_score += 3 if trends['sar_short_bullish'] else -3
+        psar_score += 5 if trends['sar_medium_bullish'] else -5
+        psar_score += 7 if trends['sar_long_bullish'] else -7
+
+        # Normalize PSAR score to 15 points max
+        score += (psar_score / 15) * 15  # 15 is max possible PSAR score
+
+        # 3. Candlestick Patterns (15% weight - high impact but short-term)
+        pattern_score = 0
+        # Strong reversal patterns
+        pattern_score += 15 if trends['morning_star'] else 0
+        pattern_score += -15 if trends['evening_star'] else 0
+        # Medium strength patterns
+        pattern_score += 10 if trends['bullish_engulfing'] else 0
+        pattern_score += -10 if trends['bearish_engulfing'] else 0
+        pattern_score += 8 if trends['hammer'] else 0
+        pattern_score += -8 if trends['shooting_star'] else 0
+        pattern_score += 5 if trends['piercing_line'] else 0
+        pattern_score += -5 if trends['dark_cloud_cover'] else 0
+
+        # Normalize pattern score to 15 points max (using highest single pattern)
+        pattern_score = max(-15, min(15, pattern_score))
+        score += pattern_score
+
+        # 4. Momentum Strength (20% weight)
+        momentum_score = 0
+        # RSI - parabolic weighting (more extreme = stronger signal)
+        rsi_weight = 0
+        if momentum['rsi_short'] > 70:
+            rsi_weight = -((momentum['rsi_short'] - 70) / 30) ** 2  # Overbought penalty
+        elif momentum['rsi_short'] < 30:
+            rsi_weight = ((30 - momentum['rsi_short']) / 30) ** 2  # Oversold bonus
+        momentum_score += rsi_weight * 10
+
+        # Stochastic - similar parabolic weighting
+        stoch_weight = 0
+        if momentum['stoch_overbought']:
+            stoch_weight = -((latest['short']['Stoch_%K'] - 80) / 20) ** 2
+        elif momentum['stoch_oversold']:
+            stoch_weight = ((20 - latest['short']['Stoch_%K']) / 20) ** 2
+        momentum_score += stoch_weight * 5
+
+        # ROC - linear but scaled
+        momentum_score += (momentum['roc_short'] / 10) * 3  # Normalized to 3% ROC = 1 point
+        momentum_score += (momentum['roc_medium'] / 7) * 2  # Normalized to 3.5% ROC = 1 point
+
+        # Bollinger Bands - position matters
+        momentum_score += (momentum['bb_position'] - 0.5) * 10  # 0-1 range becomes -5 to +5
+
+        # Normalize momentum score to 20 points max
+        score += (momentum_score / 30) * 20  # 30 is approximate max
+
+        # 5. Volume Confirmation (15% weight)
+        volume_score = 0
+        # OBV trend gets highest weight
+        volume_score += 10 if volume['obv_trend'] == '↑' else -10
+        # Volume spikes with trend confirmation
+        if volume['volume_spike']:
+            volume_score += 5 if volume['obv_trend'] == '↑' else -5
+        # ADI confirmation
+        volume_score += 3 if volume['adi_trend'] == '↑' else -3
+        # VWAP position
+        volume_score += 2 if volume['vwap_relation'] == 'above' else -2
+
+        # Normalize volume score to 15 points max
+        score += (volume_score / 20) * 15  # 20 is max possible
+
+        # 6. Price Action (10% weight)
+        price_score = 0
+        # Recent performance matters more
+        price_score += (price_changes['short'] / 2) * 5  # 2% change = 5 points
+        price_score += (price_changes['medium'] / 5) * 3  # 5% change = 3 points
+        price_score += (price_changes['long'] / 10) * 2  # 10% change = 2 points
+
+        # Normalize price score to 10 points max
+        score += (price_score / 10) * 10  # Already scaled properly
+
+        # Final score adjustment
+        score = max(0, min(100, score))  # Ensure within bounds
+
         # Generate trading signal with candlestick pattern confirmation
         signal = "HOLD"
         signal_strength = ""
         
         # STRONG BUY: All PSAR timeframes bullish + high score + bullish pattern
-        if (score > 80 and 
+        if (score > 75 and 
             trends['sar_short_bullish'] and 
             trends['sar_medium_bullish'] and 
             trends['sar_long_bullish'] and 
@@ -414,7 +473,7 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
             signal_strength = "(Multi-Timeframe PSAR + Bullish Pattern)"
         
         # BUY: Partial PSAR confirmation + bullish pattern
-        elif (score > 65 and 
+        elif (score > 60 and 
               (trends['sar_short_bullish'] or trends['sar_medium_bullish']) and 
               volume['obv_trend'] == '↑' and
               (trends['bullish_engulfing'] or trends['hammer'])):
@@ -422,7 +481,7 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
             signal_strength = "(PSAR Bullish + Pattern)"
 
         # STRONG SELL: All PSAR timeframes bearish + low score + bearish pattern
-        elif (score < 20 and 
+        elif (score < 30 and 
               trends['sar_short_bearish'] and 
               trends['sar_medium_bearish'] and 
               trends['sar_long_bearish'] and 
@@ -432,7 +491,7 @@ def calculate_signals(ticker, short_period=14, medium_period=26, long_period=50)
             signal_strength = "(Multi-Timeframe PSAR + Bearish Pattern)"
             
         # SELL: Partial PSAR confirmation + bearish pattern
-        elif (score < 35 and 
+        elif (score < 45 and 
               (trends['sar_short_bearish'] or trends['sar_medium_bearish']) and 
               volume['obv_trend'] == '↓' and
               (trends['bearish_engulfing'] or trends['shooting_star'])):
@@ -679,7 +738,7 @@ def generate_html_report(short_period,medium_period, long_period, results, outpu
         <ul>
             <li><b>Timeframes</b>: Short ({short_period}D), Medium ({medium_period}D), Long ({long_period}D)</li>
             <li><b>PSAR</b>: Bullish (Price > SAR), Bearish (Price < SAR)</li>
-            <li><b>Score</b>: 0-100 (Higher = Stronger Bullish)</li>
+            <li><b>Score</b>: score>75 Very Strong, score>60 strong score>45 moderate score>30 weak else very weak</li>
             <li><b>Signal Strength</b>:
                 <ul>
                     <li><span class="strong-buy">STRONG BUY</span>: All PSAR timeframes bullish + score >80</li>
@@ -715,4 +774,4 @@ def analyze_stocks(stock_list, short_period=14, medium_period=26, long_period=50
 # Example usage
 if __name__ == "__main__":
     stocks = my_stocks # Replace with your stock list
-    analyze_stocks(stocks, short_period=10, medium_period=20, long_period=50)
+    analyze_stocks(stocks, short_period=5, medium_period=10, long_period=20)
