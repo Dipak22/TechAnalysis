@@ -74,3 +74,15 @@
 2025-06-15 18:52:53,613 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no timezone found
 2025-06-15 18:52:54,618 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no timezone found
 2025-06-15 18:52:55,624 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no timezone found
+2025-06-19 10:51:41,489 - ERROR - Attempt 1 failed for CRAFSTMAN.NS: HTTP Error 404: 
+2025-06-19 10:51:43,016 - ERROR - Attempt 2 failed for CRAFSTMAN.NS: HTTP Error 404: 
+2025-06-19 10:51:44,019 - ERROR - $CRAFSTMAN.NS: possibly delisted; no timezone found
+2025-06-19 10:52:19,575 - ERROR - $SALZSERELEC.NS: possibly delisted; no timezone found
+2025-06-19 10:52:20,579 - ERROR - $SALZSERELEC.NS: possibly delisted; no timezone found
+2025-06-19 10:52:21,584 - ERROR - $SALZSERELEC.NS: possibly delisted; no timezone found
+2025-06-19 10:53:23,610 - ERROR - $ASTRAZAN.NS: possibly delisted; no timezone found
+2025-06-19 10:53:24,615 - ERROR - $ASTRAZAN.NS: possibly delisted; no timezone found
+2025-06-19 10:53:25,617 - ERROR - $ASTRAZAN.NS: possibly delisted; no timezone found
+2025-06-19 10:53:29,120 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no timezone found
+2025-06-19 10:53:30,124 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no timezone found
+2025-06-19 10:53:31,127 - ERROR - $JAGSNPHARMA.NS: possibly delisted; no timezone found
