@@ -106,6 +106,9 @@ class StrategyBacktester:
             return "ERROR"
     
     def run_weekly_rebalance(self, current_date, stock_universe):
+        # if market bearish close all position
+        # else if bullish market, rebalance portfolio
+            # 
         # Get signals for all stocks
         signals = []
         for ticker in stock_universe:
@@ -130,7 +133,6 @@ class StrategyBacktester:
             if ticker not in top_tickers:
                 closing_price = float(list(map(itemgetter('Price'), filter(lambda x: x['Ticker'] == ticker, signals)))[0])
                 print(f"Closing position for {ticker} on {current_date.strftime('%Y-%m-%d')} at ${closing_price:.2f}")
-                #print(names)
                 closed_positions.append(self.close_position(ticker, current_date,closing_price))
         
         # Calculate position sizes based on scores (weighted allocation)
