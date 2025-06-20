@@ -12,12 +12,12 @@ from daily_report import calculate_signals
 
 class StrategyBacktester:
     def __init__(self, capital=1_000_000, top_n=5):
-        self.scorer = MLTechnicalScorer(
+        """self.scorer = MLTechnicalScorer(
             short_period=14,
             medium_period=26,
             long_period=50,
             vix_file='hist_india_vix_-18-06-2024-to-17-06-2025.csv'  # Your CSV with all VIX fields
-        )
+        ) """
         
         self.capital = capital
         self.top_n = top_n
@@ -120,8 +120,8 @@ class StrategyBacktester:
                 print(f"Error processing {ticker}: {str(e)}")
         
         # Sort by score and pick top N
-        signals.sort(key=lambda x: float(x['Score']), reverse=True)
-        top_stocks = signals[:self.top_n]
+        signals.sort(key=lambda x: (x['Signal_Value'], float(x['Score'])), reverse=True)
+        top_stocks = signals #signals[:self.top_n]
         top_tickers = [s['Ticker'] for s in top_stocks]
         
         # Track changes
@@ -167,6 +167,7 @@ class StrategyBacktester:
                 if stock['Signal'].startswith(('SELL', 'STRONG SELL')) or return_pct <= 0:
                     closed_positions.append(self.close_position(ticker, current_date,current_price))
                 else:
+                    #if "BUY" in stock['Signal'] or "STRONG BUY" in stock['Signal']:
                     # Calculate difference
                     shares_diff = target_shares - current_shares
                 
@@ -184,12 +185,13 @@ class StrategyBacktester:
                         ))
 
             else:  # New position
-                cost = target_shares * current_price
-                if cost > self.portfolio['cash']:
-                    continue  # Not enough cash
-                opened_positions.append(self.open_position(
-                    ticker, target_shares, current_price, current_date, stock['Signal']
-                ))
+                if "SELL" not in stock['Signal'] or "STRONG SELL" not in stock['Signal']:
+                    cost = target_shares * current_price
+                    if cost > self.portfolio['cash']:
+                        continue  # Not enough cash
+                    opened_positions.append(self.open_position(
+                        ticker, target_shares, current_price, current_date, stock['Signal']
+                    ))
     
         # Log transaction details
         self.log_transactions(current_date, opened_positions, closed_positions)
@@ -429,7 +431,7 @@ class StrategyBacktester:
         </html>
         """
         
-        with open(self.output_dir / "report_entire_stocks_1.html", "w") as f:
+        with open(self.output_dir / "report_all_stocks_20_06_1.html", "w") as f:
             f.write(html_content)
 
     def generate_weekly_log_html(self):
@@ -554,5 +556,5 @@ if __name__ == "__main__":
     #stock_universe = my_stocks  # Use your own stock universe
     #stock_universe = PENNY_STOCKS
     # Run backtest
-    backtester = StrategyBacktester(capital=1_000_000, top_n=7)
+    backtester = StrategyBacktester(capital=1_00_000, top_n=7)
     backtester.run_backtest(start_date, end_date, stock_universe)

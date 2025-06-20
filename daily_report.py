@@ -86,6 +86,12 @@ def calculate_signals(ticker, current_date = datetime.today(),short_period=5, me
         }
 
         # Medium-term indicators (26 days)
+        adx_indicator = ADXIndicator(
+            high=df['High'],
+            low=df['Low'],
+            close=df['Close'],
+            window=medium_period
+        )
         indicators['medium'] = {
             'RSI': RSIIndicator(close=df['Close'], window=medium_period).rsi(),
             'ROC': ROCIndicator(close=df['Close'], window=medium_period).roc(),
@@ -93,12 +99,9 @@ def calculate_signals(ticker, current_date = datetime.today(),short_period=5, me
             'EMA': EMAIndicator(close=df['Close'], window=medium_period).ema_indicator(),
             'MACD': MACD(close=df['Close'], window_slow=26, window_fast=12, window_sign=9).macd(),
             'MACD_diff': MACD(close=df['Close'], window_slow=26, window_fast=12, window_sign=9).macd_diff(),
-            'ADX': ADXIndicator(
-                high=df['High'],
-                low=df['Low'],
-                close=df['Close'],
-                window=medium_period
-            ).adx(),
+            'ADX': adx_indicator.adx(),
+            'DMP': adx_indicator.adx_pos(),  # Positive Directional Movement
+            'DMN': adx_indicator.adx_neg(),  # Negative Directional Movement
             'PSAR': FixedPSARIndicator(
                 high=df['High'],
                 low=df['Low'],
@@ -256,6 +259,8 @@ def calculate_signals(ticker, current_date = datetime.today(),short_period=5, me
             'macd_bullish': latest['medium']['MACD_diff'] > 0 and prev['medium']['MACD_diff'] <= 0,
             'macd_bearish': latest['medium']['MACD_diff'] < 0 and prev['medium']['MACD_diff'] >= 0,
             'adx_strength': latest['medium']['ADX'] > 25,
+            'dmp_dominant': latest['medium']['DMP'] > latest['medium']['DMN'],  # Positive directional movement
+            'dmn_dominant': latest['medium']['DMN'] > latest['medium']['DMP'],  # Negative directional movement
             
             # PSAR trends
             'sar_short_bullish': latest['price'] > latest['short']['PSAR'],
@@ -309,7 +314,11 @@ def calculate_signals(ticker, current_date = datetime.today(),short_period=5, me
         elif trends['sar_short_bullish'] or trends['sar_medium_bullish']:
             signal_reasons.append("PSAR Bullish (Partial)")
         if trends['adx_strength']:
-            signal_reasons.append("Strong Trend (ADX > 25)")
+            signal_reasons.append(f"Strong Trend (ADX {latest['medium']['ADX']:.1f})")
+        if trends['dmp_dominant']:
+            signal_reasons.append(f"Bullish DMI (DMP {latest['medium']['DMP']:.1f} > DMN {latest['medium']['DMN']:.1f})")
+        if trends['dmn_dominant']:
+            signal_reasons.append(f"Bearish DMI (DMN {latest['medium']['DMN']:.1f} > DMP {latest['medium']['DMP']:.1f})")
 
         # Candlestick pattern reasons
         if trends['bullish_engulfing']:
@@ -370,20 +379,25 @@ def calculate_signals(ticker, current_date = datetime.today(),short_period=5, me
         # Major trend signals get higher weights
         trend_score += 10 if trends['golden_cross'] else (-10 if trends['death_cross'] else 0)
         trend_score += 7 if trends['macd_bullish'] else (-7 if trends['macd_bearish'] else 0)
-        trend_score += 8 if trends['adx_strength'] else -3  # ADX measures trend strength
 
-        # Normalize trend score to 25 points max
-        score += (trend_score / 42) * 25  # 42 is max possible trend score
+        # ADX and DMI components
+        adx_component = min(50, latest['medium']['ADX']) / 2  # Normalize ADX (0-25 points)
+        trend_score += adx_component if trends['adx_strength'] else 0
+        trend_score += 5 if trends['dmp_dominant'] else (-5 if trends['dmn_dominant'] else 0)
+        
 
-        # 2. PSAR Confirmation (15% weight)
+        # Normalize trend score to 30 points max
+        score += (trend_score / 67) * 30  # 67 is max possible trend score
+
+        # 2. PSAR Confirmation (20% weight)
         psar_score = 0
         # Weighted by timeframe importance
-        psar_score += 3 if trends['sar_short_bullish'] else -3
-        psar_score += 5 if trends['sar_medium_bullish'] else -5
-        psar_score += 7 if trends['sar_long_bullish'] else -7
+        psar_score += 5 if trends['sar_short_bullish'] else -5
+        psar_score += 7 if trends['sar_medium_bullish'] else -7
+        psar_score += 8 if trends['sar_long_bullish'] else -8
 
-        # Normalize PSAR score to 15 points max
-        score += (psar_score / 15) * 15  # 15 is max possible PSAR score
+        # Normalize PSAR score to 20 points max
+        score += (psar_score / 20) * 20  # 20 is max possible PSAR score
 
         # 3. Candlestick Patterns (15% weight - high impact but short-term)
         pattern_score = 0
@@ -398,27 +412,27 @@ def calculate_signals(ticker, current_date = datetime.today(),short_period=5, me
         pattern_score += 5 if trends['piercing_line'] else 0
         pattern_score += -5 if trends['dark_cloud_cover'] else 0
 
-        # Normalize pattern score to 15 points max (using highest single pattern)
+        # Normalize pattern score to 15 points max
         pattern_score = max(-15, min(15, pattern_score))
         score += pattern_score
 
-        # 4. Momentum Strength (20% weight)
+         # 4. Momentum Strength (20% weight)
         momentum_score = 0
         # RSI - parabolic weighting (more extreme = stronger signal)
         rsi_weight = 0
         if momentum['rsi_short'] > 70:
-            rsi_weight = -((momentum['rsi_short'] - 70) / 30) ** 2  # Overbought penalty
+            rsi_weight = -((momentum['rsi_short'] - 70) / 30) ** 2 * 10  # Overbought penalty
         elif momentum['rsi_short'] < 30:
-            rsi_weight = ((30 - momentum['rsi_short']) / 30) ** 2  # Oversold bonus
-        momentum_score += rsi_weight * 10
+            rsi_weight = ((30 - momentum['rsi_short']) / 30) ** 2 * 10  # Oversold bonus
+        momentum_score += rsi_weight
 
         # Stochastic - similar parabolic weighting
         stoch_weight = 0
         if momentum['stoch_overbought']:
-            stoch_weight = -((latest['short']['Stoch_%K'] - 80) / 20) ** 2
+            stoch_weight = -((latest['short']['Stoch_%K'] - 80) / 20) ** 2 * 5
         elif momentum['stoch_oversold']:
-            stoch_weight = ((20 - latest['short']['Stoch_%K']) / 20) ** 2
-        momentum_score += stoch_weight * 5
+            stoch_weight = ((20 - latest['short']['Stoch_%K']) / 20) ** 2 * 5
+        momentum_score += stoch_weight
 
         # ROC - linear but scaled
         momentum_score += (momentum['roc_short'] / 10) * 3  # Normalized to 3% ROC = 1 point
@@ -445,60 +459,74 @@ def calculate_signals(ticker, current_date = datetime.today(),short_period=5, me
         # Normalize volume score to 15 points max
         score += (volume_score / 20) * 15  # 20 is max possible
 
-        # 6. Price Action (10% weight)
-        price_score = 0
-        # Recent performance matters more
-        price_score += (price_changes['short'] / 2) * 5  # 2% change = 5 points
-        price_score += (price_changes['medium'] / 5) * 3  # 5% change = 3 points
-        price_score += (price_changes['long'] / 10) * 2  # 10% change = 2 points
-
-        # Normalize price score to 10 points max
-        score += (price_score / 10) * 10  # Already scaled properly
-
         # Final score adjustment
         score = max(0, min(100, score))  # Ensure within bounds
 
         # Generate trading signal with candlestick pattern confirmation
         signal = "HOLD"
         signal_strength = ""
+        signal_value = 0
         
-        # STRONG BUY: All PSAR timeframes bullish + high score + bullish pattern
-        if (score > 75 and 
+        # STRONG BUY: All PSAR timeframes bullish + high score + bullish pattern + DMP dominant + MACD bullish
+        if (score > 80 and 
             trends['sar_short_bullish'] and 
             trends['sar_medium_bullish'] and 
             trends['sar_long_bullish'] and 
             volume['obv_trend'] == '↑' and
-            (trends['bullish_engulfing'] or trends['hammer'] or trends['morning_star'])):
+            trends['dmp_dominant'] and
+            trends['macd_bullish']):
             signal = "STRONG BUY"
-            signal_strength = "(Multi-Timeframe PSAR + Bullish Pattern)"
-        
-        # BUY: Partial PSAR confirmation + bullish pattern
-        elif (score > 60 and 
+            signal_strength = "(Multi-Timeframe PSAR + Bullish Pattern + DMP + MACD)"
+            signal_value = 6
+
+        # BUY: Partial PSAR confirmation + bullish pattern + DMP + MACD bullish
+        elif (score > 65 and 
               (trends['sar_short_bullish'] or trends['sar_medium_bullish']) and 
               volume['obv_trend'] == '↑' and
-              (trends['bullish_engulfing'] or trends['hammer'])):
+              trends['dmp_dominant'] and
+              trends['macd_bullish'] ):
             signal = "BUY"
-            signal_strength = "(PSAR Bullish + Pattern)"
+            signal_strength = "(PSAR Bullish + Pattern + DMP + MACD)"
+            signal_value = 5
 
-        # STRONG SELL: All PSAR timeframes bearish + low score + bearish pattern
-        elif (score < 30 and 
+        # STRONG SELL: All PSAR timeframes bearish + low score + bearish pattern + DMN + MACD bearish
+        elif (score < 20 and 
               trends['sar_short_bearish'] and 
               trends['sar_medium_bearish'] and 
               trends['sar_long_bearish'] and 
               volume['obv_trend'] == '↓' and
-              (trends['bearish_engulfing'] or trends['shooting_star'] or trends['evening_star'])):
+              trends['dmn_dominant'] and
+              trends['macd_bearish']):
             signal = "STRONG SELL"
-            signal_strength = "(Multi-Timeframe PSAR + Bearish Pattern)"
+            signal_strength = "(Multi-Timeframe PSAR + Bearish Pattern + DMN + MACD)"
+            signal_value = 1
             
-        # SELL: Partial PSAR confirmation + bearish pattern
-        elif (score < 45 and 
+        # SELL: Partial PSAR confirmation + bearish pattern + DMN + MACD bearish
+        elif (score < 35 and 
               (trends['sar_short_bearish'] or trends['sar_medium_bearish']) and 
               volume['obv_trend'] == '↓' and
-              (trends['bearish_engulfing'] or trends['shooting_star'])):
+              trends['dmn_dominant'] and
+              trends['macd_bearish']):
             signal = "SELL"
-            signal_strength = "(PSAR Bearish + Pattern)"
-        
-        # Add reasons if not already included
+            signal_strength = "(PSAR Bearish + Pattern + DMN + MACD)"
+            signal_value = 2
+            
+        # WEAK BUY/SELL signals (less strict conditions)
+        elif (score > 60 and 
+              trends['macd_bullish'] and
+              (trends['sar_short_bullish'] or trends['sar_medium_bullish'])):
+            signal = "WEAK BUY"
+            signal_strength = "(MACD Bullish + Partial PSAR)"
+            signal_value = 4
+            
+        elif (score < 40 and 
+              trends['macd_bearish'] and
+              (trends['sar_short_bearish'] or trends['sar_medium_bearish'])):
+            signal = "WEAK SELL"
+            signal_strength = "(MACD Bearish + Partial PSAR)"
+            signal_value = 3
+
+         # Add reasons if not already included
         if signal != "HOLD" and signal_reasons:
             signal += f" {signal_strength} [{', '.join(signal_reasons)}]"
         elif signal == "HOLD" and signal_reasons:
@@ -526,7 +554,8 @@ def calculate_signals(ticker, current_date = datetime.today(),short_period=5, me
             'VWAP_Relation': volume['vwap_relation'],
             'Candle_Pattern': get_candle_pattern_name(trends),
             'Score': f"{score:.1f}",
-            'Signal': signal
+            'Signal': signal,
+            'Signal_Value': signal_value
         }
         
         return result
@@ -775,11 +804,11 @@ def analyze_stocks(stock_list, short_period=14, medium_period=26, long_period=50
     # Sort by score
     results.sort(key=lambda x: float(x['Score']), reverse=True)
     current_date = datetime.now().strftime("%Y-%m-%d")
-    OUTPUT_FILE = f"momentum_report_my_stocks_{current_date}.html"
+    OUTPUT_FILE = f"momentum_report_all_stocks_{current_date}.html"
     generate_html_report(short_period,medium_period, long_period, results, output_file=OUTPUT_FILE)
 
 # Example usage
 if __name__ == "__main__":
-    #stocks = [stock for stocks in sector_stocks.values() for stock in stocks] # Replace with your stock list
-    stocks = my_stocks
+    stocks = [stock for stocks in sector_stocks.values() for stock in stocks] # Replace with your stock list
+    #stocks = PENNY_STOCKS
     analyze_stocks(stocks, short_period=5, medium_period=10, long_period=20)
