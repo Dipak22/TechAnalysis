@@ -1,0 +1,644 @@
+
+    <html>
+    <head>
+        <title>Multi-Timeframe Stock Analysis Report</title>
+        <style>
+            body { font-family: Arial; margin: 20px; }
+            h1 { color: #333366; }
+            table { border-collapse: collapse; width: 100%; }
+            th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+            tr:hover { background-color: #f5f5f5; }
+            .buy { background-color: #e6ffe6; }
+            .strong-buy { background-color: #ccffcc; }
+            .sell { background-color: #ffe6e6; }
+            .strong-sell { background-color: #ffcccc; }
+            .hold { background-color: #ffffe6; }
+            .positive { color: green; }
+            .negative { color: red; }
+            .neutral { color: gray; }
+            .score-bar {
+                height: 20px;
+                background: linear-gradient(to right, red, yellow, green);
+                position: relative;
+                border-radius: 3px;
+            }
+            .score-value {
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Multi-Timeframe Stock Analysis Report (2025-06-20)</h1>
+        <h3>Analysis Periods: Short (5D), Medium (10D), Long (20D)</h3>
+        <table>
+            <tr>
+                <th>Rank</th>
+                <th>Ticker</th>
+                <th>Price</th>
+                <th>5D Chg</th>
+                <th>10D Chg</th>
+                <th>20D Chg</th>
+                <th>RSI (5/10)</th>
+                <th>Stoch %K</th>
+                <th>MACD Diff</th>
+                <th>BB %</th>
+                <th>SMA (5/10/20)</th>
+                <th>PSAR (5/10/20)</th>
+                <th>Volume</th>
+                <th>Score</th>
+                <th>Signal</th>
+            </tr>
+            
+                <tr class="{
+                    'strong-buy' if 'STRONG BUY' in r['Signal'] else
+                    'buy' if 'BUY' in r['Signal'] else
+                    'strong-sell' if 'STRONG SELL' in r['Signal'] else
+                    'sell' if 'SELL' in r['Signal'] else 'hold'
+                }">
+                    <td>1</td>
+                    <td><b>ROML.NS</b></td>
+                    <td>56.85</td>
+                    <td class="{'positive' if float(r[f'Change_5D'].strip('%')) > 0 else 'negative'}">
+                        -6.6%
+                    </td>
+                    <td class="{'positive' if float(r[f'Change_10D'].strip('%')) > 0 else 'negative'}">
+                        20.1%
+                    </td>
+                    <td class="{'positive' if float(r[f'Change_20D'].strip('%')) > 0 else 'negative'}">
+                        22.2%
+                    </td>
+                    <td>
+                        <span class="{'positive' if float(r[f'RSI_5']) < 30 else 'negative' if float(r[f'RSI_5']) > 70 else 'neutral'}">
+                            56.5
+                        </span>/
+                        <span class="{'positive' if float(r[f'RSI_10']) < 30 else 'negative' if float(r[f'RSI_10']) > 70 else 'neutral'}">
+                            60.4
+                        </span>
+                    </td>
+                    <td class="{'positive' if float(r[f'Stoch_%K_5']) < 20 else 'negative' if float(r[f'Stoch_%K_5']) > 80 else 'neutral'}">
+                        21.5
+                    </td>
+                    <td class="{'positive' if float(r[f'MACD_diff_10']) > 0 else 'negative'}">
+                        0.691
+                    </td>
+                    <td class="{'positive' if float(r['BB_%'].strip('%'))/100 < 0.2 else 'negative' if float(r['BB_%'].strip('%'))/100 > 0.8 else 'neutral'}">
+                        77.01%
+                    </td>
+                    <td>57.7/55.0/51.0</td>
+                    <td>
+                        <span class="{'positive' if r[f'PSAR_5'] == 'Bullish' else 'negative'}">
+                            Bearish
+                        </span>/
+                        <span class="{'positive' if r[f'PSAR_10'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>/
+                        <span class="{'positive' if r[f'PSAR_20'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>
+                    </td>
+                    <td>
+                        0.2M 
+                        <span class="{'positive' if r['Volume_Spike'] == 'Yes' else 'neutral'}">
+                            (No) ↑
+                        </span>
+                    </td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value">93.6</div>
+                        </div>
+                    </td>
+                    <td><b class="{'positive' if 'BUY' in r['Signal'] else 'negative' if 'SELL' in r['Signal'] else 'neutral'}">
+                        HOLD (Conflicting signals: PSAR Bullish (Partial), Strong Trend (ADX 50.0), Bullish DMI (DMP 38.2 > DMN 11.0), Morning Star Pattern (Strong Bullish), Short-term Down 6.6%)
+                    </b></td>
+                </tr>
+                
+                <tr class="{
+                    'strong-buy' if 'STRONG BUY' in r['Signal'] else
+                    'buy' if 'BUY' in r['Signal'] else
+                    'strong-sell' if 'STRONG SELL' in r['Signal'] else
+                    'sell' if 'SELL' in r['Signal'] else 'hold'
+                }">
+                    <td>2</td>
+                    <td><b>SANCO.NS</b></td>
+                    <td>3.66</td>
+                    <td class="{'positive' if float(r[f'Change_5D'].strip('%')) > 0 else 'negative'}">
+                        10.6%
+                    </td>
+                    <td class="{'positive' if float(r[f'Change_10D'].strip('%')) > 0 else 'negative'}">
+                        37.6%
+                    </td>
+                    <td class="{'positive' if float(r[f'Change_20D'].strip('%')) > 0 else 'negative'}">
+                        42.4%
+                    </td>
+                    <td>
+                        <span class="{'positive' if float(r[f'RSI_5']) < 30 else 'negative' if float(r[f'RSI_5']) > 70 else 'neutral'}">
+                            95.2
+                        </span>/
+                        <span class="{'positive' if float(r[f'RSI_10']) < 30 else 'negative' if float(r[f'RSI_10']) > 70 else 'neutral'}">
+                            88.0
+                        </span>
+                    </td>
+                    <td class="{'positive' if float(r[f'Stoch_%K_5']) < 20 else 'negative' if float(r[f'Stoch_%K_5']) > 80 else 'neutral'}">
+                        90.5
+                    </td>
+                    <td class="{'positive' if float(r[f'MACD_diff_10']) > 0 else 'negative'}">
+                        0.095
+                    </td>
+                    <td class="{'positive' if float(r['BB_%'].strip('%'))/100 < 0.2 else 'negative' if float(r['BB_%'].strip('%'))/100 > 0.8 else 'neutral'}">
+                        99.45%
+                    </td>
+                    <td>3.5/3.2/2.9</td>
+                    <td>
+                        <span class="{'positive' if r[f'PSAR_5'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>/
+                        <span class="{'positive' if r[f'PSAR_10'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>/
+                        <span class="{'positive' if r[f'PSAR_20'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>
+                    </td>
+                    <td>
+                        0.0M 
+                        <span class="{'positive' if r['Volume_Spike'] == 'Yes' else 'neutral'}">
+                            (No) ↑
+                        </span>
+                    </td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value">93.4</div>
+                        </div>
+                    </td>
+                    <td><b class="{'positive' if 'BUY' in r['Signal'] else 'negative' if 'SELL' in r['Signal'] else 'neutral'}">
+                        HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 29.8), Bullish DMI (DMP 38.4 > DMN 12.7), Short-term RSI Overbought (95.2), Stochastic Overbought, BB Upper Band (99.45%), Price Above VWAP, Short-term Up 10.6%)
+                    </b></td>
+                </tr>
+                
+                <tr class="{
+                    'strong-buy' if 'STRONG BUY' in r['Signal'] else
+                    'buy' if 'BUY' in r['Signal'] else
+                    'strong-sell' if 'STRONG SELL' in r['Signal'] else
+                    'sell' if 'SELL' in r['Signal'] else 'hold'
+                }">
+                    <td>3</td>
+                    <td><b>ARTNIRMAN.NS</b></td>
+                    <td>60.95</td>
+                    <td class="{'positive' if float(r[f'Change_5D'].strip('%')) > 0 else 'negative'}">
+                        -10.0%
+                    </td>
+                    <td class="{'positive' if float(r[f'Change_10D'].strip('%')) > 0 else 'negative'}">
+                        3.8%
+                    </td>
+                    <td class="{'positive' if float(r[f'Change_20D'].strip('%')) > 0 else 'negative'}">
+                        34.5%
+                    </td>
+                    <td>
+                        <span class="{'positive' if float(r[f'RSI_5']) < 30 else 'negative' if float(r[f'RSI_5']) > 70 else 'neutral'}">
+                            54.1
+                        </span>/
+                        <span class="{'positive' if float(r[f'RSI_10']) < 30 else 'negative' if float(r[f'RSI_10']) > 70 else 'neutral'}">
+                            58.8
+                        </span>
+                    </td>
+                    <td class="{'positive' if float(r[f'Stoch_%K_5']) < 20 else 'negative' if float(r[f'Stoch_%K_5']) > 80 else 'neutral'}">
+                        33.5
+                    </td>
+                    <td class="{'positive' if float(r[f'MACD_diff_10']) > 0 else 'negative'}">
+                        0.236
+                    </td>
+                    <td class="{'positive' if float(r['BB_%'].strip('%'))/100 < 0.2 else 'negative' if float(r['BB_%'].strip('%'))/100 > 0.8 else 'neutral'}">
+                        71.93%
+                    </td>
+                    <td>62.4/60.3/55.4</td>
+                    <td>
+                        <span class="{'positive' if r[f'PSAR_5'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>/
+                        <span class="{'positive' if r[f'PSAR_10'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>/
+                        <span class="{'positive' if r[f'PSAR_20'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>
+                    </td>
+                    <td>
+                        0.0M 
+                        <span class="{'positive' if r['Volume_Spike'] == 'Yes' else 'neutral'}">
+                            (No) ↑
+                        </span>
+                    </td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value">90.5</div>
+                        </div>
+                    </td>
+                    <td><b class="{'positive' if 'BUY' in r['Signal'] else 'negative' if 'SELL' in r['Signal'] else 'neutral'}">
+                        HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 55.0), Bullish DMI (DMP 34.8 > DMN 22.4), Short-term Down 10.0%)
+                    </b></td>
+                </tr>
+                
+                <tr class="{
+                    'strong-buy' if 'STRONG BUY' in r['Signal'] else
+                    'buy' if 'BUY' in r['Signal'] else
+                    'strong-sell' if 'STRONG SELL' in r['Signal'] else
+                    'sell' if 'SELL' in r['Signal'] else 'hold'
+                }">
+                    <td>4</td>
+                    <td><b>CALSOFT.NS</b></td>
+                    <td>14.26</td>
+                    <td class="{'positive' if float(r[f'Change_5D'].strip('%')) > 0 else 'negative'}">
+                        -0.7%
+                    </td>
+                    <td class="{'positive' if float(r[f'Change_10D'].strip('%')) > 0 else 'negative'}">
+                        26.6%
+                    </td>
+                    <td class="{'positive' if float(r[f'Change_20D'].strip('%')) > 0 else 'negative'}">
+                        32.2%
+                    </td>
+                    <td>
+                        <span class="{'positive' if float(r[f'RSI_5']) < 30 else 'negative' if float(r[f'RSI_5']) > 70 else 'neutral'}">
+                            56.1
+                        </span>/
+                        <span class="{'positive' if float(r[f'RSI_10']) < 30 else 'negative' if float(r[f'RSI_10']) > 70 else 'neutral'}">
+                            65.2
+                        </span>
+                    </td>
+                    <td class="{'positive' if float(r[f'Stoch_%K_5']) < 20 else 'negative' if float(r[f'Stoch_%K_5']) > 80 else 'neutral'}">
+                        7.1
+                    </td>
+                    <td class="{'positive' if float(r[f'MACD_diff_10']) > 0 else 'negative'}">
+                        0.396
+                    </td>
+                    <td class="{'positive' if float(r['BB_%'].strip('%'))/100 < 0.2 else 'negative' if float(r['BB_%'].strip('%'))/100 > 0.8 else 'neutral'}">
+                        78.82%
+                    </td>
+                    <td>14.9/13.7/12.1</td>
+                    <td>
+                        <span class="{'positive' if r[f'PSAR_5'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>/
+                        <span class="{'positive' if r[f'PSAR_10'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>/
+                        <span class="{'positive' if r[f'PSAR_20'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>
+                    </td>
+                    <td>
+                        0.0M 
+                        <span class="{'positive' if r['Volume_Spike'] == 'Yes' else 'neutral'}">
+                            (No) ↓
+                        </span>
+                    </td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value">78.5</div>
+                        </div>
+                    </td>
+                    <td><b class="{'positive' if 'BUY' in r['Signal'] else 'negative' if 'SELL' in r['Signal'] else 'neutral'}">
+                        HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 48.7), Bullish DMI (DMP 43.5 > DMN 23.7), Stochastic Oversold, Price Above VWAP)
+                    </b></td>
+                </tr>
+                
+                <tr class="{
+                    'strong-buy' if 'STRONG BUY' in r['Signal'] else
+                    'buy' if 'BUY' in r['Signal'] else
+                    'strong-sell' if 'STRONG SELL' in r['Signal'] else
+                    'sell' if 'SELL' in r['Signal'] else 'hold'
+                }">
+                    <td>5</td>
+                    <td><b>TCIFINANCE.NS</b></td>
+                    <td>16.98</td>
+                    <td class="{'positive' if float(r[f'Change_5D'].strip('%')) > 0 else 'negative'}">
+                        -0.6%
+                    </td>
+                    <td class="{'positive' if float(r[f'Change_10D'].strip('%')) > 0 else 'negative'}">
+                        35.9%
+                    </td>
+                    <td class="{'positive' if float(r[f'Change_20D'].strip('%')) > 0 else 'negative'}">
+                        40.4%
+                    </td>
+                    <td>
+                        <span class="{'positive' if float(r[f'RSI_5']) < 30 else 'negative' if float(r[f'RSI_5']) > 70 else 'neutral'}">
+                            58.7
+                        </span>/
+                        <span class="{'positive' if float(r[f'RSI_10']) < 30 else 'negative' if float(r[f'RSI_10']) > 70 else 'neutral'}">
+                            67.9
+                        </span>
+                    </td>
+                    <td class="{'positive' if float(r[f'Stoch_%K_5']) < 20 else 'negative' if float(r[f'Stoch_%K_5']) > 80 else 'neutral'}">
+                        8.4
+                    </td>
+                    <td class="{'positive' if float(r[f'MACD_diff_10']) > 0 else 'negative'}">
+                        0.495
+                    </td>
+                    <td class="{'positive' if float(r['BB_%'].strip('%'))/100 < 0.2 else 'negative' if float(r['BB_%'].strip('%'))/100 > 0.8 else 'neutral'}">
+                        80.69%
+                    </td>
+                    <td>17.7/15.9/14.1</td>
+                    <td>
+                        <span class="{'positive' if r[f'PSAR_5'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>/
+                        <span class="{'positive' if r[f'PSAR_10'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>/
+                        <span class="{'positive' if r[f'PSAR_20'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>
+                    </td>
+                    <td>
+                        0.0M 
+                        <span class="{'positive' if r['Volume_Spike'] == 'Yes' else 'neutral'}">
+                            (No) ↓
+                        </span>
+                    </td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value">78.3</div>
+                        </div>
+                    </td>
+                    <td><b class="{'positive' if 'BUY' in r['Signal'] else 'negative' if 'SELL' in r['Signal'] else 'neutral'}">
+                        HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 43.5), Bullish DMI (DMP 44.1 > DMN 22.2), Stochastic Oversold, BB Upper Band (80.69%), Price Above VWAP)
+                    </b></td>
+                </tr>
+                
+                <tr class="{
+                    'strong-buy' if 'STRONG BUY' in r['Signal'] else
+                    'buy' if 'BUY' in r['Signal'] else
+                    'strong-sell' if 'STRONG SELL' in r['Signal'] else
+                    'sell' if 'SELL' in r['Signal'] else 'hold'
+                }">
+                    <td>6</td>
+                    <td><b>OILCOUNTUB.NS</b></td>
+                    <td>77.34</td>
+                    <td class="{'positive' if float(r[f'Change_5D'].strip('%')) > 0 else 'negative'}">
+                        -6.2%
+                    </td>
+                    <td class="{'positive' if float(r[f'Change_10D'].strip('%')) > 0 else 'negative'}">
+                        -0.1%
+                    </td>
+                    <td class="{'positive' if float(r[f'Change_20D'].strip('%')) > 0 else 'negative'}">
+                        13.9%
+                    </td>
+                    <td>
+                        <span class="{'positive' if float(r[f'RSI_5']) < 30 else 'negative' if float(r[f'RSI_5']) > 70 else 'neutral'}">
+                            49.5
+                        </span>/
+                        <span class="{'positive' if float(r[f'RSI_10']) < 30 else 'negative' if float(r[f'RSI_10']) > 70 else 'neutral'}">
+                            54.4
+                        </span>
+                    </td>
+                    <td class="{'positive' if float(r[f'Stoch_%K_5']) < 20 else 'negative' if float(r[f'Stoch_%K_5']) > 80 else 'neutral'}">
+                        24.8
+                    </td>
+                    <td class="{'positive' if float(r[f'MACD_diff_10']) > 0 else 'negative'}">
+                        0.181
+                    </td>
+                    <td class="{'positive' if float(r['BB_%'].strip('%'))/100 < 0.2 else 'negative' if float(r['BB_%'].strip('%'))/100 > 0.8 else 'neutral'}">
+                        63.61%
+                    </td>
+                    <td>79.0/77.4/75.0</td>
+                    <td>
+                        <span class="{'positive' if r[f'PSAR_5'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>/
+                        <span class="{'positive' if r[f'PSAR_10'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>/
+                        <span class="{'positive' if r[f'PSAR_20'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>
+                    </td>
+                    <td>
+                        0.0M 
+                        <span class="{'positive' if r['Volume_Spike'] == 'Yes' else 'neutral'}">
+                            (No) ↑
+                        </span>
+                    </td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value">77.0</div>
+                        </div>
+                    </td>
+                    <td><b class="{'positive' if 'BUY' in r['Signal'] else 'negative' if 'SELL' in r['Signal'] else 'neutral'}">
+                        HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 32.6), Bullish DMI (DMP 20.5 > DMN 18.2), Short-term Down 6.2%)
+                    </b></td>
+                </tr>
+                
+                <tr class="{
+                    'strong-buy' if 'STRONG BUY' in r['Signal'] else
+                    'buy' if 'BUY' in r['Signal'] else
+                    'strong-sell' if 'STRONG SELL' in r['Signal'] else
+                    'sell' if 'SELL' in r['Signal'] else 'hold'
+                }">
+                    <td>7</td>
+                    <td><b>TARAPUR.NS</b></td>
+                    <td>29.98</td>
+                    <td class="{'positive' if float(r[f'Change_5D'].strip('%')) > 0 else 'negative'}">
+                        7.8%
+                    </td>
+                    <td class="{'positive' if float(r[f'Change_10D'].strip('%')) > 0 else 'negative'}">
+                        20.4%
+                    </td>
+                    <td class="{'positive' if float(r[f'Change_20D'].strip('%')) > 0 else 'negative'}">
+                        12.7%
+                    </td>
+                    <td>
+                        <span class="{'positive' if float(r[f'RSI_5']) < 30 else 'negative' if float(r[f'RSI_5']) > 70 else 'neutral'}">
+                            75.5
+                        </span>/
+                        <span class="{'positive' if float(r[f'RSI_10']) < 30 else 'negative' if float(r[f'RSI_10']) > 70 else 'neutral'}">
+                            69.0
+                        </span>
+                    </td>
+                    <td class="{'positive' if float(r[f'Stoch_%K_5']) < 20 else 'negative' if float(r[f'Stoch_%K_5']) > 80 else 'neutral'}">
+                        77.4
+                    </td>
+                    <td class="{'positive' if float(r[f'MACD_diff_10']) > 0 else 'negative'}">
+                        0.741
+                    </td>
+                    <td class="{'positive' if float(r['BB_%'].strip('%'))/100 < 0.2 else 'negative' if float(r['BB_%'].strip('%'))/100 > 0.8 else 'neutral'}">
+                        93.97%
+                    </td>
+                    <td>29.6/27.4/26.5</td>
+                    <td>
+                        <span class="{'positive' if r[f'PSAR_5'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>/
+                        <span class="{'positive' if r[f'PSAR_10'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>/
+                        <span class="{'positive' if r[f'PSAR_20'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>
+                    </td>
+                    <td>
+                        0.0M 
+                        <span class="{'positive' if r['Volume_Spike'] == 'Yes' else 'neutral'}">
+                            (No) ↓
+                        </span>
+                    </td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value">75.2</div>
+                        </div>
+                    </td>
+                    <td><b class="{'positive' if 'BUY' in r['Signal'] else 'negative' if 'SELL' in r['Signal'] else 'neutral'}">
+                        HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 26.5), Bullish DMI (DMP 35.7 > DMN 16.7), Short-term RSI Overbought (75.5), BB Upper Band (93.97%), Price Above VWAP)
+                    </b></td>
+                </tr>
+                
+                <tr class="{
+                    'strong-buy' if 'STRONG BUY' in r['Signal'] else
+                    'buy' if 'BUY' in r['Signal'] else
+                    'strong-sell' if 'STRONG SELL' in r['Signal'] else
+                    'sell' if 'SELL' in r['Signal'] else 'hold'
+                }">
+                    <td>8</td>
+                    <td><b>SHAH.NS</b></td>
+                    <td>4.00</td>
+                    <td class="{'positive' if float(r[f'Change_5D'].strip('%')) > 0 else 'negative'}">
+                        -17.4%
+                    </td>
+                    <td class="{'positive' if float(r[f'Change_10D'].strip('%')) > 0 else 'negative'}">
+                        29.9%
+                    </td>
+                    <td class="{'positive' if float(r[f'Change_20D'].strip('%')) > 0 else 'negative'}">
+                        28.6%
+                    </td>
+                    <td>
+                        <span class="{'positive' if float(r[f'RSI_5']) < 30 else 'negative' if float(r[f'RSI_5']) > 70 else 'neutral'}">
+                            45.8
+                        </span>/
+                        <span class="{'positive' if float(r[f'RSI_10']) < 30 else 'negative' if float(r[f'RSI_10']) > 70 else 'neutral'}">
+                            56.2
+                        </span>
+                    </td>
+                    <td class="{'positive' if float(r[f'Stoch_%K_5']) < 20 else 'negative' if float(r[f'Stoch_%K_5']) > 80 else 'neutral'}">
+                        0.0
+                    </td>
+                    <td class="{'positive' if float(r[f'MACD_diff_10']) > 0 else 'negative'}">
+                        0.100
+                    </td>
+                    <td class="{'positive' if float(r['BB_%'].strip('%'))/100 < 0.2 else 'negative' if float(r['BB_%'].strip('%'))/100 > 0.8 else 'neutral'}">
+                        67.09%
+                    </td>
+                    <td>4.5/4.0/3.5</td>
+                    <td>
+                        <span class="{'positive' if r[f'PSAR_5'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>/
+                        <span class="{'positive' if r[f'PSAR_10'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>/
+                        <span class="{'positive' if r[f'PSAR_20'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>
+                    </td>
+                    <td>
+                        0.5M 
+                        <span class="{'positive' if r['Volume_Spike'] == 'Yes' else 'neutral'}">
+                            (No) ↓
+                        </span>
+                    </td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value">73.6</div>
+                        </div>
+                    </td>
+                    <td><b class="{'positive' if 'BUY' in r['Signal'] else 'negative' if 'SELL' in r['Signal'] else 'neutral'}">
+                        HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 50.7), Bullish DMI (DMP 44.0 > DMN 28.7), Stochastic Oversold, Short-term Down 17.4%)
+                    </b></td>
+                </tr>
+                
+                <tr class="{
+                    'strong-buy' if 'STRONG BUY' in r['Signal'] else
+                    'buy' if 'BUY' in r['Signal'] else
+                    'strong-sell' if 'STRONG SELL' in r['Signal'] else
+                    'sell' if 'SELL' in r['Signal'] else 'hold'
+                }">
+                    <td>9</td>
+                    <td><b>CYBERMEDIA.NS</b></td>
+                    <td>17.73</td>
+                    <td class="{'positive' if float(r[f'Change_5D'].strip('%')) > 0 else 'negative'}">
+                        -0.5%
+                    </td>
+                    <td class="{'positive' if float(r[f'Change_10D'].strip('%')) > 0 else 'negative'}">
+                        19.6%
+                    </td>
+                    <td class="{'positive' if float(r[f'Change_20D'].strip('%')) > 0 else 'negative'}">
+                        23.5%
+                    </td>
+                    <td>
+                        <span class="{'positive' if float(r[f'RSI_5']) < 30 else 'negative' if float(r[f'RSI_5']) > 70 else 'neutral'}">
+                            54.3
+                        </span>/
+                        <span class="{'positive' if float(r[f'RSI_10']) < 30 else 'negative' if float(r[f'RSI_10']) > 70 else 'neutral'}">
+                            61.3
+                        </span>
+                    </td>
+                    <td class="{'positive' if float(r[f'Stoch_%K_5']) < 20 else 'negative' if float(r[f'Stoch_%K_5']) > 80 else 'neutral'}">
+                        25.6
+                    </td>
+                    <td class="{'positive' if float(r[f'MACD_diff_10']) > 0 else 'negative'}">
+                        0.359
+                    </td>
+                    <td class="{'positive' if float(r['BB_%'].strip('%'))/100 < 0.2 else 'negative' if float(r['BB_%'].strip('%'))/100 > 0.8 else 'neutral'}">
+                        77.47%
+                    </td>
+                    <td>18.6/16.9/15.9</td>
+                    <td>
+                        <span class="{'positive' if r[f'PSAR_5'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>/
+                        <span class="{'positive' if r[f'PSAR_10'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>/
+                        <span class="{'positive' if r[f'PSAR_20'] == 'Bullish' else 'negative'}">
+                            Bullish
+                        </span>
+                    </td>
+                    <td>
+                        0.0M 
+                        <span class="{'positive' if r['Volume_Spike'] == 'Yes' else 'neutral'}">
+                            (No) ↓
+                        </span>
+                    </td>
+                    <td>
+                        <div class="score-bar">
+                            <div class="score-value">69.7</div>
+                        </div>
+                    </td>
+                    <td><b class="{'positive' if 'BUY' in r['Signal'] else 'negative' if 'SELL' in r['Signal'] else 'neutral'}">
+                        HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 36.6), Bullish DMI (DMP 37.3 > DMN 14.8))
+                    </b></td>
+                </tr>
+                
+        </table>
+        <h3>Indicator Legend:</h3>
+        <ul>
+            <li><b>Timeframes</b>: Short (5D), Medium (10D), Long (20D)</li>
+            <li><b>PSAR</b>: Bullish (Price > SAR), Bearish (Price < SAR)</li>
+            <li><b>Score</b>: score>75 Very Strong, score>60 strong score>45 moderate score>30 weak else very weak</li>
+            <li><b>Signal Strength</b>:
+                <ul>
+                    <li><span class="strong-buy">STRONG BUY</span>: All PSAR timeframes bullish + score >80</li>
+                    <li><span class="buy">BUY</span>: Partial PSAR bullish + score >65</li>
+                    <li><span class="strong-sell">STRONG SELL</span>: All PSAR timeframes bearish + score <20</li>
+                    <li><span class="sell">SELL</span>: Partial PSAR bearish + score <35</li>
+                </ul>
+            </li>
+        </ul>
+    </body>
+    </html>
+    

@@ -29,7 +29,7 @@ def load_and_preprocess_vix_data():
     except Exception as e:
         print(f"Error loading VIX data: {str(e)}")
         vix_data = None
-        
+
 class MarketAnalyzer:
     def __init__(self, vix_data):
         self.vix_data = vix_data
@@ -56,6 +56,11 @@ class MarketAnalyzer:
             "Nifty FMCG": "^CNXFMCG",
             "Nifty Auto": "^CNXAUTO",
             "Nifty Pharma": "^CNXPHARMA",
+            "Nifty Metal": "^CNXMETAL",
+            "Nifty Realty": "^CNXREALTY",
+            "Nifty Energy": "^CNXENERGY",
+            "Nifty Consumption": "^CNXCONSUM",
+
         }
         self.sector_data = {sector: fetch_data(ticker, "3mo") for sector, ticker in sectors.items()}
 

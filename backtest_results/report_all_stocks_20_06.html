@@ -1,0 +1,808 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Strategy Backtest Report</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; }
+                h1, h2 { color: #2c3e50; }
+                .log-entry { margin-bottom: 30px; border: 1px solid #ddd; padding: 15px; border-radius: 5px; }
+                .phase { font-weight: bold; color: #3498db; }
+                .position { margin: 10px 0; padding: 8px; background: #f8f9fa; border-radius: 4px; }
+                .positive { color: #27ae60; }
+                .negative { color: #e74c3c; }
+                .transaction { margin: 15px 0; }
+                table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+                th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+                tr:hover { background-color: #f5f5f5; }
+            </style>
+        </head>
+        <body>
+        <h1>Strategy Backtest Report</h1>
+            <h2>Weekly Portfolio Snapshots</h2>
+            
+            <div class="log-entry">
+                <h3>Date: 2025-05-19 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $14,285.71 | 
+                <strong>Total Value:</strong> $99,566.43</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>SVLL.NS</strong>: 47.67 shares<br>
+                    Entry: $599.30 | Current: $607.05<br>
+                    Value: $28,940.91 | 
+                    <span class="positive">Return: +1.29%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR + Bullish Pattern + DMP + MACD) [PSAR Bullish (All Timeframes), Strong Trend (ADX 34.4), Bullish DMI (DMP 29.6 > DMN 9.6), Bullish Engulfing Pattern, Piercing Line (Bullish), Short-term RSI Overbought (85.7), Stochastic Overbought, BB Upper Band (94.98%), Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>COCHINSHIP.NS</strong>: 14.04 shares<br>
+                    Entry: $2035.60 | Current: $1982.20<br>
+                    Value: $27,821.91 | 
+                    <span class="negative">Return: -2.62%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 28.7), Bullish DMI (DMP 53.4 > DMN 9.3), Short-term RSI Overbought (93.1), Stochastic Overbought, BB Upper Band (132.94%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 33.9%)
+                </div>
+                
+                <div class="position">
+                    <strong>KALYANKJIL.NS</strong>: 50.98 shares<br>
+                    Entry: $560.40 | Current: $559.35<br>
+                    Value: $28,517.89 | 
+                    <span class="negative">Return: -0.19%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Bullish DMI (DMP 26.9 > DMN 11.5), Morning Star Pattern (Strong Bullish), Short-term RSI Overbought (74.7), Stochastic Overbought, BB Upper Band (99.59%), Price Above VWAP)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2025-05-26 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $2,737.70 | 
+                <strong>Total Value:</strong> $100,112.92</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>PARADEEP.NS</strong>: 103.46 shares<br>
+                    Entry: $157.21 | Current: $159.36<br>
+                    Value: $16,487.03 | 
+                    <span class="positive">Return: +1.37%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 31.2), Bullish DMI (DMP 27.0 > DMN 14.8), BB Upper Band (89.32%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>E2E.NS</strong>: 5.42 shares<br>
+                    Entry: $2998.70 | Current: $2923.00<br>
+                    Value: $15,854.00 | 
+                    <span class="negative">Return: -2.52%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR + Bullish Pattern + DMP + MACD) [PSAR Bullish (All Timeframes), Strong Trend (ADX 41.1), Bullish DMI (DMP 31.9 > DMN 12.8), Short-term RSI Overbought (78.4), Stochastic Overbought, BB Upper Band (87.03%), Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>NEWGEN.NS</strong>: 12.90 shares<br>
+                    Entry: $1260.95 | Current: $1255.55<br>
+                    Value: $16,194.94 | 
+                    <span class="negative">Return: -0.43%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 42.6), Bullish DMI (DMP 36.9 > DMN 10.0), Morning Star Pattern (Strong Bullish), BB Upper Band (87.75%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>SANATHAN.NS</strong>: 35.31 shares<br>
+                    Entry: $460.60 | Current: $461.00<br>
+                    Value: $16,278.72 | 
+                    <span class="positive">Return: +0.09%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 32.6), Bullish DMI (DMP 28.0 > DMN 14.9), Bullish Engulfing Pattern, Morning Star Pattern (Strong Bullish), Piercing Line (Bullish), BB Upper Band (85.99%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>HDFCLIFE.NS</strong>: 20.90 shares<br>
+                    Entry: $778.25 | Current: $777.85<br>
+                    Value: $16,256.23 | 
+                    <span class="negative">Return: -0.05%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 43.5), Bullish DMI (DMP 33.3 > DMN 5.9), Bullish Engulfing Pattern, Piercing Line (Bullish), Short-term RSI Overbought (83.8), Stochastic Overbought, BB Upper Band (108.86%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>STEL.NS</strong>: 37.82 shares<br>
+                    Entry: $430.00 | Current: $431.05<br>
+                    Value: $16,304.31 | 
+                    <span class="positive">Return: +0.24%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 39.1), Bullish DMI (DMP 28.7 > DMN 7.6), Bullish Engulfing Pattern, Piercing Line (Bullish), BB Upper Band (88.77%), Price Above VWAP)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2025-06-02 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $12,650.78 | 
+                <strong>Total Value:</strong> $100,963.92</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>JYOTICNC.NS</strong>: 11.34 shares<br>
+                    Entry: $1295.60 | Current: $1312.90<br>
+                    Value: $14,889.14 | 
+                    <span class="positive">Return: +1.34%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Bullish DMI (DMP 30.3 > DMN 14.1), Morning Star Pattern (Strong Bullish), Short-term RSI Overbought (82.0), Stochastic Overbought, BB Upper Band (96.85%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>SJS.NS</strong>: 13.33 shares<br>
+                    Entry: $1102.45 | Current: $1122.50<br>
+                    Value: $14,960.16 | 
+                    <span class="positive">Return: +1.82%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 37.4), Bullish DMI (DMP 22.4 > DMN 10.0), Morning Star Pattern (Strong Bullish), Short-term RSI Overbought (70.5), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>GABRIEL.NS</strong>: 22.31 shares<br>
+                    Entry: $658.55 | Current: $659.10<br>
+                    Value: $14,705.22 | 
+                    <span class="positive">Return: +0.08%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (Partial), Strong Trend (ADX 36.2), Bullish DMI (DMP 28.0 > DMN 10.5), Morning Star Pattern (Strong Bullish), Stochastic Overbought, Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>NAM-INDIA.NS</strong>: 19.83 shares<br>
+                    Entry: $740.95 | Current: $740.90<br>
+                    Value: $14,691.95 | 
+                    <span class="negative">Return: -0.01%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 35.2), Bullish DMI (DMP 27.7 > DMN 11.5), Morning Star Pattern (Strong Bullish), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>GODREJIND.NS</strong>: 12.40 shares<br>
+                    Entry: $1184.70 | Current: $1199.00<br>
+                    Value: $14,870.30 | 
+                    <span class="positive">Return: +1.21%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Bullish DMI (DMP 23.4 > DMN 16.9), Bullish Engulfing Pattern, Piercing Line (Bullish), Short-term RSI Overbought (78.0), BB Upper Band (81.74%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>INTERARCH.NS</strong>: 6.47 shares<br>
+                    Entry: $2272.40 | Current: $2195.60<br>
+                    Value: $14,196.37 | 
+                    <span class="negative">Return: -3.38%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 44.4), Bullish DMI (DMP 46.0 > DMN 7.9), Morning Star Pattern (Strong Bullish), Short-term RSI Overbought (83.5), Stochastic Overbought, BB Upper Band (97.48%), Price Above VWAP)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2025-06-09 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $5,086.78 | 
+                <strong>Total Value:</strong> $103,357.35</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>NAM-INDIA.NS</strong>: 20.53 shares<br>
+                    Entry: $742.64 | Current: $806.45<br>
+                    Value: $16,558.16 | 
+                    <span class="positive">Return: +8.59%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 56.1), Bullish DMI (DMP 37.7 > DMN 5.4), Short-term RSI Overbought (85.7), Stochastic Overbought, BB Upper Band (113.63%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>ADANIPORTS.NS</strong>: 11.08 shares<br>
+                    Entry: $1464.57 | Current: $1460.00<br>
+                    Value: $16,179.99 | 
+                    <span class="negative">Return: -0.31%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 55.3), Bullish DMI (DMP 36.4 > DMN 7.0), Short-term RSI Overbought (73.4), Stochastic Overbought, BB Upper Band (97.99%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>SANATHAN.NS</strong>: 35.10 shares<br>
+                    Entry: $462.40 | Current: $459.15<br>
+                    Value: $16,116.59 | 
+                    <span class="negative">Return: -0.70%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 31.2), Bullish DMI (DMP 26.3 > DMN 13.4), Bullish Engulfing Pattern, Morning Star Pattern (Strong Bullish), Piercing Line (Bullish), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>PEL.NS</strong>: 13.96 shares<br>
+                    Entry: $1162.50 | Current: $1176.87<br>
+                    Value: $16,431.25 | 
+                    <span class="positive">Return: +1.24%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR + Bullish Pattern + DMP + MACD) [PSAR Bullish (All Timeframes), Strong Trend (ADX 53.0), Bullish DMI (DMP 36.6 > DMN 4.7), Bullish Engulfing Pattern, Morning Star Pattern (Strong Bullish), Piercing Line (Bullish), Short-term RSI Overbought (80.8), Stochastic Overbought, BB Upper Band (113.07%), Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>SBIN.NS</strong>: 19.96 shares<br>
+                    Entry: $813.05 | Current: $820.05<br>
+                    Value: $16,370.41 | 
+                    <span class="positive">Return: +0.86%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 29.3), Bullish DMI (DMP 26.9 > DMN 11.4), Morning Star Pattern (Strong Bullish), Short-term RSI Overbought (73.3), BB Upper Band (92.03%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>TRENT.NS</strong>: 2.81 shares<br>
+                    Entry: $5772.00 | Current: $5908.38<br>
+                    Value: $16,614.17 | 
+                    <span class="positive">Return: +2.36%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR + Bullish Pattern + DMP + MACD) [PSAR Bullish (All Timeframes), Strong Trend (ADX 35.0), Bullish DMI (DMP 32.2 > DMN 14.6), Short-term RSI Overbought (74.1), Stochastic Overbought, BB Upper Band (103.04%), Price Above VWAP]
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2025-06-16 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $5,888.36 | 
+                <strong>Total Value:</strong> $99,936.13</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>NAZARA.NS</strong>: 11.67 shares<br>
+                    Entry: $1327.80 | Current: $1332.10<br>
+                    Value: $15,542.19 | 
+                    <span class="positive">Return: +0.32%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: Golden Cross (Short > Medium MA), PSAR Bullish (All Timeframes), Strong Trend (ADX 30.2), Bullish DMI (DMP 29.9 > DMN 16.5), Bullish Engulfing Pattern, Morning Star Pattern (Strong Bullish), Piercing Line (Bullish), Short-term RSI Overbought (74.9), Stochastic Overbought, BB Upper Band (104.81%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>SJS.NS</strong>: 12.71 shares<br>
+                    Entry: $1219.20 | Current: $1252.80<br>
+                    Value: $15,918.97 | 
+                    <span class="positive">Return: +2.76%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (Partial), Strong Trend (ADX 47.5), Bullish DMI (DMP 24.6 > DMN 12.6), Bullish Engulfing Pattern, Morning Star Pattern (Strong Bullish), Piercing Line (Bullish), Short-term RSI Overbought (77.2), Stochastic Overbought, BB Upper Band (106.08%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>FIEMIND.NS</strong>: 8.19 shares<br>
+                    Entry: $1892.30 | Current: $1944.50<br>
+                    Value: $15,919.37 | 
+                    <span class="positive">Return: +2.76%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (Partial), Strong Trend (ADX 48.0), Bullish DMI (DMP 29.0 > DMN 14.0), Bullish Engulfing Pattern, Piercing Line (Bullish), Short-term RSI Overbought (78.2), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>IXIGO.NS</strong>: 82.64 shares<br>
+                    Entry: $187.46 | Current: $186.73<br>
+                    Value: $15,431.69 | 
+                    <span class="negative">Return: -0.39%</span><br>
+                    Days Held: 0 | Signal: STRONG BUY (Multi-Timeframe PSAR + Bullish Pattern + DMP + MACD) [Golden Cross (Short > Medium MA), PSAR Bullish (All Timeframes), Strong Trend (ADX 50.6), Bullish DMI (DMP 26.2 > DMN 13.5), Piercing Line (Bullish), Stochastic Overbought, BB Upper Band (109.44%), Price Above VWAP]
+                </div>
+                
+                <div class="position">
+                    <strong>NH.NS</strong>: 8.10 shares<br>
+                    Entry: $1913.00 | Current: $1934.10<br>
+                    Value: $15,662.89 | 
+                    <span class="positive">Return: +1.10%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 35.0), Bullish DMI (DMP 38.7 > DMN 7.5), Bullish Engulfing Pattern, Piercing Line (Bullish), Short-term RSI Overbought (88.4), Stochastic Overbought, BB Upper Band (128.46%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>BIOCON.NS</strong>: 43.59 shares<br>
+                    Entry: $355.40 | Current: $357.25<br>
+                    Value: $15,572.66 | 
+                    <span class="positive">Return: +0.52%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Bullish DMI (DMP 25.0 > DMN 14.8), Bullish Engulfing Pattern, Piercing Line (Bullish), Short-term RSI Overbought (79.9), Stochastic Overbought, BB Upper Band (108.01%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)
+                </div>
+                
+            </div>
+            
+            
+            <h2>Transaction History</h2>
+            
+            <div class="transaction">
+                <h3>Transactions on 2025-05-19 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>SVLL.NS</td>
+                    <td>47.67</td>
+                    <td>$599.30</td>
+                    <td>$28,571.43</td>
+                </tr>
+                
+                <tr>
+                    <td>COCHINSHIP.NS</td>
+                    <td>14.04</td>
+                    <td>$2035.60</td>
+                    <td>$28,571.43</td>
+                </tr>
+                
+                <tr>
+                    <td>KALYANKJIL.NS</td>
+                    <td>50.98</td>
+                    <td>$560.40</td>
+                    <td>$28,571.43</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                <p>No positions closed</p>
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2025-05-26 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>PARADEEP.NS</td>
+                    <td>103.46</td>
+                    <td>$157.21</td>
+                    <td>$16,264.59</td>
+                </tr>
+                
+                <tr>
+                    <td>E2E.NS</td>
+                    <td>5.42</td>
+                    <td>$2998.70</td>
+                    <td>$16,264.59</td>
+                </tr>
+                
+                <tr>
+                    <td>NEWGEN.NS</td>
+                    <td>12.90</td>
+                    <td>$1260.95</td>
+                    <td>$16,264.59</td>
+                </tr>
+                
+                <tr>
+                    <td>SANATHAN.NS</td>
+                    <td>35.31</td>
+                    <td>$460.60</td>
+                    <td>$16,264.59</td>
+                </tr>
+                
+                <tr>
+                    <td>HDFCLIFE.NS</td>
+                    <td>20.90</td>
+                    <td>$778.25</td>
+                    <td>$16,264.59</td>
+                </tr>
+                
+                <tr>
+                    <td>STEL.NS</td>
+                    <td>37.82</td>
+                    <td>$430.00</td>
+                    <td>$16,264.59</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>SVLL.NS</td>
+                    <td>47.67</td>
+                    <td>$599.30</td>
+                    <td>$648.90</td>
+                    <td class="positive">+8.28%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>COCHINSHIP.NS</td>
+                    <td>14.04</td>
+                    <td>$2035.60</td>
+                    <td>$1915.00</td>
+                    <td class="negative">-5.92%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>KALYANKJIL.NS</td>
+                    <td>50.98</td>
+                    <td>$560.40</td>
+                    <td>$553.60</td>
+                    <td class="negative">-1.21%</td>
+                    <td>7</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2025-06-02 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>JYOTICNC.NS</td>
+                    <td>11.34</td>
+                    <td>$1295.60</td>
+                    <td>$14,692.95</td>
+                </tr>
+                
+                <tr>
+                    <td>SJS.NS</td>
+                    <td>13.33</td>
+                    <td>$1102.45</td>
+                    <td>$14,692.95</td>
+                </tr>
+                
+                <tr>
+                    <td>GABRIEL.NS</td>
+                    <td>22.31</td>
+                    <td>$658.55</td>
+                    <td>$14,692.95</td>
+                </tr>
+                
+                <tr>
+                    <td>NAM-INDIA.NS</td>
+                    <td>19.83</td>
+                    <td>$740.95</td>
+                    <td>$14,692.95</td>
+                </tr>
+                
+                <tr>
+                    <td>GODREJIND.NS</td>
+                    <td>12.40</td>
+                    <td>$1184.70</td>
+                    <td>$14,692.95</td>
+                </tr>
+                
+                <tr>
+                    <td>INTERARCH.NS</td>
+                    <td>6.47</td>
+                    <td>$2272.40</td>
+                    <td>$14,692.95</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>PARADEEP.NS</td>
+                    <td>103.46</td>
+                    <td>$157.21</td>
+                    <td>$172.28</td>
+                    <td class="positive">+9.59%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>E2E.NS</td>
+                    <td>5.42</td>
+                    <td>$2998.70</td>
+                    <td>$2868.20</td>
+                    <td class="negative">-4.35%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>NEWGEN.NS</td>
+                    <td>12.90</td>
+                    <td>$1260.95</td>
+                    <td>$1237.10</td>
+                    <td class="negative">-1.89%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>SANATHAN.NS</td>
+                    <td>35.31</td>
+                    <td>$460.60</td>
+                    <td>$465.00</td>
+                    <td class="positive">+0.96%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>HDFCLIFE.NS</td>
+                    <td>20.90</td>
+                    <td>$778.25</td>
+                    <td>$774.71</td>
+                    <td class="negative">-0.45%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>STEL.NS</td>
+                    <td>37.82</td>
+                    <td>$430.00</td>
+                    <td>$426.25</td>
+                    <td class="negative">-0.87%</td>
+                    <td>7</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2025-06-09 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>ADANIPORTS.NS</td>
+                    <td>11.08</td>
+                    <td>$1464.57</td>
+                    <td>$16,230.67</td>
+                </tr>
+                
+                <tr>
+                    <td>SANATHAN.NS</td>
+                    <td>35.10</td>
+                    <td>$462.40</td>
+                    <td>$16,230.67</td>
+                </tr>
+                
+                <tr>
+                    <td>PEL.NS</td>
+                    <td>13.96</td>
+                    <td>$1162.50</td>
+                    <td>$16,230.67</td>
+                </tr>
+                
+                <tr>
+                    <td>NAM-INDIA.NS</td>
+                    <td>0.70</td>
+                    <td>$790.50</td>
+                    <td>$555.16</td>
+                </tr>
+                
+                <tr>
+                    <td>SBIN.NS</td>
+                    <td>19.96</td>
+                    <td>$813.05</td>
+                    <td>$16,230.67</td>
+                </tr>
+                
+                <tr>
+                    <td>TRENT.NS</td>
+                    <td>2.81</td>
+                    <td>$5772.00</td>
+                    <td>$16,230.67</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>JYOTICNC.NS</td>
+                    <td>11.34</td>
+                    <td>$1295.60</td>
+                    <td>$1216.20</td>
+                    <td class="negative">-6.13%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>SJS.NS</td>
+                    <td>13.33</td>
+                    <td>$1102.45</td>
+                    <td>$1116.60</td>
+                    <td class="positive">+1.28%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>GABRIEL.NS</td>
+                    <td>22.31</td>
+                    <td>$658.55</td>
+                    <td>$635.90</td>
+                    <td class="negative">-3.44%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>GODREJIND.NS</td>
+                    <td>12.40</td>
+                    <td>$1184.70</td>
+                    <td>$1359.50</td>
+                    <td class="positive">+14.75%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>INTERARCH.NS</td>
+                    <td>6.47</td>
+                    <td>$2272.40</td>
+                    <td>$2230.50</td>
+                    <td class="negative">-1.84%</td>
+                    <td>7</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2025-06-16 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>NAZARA.NS</td>
+                    <td>11.67</td>
+                    <td>$1327.80</td>
+                    <td>$15,492.02</td>
+                </tr>
+                
+                <tr>
+                    <td>SJS.NS</td>
+                    <td>12.71</td>
+                    <td>$1219.20</td>
+                    <td>$15,492.02</td>
+                </tr>
+                
+                <tr>
+                    <td>FIEMIND.NS</td>
+                    <td>8.19</td>
+                    <td>$1892.30</td>
+                    <td>$15,492.02</td>
+                </tr>
+                
+                <tr>
+                    <td>IXIGO.NS</td>
+                    <td>82.64</td>
+                    <td>$187.46</td>
+                    <td>$15,492.02</td>
+                </tr>
+                
+                <tr>
+                    <td>NH.NS</td>
+                    <td>8.10</td>
+                    <td>$1913.00</td>
+                    <td>$15,492.02</td>
+                </tr>
+                
+                <tr>
+                    <td>BIOCON.NS</td>
+                    <td>43.59</td>
+                    <td>$355.40</td>
+                    <td>$15,492.02</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>NAM-INDIA.NS</td>
+                    <td>20.53</td>
+                    <td>$742.64</td>
+                    <td>$735.50</td>
+                    <td class="negative">-0.96%</td>
+                    <td>14</td>
+                </tr>
+                
+                <tr>
+                    <td>ADANIPORTS.NS</td>
+                    <td>11.08</td>
+                    <td>$1464.57</td>
+                    <td>$1405.00</td>
+                    <td class="negative">-4.07%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>SANATHAN.NS</td>
+                    <td>35.10</td>
+                    <td>$462.40</td>
+                    <td>$448.20</td>
+                    <td class="negative">-3.07%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>PEL.NS</td>
+                    <td>13.96</td>
+                    <td>$1162.50</td>
+                    <td>$1132.60</td>
+                    <td class="negative">-2.57%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>SBIN.NS</td>
+                    <td>19.96</td>
+                    <td>$813.05</td>
+                    <td>$792.35</td>
+                    <td class="negative">-2.55%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>TRENT.NS</td>
+                    <td>2.81</td>
+                    <td>$5772.00</td>
+                    <td>$5590.00</td>
+                    <td class="negative">-3.15%</td>
+                    <td>7</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+            
+            <h2>Performance Summary</h2>
+            <img src="performance_plot.png" width="800">
+        </body>
+        </html>
+        

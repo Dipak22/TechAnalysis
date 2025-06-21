@@ -1,0 +1,675 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Strategy Backtest Report</title>
+            <style>
+                body { font-family: Arial, sans-serif; margin: 20px; }
+                h1, h2 { color: #2c3e50; }
+                .log-entry { margin-bottom: 30px; border: 1px solid #ddd; padding: 15px; border-radius: 5px; }
+                .phase { font-weight: bold; color: #3498db; }
+                .position { margin: 10px 0; padding: 8px; background: #f8f9fa; border-radius: 4px; }
+                .positive { color: #27ae60; }
+                .negative { color: #e74c3c; }
+                .transaction { margin: 15px 0; }
+                table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+                th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+                tr:hover { background-color: #f5f5f5; }
+            </style>
+        </head>
+        <body>
+        <h1>Strategy Backtest Report</h1>
+            <h2>Weekly Portfolio Snapshots</h2>
+            
+            <div class="log-entry">
+                <h3>Date: 2025-05-19 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $3,478.84 | 
+                <strong>Total Value:</strong> $100,649.81</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>BEL.NS</strong>: 68.95 shares<br>
+                    Entry: $363.90 | Current: $363.75<br>
+                    Value: $25,080.32 | 
+                    <span class="negative">Return: -0.04%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 29.6), Bullish DMI (DMP 49.3 > DMN 9.0), Short-term RSI Overbought (93.5), Stochastic Overbought, BB Upper Band (116.15%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 12.7%)
+                </div>
+                
+                <div class="position">
+                    <strong>LTFOODS.NS</strong>: 65.05 shares<br>
+                    Entry: $370.85 | Current: $384.15<br>
+                    Value: $24,988.73 | 
+                    <span class="positive">Return: +3.59%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 28.9), Bullish DMI (DMP 21.9 > DMN 20.9), BB Upper Band (85.21%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>ZEEL.NS</strong>: 183.55 shares<br>
+                    Entry: $129.67 | Current: $128.53<br>
+                    Value: $23,591.96 | 
+                    <span class="negative">Return: -0.88%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 34.1), Bullish DMI (DMP 38.1 > DMN 8.7), Short-term RSI Overbought (91.8), Stochastic Overbought, BB Upper Band (104.83%), Price Above VWAP, Short-term Up 10.7%)
+                </div>
+                
+                <div class="position">
+                    <strong>JIOFIN.NS</strong>: 84.86 shares<br>
+                    Entry: $277.00 | Current: $277.05<br>
+                    Value: $23,509.95 | 
+                    <span class="positive">Return: +0.02%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Bullish DMI (DMP 37.1 > DMN 18.3), Short-term RSI Overbought (81.4), Stochastic Overbought, BB Upper Band (107.01%), Price Above VWAP)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2025-05-26 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $50,518.68 | 
+                <strong>Total Value:</strong> $104,626.27</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>BEL.NS</strong>: 28.91 shares<br>
+                    Entry: $363.90 | Current: $384.55<br>
+                    Value: $11,118.51 | 
+                    <span class="positive">Return: +5.67%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 29.6), Bullish DMI (DMP 49.3 > DMN 9.0), Short-term RSI Overbought (93.5), Stochastic Overbought, BB Upper Band (116.15%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 12.7%)
+                </div>
+                
+                <div class="position">
+                    <strong>LTFOODS.NS</strong>: 29.27 shares<br>
+                    Entry: $370.85 | Current: $421.20<br>
+                    Value: $12,329.65 | 
+                    <span class="positive">Return: +13.58%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 28.9), Bullish DMI (DMP 21.9 > DMN 20.9), BB Upper Band (85.21%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>JIOFIN.NS</strong>: 39.20 shares<br>
+                    Entry: $277.00 | Current: $281.75<br>
+                    Value: $11,045.69 | 
+                    <span class="positive">Return: +1.71%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Bullish DMI (DMP 37.1 > DMN 18.3), Short-term RSI Overbought (81.4), Stochastic Overbought, BB Upper Band (107.01%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>DLF.NS</strong>: 14.98 shares<br>
+                    Entry: $776.50 | Current: $777.80<br>
+                    Value: $11,653.25 | 
+                    <span class="positive">Return: +0.17%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 26.2), Bullish DMI (DMP 37.3 > DMN 13.1), Short-term RSI Overbought (88.3), Stochastic Overbought, BB Upper Band (95.84%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>JMFINANCIL.NS</strong>: 66.41 shares<br>
+                    Entry: $118.20 | Current: $119.87<br>
+                    Value: $7,960.48 | 
+                    <span class="positive">Return: +1.41%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 41.0), Bullish DMI (DMP 32.5 > DMN 10.0), Bearish Engulfing Pattern, Evening Star Pattern (Strong Bearish), Dark Cloud Cover (Bearish), BB Upper Band (86.19%), Price Above VWAP)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2025-06-02 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $1,297.00 | 
+                <strong>Total Value:</strong> $108,279.31</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>BEL.NS</strong>: 28.91 shares<br>
+                    Entry: $363.90 | Current: $387.50<br>
+                    Value: $11,203.81 | 
+                    <span class="positive">Return: +6.49%</span><br>
+                    Days Held: 14 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 29.6), Bullish DMI (DMP 49.3 > DMN 9.0), Short-term RSI Overbought (93.5), Stochastic Overbought, BB Upper Band (116.15%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 12.7%)
+                </div>
+                
+                <div class="position">
+                    <strong>LTFOODS.NS</strong>: 29.27 shares<br>
+                    Entry: $370.85 | Current: $445.90<br>
+                    Value: $13,052.69 | 
+                    <span class="positive">Return: +20.24%</span><br>
+                    Days Held: 14 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 28.9), Bullish DMI (DMP 21.9 > DMN 20.9), BB Upper Band (85.21%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>JIOFIN.NS</strong>: 39.20 shares<br>
+                    Entry: $277.00 | Current: $286.45<br>
+                    Value: $11,229.95 | 
+                    <span class="positive">Return: +3.41%</span><br>
+                    Days Held: 14 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Bullish DMI (DMP 37.1 > DMN 18.3), Short-term RSI Overbought (81.4), Stochastic Overbought, BB Upper Band (107.01%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>DLF.NS</strong>: 14.98 shares<br>
+                    Entry: $776.50 | Current: $810.70<br>
+                    Value: $12,146.17 | 
+                    <span class="positive">Return: +4.40%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 26.2), Bullish DMI (DMP 37.3 > DMN 13.1), Short-term RSI Overbought (88.3), Stochastic Overbought, BB Upper Band (95.84%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>JMFINANCIL.NS</strong>: 150.41 shares<br>
+                    Entry: $122.22 | Current: $131.27<br>
+                    Value: $19,743.29 | 
+                    <span class="positive">Return: +7.41%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 47.0), Bullish DMI (DMP 32.4 > DMN 8.3), Short-term RSI Overbought (73.6), BB Upper Band (84.06%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>ZEEL.NS</strong>: 148.77 shares<br>
+                    Entry: $130.42 | Current: $127.95<br>
+                    Value: $19,035.35 | 
+                    <span class="negative">Return: -1.89%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 43.2), Bullish DMI (DMP 31.5 > DMN 8.9), Bullish Engulfing Pattern, Piercing Line (Bullish), Short-term RSI Overbought (74.6), Stochastic Overbought, Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>RPOWER.NS</strong>: 331.95 shares<br>
+                    Entry: $58.10 | Current: $61.97<br>
+                    Value: $20,571.06 | 
+                    <span class="positive">Return: +6.66%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 39.5), Bullish DMI (DMP 49.1 > DMN 7.0), Short-term RSI Overbought (85.3), BB Upper Band (108.91%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 14.6%)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2025-06-09 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $22,259.97 | 
+                <strong>Total Value:</strong> $113,895.50</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>BEL.NS</strong>: 31.15 shares<br>
+                    Entry: $365.83 | Current: $392.45<br>
+                    Value: $12,226.34 | 
+                    <span class="positive">Return: +7.28%</span><br>
+                    Days Held: 21 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 63.6), Bullish DMI (DMP 34.5 > DMN 7.0), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>LTFOODS.NS</strong>: 29.98 shares<br>
+                    Entry: $373.38 | Current: $471.40<br>
+                    Value: $14,134.34 | 
+                    <span class="positive">Return: +26.25%</span><br>
+                    Days Held: 21 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 50.0), Bullish DMI (DMP 43.6 > DMN 7.4), Short-term RSI Overbought (92.1), Stochastic Overbought, BB Upper Band (99.96%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>JIOFIN.NS</strong>: 44.10 shares<br>
+                    Entry: $278.89 | Current: $304.25<br>
+                    Value: $13,417.33 | 
+                    <span class="positive">Return: +9.09%</span><br>
+                    Days Held: 21 | Signal: HOLD (Conflicting signals: PSAR Bullish (Partial), Strong Trend (ADX 43.4), Bullish DMI (DMP 33.3 > DMN 10.2), Short-term RSI Overbought (77.7), BB Upper Band (87.09%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>DLF.NS</strong>: 15.93 shares<br>
+                    Entry: $782.71 | Current: $878.60<br>
+                    Value: $14,000.40 | 
+                    <span class="positive">Return: +12.25%</span><br>
+                    Days Held: 14 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 54.5), Bullish DMI (DMP 52.6 > DMN 6.6), Short-term RSI Overbought (94.1), Stochastic Overbought, BB Upper Band (106.02%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>JMFINANCIL.NS</strong>: 101.21 shares<br>
+                    Entry: $122.22 | Current: $152.16<br>
+                    Value: $15,400.13 | 
+                    <span class="positive">Return: +24.50%</span><br>
+                    Days Held: 14 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 47.0), Bullish DMI (DMP 32.4 > DMN 8.3), Short-term RSI Overbought (73.6), BB Upper Band (84.06%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>RPOWER.NS</strong>: 226.37 shares<br>
+                    Entry: $58.10 | Current: $64.62<br>
+                    Value: $14,628.01 | 
+                    <span class="positive">Return: +11.22%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 39.5), Bullish DMI (DMP 49.1 > DMN 7.0), Short-term RSI Overbought (85.3), BB Upper Band (108.91%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP, Short-term Up 14.6%)
+                </div>
+                
+                <div class="position">
+                    <strong>PARADEEP.NS</strong>: 45.23 shares<br>
+                    Entry: $171.80 | Current: $173.10<br>
+                    Value: $7,829.00 | 
+                    <span class="positive">Return: +0.76%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (Partial), Strong Trend (ADX 49.6), Bullish DMI (DMP 27.0 > DMN 7.9), Bearish Engulfing Pattern, Dark Cloud Cover (Bearish), Stochastic Oversold, Price Above VWAP)
+                </div>
+                
+            </div>
+            
+
+            <div class="log-entry">
+                <h3>Date: 2025-06-16 00:00:00 | <span class="phase">Phase: POST-REBALANCE</span></h3>
+                <p><strong>Cash:</strong> $2,716.41 | 
+                <strong>Total Value:</strong> $112,612.25</p>
+                <h4>Positions:</h4>
+                
+                <div class="position">
+                    <strong>BEL.NS</strong>: 31.15 shares<br>
+                    Entry: $365.83 | Current: $403.85<br>
+                    Value: $12,581.49 | 
+                    <span class="positive">Return: +10.39%</span><br>
+                    Days Held: 28 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 63.6), Bullish DMI (DMP 34.5 > DMN 7.0), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>LTFOODS.NS</strong>: 24.29 shares<br>
+                    Entry: $373.38 | Current: $451.00<br>
+                    Value: $10,956.95 | 
+                    <span class="positive">Return: +20.79%</span><br>
+                    Days Held: 28 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 50.0), Bullish DMI (DMP 43.6 > DMN 7.4), Short-term RSI Overbought (92.1), Stochastic Overbought, BB Upper Band (99.96%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>JIOFIN.NS</strong>: 34.06 shares<br>
+                    Entry: $278.89 | Current: $294.15<br>
+                    Value: $10,017.45 | 
+                    <span class="positive">Return: +5.47%</span><br>
+                    Days Held: 28 | Signal: HOLD (Conflicting signals: PSAR Bullish (Partial), Strong Trend (ADX 43.4), Bullish DMI (DMP 33.3 > DMN 10.2), Short-term RSI Overbought (77.7), BB Upper Band (87.09%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>DLF.NS</strong>: 18.42 shares<br>
+                    Entry: $791.94 | Current: $859.00<br>
+                    Value: $15,818.81 | 
+                    <span class="positive">Return: +8.47%</span><br>
+                    Days Held: 21 | Signal: HOLD (Conflicting signals: Strong Trend (ADX 49.3), Bullish DMI (DMP 33.4 > DMN 23.1), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>JMFINANCIL.NS</strong>: 90.73 shares<br>
+                    Entry: $122.22 | Current: $143.28<br>
+                    Value: $12,999.80 | 
+                    <span class="positive">Return: +17.24%</span><br>
+                    Days Held: 21 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 47.0), Bullish DMI (DMP 32.4 > DMN 8.3), Short-term RSI Overbought (73.6), BB Upper Band (84.06%), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>RPOWER.NS</strong>: 230.15 shares<br>
+                    Entry: $58.25 | Current: $66.98<br>
+                    Value: $15,415.73 | 
+                    <span class="positive">Return: +14.99%</span><br>
+                    Days Held: 14 | Signal: HOLD (Conflicting signals: PSAR Bullish (Partial), Strong Trend (ADX 66.2), Bullish DMI (DMP 43.5 > DMN 10.9), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>PARADEEP.NS</strong>: 57.10 shares<br>
+                    Entry: $171.82 | Current: $171.71<br>
+                    Value: $9,804.50 | 
+                    <span class="negative">Return: -0.06%</span><br>
+                    Days Held: 7 | Signal: HOLD (Conflicting signals: Strong Trend (ADX 44.8), Bullish DMI (DMP 22.9 > DMN 12.5), Price Above VWAP)
+                </div>
+                
+                <div class="position">
+                    <strong>ZEEL.NS</strong>: 161.71 shares<br>
+                    Entry: $137.31 | Current: $137.91<br>
+                    Value: $22,301.11 | 
+                    <span class="positive">Return: +0.44%</span><br>
+                    Days Held: 0 | Signal: HOLD (Conflicting signals: PSAR Bullish (All Timeframes), Strong Trend (ADX 45.3), Bullish DMI (DMP 29.2 > DMN 10.1), Short-term RSI Overbought (84.8), Stochastic Overbought, BB Upper Band (116.34%), Volume Spike (2x MA), OBV Uptick with Volume, Price Above VWAP)
+                </div>
+                
+            </div>
+            
+            
+            <h2>Transaction History</h2>
+            
+            <div class="transaction">
+                <h3>Transactions on 2025-05-19 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>BEL.NS</td>
+                    <td>68.95</td>
+                    <td>$363.90</td>
+                    <td>$25,090.66</td>
+                </tr>
+                
+                <tr>
+                    <td>LTFOODS.NS</td>
+                    <td>65.05</td>
+                    <td>$370.85</td>
+                    <td>$24,123.57</td>
+                </tr>
+                
+                <tr>
+                    <td>ZEEL.NS</td>
+                    <td>183.55</td>
+                    <td>$129.67</td>
+                    <td>$23,801.21</td>
+                </tr>
+                
+                <tr>
+                    <td>JIOFIN.NS</td>
+                    <td>84.86</td>
+                    <td>$277.00</td>
+                    <td>$23,505.71</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                <p>No positions closed</p>
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2025-05-26 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>DLF.NS</td>
+                    <td>14.98</td>
+                    <td>$776.50</td>
+                    <td>$11,633.77</td>
+                </tr>
+                
+                <tr>
+                    <td>JMFINANCIL.NS</td>
+                    <td>66.41</td>
+                    <td>$118.20</td>
+                    <td>$7,849.60</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>LTFOODS.NS</td>
+                    <td>35.78</td>
+                    <td>$370.85</td>
+                    <td>$413.15</td>
+                    <td class="positive">+11.41%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>ZEEL.NS</td>
+                    <td>183.55</td>
+                    <td>$129.67</td>
+                    <td>$128.10</td>
+                    <td class="negative">-1.21%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>BEL.NS</td>
+                    <td>40.04</td>
+                    <td>$363.90</td>
+                    <td>$383.80</td>
+                    <td class="positive">+5.47%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>JIOFIN.NS</td>
+                    <td>45.65</td>
+                    <td>$277.00</td>
+                    <td>$281.75</td>
+                    <td class="positive">+1.71%</td>
+                    <td>7</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2025-06-02 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>ZEEL.NS</td>
+                    <td>148.77</td>
+                    <td>$130.42</td>
+                    <td>$19,402.82</td>
+                </tr>
+                
+                <tr>
+                    <td>RPOWER.NS</td>
+                    <td>331.95</td>
+                    <td>$58.10</td>
+                    <td>$19,286.40</td>
+                </tr>
+                
+                <tr>
+                    <td>JMFINANCIL.NS</td>
+                    <td>84.00</td>
+                    <td>$125.39</td>
+                    <td>$10,532.46</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                <p>No positions closed</p>
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2025-06-09 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>LTFOODS.NS</td>
+                    <td>0.71</td>
+                    <td>$477.35</td>
+                    <td>$339.43</td>
+                </tr>
+                
+                <tr>
+                    <td>DLF.NS</td>
+                    <td>0.95</td>
+                    <td>$880.35</td>
+                    <td>$838.60</td>
+                </tr>
+                
+                <tr>
+                    <td>JIOFIN.NS</td>
+                    <td>4.90</td>
+                    <td>$294.00</td>
+                    <td>$1,439.37</td>
+                </tr>
+                
+                <tr>
+                    <td>BEL.NS</td>
+                    <td>2.24</td>
+                    <td>$390.70</td>
+                    <td>$875.49</td>
+                </tr>
+                
+                <tr>
+                    <td>PARADEEP.NS</td>
+                    <td>45.23</td>
+                    <td>$171.80</td>
+                    <td>$7,770.20</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>JMFINANCIL.NS</td>
+                    <td>49.20</td>
+                    <td>$122.22</td>
+                    <td>$139.94</td>
+                    <td class="positive">+14.50%</td>
+                    <td>14</td>
+                </tr>
+                
+                <tr>
+                    <td>RPOWER.NS</td>
+                    <td>105.58</td>
+                    <td>$58.10</td>
+                    <td>$61.64</td>
+                    <td class="positive">+6.09%</td>
+                    <td>7</td>
+                </tr>
+                
+                <tr>
+                    <td>ZEEL.NS</td>
+                    <td>148.77</td>
+                    <td>$130.42</td>
+                    <td>$126.59</td>
+                    <td class="negative">-2.94%</td>
+                    <td>7</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+
+            <div class="transaction">
+                <h3>Transactions on 2025-06-16 00:00:00</h3>
+                
+                <h4>Opened Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                    </tr>
+                    
+                <tr>
+                    <td>ZEEL.NS</td>
+                    <td>161.71</td>
+                    <td>$137.31</td>
+                    <td>$22,204.09</td>
+                </tr>
+                
+                <tr>
+                    <td>DLF.NS</td>
+                    <td>2.48</td>
+                    <td>$851.25</td>
+                    <td>$2,111.51</td>
+                </tr>
+                
+                <tr>
+                    <td>RPOWER.NS</td>
+                    <td>3.78</td>
+                    <td>$67.05</td>
+                    <td>$253.76</td>
+                </tr>
+                
+                <tr>
+                    <td>PARADEEP.NS</td>
+                    <td>11.87</td>
+                    <td>$171.88</td>
+                    <td>$2,040.39</td>
+                </tr>
+                
+                </table>
+                
+                 <h4>Closed Positions</h4>
+                
+                <table>
+                    <tr>
+                        <th>Ticker</th>
+                        <th>Shares</th>
+                        <th>Entry Price</th>
+                        <th>Exit Price</th>
+                        <th>Return</th>
+                        <th>Days Held</th>
+                    </tr>
+                    
+                <tr>
+                    <td>JIOFIN.NS</td>
+                    <td>10.04</td>
+                    <td>$278.89</td>
+                    <td>$294.05</td>
+                    <td class="positive">+5.44%</td>
+                    <td>28</td>
+                </tr>
+                
+                <tr>
+                    <td>JMFINANCIL.NS</td>
+                    <td>10.48</td>
+                    <td>$122.22</td>
+                    <td>$143.41</td>
+                    <td class="positive">+17.34%</td>
+                    <td>21</td>
+                </tr>
+                
+                <tr>
+                    <td>LTFOODS.NS</td>
+                    <td>5.69</td>
+                    <td>$373.38</td>
+                    <td>$458.80</td>
+                    <td class="positive">+22.88%</td>
+                    <td>28</td>
+                </tr>
+                
+                </table>
+                
+            </div>
+            
+            
+            <h2>Performance Summary</h2>
+            <img src="performance_plot.png" width="800">
+        </body>
+        </html>
+        

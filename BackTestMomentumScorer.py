@@ -431,7 +431,7 @@ class StrategyBacktester:
         </html>
         """
         
-        with open(self.output_dir / "report_all_stocks_20_06_1.html", "w") as f:
+        with open(self.output_dir / "report_all_stocks_20_06_25.html", "w") as f:
             f.write(html_content)
 
     def generate_weekly_log_html(self):

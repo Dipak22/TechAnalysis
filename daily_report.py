@@ -468,7 +468,7 @@ def calculate_signals(ticker, current_date = datetime.today(),short_period=5, me
         signal_value = 0
         
         # STRONG BUY: All PSAR timeframes bullish + high score + bullish pattern + DMP dominant + MACD bullish
-        if (score > 80 and 
+        if (
             trends['sar_short_bullish'] and 
             trends['sar_medium_bullish'] and 
             trends['sar_long_bullish'] and 
@@ -480,7 +480,7 @@ def calculate_signals(ticker, current_date = datetime.today(),short_period=5, me
             signal_value = 6
 
         # BUY: Partial PSAR confirmation + bullish pattern + DMP + MACD bullish
-        elif (score > 65 and 
+        elif (
               (trends['sar_short_bullish'] or trends['sar_medium_bullish']) and 
               volume['obv_trend'] == '↑' and
               trends['dmp_dominant'] and
@@ -490,7 +490,7 @@ def calculate_signals(ticker, current_date = datetime.today(),short_period=5, me
             signal_value = 5
 
         # STRONG SELL: All PSAR timeframes bearish + low score + bearish pattern + DMN + MACD bearish
-        elif (score < 20 and 
+        elif (
               trends['sar_short_bearish'] and 
               trends['sar_medium_bearish'] and 
               trends['sar_long_bearish'] and 
@@ -502,7 +502,7 @@ def calculate_signals(ticker, current_date = datetime.today(),short_period=5, me
             signal_value = 1
             
         # SELL: Partial PSAR confirmation + bearish pattern + DMN + MACD bearish
-        elif (score < 35 and 
+        elif (
               (trends['sar_short_bearish'] or trends['sar_medium_bearish']) and 
               volume['obv_trend'] == '↓' and
               trends['dmn_dominant'] and
@@ -512,14 +512,14 @@ def calculate_signals(ticker, current_date = datetime.today(),short_period=5, me
             signal_value = 2
             
         # WEAK BUY/SELL signals (less strict conditions)
-        elif (score > 60 and 
+        elif ( #score > 60 and 
               trends['macd_bullish'] and
               (trends['sar_short_bullish'] or trends['sar_medium_bullish'])):
             signal = "WEAK BUY"
             signal_strength = "(MACD Bullish + Partial PSAR)"
             signal_value = 4
             
-        elif (score < 40 and 
+        elif (#score < 40 and 
               trends['macd_bearish'] and
               (trends['sar_short_bearish'] or trends['sar_medium_bearish'])):
             signal = "WEAK SELL"

@@ -1,0 +1,12 @@
+Stock Demand Analysis Report - 2025-06-20
+==================================================
+
+HIGH DEMAND STOCKS (Strong Buying Pressure):
+--------------------------------------------------
+RPGLIFE.NS      Score: 0.55
+
+
+LOW DEMAND STOCKS (Selling Pressure/Weak Interest):
+--------------------------------------------------
+ARSSINFRA.NS    Score: -1.10
+ORTEL.NS        Score: -0.99
