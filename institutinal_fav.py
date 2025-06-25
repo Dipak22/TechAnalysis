@@ -3,6 +3,7 @@ import pandas as pd
 from datetime import datetime, timedelta
 import pytz
 from sector_mapping import sector_stocks
+from my_stocks import my_stocks, PENNY_STOCKS, NEW_STOCKS, SHORT_TERM_STOCKS
 
 def get_previous_trading_day():
     """Get the previous trading day (Monday-Friday) for Indian market"""
@@ -370,12 +371,14 @@ def analyze_indian_stocks(stock_list, percentage_file=None, positive_threshold=N
     - Last 40 min change for previous day
     """
     previous_day = get_previous_trading_day()
+    #previous_day = datetime.now(pytz.timezone('Asia/Kolkata')).strftime('%Y-%m-%d')
     current_day = datetime.now(pytz.timezone('Asia/Kolkata')).strftime('%Y-%m-%d')
     
     # Load percentage changes if file provided
     percentage_data = None
     if percentage_file:
         percentage_data = load_percentage_changes(percentage_file)
+    print(f"Loaded {len(percentage_data)} percentage changes from file." if percentage_data is not None else "No percentage data loaded.")
 
     results = []
     matched_results = []  # For stocks where all indicators agree
@@ -439,9 +442,13 @@ def analyze_indian_stocks(stock_list, percentage_file=None, positive_threshold=N
 if __name__ == "__main__":
     # List of Indian stock symbols (without .NS/.BO suffix, or with if you prefer)
     indian_stocks = [stock for stocks in sector_stocks.values() for stock in stocks]
+    indian_stocks.extend(my_stocks)
+    indian_stocks.extend(PENNY_STOCKS)  
+    indian_stocks.extend(NEW_STOCKS)
+    indian_stocks.extend(SHORT_TERM_STOCKS)
     
     # Path to file containing %chng data
-    PERCENTAGE_FILE = "../MW-Pre-Open-Market-13-Jun-2025.csv"  # Update this path
+    PERCENTAGE_FILE = "MW-Pre-Open-Market-24-Jun-2025.csv"  # Update this path
     
     # Set your thresholds (positive % and negative %)
     POSITIVE_THRESHOLD = 0.5  # Highlight stocks with >= 0.5% increase

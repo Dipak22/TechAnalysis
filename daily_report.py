@@ -7,7 +7,7 @@ from ta.volatility import BollingerBands, AverageTrueRange
 from ta.volume import VolumeWeightedAveragePrice, OnBalanceVolumeIndicator, AccDistIndexIndicator
 from datetime import datetime, timedelta
 from sector_mapping import sector_stocks  # Replace with your stock list
-from my_stocks import my_stocks, PENNY_STOCKS
+from my_stocks import my_stocks, PENNY_STOCKS,NEW_STOCKS,SHORT_TERM_STOCKS
 
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -92,13 +92,20 @@ def calculate_signals(ticker, current_date = datetime.today(),short_period=5, me
             close=df['Close'],
             window=medium_period
         )
+        macd_indicator = MACD(
+            close=df['Close'],
+            window_slow=20,
+            window_fast=6,
+            window_sign=10
+        )
         indicators['medium'] = {
             'RSI': RSIIndicator(close=df['Close'], window=medium_period).rsi(),
             'ROC': ROCIndicator(close=df['Close'], window=medium_period).roc(),
             'SMA': SMAIndicator(close=df['Close'], window=medium_period).sma_indicator(),
             'EMA': EMAIndicator(close=df['Close'], window=medium_period).ema_indicator(),
-            'MACD': MACD(close=df['Close'], window_slow=26, window_fast=12, window_sign=9).macd(),
-            'MACD_diff': MACD(close=df['Close'], window_slow=26, window_fast=12, window_sign=9).macd_diff(),
+            'MACD': macd_indicator.macd(),
+            'MACD_hist': macd_indicator.macd_diff(),
+            'MACD_signal': macd_indicator.macd_signal(),
             'ADX': adx_indicator.adx(),
             'DMP': adx_indicator.adx_pos(),  # Positive Directional Movement
             'DMN': adx_indicator.adx_neg(),  # Negative Directional Movement
@@ -256,8 +263,8 @@ def calculate_signals(ticker, current_date = datetime.today(),short_period=5, me
             'long_term_up': latest['price'] > latest['long']['SMA'] > latest['long']['EMA'],
             'golden_cross': latest['short']['SMA'] > latest['medium']['SMA'] and prev['short']['SMA'] <= prev['medium']['SMA'],
             'death_cross': latest['short']['SMA'] < latest['medium']['SMA'] and prev['short']['SMA'] >= prev['medium']['SMA'],
-            'macd_bullish': latest['medium']['MACD_diff'] > 0 and prev['medium']['MACD_diff'] <= 0,
-            'macd_bearish': latest['medium']['MACD_diff'] < 0 and prev['medium']['MACD_diff'] >= 0,
+            'macd_bullish': latest['medium']['MACD_hist'] > prev['medium']['MACD_hist'] and latest['medium']['MACD'] > latest['medium']['MACD_signal'] and latest['medium']['MACD'] > prev['medium']['MACD'] and latest['medium']['MACD'] > 0,
+            'macd_bearish': latest['medium']['MACD_hist'] < prev['medium']['MACD_hist'] and latest['medium']['MACD'] < latest['medium']['MACD_signal'] and latest['medium']['MACD'] < prev['medium']['MACD'] and latest['medium']['MACD'] < 0,
             'adx_strength': latest['medium']['ADX'] > 25,
             'dmp_dominant': latest['medium']['DMP'] > latest['medium']['DMN'],  # Positive directional movement
             'dmn_dominant': latest['medium']['DMN'] > latest['medium']['DMP'],  # Negative directional movement
@@ -542,7 +549,7 @@ def calculate_signals(ticker, current_date = datetime.today(),short_period=5, me
             f'RSI_{short_period}': f"{momentum['rsi_short']:.1f}",
             f'RSI_{medium_period}': f"{momentum['rsi_medium']:.1f}",
             f'Stoch_%K_{short_period}': f"{latest['short']['Stoch_%K']:.1f}",
-            f'MACD_diff_{medium_period}': f"{latest['medium']['MACD_diff']:.3f}",
+            f'MACD_diff_{medium_period}': 'Bullish' if trends['macd_bullish'] else 'Bearish', 
             'BB_%': f"{momentum['bb_position']:.2%}",
             f'SMA_{short_period}/{medium_period}/{long_period}': f"{latest['short']['SMA']:.1f}/{latest['medium']['SMA']:.1f}/{latest['long']['SMA']:.1f}",
             f'PSAR_{short_period}': 'Bullish' if trends['sar_short_bullish'] else 'Bearish',
@@ -727,7 +734,7 @@ def generate_html_report(short_period,medium_period, long_period, results, outpu
                     <td class="{{'positive' if float(r[f'Stoch_%K_{short_period}']) < 20 else 'negative' if float(r[f'Stoch_%K_{short_period}']) > 80 else 'neutral'}}">
                         {r[f'Stoch_%K_{short_period}']}
                     </td>
-                    <td class="{{'positive' if float(r[f'MACD_diff_{medium_period}']) > 0 else 'negative'}}">
+                    <td class="{{'positive' if float(r[f'MACD_diff_{medium_period}']) =='Bullish' else 'negative'}}">
                         {r[f'MACD_diff_{medium_period}']}
                     </td>
                     <td class="{{'positive' if float(r['BB_%'].strip('%'))/100 < 0.2 else 'negative' if float(r['BB_%'].strip('%'))/100 > 0.8 else 'neutral'}}">
@@ -802,13 +809,17 @@ def analyze_stocks(stock_list, short_period=14, medium_period=26, long_period=50
         return
     
     # Sort by score
-    results.sort(key=lambda x: float(x['Score']), reverse=True)
+    results.sort(key=lambda x: (x['Signal_Value'], float(x['Score'])), reverse=True)
     current_date = datetime.now().strftime("%Y-%m-%d")
-    OUTPUT_FILE = f"momentum_report_all_stocks_{current_date}.html"
+    OUTPUT_FILE = f"momentum_report_my_stocks_{current_date}.html"
     generate_html_report(short_period,medium_period, long_period, results, output_file=OUTPUT_FILE)
 
 # Example usage
 if __name__ == "__main__":
-    stocks = [stock for stocks in sector_stocks.values() for stock in stocks] # Replace with your stock list
-    #stocks = PENNY_STOCKS
+    #stocks = [stock for stocks in sector_stocks.values() for stock in stocks] # Replace with your stock list
+    #stocks.extend(PENNY_STOCKS)
+   # stocks.extend(SHORT_TERM_STOCKS)
+    ##stocks.extend(NEW_STOCKS)
+    #stocks.extend(my_stocks)
+    stocks = my_stocks
     analyze_stocks(stocks, short_period=5, medium_period=10, long_period=20)

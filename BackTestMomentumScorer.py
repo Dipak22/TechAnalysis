@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import json
 from pathlib import Path
 from MLTechnicalScorer import MLTechnicalScorer
-from my_stocks import my_stocks,PENNY_STOCKS
+from my_stocks import my_stocks,PENNY_STOCKS, NEW_STOCKS, SHORT_TERM_STOCKS
 from sector_mapping import sector_stocks
 from daily_report import calculate_signals
 
@@ -121,7 +121,7 @@ class StrategyBacktester:
         
         # Sort by score and pick top N
         signals.sort(key=lambda x: (x['Signal_Value'], float(x['Score'])), reverse=True)
-        top_stocks = signals #signals[:self.top_n]
+        top_stocks = signals[:self.top_n]  #signals 
         top_tickers = [s['Ticker'] for s in top_stocks]
         
         # Track changes
@@ -168,7 +168,7 @@ class StrategyBacktester:
                     closed_positions.append(self.close_position(ticker, current_date,current_price))
                 else:
                     #if "BUY" in stock['Signal'] or "STRONG BUY" in stock['Signal']:
-                    # Calculate difference
+                        # Calculate difference
                     shares_diff = target_shares - current_shares
                 
                     if shares_diff > 0:  # Need to buy more
@@ -431,7 +431,7 @@ class StrategyBacktester:
         </html>
         """
         
-        with open(self.output_dir / "report_all_stocks_20_06_25.html", "w") as f:
+        with open(self.output_dir / "report_ALL_all_stocks_25_06_25.html", "w") as f:
             f.write(html_content)
 
     def generate_weekly_log_html(self):
@@ -555,6 +555,10 @@ if __name__ == "__main__":
     stock_universe = [stock for stocks in sector_stocks.values() for stock in stocks]
     #stock_universe = my_stocks  # Use your own stock universe
     #stock_universe = PENNY_STOCKS
+    stock_universe.extend(my_stocks)
+    stock_universe .extend(PENNY_STOCKS)
+    stock_universe.extend(NEW_STOCKS)
+    stock_universe.extend(SHORT_TERM_STOCKS)
     # Run backtest
-    backtester = StrategyBacktester(capital=1_00_000, top_n=7)
+    backtester = StrategyBacktester(capital=1_00_000, top_n=10)
     backtester.run_backtest(start_date, end_date, stock_universe)

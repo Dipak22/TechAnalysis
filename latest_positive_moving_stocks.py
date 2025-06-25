@@ -3,6 +3,7 @@ import pandas as pd
 import ta
 from datetime import datetime, timedelta
 from sector_mapping import sector_stocks
+from my_stocks import my_stocks, PENNY_STOCKS, NEW_STOCKS,SHORT_TERM_STOCKS
 import time
 import logging
 
@@ -13,6 +14,10 @@ logging.basicConfig(filename='latest_moving__errors.log', level=logging.ERROR,
 # Flatten all stocks from all sectors
 all_stocks = [stock for stocks in sector_stocks.values() for stock in stocks]
 #all_stocks = [ "NEWGEN.NS","MAPMYINDIA.NS","INTELLECT.NS","INSPIRISYS.NS"]
+all_stocks.extend(my_stocks)
+all_stocks.extend(PENNY_STOCKS) 
+all_stocks.extend(NEW_STOCKS)
+all_stocks.extend(SHORT_TERM_STOCKS)
 
 buy_signals = []
 sell_signals = []
@@ -20,7 +25,7 @@ sell_signals = []
 for symbol in all_stocks:
     success = False
     for attempt in range(3):  # Try up to 3 times
-        time.sleep(1)  # Sleep for 1 second between requests
+        #time.sleep(1)  # Sleep for 1 second between requests
         if success:
             break
         try:
