@@ -3,7 +3,7 @@ import pandas as pd
 from datetime import datetime, timedelta
 import pytz
 from sector_mapping import sector_stocks
-from my_stocks import my_stocks, PENNY_STOCKS, NEW_STOCKS, SHORT_TERM_STOCKS
+from my_stocks import my_stocks, PENNY_STOCKS, NEW_STOCKS, SHORT_TERM_STOCKS, CASH_HEAVY
 
 def get_previous_trading_day():
     """Get the previous trading day (Monday-Friday) for Indian market"""
@@ -78,12 +78,13 @@ def get_first_hour_data(ticker, date):
         if not data.empty:
             # Indian market hours: 9:15 AM to 3:30 PM IST
             # Get first 1 hour (9:15 AM to 10:15 AM)
-            first_hour = data.between_time('09:15', '10:15')
+            first_hour = data.between_time('09:15', '9:35')
             
             if len(first_hour) >= 2:  # Need at least 2 data points
                 start_price = first_hour.iloc[0]['Close']
                 end_price = first_hour.iloc[-1]['Close']
                 percent_change = ((end_price - start_price) / start_price) * 100
+                #print(f"First hour change for {ticker}: {percent_change:.2f}%")
                 return percent_change
     except Exception as e:
         print(f"Error processing {ticker}: {str(e)}")
@@ -227,6 +228,7 @@ def generate_html_report(results, matched_results, previous_day, current_day, po
     """
     
     for result in results:
+        #print(f"Processing ticker: {result['Ticker']}, EOD Change: {result['EOD % Change']}, First Hour Change: {result['First Hour %Chg']}, {result['First Hour Trend']}")
         html_content += f"""
             <tr>
                 <td>{result['Ticker']}</td>
@@ -398,6 +400,7 @@ def analyze_indian_stocks(stock_list, percentage_file=None, positive_threshold=N
                 'EOD % Change': round(eod_change, 2),
                 'EOD Trend': 'Positive' if eod_change >= 0 else 'Negative'
             }
+            #print(f"Ticker: {ticker}, EOD Change: {result['EOD % Change']}, First Hour Change: {result['First Hour %Chg']}")
             
             # Check if we have percentage data for this stock
             if percentage_data is not None:
@@ -441,14 +444,15 @@ def analyze_indian_stocks(stock_list, percentage_file=None, positive_threshold=N
 # Example usage
 if __name__ == "__main__":
     # List of Indian stock symbols (without .NS/.BO suffix, or with if you prefer)
-    indian_stocks = [stock for stocks in sector_stocks.values() for stock in stocks]
-    indian_stocks.extend(my_stocks)
-    indian_stocks.extend(PENNY_STOCKS)  
-    indian_stocks.extend(NEW_STOCKS)
-    indian_stocks.extend(SHORT_TERM_STOCKS)
+    #indian_stocks = [stock for stocks in sector_stocks.values() for stock in stocks]
+    #indian_stocks.extend(my_stocks)
+    #indian_stocks.extend(PENNY_STOCKS)  
+    #indian_stocks.extend(NEW_STOCKS)
+    #indian_stocks.extend(SHORT_TERM_STOCKS)
+    indian_stocks = PENNY_STOCKS
     
     # Path to file containing %chng data
-    PERCENTAGE_FILE = "MW-Pre-Open-Market-24-Jun-2025.csv"  # Update this path
+    PERCENTAGE_FILE = "MW-Pre-Open-Market-01-Jul-2025.csv"  # Update this path
     
     # Set your thresholds (positive % and negative %)
     POSITIVE_THRESHOLD = 0.5  # Highlight stocks with >= 0.5% increase
