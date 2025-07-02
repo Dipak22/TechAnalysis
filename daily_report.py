@@ -641,20 +641,32 @@ def calculate_and_sort_signals(tickers, short_period=14, medium_period=26, long_
     
     return sorted_signals
 
-def generate_html_report(short_period,medium_period, long_period, results, output_file='momentum_report.html'):
-    """Generate HTML report with dynamic period headers"""
-    
-    # Extract periods from the first result's keys
-    def extract_period(key_prefix):
-        for key in results[0].keys():
-            if key.startswith(key_prefix):
-                return key.split('_')[-1].replace('D','')
-        return None
-    
-    short_period =str(short_period)
-    medium_period = str(medium_period)  # Second RSI is medium period
-    long_period = str(long_period)   # Last PSAR is long period
+import yfinance as yf
+import pandas as pd
+import numpy as np
+from ta.momentum import RSIIndicator, ROCIndicator, StochasticOscillator
+from ta.trend import MACD, SMAIndicator, EMAIndicator, ADXIndicator, PSARIndicator
+from ta.volatility import BollingerBands, AverageTrueRange
+from ta.volume import VolumeWeightedAveragePrice, OnBalanceVolumeIndicator, AccDistIndexIndicator
+from datetime import datetime, timedelta
+import matplotlib.pyplot as plt
+from matplotlib.backends.backend_agg import FigureCanvasAgg as FigureCanvas
+from io import BytesIO
+import base64
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
+# [Previous code remains the same until generate_html_report function]
+
+def generate_html_report(short_period, medium_period, long_period, results, output_file='momentum_report.html'):
+    """Generate HTML report with dynamic period headers and interactive ticker links"""
+    
+    # Generate plot images for each stock first
+    plot_images = {}
+    for result in results:
+        ticker = result['Ticker']
+        plot_images[ticker] = generate_stock_plot(ticker, short_period, medium_period, long_period)
+    
     html_template = f"""
     <html>
     <head>
@@ -690,7 +702,20 @@ def generate_html_report(short_period,medium_period, long_period, results, outpu
                 justify-content: center;
                 font-weight: bold;
             }}
+            .ticker-link {{
+                color: #0066cc;
+                text-decoration: none;
+                font-weight: bold;
+            }}
+            .ticker-link:hover {{
+                text-decoration: underline;
+            }}
         </style>
+        <script>
+            function openStockChart(ticker) {{
+                window.open('stock_chart_' + ticker + '.html', '_blank');
+            }}
+        </script>
     </head>
     <body>
         <h1>Multi-Timeframe Stock Analysis Report ({datetime.today().strftime('%Y-%m-%d')})</h1>
@@ -722,7 +747,7 @@ def generate_html_report(short_period,medium_period, long_period, results, outpu
                     'sell' if 'SELL' in r['Signal'] else 'hold'
                 }}">
                     <td>{i+1}</td>
-                    <td><b>{r['Ticker']}</b></td>
+                    <td><a href="#" onclick="openStockChart('{r['Ticker']}')" class="ticker-link">{r['Ticker']}</a></td>
                     <td>{r['Price']}</td>
                     <td class="{{'positive' if float(r[f'Change_{short_period}D'].strip('%')) > 0 else 'negative'}}">
                         {r[f'Change_{short_period}D']}
@@ -744,7 +769,7 @@ def generate_html_report(short_period,medium_period, long_period, results, outpu
                     <td class="{{'positive' if float(r[f'Stoch_%K_{short_period}']) < 20 else 'negative' if float(r[f'Stoch_%K_{short_period}']) > 80 else 'neutral'}}">
                         {r[f'Stoch_%K_{short_period}']}
                     </td>
-                    <td class="{{'positive' if float(r[f'MACD_diff_{medium_period}']) =='Bullish' else 'negative'}}">
+                    <td class="{{'positive' if r[f'MACD_diff_{medium_period}'] == 'Bullish' else 'negative'}}">
                         {r[f'MACD_diff_{medium_period}']}
                     </td>
                     <td class="{{'positive' if float(r['BB_%'].strip('%'))/100 < 0.2 else 'negative' if float(r['BB_%'].strip('%'))/100 > 0.8 else 'neutral'}}">
@@ -800,7 +825,168 @@ def generate_html_report(short_period,medium_period, long_period, results, outpu
     
     with open(output_file, 'w', encoding='utf-8') as f:
         f.write(html_template)
+    
+    # Generate individual stock chart pages
+    for ticker, plot_html in plot_images.items():
+        with open(f'stock_chart_{ticker}.html', 'w') as f:
+            f.write(plot_html)
+    
     print(f"Report generated: {output_file}")
+
+def generate_stock_plot(ticker, short_period, medium_period, long_period):
+    """Generate a plot of key indicators for a stock and return as HTML"""
+    try:
+        # Download data
+        end_date = datetime.today()
+        start_date = end_date - timedelta(days=long_period*3)
+        stock = yf.Ticker(ticker)
+        df = stock.history(start=start_date, end=end_date, interval='1d')
+        
+        if df.empty or len(df) < long_period:
+            return "<p>No data available for plotting</p>"
+        
+        # Calculate indicators
+        # Moving Averages
+        sma_short = SMAIndicator(close=df['Close'], window=short_period).sma_indicator()
+        sma_medium = SMAIndicator(close=df['Close'], window=medium_period).sma_indicator()
+        sma_long = SMAIndicator(close=df['Close'], window=long_period).sma_indicator()
+        ema_short = EMAIndicator(close=df['Close'], window=short_period).ema_indicator()
+        ema_medium = EMAIndicator(close=df['Close'], window=medium_period).ema_indicator()
+        
+        # Momentum Indicators
+        short_rsi = RSIIndicator(close=df['Close'], window=short_period).rsi()
+        medium_rsi = RSIIndicator(close=df['Close'], window=medium_period).rsi()
+        macd = MACD(close=df['Close'], window_slow=20, window_fast=6, window_sign=10).macd()
+        macd_signal = MACD(close=df['Close'], window_slow=20, window_fast=6, window_sign=10).macd_signal()
+        macd_hist = MACD(close=df['Close'], window_slow=20, window_fast=6, window_sign=10).macd_diff()
+        
+        # Trend Indicators
+        adx = ADXIndicator(high=df['High'], low=df['Low'], close=df['Close'], window=medium_period)
+        psar_short = FixedPSARIndicator(high=df['High'], low=df['Low'], close=df['Close'], step=0.02, max_step=0.2).psar()
+        psar_medium = FixedPSARIndicator(high=df['High'], low=df['Low'], close=df['Close'], step=0.015, max_step=0.15).psar()
+        
+        # Volatility Indicators
+        bb = BollingerBands(close=df['Close'], window=long_period, window_dev=2)
+        atr = AverageTrueRange(high=df['High'], low=df['Low'], close=df['Close'], window=medium_period).average_true_range()
+        
+        # Create figure with subplots
+        fig = plt.figure(figsize=(14, 18), dpi=100)
+        gs = fig.add_gridspec(6, 1, height_ratios=[3, 2, 2, 2, 2, 1])
+        
+        # Plot 1: Price with Moving Averages and PSAR
+        ax1 = fig.add_subplot(gs[0, 0])
+        ax1.plot(df.index, df['Close'], label='Price', color='blue', linewidth=2)
+        ax1.plot(df.index, sma_short, label=f'SMA {short_period}D', color='orange', alpha=0.7)
+        ax1.plot(df.index, sma_medium, label=f'SMA {medium_period}D', color='green', alpha=0.7)
+        ax1.plot(df.index, sma_long, label=f'SMA {long_period}D', color='purple', alpha=0.7)
+        ax1.plot(df.index, ema_short, label=f'EMA {short_period}D', color='orange', linestyle='--', alpha=0.7)
+        ax1.plot(df.index, ema_medium, label=f'EMA {medium_period}D', color='green', linestyle='--', alpha=0.7)
+        ax1.plot(df.index, psar_short, 'r.', label=f'PSAR {short_period}D', markersize=4)
+        ax1.plot(df.index, psar_medium, 'g.', label=f'PSAR {medium_period}D', markersize=4)
+        ax1.set_title(f'{ticker} Price with Moving Averages and PSAR')
+        ax1.legend(loc='upper left')
+        
+        # Plot 2: Bollinger Bands
+        ax2 = fig.add_subplot(gs[1, 0], sharex=ax1)
+        ax2.plot(df.index, df['Close'], label='Price', color='blue', alpha=0.5)
+        ax2.plot(df.index, bb.bollinger_hband(), label='Upper Band', color='green', linestyle='--')
+        ax2.plot(df.index, bb.bollinger_mavg(), label='Middle Band', color='black', linestyle='--')
+        ax2.plot(df.index, bb.bollinger_lband(), label='Lower Band', color='red', linestyle='--')
+        ax2.fill_between(df.index, bb.bollinger_hband(), bb.bollinger_lband(), color='gray', alpha=0.1)
+        bb_percent = ((df['Close'] - bb.bollinger_lband()) / 
+                     (bb.bollinger_hband() - bb.bollinger_lband()))
+        ax2b = ax2.twinx()
+        ax2b.plot(df.index, bb_percent, label='BB %', color='purple', alpha=0.3)
+        ax2b.set_ylim(0, 1)
+        ax2b.axhline(0.8, color='red', linestyle=':', alpha=0.3)
+        ax2b.axhline(0.2, color='green', linestyle=':', alpha=0.3)
+        ax2.set_title('Bollinger Bands')
+        ax2.legend(loc='upper left')
+        ax2b.legend(loc='upper right')
+        
+        # Plot 3: ADX and DMI
+        ax3 = fig.add_subplot(gs[2, 0], sharex=ax1)
+        ax3.plot(df.index, adx.adx(), label='ADX', color='black')
+        ax3.plot(df.index, adx.adx_pos(), label='+DMI', color='green')
+        ax3.plot(df.index, adx.adx_neg(), label='-DMI', color='red')
+        ax3.axhline(25, color='gray', linestyle='--', alpha=0.5)
+        ax3.set_title('ADX with DMI')
+        ax3.legend()
+        
+        # Plot 4: RSI
+        ax4 = fig.add_subplot(gs[3, 0], sharex=ax1)
+        ax4.plot(df.index, short_rsi, label=f'RSI {short_period}D', color='blue')
+        ax4.plot(df.index, medium_rsi, label=f'RSI {medium_period}D', color='green')
+        ax4.axhline(70, color='red', linestyle='--')
+        ax4.axhline(30, color='green', linestyle='--')
+        ax4.set_ylim(0, 100)
+        ax4.set_title('Relative Strength Index')
+        ax4.legend()
+        
+        # Plot 5: MACD
+        ax5 = fig.add_subplot(gs[4, 0], sharex=ax1)
+        ax5.plot(df.index, macd, label='MACD', color='blue')
+        ax5.plot(df.index, macd_signal, label='Signal', color='orange')
+        ax5.bar(df.index, macd_hist, label='Histogram', color=np.where(macd_hist > 0, 'g', 'r'), alpha=0.5)
+        ax5.axhline(0, color='black', linestyle='--')
+        ax5.set_title('MACD')
+        ax5.legend()
+        
+        # Plot 6: Volume
+        ax6 = fig.add_subplot(gs[5, 0], sharex=ax1)
+        ax6.bar(df.index, df['Volume'], label='Volume', color='blue', alpha=0.5)
+        ax6.plot(df.index, df['Volume'].rolling(20).mean(), label='20D MA', color='red')
+        ax6.set_title('Volume')
+        ax6.legend()
+        
+        plt.tight_layout()
+        
+        # Save plot to HTML
+        buf = BytesIO()
+        plt.savefig(buf, format='png', bbox_inches='tight')
+        plt.close()
+        data = base64.b64encode(buf.getbuffer()).decode("ascii")
+        
+        html = f"""
+        <html>
+        <head>
+            <title>{ticker} Technical Indicators</title>
+            <style>
+                body {{ font-family: Arial; margin: 20px; }}
+                h1 {{ color: #333366; }}
+                .plot {{ margin-bottom: 30px; }}
+            </style>
+        </head>
+        <body>
+            <h1>{ticker} Technical Indicators ({datetime.today().strftime('%Y-%m-%d')})</h1>
+            <div class="plot">
+                <img src="data:image/png;base64,{data}" alt="{ticker} technical indicators" style="width:100%;">
+            </div>
+            <div>
+                <h3>Analysis Periods:</h3>
+                <ul>
+                    <li>Short-term: {short_period} days</li>
+                    <li>Medium-term: {medium_period} days</li>
+                    <li>Long-term: {long_period} days</li>
+                </ul>
+                <h3>Indicators Shown:</h3>
+                <ul>
+                    <li><strong>Price with Moving Averages:</strong> SMA {short_period}D, {medium_period}D, {long_period}D and EMA {short_period}D, {medium_period}D</li>
+                    <li><strong>Bollinger Bands:</strong> {long_period}D with 2 standard deviations</li>
+                    <li><strong>ADX/DMI:</strong> {medium_period}D period showing trend strength and direction</li>
+                    <li><strong>RSI:</strong> {short_period}D and {medium_period}D periods</li>
+                    <li><strong>MACD:</strong> (6,20,10) settings showing momentum</li>
+                    <li><strong>Volume:</strong> With 20D moving average</li>
+                </ul>
+            </div>
+        </body>
+        </html>
+        """
+        
+        return html
+    except Exception as e:
+        print(f"Error generating plot for {ticker}: {str(e)}")
+        return f"<p>Error generating plot for {ticker}</p>"
 
 def analyze_stocks(stock_list, short_period=14, medium_period=26, long_period=50):
     """Main analysis function"""
@@ -821,13 +1007,13 @@ def analyze_stocks(stock_list, short_period=14, medium_period=26, long_period=50
     # Sort by score
     results.sort(key=lambda x: (x['Signal_Value'], float(x['Score'])), reverse=True)
     current_date = datetime.now().strftime("%Y-%m-%d")
-    OUTPUT_FILE = f"momentum_report_cash_stocks_{current_date}.html"
+    OUTPUT_FILE = f"momentum_report_CASH_stocks_{current_date}.html"
     generate_html_report(short_period,medium_period, long_period, results, output_file=OUTPUT_FILE)
 
 # Example usage
 if __name__ == "__main__":
     #stocks = [stock for stocks in sector_stocks.values() for stock in stocks] # Replace with your stock list
-    stocks = CASH_HEAVY
+    stocks = CASH_HEAVY  # Example stock list
     #stocks.extend(PENNY_STOCKS)
     ##stocks.extend(NEW_STOCKS)
     

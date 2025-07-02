@@ -1,564 +1,516 @@
-from operator import itemgetter
-import yfinance as yf
 import pandas as pd
+import numpy as np
+import yfinance as yf
 from datetime import datetime, timedelta
-import matplotlib.pyplot as plt
-import json
-from pathlib import Path
-from MLTechnicalScorer import MLTechnicalScorer
-from my_stocks import my_stocks,PENNY_STOCKS, NEW_STOCKS, SHORT_TERM_STOCKS,CASH_HEAVY
-from sector_mapping import sector_stocks
-from daily_report import calculate_signals
+import pytz
+from backtesting import Backtest, Strategy
+from backtesting.lib import crossover
+from ta.momentum import RSIIndicator, ROCIndicator, StochasticOscillator
+from ta.trend import SMAIndicator, EMAIndicator, ADXIndicator, PSARIndicator,MACD, macd_diff, macd_signal
+from ta.volatility import BollingerBands, AverageTrueRange
+from ta.volume import OnBalanceVolumeIndicator, AccDistIndexIndicator, VolumeWeightedAveragePrice
 
-class StrategyBacktester:
-    def __init__(self, capital=1_000_000, top_n=5):
-        """self.scorer = MLTechnicalScorer(
-            short_period=14,
-            medium_period=26,
-            long_period=50,
-            vix_file='hist_india_vix_-18-06-2024-to-17-06-2025.csv'  # Your CSV with all VIX fields
-        ) """
-        
-        self.capital = capital
-        self.top_n = top_n
-        self.portfolio = {'cash': capital, 'holdings': {}, 'history': []}
-        self.price_cache = {}  # Cache to store recent prices
-        self.trade_log = []
-        self.weekly_log = []
-        self.output_dir = Path("backtest_results")
-        self.output_dir.mkdir(exist_ok=True)
-        self.current_portfolio_value = capital
-        
-    def run_backtest(self, start_date, end_date, stock_universe):
-        current_date = start_date
-        while current_date <= end_date:
-            if current_date.weekday() == 0:  # Run weekly on Mondays
-                #self.log_weekly_status(current_date, "PRE-REBALANCE")
-                self.run_weekly_rebalance(current_date, stock_universe)
-                self.log_weekly_status(current_date, "POST-REBALANCE")
-            current_date += timedelta(days=1)
-        
-        self.generate_report()
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
-    def log_weekly_status(self, date, phase):
-        """Detailed logging of portfolio status"""
-        log_entry = {
-            'date': date,
-            'phase': phase,
-            'cash': self.portfolio['cash'],
-            'total_value': self.portfolio['cash'],
-            'positions': []
-        }
-        
-        # Calculate current positions
-        for ticker, position in self.portfolio['holdings'].items():
-            current_price = position['last_price']
-            #current_price = self.get_current_price(ticker, date)
-            #if current_price is None:
-            #    current_price = position['last_price']
-            
-            position_value = position['shares'] * current_price
-            log_entry['total_value'] += position_value
-            
-            position_return = (current_price - position['entry_price']) / position['entry_price'] * 100
-            days_held = (date - position['entry_date']).days
-
-            log_entry['positions'].append({
-                'ticker': ticker,
-                'shares': position['shares'],
-                'entry_price': position['entry_price'],
-                'current_price': current_price,
-                'position_value': position_value,
-                'return_pct': position_return,
-                'days_held': days_held,
-                'signal': position['signal']  # Last known signal
-            })
-
-        self.current_portfolio_value = log_entry['total_value']
-        
-        self.weekly_log.append(log_entry)
-        #self.print_weekly_log(log_entry)
-
-    def print_weekly_log(self, log_entry):
-         
-        """Formatted console output for weekly status"""
-        print(f"\n{'='*50}")
-        print(f"DATE: {log_entry['date'].strftime('%Y-%m-%d')} | PHASE: {log_entry['phase']}")
-        print(f"CASH: ${log_entry['cash']:,.2f} | TOTAL VALUE: ${log_entry['total_value']:,.2f}")
-        print(f"{'-'*50}")
-        print("CURRENT POSITIONS:")
-        for pos in log_entry['positions']:
-            print(f"{pos['ticker']}: {pos['shares']:,.2f} shares | "
-                  f"Entry: ${pos['entry_price']:.2f} | "
-                  f"Current: ${pos['current_price']:.2f} | "
-                  f"Value: ${pos['position_value']:,.2f} | "
-                  f"Return: {pos['return_pct']:+.2f}% | "
-                  f"Days: {pos['days_held']} | "
-                  f"Signal: {pos['signal']}")
-        print(f"{'='*50}\n")
-
-    def get_current_signal(self, ticker, date):
-        """Get current signal for a ticker"""
-        try:
-            signal_data = calculate_signals(ticker, date)
-            return signal_data['Signal'] if signal_data else "NO SIGNAL"
-        except:
-            return "ERROR"
+class IntradayMomentumStrategy(Strategy):
+    # Strategy parameters
+    short_period = 5
+    medium_period = 10
+    long_period = 20
+    position_size = 0.1  # 10% of capital per trade
+    stop_loss_pct = 0.01  # 1% stop loss
+    take_profit_pct = 0.02  # 2% take profit
     
-    def run_weekly_rebalance(self, current_date, stock_universe):
-        # if market bearish close all position
-        # else if bullish market, rebalance portfolio
-            # 
-        # Get signals for all stocks
-        signals = []
-        for ticker in stock_universe:
-            try:
-                signal = calculate_signals(ticker, current_date)
-                if signal:
-                    signals.append(signal)
-            except Exception as e:
-                print(f"Error processing {ticker}: {str(e)}")
+    def init(self):
+        super().init()
+        self.trade_log = []  # To store trade details
+        self.current_trade = None
         
-        # Sort by score and pick top N
-        signals.sort(key=lambda x: (x['Signal_Value'], float(x['Score'])), reverse=True)
-        top_stocks = signals[:self.top_n]  #signals 
-        top_tickers = [s['Ticker'] for s in top_stocks]
+    def next(self):
+        current_time = self.data.index[-1]
         
-        # Track changes
-        opened_positions = []
-        closed_positions = []
+        # Only trade during market hours (9:15 AM to 3:30 PM IST)
+        start_time = datetime.strptime('09:15:00', '%H:%M:%S').time()
+        end_time = datetime.strptime('15:30:00', '%H:%M:%S').time()
+        
+        if current_time.time() < start_time or current_time.time() > end_time:
+            return
+            
+        df_live = pd.DataFrame({
+            'Open': self.data.Open[:],
+            'High': self.data.High[:],
+            'Low': self.data.Low[:],
+            'Close': self.data.Close[:],
+            'Volume': self.data.Volume[:]
+        }, index=self.data.index)
 
-        # Close positions not in top stocks
-        for ticker in list(self.portfolio['holdings'].keys()):
-            if ticker not in top_tickers:
-                closing_price = float(list(map(itemgetter('Price'), filter(lambda x: x['Ticker'] == ticker, signals)))[0])
-                print(f"Closing position for {ticker} on {current_date.strftime('%Y-%m-%d')} at ${closing_price:.2f}")
-                closed_positions.append(self.close_position(ticker, current_date,closing_price))
+        signal_data = calculate_signals(
+            ticker="NONE",
+            current_date=current_time,
+            df=df_live
+        )
         
-        # Calculate position sizes based on scores (weighted allocation)
-        total_score = sum(float(stock['Score']) for stock in top_stocks)
-        if total_score > 0:
+        if not signal_data:
+            return
+            
+        # Execute trades based on signals
+        if signal_data['Signal_Value'] >= 4 and not self.position:  # Buy signals
+            # Calculate number of shares (10% of equity / current price)
+            price = self.data.Close[-1]
+            equity = self.equity
+            shares = int((equity * self.position_size) / price)
+            
+            if shares > 0:
+                self.buy(size=shares, 
+                        sl=price * (1 - self.stop_loss_pct),
+                        tp=price * (1 + self.take_profit_pct))
+                
+                # Log trade entry
+                self.current_trade = {
+                    'entry_time': current_time,
+                    'entry_price': price,
+                    'shares': shares,
+                    'signal': signal_data['Signal'],
+                    'stop_loss': price * (1 - self.stop_loss_pct),
+                    'take_profit': price * (1 + self.take_profit_pct)
+                }
+                
+        elif signal_data['Signal_Value'] <= 3 and not self.position:  # Sell signals
+            price = self.data.Close[-1]
+            equity = self.equity
+            shares = int((equity * self.position_size) / price)
+            
+            if shares > 0:
+                self.sell(size=shares,
+                         sl=price * (1 + self.stop_loss_pct),
+                         tp=price * (1 - self.take_profit_pct))
+                
+                # Log trade entry
+                self.current_trade = {
+                    'entry_time': current_time,
+                    'entry_price': price,
+                    'shares': shares,
+                    'signal': signal_data['Signal'],
+                    'stop_loss': price * (1 + self.stop_loss_pct),
+                    'take_profit': price * (1 - self.take_profit_pct)
+                }
     
-            # Calculate weighted position sizes
-            position_sizes = [
-                (float(stock['Score']) / total_score) * (self.current_portfolio_value + self.portfolio['cash'])
-                for stock in top_stocks
-            ]
+    # Called when a trade is closed
+    def notify_trade(self, trade):
+        if trade.is_long:
+            direction = "BUY"
         else:
-            position_sizes = [0] * len(top_stocks)
-
-        # Open/rebalance positions
-        for stock, position_size in zip(top_stocks, position_sizes):
-            ticker = stock['Ticker']
-            current_price = float(stock['Price'])
+            direction = "SELL"
             
-            # Skip if no allocation or price is zero
-            if position_size <= 0 or current_price <= 0:
-                continue
-                
-            # Calculate target shares
-            target_shares = position_size / current_price
-            
-            # Handle existing position
-            if ticker in self.portfolio['holdings']:
-                current_position = self.portfolio['holdings'][ticker]
-                current_shares = current_position['shares']
-                return_pct = (current_price - current_position['entry_price']) / current_position['entry_price'] * 100
-                if stock['Signal'].startswith(('SELL', 'STRONG SELL')) or return_pct <= 0:
-                    closed_positions.append(self.close_position(ticker, current_date,current_price))
-                else:
-                    #if "BUY" in stock['Signal'] or "STRONG BUY" in stock['Signal']:
-                        # Calculate difference
-                    shares_diff = target_shares - current_shares
-                
-                    if shares_diff > 0:  # Need to buy more
-                        cost = shares_diff * current_price
-                        if cost > self.portfolio['cash']:
-                            continue  # Not enough cash
-                        opened_positions.append(self.open_position(
-                            ticker, shares_diff, current_price, current_date, stock['Signal']
-                        ))
-                    elif shares_diff < 0:  # Need to sell some
-                        closed_shares = -shares_diff
-                        closed_positions.append(self.close_partial_position(
-                            ticker, closed_shares, current_price, current_date
-                        ))
-
-            else:  # New position
-                if "SELL" not in stock['Signal'] or "STRONG SELL" not in stock['Signal']:
-                    cost = target_shares * current_price
-                    if cost > self.portfolio['cash']:
-                        continue  # Not enough cash
-                    opened_positions.append(self.open_position(
-                        ticker, target_shares, current_price, current_date, stock['Signal']
-                    ))
-    
-        # Log transaction details
-        self.log_transactions(current_date, opened_positions, closed_positions)
-        
-        # Record portfolio snapshot
-        self.record_portfolio(current_date)
-        
-        
-    def close_partial_position(self, ticker, shares_to_close, current_price, date):
-        """Close a portion of a position"""
-        if ticker not in self.portfolio['holdings']:
-            return None
-            
-        position = self.portfolio['holdings'][ticker]
-        
-        # Can't close more shares than we have
-        shares_to_close = min(shares_to_close, position['shares'])
-        
-        proceeds = shares_to_close * current_price
-        self.portfolio['cash'] += proceeds
-        self.current_portfolio_value -=proceeds
-        
-        return_pct = (current_price - position['entry_price']) / position['entry_price'] * 100
-        days_held = (date - position['entry_date']).days
-
-        # Update remaining position
-        position['shares'] -= shares_to_close
-        if position['shares'] <= 0:
-            del self.portfolio['holdings'][ticker]
-        
-        return {
-            'ticker': ticker,
-            'shares': shares_to_close,
-            'entry_price': position['entry_price'],
-            'exit_price': current_price,
-            'return_pct': return_pct,
-            'days_held': days_held
-        }
-
-
-    def log_transactions(self, date, opened, closed):
-        """Log detailed transaction information"""
-        transaction_log = {
-            'date': date,
-            'opened': [],
-            'closed': []
-        }
-        
-        for pos in opened:
-            transaction_log['opened'].append({
-                'ticker': pos['ticker'],
-                'shares': pos['shares'],
-                'price': pos['price'],
-                'amount': pos['amount']
+        if self.current_trade:
+            self.current_trade.update({
+                'exit_time': trade.exit_time,
+                'exit_price': trade.exit_price,
+                'pnl': trade.pl,
+                'pnl_pct': trade.pl_pct,
+                'duration': trade.exit_time - trade.entry_time
             })
-        
-        for pos in closed:
-            transaction_log['closed'].append({
-                'ticker': pos['ticker'],
-                'shares': pos['shares'],
-                'entry_price': pos['entry_price'],
-                'exit_price': pos['exit_price'],
-                'return_pct': pos['return_pct'],
-                'days_held': pos['days_held']
-            })
+            self.trade_log.append(self.current_trade)
+            self.current_trade = None
 
-        self.trade_log.append(transaction_log)
-        #self.print_transaction_log(transaction_log)
-
-    def print_transaction_log(self, log):
-        """Formatted console output for transactions"""
-        print(f"\n{'#'*50}")
-        print(f"TRANSACTIONS ON {log['date'].strftime('%Y-%m-%d')}")
-        
-        if log['opened']:
-            print("\nOPENED POSITIONS:")
-            for pos in log['opened']:
-                print(f"+ {pos['ticker']}: {pos['shares']:,.2f} shares @ ${pos['price']:.2f} "
-                      f"(Amount: ${pos['amount']:,.2f})")
-        
-        if log['closed']:
-            print("\nCLOSED POSITIONS:")
-            for pos in log['closed']:
-                print(f"- {pos['ticker']}: {pos['shares']:,.2f} shares | "
-                      f"Entry: ${pos['entry_price']:.2f} | "
-                      f"Exit: ${pos['exit_price']:.2f} | "
-                      f"Return: {pos['return_pct']:+.2f}% | "
-                      f"Held: {pos['days_held']} days")
-        
-        print(f"{'#'*50}\n")
-    
-    def get_current_price(self, ticker, date):
-        """Safe method to get current price with fallback"""
-        try:
-            # Check cache first
-            if ticker in self.price_cache and self.price_cache[ticker]['date'] == date:
-                return self.price_cache[ticker]['price']
-            
-            # Get fresh data
-            price_data = yf.Ticker(ticker).history(
-                start=date - timedelta(days=5),
-                end=date + timedelta(days=1))
-            
-            if not price_data.empty:
-                price = price_data['Close'].iloc[-1]
-                self.price_cache[ticker] = {'date': date, 'price': price}
-                return price
+def calculate_signals(ticker, current_date, short_period=5, medium_period=10, long_period=20, df=None):
+    """Modified version of your signal calculator that works with backtesting data"""
+    try:
+        if df is None:
             return None
-        except:
+            
+        # Use the last long_period*2 data points for calculation
+        if len(df) < long_period * 2:
             return None
-    
-    def open_position(self, ticker, shares, price, date, signal):
-        cost = shares * price
-        total_shares = 0
-        avg_price = 0
-        if cost > self.portfolio['cash']:
-            shares = self.portfolio['cash'] / price
-            cost = shares * price
-        if ticker in self.portfolio['holdings']:
-            existing_shares = self.portfolio['holdings'][ticker]['shares']
-            total_shares = shares + existing_shares
-            entry_price = self.portfolio['holdings'][ticker]['entry_price']
-            #print(ticker, entry_price, existing_shares, shares, price, total_shares)
-            avg_price = (entry_price * existing_shares + price * shares) / total_shares
-            date = self.portfolio['holdings'][ticker]['entry_date']  # Keep original entry date
-        else:
-            total_shares = shares
-            avg_price = price
+            
+        # Get the most recent data
+        latest_data = df.iloc[-long_period*2:]
+        
+        # Initialize indicators dictionary
+        indicators = {}
 
-        self.portfolio['holdings'][ticker] = {
-            'shares': total_shares,
-            'entry_price': avg_price,
-            'entry_date': date,
-            'last_price': price,
-            'signal': signal  # Initialize last known price
+        # Short-term indicators
+        indicators['short'] = {
+            'RSI': RSIIndicator(close=latest_data['Close'], window=short_period).rsi(),
+            'ROC': ROCIndicator(close=latest_data['Close'], window=short_period).roc(),
+            'Stoch_%K': StochasticOscillator(
+                high=latest_data['High'],
+                low=latest_data['Low'],
+                close=latest_data['Close'],
+                window=short_period,
+                smooth_window=3
+            ).stoch(),
+            'SMA': SMAIndicator(close=latest_data['Close'], window=short_period).sma_indicator(),
+            'EMA': EMAIndicator(close=latest_data['Close'], window=short_period).ema_indicator(),
+            'ATR': AverageTrueRange(
+                high=latest_data['High'],
+                low=latest_data['Low'],
+                close=latest_data['Close'],
+                window=short_period
+            ).average_true_range(),
+            'PSAR': PSARIndicator(
+                high=latest_data['High'],
+                low=latest_data['Low'],
+                close=latest_data['Close'],
+                step=0.02,
+                max_step=0.2
+            ).psar(),
+            'ADX': ADXIndicator(
+                high=latest_data['High'],
+                low=latest_data['Low'],
+                close=latest_data['Close'],
+                window=short_period
+            ).adx()
         }
-        self.portfolio['cash'] -= cost
 
-        return {
-            'ticker': ticker,
-            'shares': shares,
-            'price': price,
-            'amount': cost
+        # Medium-term indicators
+        adx_indicator = ADXIndicator(
+            high=latest_data['High'],
+            low=latest_data['Low'],
+            close=latest_data['Close'],
+            window=medium_period
+        )
+        macd_indicator = MACD(
+            close=latest_data['Close'],
+            window_slow=20,
+            window_fast=6,
+            window_sign=10
+        )
+        indicators['medium'] = {
+            'RSI': RSIIndicator(close=latest_data['Close'], window=medium_period).rsi(),
+            'ROC': ROCIndicator(close=latest_data['Close'], window=medium_period).roc(),
+            'SMA': SMAIndicator(close=latest_data['Close'], window=medium_period).sma_indicator(),
+            'EMA': EMAIndicator(close=latest_data['Close'], window=medium_period).ema_indicator(),
+            'MACD': macd_indicator.macd(),
+            'MACD_hist': macd_indicator.macd_diff(),
+            'MACD_signal': macd_indicator.macd_signal(),
+            'ADX': adx_indicator.adx(),
+            'DMP': adx_indicator.adx_pos(),
+            'DMN': adx_indicator.adx_neg(),
+            'PSAR': PSARIndicator(
+                high=latest_data['High'],
+                low=latest_data['Low'],
+                close=latest_data['Close'],
+                step=0.015,
+                max_step=0.15
+            ).psar()
         }
+        
+        # Long-term indicators
+        indicators['long'] = {
+            'SMA': SMAIndicator(close=latest_data['Close'], window=long_period).sma_indicator(),
+            'EMA': EMAIndicator(close=latest_data['Close'], window=long_period).ema_indicator(),
+            'BB': BollingerBands(close=latest_data['Close'], window=long_period, window_dev=2),
+            'VWAP': VolumeWeightedAveragePrice(
+                high=latest_data['High'],
+                low=latest_data['Low'],
+                close=latest_data['Close'],
+                volume=latest_data['Volume'],
+                window=long_period
+            ).volume_weighted_average_price(),
+            'PSAR': PSARIndicator(
+                high=latest_data['High'],
+                low=latest_data['Low'],
+                close=latest_data['Close'],
+                step=0.01,
+                max_step=0.1
+            ).psar(),
+            'ADX': ADXIndicator(
+                high=latest_data['High'],
+                low=latest_data['Low'],
+                close=latest_data['Close'],
+                window=long_period
+            ).adx()
+        }
+
+        # Volume indicators
+        volume_indicators = {
+            'OBV': OnBalanceVolumeIndicator(
+                close=latest_data['Close'],
+                volume=latest_data['Volume']
+            ).on_balance_volume(),
+            'ADI': AccDistIndexIndicator(
+                high=latest_data['High'],
+                low=latest_data['Low'],
+                close=latest_data['Close'],
+                volume=latest_data['Volume']
+            ).acc_dist_index(),
+            'Volume_MA': latest_data['Volume'].rolling(20).mean(),
+            'Volume_Spike': latest_data['Volume'] > (latest_data['Volume'].rolling(20).mean() * 2)
+        }
+        
+        # Get latest values
+        latest = {
+            'price': latest_data['Close'].iloc[-1],
+            'open': latest_data['Open'].iloc[-1],
+            'high': latest_data['High'].iloc[-1],
+            'low': latest_data['Low'].iloc[-1],
+            'close': latest_data['Close'].iloc[-1],
+            'prev_close': latest_data['Close'].iloc[-2],
+            'prev_open': latest_data['Open'].iloc[-2],
+            'prev_high': latest_data['High'].iloc[-2],
+            'prev_low': latest_data['Low'].iloc[-2],
+            'short': {k: v.iloc[-1] for k, v in indicators['short'].items()},
+            'medium': {k: v.iloc[-1] if not isinstance(v, dict) else {sk: sv.iloc[-1] for sk, sv in v.items()} 
+                      for k, v in indicators['medium'].items()},
+            'long': {k: v.iloc[-1] if not hasattr(v, 'bollinger_hband') else {
+                'upper': v.bollinger_hband().iloc[-1],
+                'middle': v.bollinger_mavg().iloc[-1],
+                'lower': v.bollinger_lband().iloc[-1],
+                'percent': np.divide(
+                    (latest_data['Close'].iloc[-1] - v.bollinger_lband().iloc[-1]),
+                    (v.bollinger_hband().iloc[-1] - v.bollinger_lband().iloc[-1]),
+                    out=np.zeros(1),
+                    where=(v.bollinger_hband().iloc[-1] - v.bollinger_lband().iloc[-1]) != 0
+                )[0]
+            } for k, v in indicators['long'].items()},
+            'volume': {k: v.iloc[-1] for k, v in volume_indicators.items()}
+        }
+
+        # Previous values for trend analysis
+        prev = {
+            'short': {k: v.iloc[-2] for k, v in indicators['short'].items()},
+            'medium': {k: v.iloc[-2] if not isinstance(v, dict) else {sk: sv.iloc[-2] for sk, sv in v.items()} 
+                     for k, v in indicators['medium'].items()},
+        }
+        
+        # Price changes
+        price_changes = {
+            'short': (latest['price'] - latest_data['Close'].iloc[-short_period]) / latest_data['Close'].iloc[-short_period] * 100,
+            'medium': (latest['price'] - latest_data['Close'].iloc[-medium_period]) / latest_data['Close'].iloc[-medium_period] * 100,
+            'long': (latest['price'] - latest_data['Close'].iloc[-long_period]) / latest_data['Close'].iloc[-long_period] * 100
+        }
+
+        # Trend analysis with PSAR and candlestick patterns (same as before)
+        trends = {
+            'short_term_up': latest['price'] > latest['short']['SMA'] > latest['short']['EMA'],
+            'medium_term_up': latest['price'] > latest['medium']['SMA'] > latest['medium']['EMA'],
+            'long_term_up': latest['price'] > latest['long']['SMA'] > latest['long']['EMA'],
+            'golden_cross': latest['short']['SMA'] > latest['medium']['SMA'] and prev['short']['SMA'] <= prev['medium']['SMA'],
+            'death_cross': latest['short']['SMA'] < latest['medium']['SMA'] and prev['short']['SMA'] >= prev['medium']['SMA'],
+            'macd_bullish': latest['medium']['MACD_hist'] > prev['medium']['MACD_hist'] and 
+                           latest['medium']['MACD'] > latest['medium']['MACD_signal'] and 
+                           latest['medium']['MACD'] > prev['medium']['MACD'] and 
+                           latest['medium']['MACD'] > 0,
+            'macd_bearish': latest['medium']['MACD_hist'] < prev['medium']['MACD_hist'] and 
+                           latest['medium']['MACD'] < latest['medium']['MACD_signal'] and 
+                           latest['medium']['MACD'] < prev['medium']['MACD'] and 
+                           latest['medium']['MACD'] < 0,
+            'adx_strength': latest['medium']['ADX'] > 25,
+            'dmp_dominant': latest['medium']['DMP'] > latest['medium']['DMN'],
+            'dmn_dominant': latest['medium']['DMN'] > latest['medium']['DMP'],
+            'adx_bullish': latest['short']['ADX'] > latest['medium']['ADX'] and latest['medium']['ADX'] > latest['long']['ADX'],
+            'adx_bearish': latest['short']['ADX'] < latest['medium']['ADX'] and latest['medium']['ADX'] < latest['long']['ADX'],
+            'sar_short_bullish': latest['price'] > latest['short']['PSAR'],
+            'sar_medium_bullish': latest['price'] > latest['medium']['PSAR'],
+            'sar_long_bullish': latest['price'] > latest['long']['PSAR'],
+            'sar_short_bearish': latest['price'] < latest['short']['PSAR'],
+            'sar_medium_bearish': latest['price'] < latest['medium']['PSAR'],
+            'sar_long_bearish': latest['price'] < latest['long']['PSAR'],
+        }
+
+        # Momentum signals
+        momentum = {
+            'rsi_short': latest['short']['RSI'],
+            'rsi_medium': latest['medium']['RSI'],
+            'stoch_overbought': latest['short']['Stoch_%K'] > 80,
+            'stoch_oversold': latest['short']['Stoch_%K'] < 20,
+            'roc_short': latest['short']['ROC'],
+            'roc_medium': latest['medium']['ROC'],
+            'bb_position': latest['long']['BB']['percent'],
+            'atr': latest['short']['ATR']
+        }
+
+        # Volume signals
+        volume = {
+            'obv_trend': '↑' if latest['volume']['OBV'] > volume_indicators['OBV'].iloc[-2] else '↓',
+            'adi_trend': '↑' if latest['volume']['ADI'] > volume_indicators['ADI'].iloc[-2] else '↓',
+            'volume_spike': latest['volume']['Volume_Spike'],
+            'vwap_relation': 'above' if latest['price'] > latest['long']['VWAP'] else 'below'
+        }
+        
+        # Generate composite score (0-100)
+        score = 50  # Neutral starting point
+
+        # Trend Strength (25% weight)
+        trend_score = 0
+        trend_score += 3 if trends['short_term_up'] else -3
+        trend_score += 5 if trends['medium_term_up'] else -5
+        trend_score += 7 if trends['long_term_up'] else -7
+        trend_score += 10 if trends['golden_cross'] else (-10 if trends['death_cross'] else 0)
+        trend_score += 7 if trends['macd_bullish'] else (-7 if trends['macd_bearish'] else 0)
+        adx_component = min(50, latest['medium']['ADX']) / 2
+        trend_score += adx_component if trends['adx_strength'] else 0
+        trend_score += 5 if trends['dmp_dominant'] else (-5 if trends['dmn_dominant'] else 0)
+        score += (trend_score / 67) * 30
+
+        # PSAR Confirmation (20% weight)
+        psar_score = 0
+        psar_score += 5 if trends['sar_short_bullish'] else -5
+        psar_score += 7 if trends['sar_medium_bullish'] else -7
+        psar_score += 8 if trends['sar_long_bullish'] else -8
+        score += (psar_score / 20) * 20
+
+        # Momentum Strength (20% weight)
+        momentum_score = 0
+        if momentum['rsi_short'] > 70:
+            momentum_score -= ((momentum['rsi_short'] - 70) / 30) ** 2 * 10
+        elif momentum['rsi_short'] < 30:
+            momentum_score += ((30 - momentum['rsi_short']) / 30) ** 2 * 10
+        if momentum['stoch_overbought']:
+            momentum_score -= ((latest['short']['Stoch_%K'] - 80) / 20) ** 2 * 5
+        elif momentum['stoch_oversold']:
+            momentum_score += ((20 - latest['short']['Stoch_%K']) / 20) ** 2 * 5
+        momentum_score += (momentum['roc_short'] / 10) * 3
+        momentum_score += (momentum['roc_medium'] / 7) * 2
+        momentum_score += (momentum['bb_position'] - 0.5) * 10
+        score += (momentum_score / 30) * 20
+
+        # Volume Confirmation (15% weight)
+        volume_score = 0
+        volume_score += 10 if volume['obv_trend'] == '↑' else -10
+        if volume['volume_spike']:
+            volume_score += 5 if volume['obv_trend'] == '↑' else -5
+        volume_score += 3 if volume['adi_trend'] == '↑' else -3
+        volume_score += 2 if volume['vwap_relation'] == 'above' else -2
+        score += (volume_score / 20) * 15
+
+        # Final score adjustment
+        score = max(0, min(100, score))
+
+        # Generate trading signal
+        signal = "HOLD"
+        signal_strength = ""
+        signal_value = 0
+        
+        if (trends['adx_bullish'] and
+            trends['sar_short_bullish'] and 
+            trends['sar_medium_bullish'] and 
+            trends['sar_long_bullish'] and 
+            volume['obv_trend'] == '↑' and
+            trends['dmp_dominant'] and
+            trends['macd_bullish']):
+            signal = "STRONG BUY"
+            signal_value = 6
+        elif (trends['adx_bullish'] and
+              (trends['sar_short_bullish'] or trends['sar_medium_bullish']) and 
+              volume['obv_trend'] == '↑' and
+              trends['dmp_dominant'] and
+              trends['macd_bullish']):
+            signal = "BUY"
+            signal_value = 5
+        elif (trends['adx_bearish'] and
+              trends['sar_short_bearish'] and 
+              trends['sar_medium_bearish'] and 
+              trends['sar_long_bearish'] and 
+              volume['obv_trend'] == '↓' and
+              trends['dmn_dominant'] and
+              trends['macd_bearish']):
+            signal = "STRONG SELL"
+            signal_value = 1
+        elif (trends['adx_bearish'] and
+              (trends['sar_short_bearish'] or trends['sar_medium_bearish']) and 
+              volume['obv_trend'] == '↓' and
+              trends['dmn_dominant'] and
+              trends['macd_bearish']):
+            signal = "SELL"
+            signal_value = 2
+        elif (trends['macd_bullish'] and
+              (trends['sar_short_bullish'] or trends['sar_medium_bullish'])):
+            signal = "WEAK BUY"
+            signal_value = 4
+        elif (trends['macd_bearish'] and
+              (trends['sar_short_bearish'] or trends['sar_medium_bearish'])):
+            signal = "WEAK SELL"
+            signal_value = 3
+
+        # Prepare result dictionary
+        result = {
+            'Price': f"{latest['price']:.2f}",
+            'RSI_Short': f"{momentum['rsi_short']:.1f}",
+            'MACD': 'Bullish' if trends['macd_bullish'] else ('Bearish' if trends['macd_bearish'] else 'Neutral'),
+            'BB_%': f"{momentum['bb_position']:.2%}",
+            'PSAR_Short': 'Bullish' if trends['sar_short_bullish'] else 'Bearish',
+            'Volume_Spike': 'Yes' if volume['volume_spike'] else 'No',
+            'Score': f"{score:.1f}",
+            'Signal': signal,
+            'Signal_Value': signal_value
+        }
+        
+        return result
+    except Exception as e:
+        print(f"Error calculating signals: {str(e)}")
+        return None
+
+def print_trade_details(trade_log):
+    print("\nTrade Details:")
+    print("-" * 120)
+    print(f"{'#':<3} | {'Direction':<8} | {'Entry Time':<20} | {'Entry Price':<12} | {'Shares':<8} | "
+          f"{'Exit Time':<20} | {'Exit Price':<12} | {'PNL':<10} | {'PNL %':<8} | {'Duration':<15} | {'Signal'}")
+    print("-" * 120)
     
-    def close_position(self, ticker, date, current_price=None):
-        if ticker in self.portfolio['holdings']:
-            position = self.portfolio['holdings'][ticker]
-            current_price = current_price
-            
-            # Use last known price if current unavailable
-            if current_price is None:
-                current_price = position['last_price']
-            
-            proceeds = position['shares'] * current_price
-            self.portfolio['cash'] += proceeds
-            self.current_portfolio_value -= proceeds
-            return_pct = (current_price - position['entry_price']) / position['entry_price'] * 100
-            days_held = (date - position['entry_date']).days
+    for i, trade in enumerate(trade_log, 1):
+        direction = "BUY" if trade['entry_price'] < trade.get('exit_price', trade['entry_price']) else "SELL"
         
-            closed_position = {
-                'ticker': ticker,
-                'shares': position['shares'],
-                'entry_price': position['entry_price'],
-                'exit_price': current_price,
-                'return_pct': return_pct,
-                'days_held': days_held
-            }
-            
-            del self.portfolio['holdings'][ticker]
-            return closed_position
+        print(f"{i:<3} | {direction:<8} | "
+              f"{trade['entry_time'].strftime('%Y-%m-%d %H:%M:%S'):<20} | "
+              f"{trade['entry_price']:>12.2f} | "
+              f"{trade['shares']:>8} | "
+              f"{trade.get('exit_time', 'Open').strftime('%Y-%m-%d %H:%M:%S') if 'exit_time' in trade else 'Open':<20} | "
+              f"{trade.get('exit_price', ''):>12.2f} | "
+              f"{trade.get('pnl', 0):>10.2f} | "
+              f"{trade.get('pnl_pct', 0):>7.2f}% | "
+              f"{str(trade.get('duration', '')).split('.')[0] if 'duration' in trade else '':<15} | "
+              f"{trade['signal']}")
+
+def run_backtest(ticker, start_date, end_date, interval='5m'):
+    # Download data
+    stock = yf.Ticker(ticker)
+    data = stock.history(start=start_date, end=end_date, interval=interval)
     
-    def record_portfolio(self, date):
-        total_value = self.portfolio['cash']
-        for ticker, position in self.portfolio['holdings'].items():
-            current_price = self.get_current_price(ticker, date)
-            
-            if current_price is None:
-                current_price = position['last_price']
-            else:
-                # Update last known price
-                self.portfolio['holdings'][ticker]['last_price'] = current_price
-            
-            total_value += position['shares'] * current_price
-        
-        self.portfolio['history'].append({
-            'date': date,
-            'value': total_value,
-            'holdings': {k: v['shares'] for k,v in self.portfolio['holdings'].items()}
-        })
+    if data.empty:
+        print(f"No data found for {ticker} between {start_date} and {end_date}")
+        return None
+
     
-    def generate_report(self):
-        # Save JSON logs
-        with open(self.output_dir / "weekly_log.json", "w") as f:
-            json.dump(self.weekly_log, f, indent=2, default=str)
-            
-        with open(self.output_dir / "trade_log.json", "w") as f:
-            json.dump(self.trade_log, f, indent=2, default=str)
-        
-        # Generate HTML report
-        self.generate_html_report()
-        
-        # Generate performance plot (as before)
-        self.generate_performance_plot()
+    # Run backtest
+    bt = Backtest(data, IntradayMomentumStrategy, 
+                  commission=.002, 
+                  margin=1.0,
+                  cash=100000,
+                  trade_on_close=True)
+    
+    stats = bt.run()
+    
+    # Get trade details from the strategy instance
+    trade_log = stats._strategy.trade_log
+    
+    # Print trade details
+    print_trade_details(trade_log)
+    
+    # Print performance summary with updated keys
+    print("\nPerformance Summary:")
+    #print(f"Initial Capital: ₹{stats['_equity_initial']:,.2f}")
+    #print(f"Final Capital: ₹{stats['_equity_final']:,.2f}")
+    print(f"Total Return: {stats['Return [%]']:.2f}%")
+    print(f"Total Trades: {stats['# Trades']}")
+    print(f"Win Rate: {stats['Win Rate [%]']:.2f}%")
+    #print(f"Profit Factor: {stats['Profit Factor']:.2f}")
+    #print(f"Max Drawdown: {stats['Max. Drawdown [%]']:.2f}%")
+    
+    return stats
 
-    def generate_html_report(self):
-        html_content = f"""
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <title>Strategy Backtest Report</title>
-            <style>
-                body {{ font-family: Arial, sans-serif; margin: 20px; }}
-                h1, h2 {{ color: #2c3e50; }}
-                .log-entry {{ margin-bottom: 30px; border: 1px solid #ddd; padding: 15px; border-radius: 5px; }}
-                .phase {{ font-weight: bold; color: #3498db; }}
-                .position {{ margin: 10px 0; padding: 8px; background: #f8f9fa; border-radius: 4px; }}
-                .positive {{ color: #27ae60; }}
-                .negative {{ color: #e74c3c; }}
-                .transaction {{ margin: 15px 0; }}
-                table {{ width: 100%; border-collapse: collapse; margin: 15px 0; }}
-                th, td {{ padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }}
-                tr:hover {{ background-color: #f5f5f5; }}
-            </style>
-        </head>
-        <body>
-        <h1>Strategy Backtest Report</h1>
-            <h2>Weekly Portfolio Snapshots</h2>
-            {self.generate_weekly_log_html()}
-            
-            <h2>Transaction History</h2>
-            {self.generate_transaction_log_html()}
-            
-            <h2>Performance Summary</h2>
-            <img src="performance_plot.png" width="800">
-        </body>
-        </html>
-        """
-        
-        with open(self.output_dir / "report_cash_stocks_25_06_30.html", "w") as f:
-            f.write(html_content)
-
-    def generate_weekly_log_html(self):
-        html_entries = []
-        for log in self.weekly_log:
-            positions_html = []
-            for pos in log['positions']:
-                return_class = "positive" if pos['return_pct'] >= 0 else "negative"
-                positions_html.append(f"""
-                <div class="position">
-                    <strong>{pos['ticker']}</strong>: {pos['shares']:,.2f} shares<br>
-                    Entry: ${pos['entry_price']:.2f} | Current: ${pos['current_price']:.2f}<br>
-                    Value: ${pos['position_value']:,.2f} | 
-                    <span class="{return_class}">Return: {pos['return_pct']:+.2f}%</span><br>
-                    Days Held: {pos['days_held']} | Signal: {pos['signal']}
-                </div>
-                """)
-            
-            html_entries.append(f"""
-            <div class="log-entry">
-                <h3>Date: {log['date']} | <span class="phase">Phase: {log['phase']}</span></h3>
-                <p><strong>Cash:</strong> ${log['cash']:,.2f} | 
-                <strong>Total Value:</strong> ${log['total_value']:,.2f}</p>
-                <h4>Positions:</h4>
-                {"".join(positions_html) if positions_html else "<p>No positions</p>"}
-            </div>
-            """)
-
-        return "\n".join(html_entries)
-
-    def generate_transaction_log_html(self):
-        html_entries = []
-        for log in self.trade_log:
-            opened_html = []
-            for pos in log['opened']:
-                opened_html.append(f"""
-                <tr>
-                    <td>{pos['ticker']}</td>
-                    <td>{pos['shares']:,.2f}</td>
-                    <td>${pos['price']:.2f}</td>
-                    <td>${pos['amount']:,.2f}</td>
-                </tr>
-                """)
-                
-            closed_html = []
-            for pos in log['closed']:
-                return_class = "positive" if pos['return_pct'] >= 0 else "negative"
-                closed_html.append(f"""
-                <tr>
-                    <td>{pos['ticker']}</td>
-                    <td>{pos['shares']:,.2f}</td>
-                    <td>${pos['entry_price']:.2f}</td>
-                    <td>${pos['exit_price']:.2f}</td>
-                    <td class="{return_class}">{pos['return_pct']:+.2f}%</td>
-                    <td>{pos['days_held']}</td>
-                </tr>
-                """)
-            html_entries.append(f"""
-            <div class="transaction">
-                <h3>Transactions on {log['date']}</h3>
-                
-                <h4>Opened Positions</h4>
-                {"<p>No positions opened</p>" if not opened_html else f"""
-                <table>
-                    <tr>
-                        <th>Ticker</th>
-                        <th>Shares</th>
-                        <th>Price</th>
-                        <th>Amount</th>
-                    </tr>
-                    {"".join(opened_html)}
-                </table>
-                """}
-                 <h4>Closed Positions</h4>
-                {"<p>No positions closed</p>" if not closed_html else f"""
-                <table>
-                    <tr>
-                        <th>Ticker</th>
-                        <th>Shares</th>
-                        <th>Entry Price</th>
-                        <th>Exit Price</th>
-                        <th>Return</th>
-                        <th>Days Held</th>
-                    </tr>
-                    {"".join(closed_html)}
-                </table>
-                """}
-            </div>
-            """)
-            
-        return "\n".join(html_entries)
-
-    def generate_performance_plot(self):
-        # Create performance dataframe
-        df = pd.DataFrame(self.portfolio['history'])
-        df.set_index('date', inplace=True)
-        
-        # Calculate metrics
-        initial_value = self.capital
-        final_value = df['value'].iloc[-1]
-        total_return = (final_value - initial_value) / initial_value * 100
-        max_drawdown = (df['value'].cummax() - df['value']).max() / df['value'].cummax().max() * 100
-        
-        # Plot performance
-        plt.figure(figsize=(12, 6))
-        plt.plot(df.index, df['value'], label='Portfolio Value')
-        plt.title(f'Strategy Performance\nTotal Return: {total_return:.2f}% | Max Drawdown: {max_drawdown:.2f}%')
-        plt.xlabel('Date')
-        plt.ylabel('Portfolio Value ($)')
-        plt.legend()
-        plt.grid()
-        plt.savefig(self.output_dir / "performance_plot.png")
-        plt.close()
-            
 
 # Example usage
 if __name__ == "__main__":
-    # Configuration
-    start_date = datetime(2024, 1, 1)
-    end_date = datetime(2025, 6, 18)
-    #stock_universe = [stock for stocks in sector_stocks.values() for stock in stocks]
-    #stock_universe = my_stocks  # Use your own stock universe
-    stock_universe = CASH_HEAVY
-    #stock_universe.extend(my_stocks)
-    #stock_universe .extend(PENNY_STOCKS)
-    #stock_universe.extend(NEW_STOCKS)
-    #stock_universe.extend(SHORT_TERM_STOCKS)
+    # Test parameters
+    ticker = "RELIANCE.NS"  # NSE stock
+    start_date = "2025-06-25"
+    end_date = "2025-07-01"
+    interval = "5m"  # 5-minute data
+    
     # Run backtest
-    backtester = StrategyBacktester(capital=1_00_000, top_n=10)
-    backtester.run_backtest(start_date, end_date, stock_universe)
+    results = run_backtest(ticker, start_date, end_date, interval)
+    
+    

@@ -8,6 +8,7 @@ from ta.volume import VolumeWeightedAveragePrice, OnBalanceVolumeIndicator, AccD
 from datetime import datetime, timedelta
 from sector_mapping import sector_stocks  # Replace with your stock list
 from my_stocks import my_stocks, PENNY_STOCKS,NEW_STOCKS,SHORT_TERM_STOCKS, CASH_HEAVY
+import pytz
 
 import warnings
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -45,11 +46,19 @@ class FixedPSARIndicator(PSARIndicator):
 def calculate_signals(ticker, current_date = datetime.today(),short_period=5, medium_period=10, long_period=20):
     """Calculate momentum, volume, and trend signals across three timeframes with PSAR and candlestick patterns"""
     try:
-        # Download data - extended for long-term indicators
-        end_date = current_date
-        start_date = end_date - timedelta(days=long_period*3)
+        # Download data - extended for long-term indicator
+        current_day = datetime.now(pytz.timezone('Asia/Kolkata')).strftime('%Y-%m-%d')
+        # Convert date to IST timezone
+        ist = pytz.timezone('Asia/Kolkata')
+        end_date = datetime.strptime(current_day, '%Y-%m-%d').replace(tzinfo=ist)
+        start_date = end_date - timedelta(days=2)  # Ensure enough data for long-term indicators
+        
         stock = yf.Ticker(ticker)
-        df = stock.history(start=start_date, end=end_date, interval='1d')
+        # Get 5-minute interval data
+        df = stock.history(
+            period = '2d',
+            interval='1m'
+        )
         
         if df.empty or len(df) < long_period:
             return None
@@ -819,16 +828,16 @@ def analyze_stocks(stock_list, short_period=14, medium_period=26, long_period=50
         return
     
     # Sort by score
-    results.sort(key=lambda x: (x['Signal_Value'], float(x['Score'])), reverse=True)
+    results.sort(key=lambda x: (float(x['Score']), x['Signal_Value']), reverse=True)
     current_date = datetime.now().strftime("%Y-%m-%d")
-    OUTPUT_FILE = f"momentum_report_cash_stocks_{current_date}.html"
+    OUTPUT_FILE = f"intraday_report_cash_stocks_{current_date}.html"
     generate_html_report(short_period,medium_period, long_period, results, output_file=OUTPUT_FILE)
 
 # Example usage
 if __name__ == "__main__":
     #stocks = [stock for stocks in sector_stocks.values() for stock in stocks] # Replace with your stock list
-    stocks = CASH_HEAVY
+    stocks = CASH_HEAVY  # Example stock list
     #stocks.extend(PENNY_STOCKS)
     ##stocks.extend(NEW_STOCKS)
     
-    analyze_stocks(stocks, short_period=9, medium_period=16, long_period=26)
+    analyze_stocks(stocks, short_period=15, medium_period=30, long_period=60)
